@@ -381,18 +381,34 @@
         #hero {
             min-height: 100vh;
             width: 100%;
-            display: grid;
-            grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+            display: flex;
             align-items: center;
+            justify-content: center;
             padding: 0 clamp(1.5rem, 5vw, 6rem);
-            gap: clamp(1rem, 4vw, 5rem);
+            overflow: hidden;
+            text-align: center;
+            isolation: isolate;
+            background: #020410;
+        }
+
+        #hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse at center, rgba(2, 4, 16, 0.18) 0%, rgba(2, 4, 16, 0.58) 62%, rgba(2, 4, 16, 0.86) 100%),
+                linear-gradient(90deg, rgba(2, 4, 16, 0.76), rgba(2, 4, 16, 0.3) 48%, rgba(2, 4, 16, 0.76));
         }
 
         .hero-text {
-            max-width: min(560px, 45vw);
-            justify-self: center;
+            position: relative;
+            z-index: 2;
+            max-width: min(760px, 92vw);
             display: flex;
             flex-direction: column;
+            align-items: center;
             justify-content: center;
             padding: 9rem 0 5rem;
         }
@@ -417,6 +433,7 @@
             margin-bottom: 1.8rem;
             opacity: 0;
             animation: fadeUp 0.9s 0.5s forwards;
+            text-shadow: 0 12px 34px rgba(2, 4, 16, 0.86);
         }
 
         .hero-title em {
@@ -426,12 +443,13 @@
 
         .hero-sub {
             font-size: 1rem;
-            color: var(--muted);
-            max-width: 420px;
+            color: rgba(231, 235, 255, 0.88);
+            max-width: 580px;
             line-height: 1.75;
             margin-bottom: 2.5rem;
             opacity: 0;
             animation: fadeUp 0.9s 0.7s forwards;
+            text-shadow: 0 8px 24px rgba(2, 4, 16, 0.84);
         }
 
         .hero-word-fighting,
@@ -449,6 +467,7 @@
             display: flex;
             gap: 1.2rem;
             align-items: center;
+            justify-content: center;
             opacity: 0;
             animation: fadeUp 0.9s 0.9s forwards;
         }
@@ -1054,24 +1073,29 @@
             transition-delay: 0.4s;
         }
 
-        /* HERO PRODUCT IMAGE */
+        /* HERO BACKGROUND VIDEO */
         .hero-mask-wrap {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            opacity: 1;
+            z-index: 0;
+            pointer-events: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            justify-self: stretch;
-            width: 100%;
-            padding: 9rem 0 5rem;
-            opacity: 0;
-            animation: fadeIn 1.2s 0.6s forwards;
         }
 
         .hero-mask-image {
-            width: min(100%, clamp(380px, 46vw, 760px));
-            max-height: min(72vh, 720px);
+            width: min(72vw, 760px);
+            height: 100%;
+            max-height: none;
             object-fit: contain;
-            filter: drop-shadow(0 34px 52px rgba(2, 4, 16, 0.58));
-            animation: floatMask 4.8s ease-in-out infinite;
+            object-position: center center;
+            filter: brightness(0.52) saturate(0.88) contrast(1.08);
+            animation: none;
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1371,28 +1395,21 @@
         /* TABLET / MOBILE */
         @media (max-width: 860px) {
             #hero {
-                grid-template-columns: 1fr;
                 padding: 0 clamp(1.25rem, 6vw, 2.5rem);
                 align-items: center;
-                min-height: unset;
+                min-height: 100svh;
             }
 
             .hero-text {
-                padding: 7rem 0 2rem;
+                padding: 7rem 0 4rem;
                 max-width: 100%;
-                justify-self: stretch;
-            }
-
-            .hero-mask-wrap {
-                min-height: 360px;
-                padding: 0 0 4rem;
-                align-items: flex-start;
-                justify-self: stretch;
             }
 
             .hero-mask-image {
-                width: min(100%, 560px);
-                max-height: 48vh;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center center;
             }
 
             .tech-grid {
@@ -1642,9 +1659,8 @@
                     <em>Better Life</em>
                 </h1>
                 <p class="hero-sub" itemprop="description">
-                    Stop <span class="hero-word-fighting">fighting</span> for <span class="hero-word-rest">rest</span> and start flowing into it. Simply close your eyes - we'll do the rest.
-                    Dreamz actively monitors your brain waves and responds the moment your sleep patterns change,
-                    gently steering you back toward the restorative rest you deserve.
+                    Close your eyes and let Dreamz do the rest. The smart sleep mask reads your brain waves in real time,
+                    then gently responds as your sleep patterns change to guide you into deeper, more restorative rest.
                 </p>
                 <div class="hero-actions">
                     <button class="btn-primary"
@@ -1657,7 +1673,12 @@
             </div>
 
             <div class="hero-mask-wrap">
-                <img class="hero-mask-image" src="Photos/Mask/front.png" alt="Dreamz sleep mask front view">
+                <video class="hero-mask-image" autoplay muted loop playsinline preload="auto"
+                    poster="Photos/Mask/front.png" aria-hidden="true">
+                    <source src="Photos/Women_Wearing_mask_av1.webm" type='video/webm; codecs="av01.0.08M.08, opus"'>
+                    <source src="Photos/Women_Wearing_mask_vp9.webm" type='video/webm; codecs="vp9, opus"'>
+                    <source src="Photos/Women_Wearing_mask_h264.mp4" type='video/mp4; codecs="avc1.640028, mp4a.40.2"'>
+                </video>
             </div>
 
             <div class="scroll-indicator">
