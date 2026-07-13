@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- ── PRIMARY META ─────────────────────────────────────────────── -->
-    <title>Dreamz - Sleep Neurotechnology Mask | Better Sleep, Every Night</title>
+    <title>Dreamz - Smart Sleep Mask | Better Sleep, Every Night</title>
     <meta name="description"
         content="Dreamz is a wearable sleep neurotechnology mask that reads your brain activity and delivers gentle stimulation to help achieve a 38% reduction in sleep onset, improve sleep quality by 62%, and boost daily wellness by 31%.">
     <meta name="keywords"
@@ -18,7 +18,7 @@
 
     <!-- ── OPEN GRAPH ────────────────────────────────────────────────── -->
     <meta property="og:type" content="product">
-    <meta property="og:title" content="Dreamz - Sleep Neurotechnology Mask">
+    <meta property="og:title" content="Dreamz - Smart Sleep Mask">
     <meta property="og:description"
         content="Wearable sleep neurotechnology mask. 38% reduction in sleep onset. Improve sleep quality by 62%. Wake up restored.">
     <meta property="og:url" content="https://hypnodreamz.com/">
@@ -29,7 +29,7 @@
 
     <!-- ── TWITTER CARD ──────────────────────────────────────────────── -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Dreamz - Sleep Neurotechnology Mask">
+    <meta name="twitter:title" content="Dreamz - Smart Sleep Mask">
     <meta name="twitter:description" content="38% reduction in sleep onset with sleep neurotechnology. Pre-order Dreamz.">
     <meta name="twitter:site" content="@dreamzsleep">
 
@@ -130,7 +130,7 @@
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Dreamz - Sleep Neurotechnology",
+  "name": "Dreamz - Smart Sleep Mask",
   "url": "https://hypnodreamz.com/",
   "description": "Official home of Dreamz, the wearable sleep neurotechnology mask.",
   "breadcrumb": {
@@ -891,14 +891,16 @@
             min-height: 320px;
             border: 1px solid var(--border);
             background: rgba(13, 19, 48, 0.6);
-            display: grid;
-            place-items: center;
-            color: rgba(184, 196, 248, 0.46);
-            font-family: 'Space Mono', monospace;
-            font-size: 0.68rem;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
+            overflow: hidden;
             backdrop-filter: blur(8px);
+        }
+
+        .preorder-visual img {
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            object-fit: cover;
+            display: block;
         }
 
         .checkout-shell {
@@ -2137,7 +2139,9 @@
                 <div>
                     <p class="cta-eyebrow">Pre-order</p>
                     <h2>Follow your <em>Dreamz</em></h2>
-                    <div class="preorder-visual" aria-label="Dreamz product image placeholder">Image Placeholder</div>
+                    <div class="preorder-visual">
+                        <img src="Photos/Woman_sleep_bed.png" alt="Woman sleeping comfortably in bed wearing Dreamz">
+                    </div>
                     <div class="checkout-shell">
                         <div class="checkout-loading" id="checkout-loading" aria-label="Loading checkout" role="status">
                             <span></span><span></span><span></span>
