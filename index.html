@@ -887,18 +887,56 @@
             margin-bottom: 0;
         }
 
+        .preorder-gallery {
+            background: transparent;
+            display: grid;
+            grid-template-columns: 76px 1fr;
+        }
+
         .preorder-visual {
             min-height: 320px;
-            border: 1px solid var(--border);
-            background: rgba(13, 19, 48, 0.6);
             overflow: hidden;
-            backdrop-filter: blur(8px);
+            grid-column: 2;
         }
 
         .preorder-visual img {
             width: 100%;
             height: 100%;
             min-height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .preorder-thumbs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: transparent;
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .preorder-thumbs button {
+            width: 76px;
+            height: 58px;
+            padding: 0;
+            border: 1px solid transparent;
+            border-radius: 0.55rem;
+            background: none;
+            cursor: pointer;
+        }
+
+        .preorder-thumbs button:hover,
+        .preorder-thumbs button:focus-visible,
+        .preorder-thumbs button[aria-pressed="true"] {
+            border-color: var(--violet);
+        }
+
+        .preorder-thumbs img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             display: block;
         }
@@ -2139,8 +2177,15 @@
                 <div>
                     <p class="cta-eyebrow">Pre-order</p>
                     <h2>Follow your <em>Dreamz</em></h2>
-                    <div class="preorder-visual">
-                        <img src="Photos/Woman_sleep_bed.png" alt="Woman sleeping comfortably in bed wearing Dreamz">
+                    <div class="preorder-gallery" aria-label="Dreamz gallery">
+                        <div class="preorder-visual">
+                            <img id="preorder-main-image" src="Photos/Gallery/13.png" alt="Dreamz sleep mask">
+                        </div>
+                        <div class="preorder-thumbs" aria-label="Choose a product photo">
+                            <button type="button" data-gallery-thumb data-src="Photos/Gallery/13.png" aria-label="Show photo 1" aria-pressed="true"><img src="Photos/Gallery/13.png" alt=""></button>
+                            <button type="button" data-gallery-thumb data-src="Photos/Gallery/12.png" aria-label="Show photo 2" aria-pressed="false"><img src="Photos/Gallery/12.png" alt=""></button>
+                            <button type="button" data-gallery-thumb data-src="Photos/Gallery/14.png" aria-label="Show photo 3" aria-pressed="false"><img src="Photos/Gallery/14.png" alt=""></button>
+                        </div>
                     </div>
                     <div class="checkout-shell">
                         <div class="checkout-loading" id="checkout-loading" aria-label="Loading checkout" role="status">
@@ -2427,6 +2472,22 @@
         }
 
         window.requestIdleCallback ? window.requestIdleCallback(initShopifyCheckout) : setTimeout(initShopifyCheckout, 500);
+    </script>
+    <script>
+        const galleryImage = document.getElementById('preorder-main-image');
+        const galleryThumbs = [...document.querySelectorAll('[data-gallery-thumb]')];
+        let selectedGalleryThumb = galleryThumbs.find(button => button.getAttribute('aria-pressed') === 'true');
+        const showGalleryImage = button => galleryImage.src = button.dataset.src;
+
+        galleryThumbs.forEach(button => {
+            button.addEventListener('mouseenter', () => showGalleryImage(button));
+            button.addEventListener('mouseleave', () => showGalleryImage(selectedGalleryThumb));
+            button.addEventListener('click', () => {
+                selectedGalleryThumb = button;
+                showGalleryImage(button);
+                galleryThumbs.forEach(item => item.setAttribute('aria-pressed', item === button));
+            });
+        });
     </script>
     <script>
         (() => {

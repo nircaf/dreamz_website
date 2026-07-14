@@ -1,0 +1,12 @@
+const fs = require('fs');
+const html = fs.readFileSync('index.html', 'utf8');
+
+for (const image of ['12.png', '13.png', '14.png']) {
+  if (!html.includes('Photos/Gallery/' + image)) throw new Error('Missing gallery image: ' + image);
+}
+if (!html.includes('class="preorder-gallery"')) throw new Error('Missing preorder gallery');
+if (!html.includes('data-gallery-thumb')) throw new Error('Missing gallery thumbnails');
+if (!html.includes('id="preorder-main-image" src="Photos/Gallery/13.png"')) throw new Error('13.png must be the first gallery image');
+if (!html.includes('grid-template-columns: 76px 1fr')) throw new Error('Thumbnails must sit beside the main image');
+if (!html.includes("'mouseenter'")) throw new Error('Thumbnails must preview on hover');
+if (!html.includes("'mouseleave'")) throw new Error('Hover preview must revert on mouse-out');
