@@ -10,3 +10,7 @@ if (!html.includes('id="preorder-main-image" src="Photos/Gallery/13.png"')) thro
 if (!html.includes('grid-template-columns: 76px 1fr')) throw new Error('Thumbnails must sit beside the main image');
 if (!html.includes("'mouseenter'")) throw new Error('Thumbnails must preview on hover');
 if (!html.includes("'mouseleave'")) throw new Error('Hover preview must revert on mouse-out');
+if (!html.includes('if (window.location.hash)')) throw new Error('Deep links must bypass the hero scroll lock');
+if (html.includes('height: 300vh')) throw new Error('Testimonials must not use scroll-driven slides');
+if (!html.includes('data-testimonial-next') || !html.includes('data-testimonial-prev')) throw new Error('Testimonials need arrow controls');
+if (!html.includes("'touchend'")) throw new Error('Testimonials need swipe controls');
