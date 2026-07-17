@@ -1,0 +1,1 @@
+{"approved":true,"response":"Key saved in .env as STRIPE_SECRET instead of the .stripe-secret-key.json file; verified sk_test_ prefix present."}
