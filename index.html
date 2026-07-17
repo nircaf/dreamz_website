@@ -967,6 +967,10 @@
             gap: 1rem;
         }
 
+        .preorder-option[hidden] {
+            display: none;
+        }
+
         .preorder-option {
             padding: 1.25rem;
             border: 1px solid var(--border);
@@ -985,6 +989,33 @@
         .preorder-option-fine { margin-top: 1rem; color: rgba(184, 196, 248, 0.4); font-size: 0.68rem; }
         .preorder-option-info { min-width: 160px; }
         .preorder-option-buy { flex-shrink: 0; }
+        .preorder-tabs {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        .preorder-option-tab {
+            appearance: none;
+            display: inline-block;
+            padding: 0.4rem 1rem;
+            border-radius: 999px;
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--soft);
+            cursor: none;
+        }
+        .preorder-option-tab--active {
+            background: var(--violet-dim);
+            border-color: var(--violet-dim);
+            color: #ffffff;
+        }
+        .preorder-option-value {
+            color: var(--lavender);
+            font-weight: 700;
+        }
 
 
         /* DISCLAIMER */
@@ -2185,23 +2216,25 @@
                 </div>
                 <div class="preorder-checkout-col">
                     <div class="checkout-shell">
+                        <div class="preorder-tabs" role="tablist">
+                            <button type="button" class="preorder-option-tab preorder-option-tab--active" data-preorder-tab="full">Pay full amount now</button>
+                            <button type="button" class="preorder-option-tab" data-preorder-tab="deposit">Deposit</button>
+                        </div>
                         <div class="preorder-options">
-                            <div class="preorder-option">
+                            <div class="preorder-option" data-preorder-panel="full">
                                 <div class="preorder-option-info">
-                                    <h3>Full purchase</h3>
                                     <p class="price">$199.90</p>
-                                    <p><strong>6-month</strong> subscription included</p>
+                                    <p><strong>12-month</strong> subscription included <span class="preorder-option-value">($120 value)</span></p>
                                 </div>
                                 <div class="preorder-option-buy">
                                     <stripe-buy-button buy-button-id="buy_btn_1TuGBLHoabhlm1T9Gvl6SOIo" publishable-key="pk_live_51Tu3iLHoabhlm1T9dOdfJpVutUicIfAJBYa5q2Z82A7ye5u5vh9YeuEGbxiuC9ZA7PV7T83rWHeszfQTg05TNvWC00WvSVZvxC"></stripe-buy-button>
                                 </div>
                             </div>
-                            <div class="preorder-option">
+                            <div class="preorder-option" data-preorder-panel="deposit" hidden>
                                 <div class="preorder-option-info">
-                                    <h3>Deposit</h3>
-                                    <p class="price">$29.90</p>
-                                    <p>Remaining balance charged before shipping</p>
-                                    <p>1-month subscription included</p>
+                                    <p class="price">$39.90</p>
+                                    <p>$160.00 remaining balance charged before shipping</p>
+                                    <p>1-month subscription included ($10 value)</p>
                                 </div>
                                 <div class="preorder-option-buy">
                                     <stripe-buy-button buy-button-id="buy_btn_1TuGD9Hoabhlm1T9JM0NXBBL" publishable-key="pk_live_51Tu3iLHoabhlm1T9dOdfJpVutUicIfAJBYa5q2Z82A7ye5u5vh9YeuEGbxiuC9ZA7PV7T83rWHeszfQTg05TNvWC00WvSVZvxC"></stripe-buy-button>
@@ -2246,6 +2279,18 @@
     <!-- FOOTER -->
     <div data-dreamz-footer></div>
 
+    <script>
+        document.querySelectorAll('[data-preorder-tab]').forEach(tabButton => {
+            tabButton.addEventListener('click', () => {
+                document.querySelectorAll('[data-preorder-tab]').forEach(button => {
+                    button.classList.toggle('preorder-option-tab--active', button === tabButton);
+                });
+                document.querySelectorAll('[data-preorder-panel]').forEach(panel => {
+                    panel.hidden = panel.dataset.preorderPanel !== tabButton.dataset.preorderTab;
+                });
+            });
+        });
+    </script>
     <script>
         const galleryImage = document.getElementById('preorder-main-image');
         const galleryThumbs = [...document.querySelectorAll('[data-gallery-thumb]')];
