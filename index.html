@@ -2320,22 +2320,13 @@
                 </div>
                 <div class="preorder-checkout-col">
                     <div class="checkout-shell">
-                        <p class="preorder-choice-note">Choose whether to pay in full today or reserve your Dreamz with a deposit.</p>
+                        <p class="preorder-choice-note">Choose a deposit today, or pay in full and get 12 months of subscription for free.</p>
                         <div class="preorder-tabs" role="tablist">
-                            <button type="button" class="preorder-option-tab preorder-option-tab--active" data-preorder-tab="full">Pay full amount now</button>
-                            <button type="button" class="preorder-option-tab" data-preorder-tab="deposit">Deposit</button>
+                            <button type="button" class="preorder-option-tab preorder-option-tab--active" data-preorder-tab="deposit">Deposit</button>
+                            <button type="button" class="preorder-option-tab" data-preorder-tab="full">Pay full amount now</button>
                         </div>
                         <div class="preorder-options">
-                            <div class="preorder-option" data-preorder-panel="full">
-                                <div class="preorder-option-info">
-                                    <p class="price">$199.90</p>
-                                    <p><strong>12-month</strong> subscription included <span class="preorder-option-value">($120 value)</span></p>
-                                </div>
-                                <div class="preorder-option-buy">
-                                    <stripe-buy-button buy-button-id="buy_btn_1TuGBLHoabhlm1T9Gvl6SOIo" publishable-key="pk_live_51Tu3iLHoabhlm1T9dOdfJpVutUicIfAJBYa5q2Z82A7ye5u5vh9YeuEGbxiuC9ZA7PV7T83rWHeszfQTg05TNvWC00WvSVZvxC"></stripe-buy-button>
-                                </div>
-                            </div>
-                            <div class="preorder-option" data-preorder-panel="deposit" hidden>
+                            <div class="preorder-option" data-preorder-panel="deposit">
                                 <div class="preorder-option-info">
                                     <p class="price">$39.90</p>
                                     <p>$160 remaining balance charged before shipping</p>
@@ -2343,6 +2334,15 @@
                                 </div>
                                 <div class="preorder-option-buy">
                                     <stripe-buy-button buy-button-id="buy_btn_1TuGD9Hoabhlm1T9JM0NXBBL" publishable-key="pk_live_51Tu3iLHoabhlm1T9dOdfJpVutUicIfAJBYa5q2Z82A7ye5u5vh9YeuEGbxiuC9ZA7PV7T83rWHeszfQTg05TNvWC00WvSVZvxC"></stripe-buy-button>
+                                </div>
+                            </div>
+                            <div class="preorder-option" data-preorder-panel="full" hidden>
+                                <div class="preorder-option-info">
+                                    <p class="price">$199.90</p>
+                                    <p><strong>12-month</strong> subscription included <span class="preorder-option-value">($120 value)</span></p>
+                                </div>
+                                <div class="preorder-option-buy">
+                                    <stripe-buy-button buy-button-id="buy_btn_1TuGBLHoabhlm1T9Gvl6SOIo" publishable-key="pk_live_51Tu3iLHoabhlm1T9dOdfJpVutUicIfAJBYa5q2Z82A7ye5u5vh9YeuEGbxiuC9ZA7PV7T83rWHeszfQTg05TNvWC00WvSVZvxC"></stripe-buy-button>
                                 </div>
                             </div>
                         </div>

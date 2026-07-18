@@ -34,11 +34,16 @@ ENV/
 # Project specific
 waitlist_data.json
 .env
+.env.example
 *.log
 
 # OS specific
 .DS_Store
 Thumbs.db 
+
+# Local agent/tooling artifacts
+.agents/
+skills-lock.json
 
 # videos and images
 Videos/*.mp4
@@ -53,3 +58,4 @@ BU*/
 .a5c/
 .claude/
 .superpowers/
+Logo/logo_dark.jpeg
