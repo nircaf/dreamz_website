@@ -1008,15 +1008,25 @@
             font-family: inherit;
             font-size: 0.85rem;
             font-weight: 600;
-            background: transparent;
-            border: 1px solid var(--border);
-            color: var(--soft);
+            background: rgba(129, 140, 248, 0.16);
+            border: 1px solid rgba(129, 140, 248, 0.55);
+            color: rgba(244, 246, 255, 0.92);
             cursor: none;
+            transition: background-color 0.25s, border-color 0.25s, color 0.25s;
         }
         .preorder-option-tab--active {
             background: var(--violet-dim);
             border-color: var(--violet-dim);
             color: #ffffff;
+        }
+        .preorder-tabs--prompt .preorder-option-tab:not(.preorder-option-tab--active) {
+            animation: preorder-choice-pulse 1.8s ease-in-out infinite;
+        }
+        @keyframes preorder-choice-pulse {
+            50% { background: rgba(129, 140, 248, 0.38); border-color: #a5b4fc; box-shadow: 0 0 18px rgba(129, 140, 248, 0.3); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .preorder-tabs--prompt .preorder-option-tab:not(.preorder-option-tab--active) { animation: none; }
         }
         .preorder-option-value {
             color: var(--lavender);
@@ -2321,7 +2331,7 @@
                 <div class="preorder-checkout-col">
                     <div class="checkout-shell">
                         <p class="preorder-choice-note">Choose a deposit today, or pay in full and get 12 months of subscription for free.</p>
-                        <div class="preorder-tabs" role="tablist">
+                        <div class="preorder-tabs preorder-tabs--prompt" role="tablist">
                             <button type="button" class="preorder-option-tab preorder-option-tab--active" data-preorder-tab="deposit">Deposit</button>
                             <button type="button" class="preorder-option-tab" data-preorder-tab="full">Pay full amount now</button>
                         </div>
@@ -2387,6 +2397,7 @@
     <script>
         document.querySelectorAll('[data-preorder-tab]').forEach(tabButton => {
             tabButton.addEventListener('click', () => {
+                tabButton.closest('.preorder-tabs').classList.remove('preorder-tabs--prompt');
                 document.querySelectorAll('[data-preorder-tab]').forEach(button => {
                     button.classList.toggle('preorder-option-tab--active', button === tabButton);
                 });
