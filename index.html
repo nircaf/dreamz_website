@@ -1718,12 +1718,30 @@
             #cta {
                 padding-left: 2rem;
                 padding-right: 2rem;
+                overflow: visible;
+            }
+
+            #cta h2 {
+                max-width: 340px;
+                margin-left: auto;
+                margin-right: auto;
+                font-size: clamp(2.35rem, 10vw, 3.4rem);
+                line-height: 1.05;
+                text-align: center;
+                text-wrap: balance;
+            }
+
+            #cta h2 em {
+                display: block;
             }
 
             .preorder-header,
+            .preorder-gallery-col,
             .preorder-checkout-col {
                 width: 100%;
-                max-width: 100%;
+                max-width: 520px;
+                margin-left: auto;
+                margin-right: auto;
                 justify-items: center;
                 text-align: center;
             }
@@ -1731,7 +1749,7 @@
             .preorder-gallery,
             .checkout-shell {
                 width: 100%;
-                max-width: 430px;
+                max-width: 100%;
                 margin-left: auto;
                 margin-right: auto;
             }
@@ -1775,6 +1793,12 @@
             .preorder-option {
                 justify-content: center;
                 text-align: center;
+            }
+
+            .preorder-option-fine {
+                padding-left: 0;
+                text-align: center;
+                list-style-position: inside;
             }
 
             .preorder-option-info,
@@ -2282,7 +2306,7 @@
                     <p class="cta-eyebrow">Pre-order</p>
                     <h2>Get Your Mask <em>Now</em></h2>
                 </div>
-                <div>
+                <div class="preorder-gallery-col">
                     <div class="preorder-gallery" aria-label="Dreamz gallery">
                         <div class="preorder-visual">
                             <img id="preorder-main-image" src="Photos/Gallery/13.png" alt="Dreamz sleep mask">
