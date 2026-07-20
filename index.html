@@ -984,11 +984,59 @@
         .preorder-option h3,
         .preorder-option p { margin: 0; }
         .preorder-option h3 { font-size: 1.2rem; color: #f4f6ff; }
-        .preorder-option p { margin-top: 0.45rem; color: rgba(184, 196, 248, 0.65); font-size: 0.85rem; }
+        .preorder-option p { margin-top: 0.35rem; color: rgba(184, 196, 248, 0.65); font-size: 0.85rem; line-height: 1.45; }
         .preorder-option .price { color: rgba(244, 246, 255, 0.94); font-size: 1.4rem; font-weight: 700; }
         .preorder-option-fine { margin-top: 1rem; color: rgba(184, 196, 248, 0.4); font-size: 0.68rem; }
         .preorder-option-info { min-width: 160px; }
         .preorder-option-buy { flex-shrink: 0; }
+        .preorder-offer {
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid rgba(184, 196, 248, 0.2);
+        }
+        .preorder-offer-label {
+            margin: 0 0 0.55rem;
+            color: var(--lavender);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            line-height: 1.4;
+            text-transform: uppercase;
+        }
+        .preorder-offer-prices {
+            display: flex;
+            align-items: baseline;
+            gap: 0.85rem;
+            flex-wrap: wrap;
+        }
+        .preorder-offer-price {
+            color: #ffffff;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.65rem, 5vw, 3.8rem);
+            font-weight: 600;
+            line-height: 0.95;
+        }
+        .preorder-offer-regular {
+            color: rgba(184, 196, 248, 0.5);
+            font-size: 1.05rem;
+            text-decoration-color: rgba(184, 196, 248, 0.8);
+            text-decoration-thickness: 2px;
+        }
+        .preorder-offer-saving {
+            color: #c7f9e5;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.64rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .preorder-offer-detail {
+            margin: 0.65rem 0 0;
+            color: rgba(244, 246, 255, 0.66);
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
         .preorder-choice-note {
             margin: 0 0 1rem;
             color: rgba(244, 246, 255, 0.78);
@@ -1031,6 +1079,7 @@
         .preorder-option-value {
             color: var(--lavender);
             font-weight: 700;
+            white-space: nowrap;
         }
 
 
@@ -1797,6 +1846,10 @@
                 align-items: center;
             }
 
+            .preorder-offer-prices {
+                justify-content: center;
+            }
+
             .preorder-tabs {
                 flex-wrap: wrap;
                 justify-content: center;
@@ -1806,6 +1859,7 @@
                 justify-content: center;
                 text-align: center;
                 min-width: 0;
+                padding: 1.25rem 0.75rem;
             }
 
             .preorder-option-fine {
@@ -1814,15 +1868,21 @@
                 list-style-position: inside;
             }
 
-            .preorder-option-info,
-            .preorder-option-buy,
-            stripe-buy-button {
+            .preorder-option-info {
                 width: 100%;
                 max-width: 100%;
             }
 
+            .preorder-option-buy {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+            }
+
             stripe-buy-button {
-                display: block;
+                display: block !important;
+                width: 288px !important;
+                margin: 0 auto !important;
             }
 
             .faq-grid {
@@ -2337,6 +2397,15 @@
                 </div>
                 <div class="preorder-checkout-col">
                     <div class="checkout-shell">
+                        <div class="preorder-offer">
+                            <p class="preorder-offer-label">Pre-order exclusive</p>
+                            <div class="preorder-offer-prices" aria-label="Pre-order price $199.90, reduced from $299.90">
+                                <strong class="preorder-offer-price">$199.90</strong>
+                                <s class="preorder-offer-regular" aria-hidden="true">$299.90</s>
+                                <span class="preorder-offer-saving">Save $100</span>
+                            </div>
+                            <p class="preorder-offer-detail">The $199.90 price is available exclusively when you pre-order.</p>
+                        </div>
                         <p class="preorder-choice-note">Choose a deposit today, or pay in full and get 12 months of subscription for free.</p>
                         <div class="preorder-tabs preorder-tabs--prompt" role="tablist">
                             <button type="button" class="preorder-option-tab preorder-option-tab--active" data-preorder-tab="deposit">Deposit</button>
