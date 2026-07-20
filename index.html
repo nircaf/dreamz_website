@@ -1750,6 +1750,7 @@
             .preorder-checkout-col {
                 width: 100%;
                 max-width: 520px;
+                min-width: 0;
                 margin-left: auto;
                 margin-right: auto;
                 justify-self: center;
@@ -2412,17 +2413,30 @@
         const galleryImage = document.getElementById('preorder-main-image');
         const galleryThumbs = [...document.querySelectorAll('[data-gallery-thumb]')];
         let selectedGalleryThumb = galleryThumbs.find(button => button.getAttribute('aria-pressed') === 'true');
+        let galleryTouchStart;
         const showGalleryImage = button => galleryImage.src = button.dataset.src;
+        const selectGalleryImage = button => {
+            selectedGalleryThumb = button;
+            showGalleryImage(button);
+            galleryThumbs.forEach(item => item.setAttribute('aria-pressed', item === button));
+        };
 
         galleryThumbs.forEach(button => {
             button.addEventListener('mouseenter', () => showGalleryImage(button));
             button.addEventListener('mouseleave', () => showGalleryImage(selectedGalleryThumb));
-            button.addEventListener('click', () => {
-                selectedGalleryThumb = button;
-                showGalleryImage(button);
-                galleryThumbs.forEach(item => item.setAttribute('aria-pressed', item === button));
-            });
+            button.addEventListener('click', () => selectGalleryImage(button));
         });
+
+        galleryImage.addEventListener('touchstart', event => galleryTouchStart = event.changedTouches[0], { passive: true });
+        galleryImage.addEventListener('touchend', event => {
+            const swipeDistance = event.changedTouches[0].clientX - galleryTouchStart.clientX;
+            const verticalDistance = event.changedTouches[0].clientY - galleryTouchStart.clientY;
+            if (Math.abs(swipeDistance) < 40 || Math.abs(swipeDistance) < Math.abs(verticalDistance)) return;
+            const currentIndex = galleryThumbs.indexOf(selectedGalleryThumb);
+            const nextIndex = (currentIndex + (swipeDistance < 0 ? 1 : -1) + galleryThumbs.length) % galleryThumbs.length;
+            selectedGalleryThumb = galleryThumbs[nextIndex];
+            selectGalleryImage(selectedGalleryThumb);
+        }, { passive: true });
     </script>
     <script>
         (() => {
