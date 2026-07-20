@@ -2193,8 +2193,11 @@
             </div>
 
             <div class="hero-mask-wrap">
-                <video class="hero-mask-image" autoplay muted loop playsinline preload="auto"
+                <video id="heroMaskVideo" class="hero-mask-image" autoplay muted loop playsinline preload="auto"
                     poster="Photos/Demo_video_poster.jpg" aria-hidden="true">
+                    <source src="Photos/Dreamz_demo_real_mobile_av1.webm" type='video/webm; codecs="av01"' media="(orientation: portrait)">
+                    <source src="Photos/Dreamz_demo_real_mobile_vp9.webm" type='video/webm; codecs="vp9"' media="(orientation: portrait)">
+                    <source src="Photos/Dreamz_demo_real_mobile_h264.mp4" type="video/mp4" media="(orientation: portrait)">
                     <source src="Photos/Demo_video_mobile_av1.webm" type='video/webm; codecs="av01"' media="(max-width: 767px)">
                     <source src="Photos/Demo_video_mobile_vp9.webm" type='video/webm; codecs="vp9"' media="(max-width: 767px)">
                     <source src="Photos/Demo_video_mobile_h264.mp4" type="video/mp4" media="(max-width: 767px)">
@@ -2202,6 +2205,11 @@
                     <source src="Photos/Demo_video_vp9.webm" type='video/webm; codecs="vp9"'>
                     <source src="Photos/Demo_video_h264.mp4" type="video/mp4">
                 </video>
+                <script>
+                    if (window.matchMedia && window.matchMedia('(orientation: portrait)').matches) {
+                        document.getElementById('heroMaskVideo').poster = 'Photos/Dreamz_demo_real_poster.jpg';
+                    }
+                </script>
             </div>
 
             <div class="scroll-indicator">
