@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Thank You for Pre-ordering | Dreamz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { color-scheme: dark; }
+        * { box-sizing: border-box; }
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+            padding: 1.5rem;
+            background: radial-gradient(circle at 50% 0%, #252c69, #090d20 52%, #050711);
+            color: #f4f6ff;
+            font-family: 'DM Sans', sans-serif;
+        }
+        main {
+            width: min(100%, 680px);
+            padding: clamp(2rem, 7vw, 4.5rem);
+            text-align: center;
+            border: 1px solid rgba(184, 196, 248, .24);
+            background: rgba(13, 19, 48, .72);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, .35);
+        }
+        .brand, .eyebrow { font-family: 'Space Mono', monospace; letter-spacing: .16em; text-transform: uppercase; }
+        .brand { margin: 0 0 4rem; color: #c8d0ff; font-size: .8rem; }
+        .check {
+            width: 3.5rem;
+            height: 3.5rem;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 1.5rem;
+            border: 1px solid #8a9df0;
+            border-radius: 50%;
+            color: #c7f9e5;
+            font-size: 1.7rem;
+        }
+        .eyebrow { margin: 0 0 .8rem; color: #aebaff; font-size: .65rem; }
+        h1 { margin: 0; font: 400 clamp(2.6rem, 8vw, 4.5rem)/1 'Cormorant Garamond', serif; }
+        p { max-width: 500px; margin: 1.4rem auto 0; color: #c5cbe4; font-size: 1rem; line-height: 1.75; }
+        .email-note { margin-top: 2.4rem; padding: 1.25rem; border: 1px solid rgba(184, 196, 248, .16); background: rgba(0, 0, 0, .14); }
+        .email-note strong { color: #f4f6ff; }
+        a { display: inline-block; margin-top: 2.5rem; color: #f4f6ff; font-size: .75rem; font-weight: 500; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+        a:hover, a:focus-visible { color: #c7d0ff; text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <main>
+        <p class="brand">Dreamz</p>
+        <div class="check" aria-hidden="true">✓</div>
+        <p class="eyebrow">Pre-order confirmed</p>
+        <h1>Thank you for pre-ordering Dreamz</h1>
+        <p>Your payment confirmation is on its way.</p>
+        <p class="email-note"><strong>Please check your email</strong> for your purchase verification, and check your <strong>spam folder</strong> too so you do not miss it.</p>
+        <a href="index.html">Return to Dreamz</a>
+    </main>
+</body>
+</html>
