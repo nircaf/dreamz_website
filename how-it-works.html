@@ -23,6 +23,10 @@
       --white: #f4f6ff;
       --muted: rgba(184, 196, 248, 0.45);
       --border: rgba(138, 157, 232, 0.15);
+      --loop-sense: #3ad17a;
+      --loop-think: #ffffff;
+      --loop-bit: #22e06a;
+      --loop-respond: #f5c542;
     }
     html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
@@ -159,20 +163,6 @@
       max-width: 680px;
       margin-bottom: 4rem;
     }
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-    }
-    .tech-card {
-      background: var(--midnight);
-      padding: 2.5rem;
-      min-height: 270px;
-      transition: background 0.3s, transform 0.3s;
-    }
-    .tech-card:hover { background: var(--deep); transform: translateY(-3px); }
-    .tech-num,
     .step-num {
       font-family: 'Space Mono', monospace;
       font-size: 0.65rem;
@@ -180,9 +170,6 @@
       letter-spacing: 0.16em;
       display: block;
     }
-    .tech-num { color: var(--violet-dim); margin-bottom: 1.5rem; }
-    .tech-icon { width: 40px; height: 40px; margin-bottom: 1.5rem; opacity: 0.6; }
-    .tech-card h3,
     .step h4 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 1.5rem;
@@ -190,8 +177,52 @@
       color: var(--white);
       margin-bottom: 0.8rem;
     }
-    .tech-card p,
     .step p { font-size: 0.85rem; color: var(--muted); line-height: 1.75; }
+
+    /* signal loop diagram */
+    .loop-scene { position: relative; width: min(90vw, 620px); aspect-ratio: 1; margin: 1rem auto 2.5rem; }
+    .loop-ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+    .loop-base { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.34; }
+    .loop-bit { font-family: 'Space Mono', monospace; font-size: 17px; font-weight: 700; fill: var(--loop-bit); text-anchor: middle; filter: drop-shadow(0 0 6px var(--loop-bit)); }
+    .loop-core { transform-origin: 320px 320px; animation: loopBreath 6s ease-in-out infinite; }
+    .loop-heart { transform-origin: 320px 70px; }
+    .loop-heart.beat { animation: loopHeartbeat 1.7s ease-in-out infinite; }
+    .loop-chip-line { fill: none; stroke: var(--loop-think); stroke-width: 2.4; stroke-linecap: round; }
+    .loop-ripple { fill: none; stroke: var(--loop-respond); stroke-width: 2.2; transform-box: fill-box; transform-origin: center; animation: loopEmit 1.15s ease-out forwards; }
+    .loop-brain { transform-box: view-box; transform-origin: 104px 442px; filter: drop-shadow(0 0 6px var(--loop-respond)); opacity: 0.5; transition: opacity 0.3s; }
+    .loop-brain.beat { opacity: 1; animation: loopBrainBeat 1.7s ease-in-out infinite; }
+
+    .loop-tags { position: absolute; inset: 0; pointer-events: none; }
+    .loop-tag { position: absolute; transform: translate(-50%, -50%); text-align: center; width: 140px; }
+    .loop-tag .n { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: 0.16em; color: var(--violet); }
+    .loop-tag .t { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--white); margin-top: 2px; }
+    .loop-tag.sense { left: 50%; top: 1%; }
+    .loop-tag.sense .n { color: var(--loop-sense); }
+    .loop-tag.think { left: 88%; top: 84%; }
+    .loop-tag.think .n { color: var(--loop-think); }
+    .loop-tag.respond { left: 12%; top: 84%; }
+    .loop-tag.respond .n { color: var(--loop-respond); }
+
+    .loop-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+    .loop-card { background: var(--midnight); padding: 2rem 1.75rem; }
+    .loop-card .n { font-family: 'Space Mono', monospace; font-size: 0.65rem; color: var(--violet-dim); letter-spacing: 0.16em; display: block; margin-bottom: 1rem; }
+    .loop-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--white); margin-bottom: 0.6rem; }
+    .loop-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.75; }
+
+    @keyframes loopBreath { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.08); opacity: 1; } }
+    @keyframes loopHeartbeat { 0%, 100% { transform: scale(1); } 14% { transform: scale(1.22); } 28% { transform: scale(1); } 42% { transform: scale(1.13); } 56% { transform: scale(1); } }
+    @keyframes loopEmit { 0% { transform: scale(0.28); opacity: 0.7; } 100% { transform: scale(5.5); opacity: 0; } }
+    @keyframes loopBrainBeat { 0%, 100% { transform: scale(1); } 14% { transform: scale(1.18); } 28% { transform: scale(1); } 42% { transform: scale(1.1); } 56% { transform: scale(1); } }
+    @media (prefers-reduced-motion: reduce) { .loop-core, .loop-heart.beat, .loop-brain.beat { animation: none !important; } }
+
+    @media (max-width: 640px) {
+      .loop-scene { width: 96vw; }
+      .loop-tag { width: 96px; }
+      .loop-tag .t { display: none; }
+      .loop-tag.sense { top: -1%; }
+      .loop-tag.think { top: 87%; left: 82%; }
+      .loop-tag.respond { top: 87%; left: 18%; }
+    }
     .how-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -287,8 +318,8 @@
       .page-hero,
       section,
       .cta-band { padding-left: 2rem; padding-right: 2rem; }
-      .tech-grid,
-      .how-grid { grid-template-columns: 1fr; }
+      .how-grid,
+      .loop-cards { grid-template-columns: 1fr; }
       .how-visual { position: relative; top: auto; height: 340px; }
     }
     @media (max-width: 520px) {
@@ -296,7 +327,7 @@
       section,
       .cta-band { padding-left: 1.5rem; padding-right: 1.5rem; }
       .nav-cta { padding: 0.75rem 1rem; font-size: 0.68rem; white-space: nowrap; }
-      .tech-card { padding: 1.6rem; min-height: auto; }
+      .loop-card { padding: 1.6rem; }
     }
     @media (hover: none), (pointer: coarse) {
       #cursor,
@@ -324,43 +355,62 @@
     <section id="technology" aria-labelledby="tech-heading">
       <p class="section-label reveal">How It Works</p>
       <h2 class="section-title reveal" id="tech-heading">Read &rarr; Analyse &rarr; Do</h2>
-      <div class="tech-grid">
-        <div class="tech-card reveal">
-          <span class="tech-num">01</span>
-          <svg class="tech-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><ellipse cx="20" cy="17" rx="11" ry="13" stroke="#818CF8" stroke-width="1.2"/><path d="M16 30 L16 33 M24 30 L24 33" stroke="#818CF8" stroke-width="1" opacity="0.4"/><path d="M8 17 L11 17 L12.5 13.5 L14.5 21 L16 15 L18 19.5 L20 16 L22 20.5 L24 14 L25.5 21 L27.5 17 L32 17" stroke="#818CF8" stroke-width="1.5" fill="none"/><circle cx="12.5" cy="13.5" r="1.2" fill="#818CF8" opacity="0.7"/><circle cx="27.5" cy="13.5" r="1.2" fill="#818CF8" opacity="0.7"/></svg>
-          <h3>Brain Activity Sensing</h3>
-          <p>Dreamz quietly listens to your brain's electrical rhythms, detects sleep stage changes, and spots the moments when support can help.</p>
+
+      <div class="loop-scene reveal">
+        <svg class="loop-ring" viewBox="0 0 640 640" aria-hidden="true">
+          <path class="loop-base" stroke="var(--loop-sense)" d="M 333.08 70.34 L 335.70 70.49 L 338.31 70.67 L 340.92 70.88 L 343.53 71.11 L 346.13 71.37 L 348.73 71.66 L 351.33 71.97 L 354.15 70.73 L 357.05 69.12 L 359.98 67.55 L 362.43 69.16 L 364.70 71.59 L 366.92 74.04 L 369.41 74.93 L 371.98 75.46 L 374.54 76.02 L 377.09 76.61 L 379.63 77.22 L 380.93 82.70 L 383.30 83.75 L 390.59 67.17 L 398.23 50.72 L 397.65 62.80 L 394.61 81.92 L 394.16 91.75 L 398.15 87.80 L 402.22 83.91 L 404.68 84.78 L 407.14 85.68 L 409.59 86.60 L 412.03 87.56 L 414.46 88.53 L 416.88 89.53 L 419.29 90.56 L 421.85 91.23 L 425.11 90.42 L 428.40 89.65 L 431.71 88.92 L 435.05 88.23 L 437.66 89.08 L 439.11 92.17 L 440.50 95.27 L 441.84 98.37 L 443.14 101.47 L 445.00 103.49 L 447.26 104.81 L 449.51 106.16 L 451.74 107.53 L 453.96 108.92 L 456.16 110.33 L 458.35 111.77 L 460.52 113.23 L 462.68 114.71 L 464.82 116.22 L 466.95 117.75 L 469.06 119.30 L 471.15 120.87 L 473.23 122.46 L 475.29 124.08 L 477.33 125.71 L 479.36 127.37 L 481.36 129.05 L 483.36 130.75 L 485.33 132.47 L 487.28 134.21 L 489.22 135.98 L 491.14 137.76 L 494.14 138.41 L 497.43 138.81 L 500.74 139.26 L 501.76 142.01 L 502.17 145.30 L 502.53 148.59 L 504.02 150.78 L 505.79 152.72 L 507.53 154.67 L 509.25 156.64 L 510.95 158.64 L 508.78 163.83 L 510.08 166.08 L 525.72 156.95 L 541.57 148.13 L 534.00 157.56 L 520.30 171.24 L 514.16 178.93 L 519.71 178.08 L 525.29 177.32 L 526.77 179.48 L 528.23 181.65 L 529.67 183.84 L 531.08 186.04 L 532.47 188.26 L 533.84 190.49 L 535.19 192.74 L 536.87 194.79 L 539.98 196.05 L 543.09 197.35 L 546.20 198.71 L 549.31 200.12 L 550.92 202.34 L 550.27 205.69 L 549.58 209.02 L 548.85 212.31 L 548.07 215.58 L 548.39 218.32 L 549.44 220.71 L 550.47 223.12 L 551.47 225.54 L 552.44 227.97 L 553.40 230.41 L 554.32 232.86 L 555.22 235.32 L 556.09 237.78 L 556.94 240.26 L 557.76 242.75 L 558.56 245.24 L 559.33 247.74 L 560.07 250.25 L 560.79 252.77 L 561.48 255.30 L 562.15 257.83 L 562.78 260.37 L 563.39 262.91 L 563.98 265.46 L 564.54 268.02 L 565.07 270.59 L 565.57 273.15 L 567.62 275.45 L 570.05 277.71 L 572.45 280.02 L 571.67 282.84 L 570.06 285.75 L 568.43 288.62 L 568.34 291.27 L 568.63 293.87 L 568.89 296.47 L 569.12 299.08 L 569.33 301.69 L 564.52 304.62 L 564.25 307.20 L 582.27 309.01 L 600.28 311.19 L 588.61 314.37 L 569.49 317.39 L 560.00 320.00 L 564.99 322.57 L 569.95 325.24 L 569.88 327.85 L 569.78 330.47 L 569.66 333.08 L 569.51 335.70 L 569.33 338.31 L 569.12 340.92 L 568.89 343.53 L 569.04 346.18 L 570.83 349.02 L 572.58 351.91 L 574.29 354.83 L 575.97 357.80 L 575.98 360.54 L 573.48 362.87 L 570.97 365.16 L 568.44 367.39 L 565.88 369.58 L 564.54 371.98 L 563.98 374.54 L 563.39 377.09 L 562.78 379.63 L 562.15 382.17 L 561.48 384.70 L 560.79 387.23 L 560.07 389.75 L 559.33 392.26 L 558.56 394.76 L 557.76 397.25 L 556.94 399.74 L 556.09 402.22 L 555.22 404.68 L 554.32 407.14 L 553.40 409.59"/>
+          <path class="loop-base" stroke="var(--loop-think)" d="M 518.95 481.11 L 516.42 483.65 L 513.79 486.10 L 511.10 488.47 L 508.33 490.77 L 505.52 493.00 L 502.68 495.18 L 499.80 497.31 L 496.90 499.39 L 494.00 501.44 L 491.08 503.46 L 488.17 505.47 L 485.26 507.46 L 482.36 509.43 L 479.47 511.40 L 476.59 513.37 L 473.71 515.33 L 470.85 517.30 L 467.98 519.26 L 465.13 521.22 L 462.27 523.18 L 459.41 525.13 L 456.54 527.08 L 453.67 529.02 L 450.79 530.94 L 447.89 532.85 L 444.98 534.73 L 442.04 536.59 L 439.09 538.42 L 436.11 540.21 L 433.10 541.97 L 430.07 543.69 L 427.01 545.36 L 423.92 546.99 L 420.81 548.56 L 417.66 550.08 L 414.49 551.55 L 411.29 552.96 L 408.07 554.31 L 404.82 555.60 L 401.55 556.83 L 398.25 558.00 L 394.93 559.10 L 391.59 560.15 L 388.24 561.14 L 384.86 562.07 L 381.47 562.94 L 378.07 563.75 L 374.65 564.51 L 371.23 565.21 L 367.79 565.86 L 364.34 566.45 L 360.89 566.99 L 357.43 567.49 L 353.96 567.93 L 350.49 568.33 L 347.01 568.67 L 343.54 568.98 L 340.05 569.23 L 336.57 569.45 L 333.08 569.61 L 329.59 569.74 L 326.11 569.82 L 322.62 569.85 L 319.13 569.84 L 315.64 569.79 L 312.15 569.70 L 308.67 569.56 L 305.18 569.37 L 301.70 569.14 L 298.23 568.87 L 294.75 568.55 L 291.28 568.18 L 287.82 567.77 L 284.36 567.31 L 280.91 566.81 L 277.46 566.25 L 274.03 565.65 L 270.60 565.00 L 267.18 564.30 L 263.77 563.56 L 260.37 562.76 L 256.98 561.92 L 253.61 561.03 L 250.25 560.09 L 246.90 559.10 L 243.56 558.07 L 240.25 556.98 L 236.94 555.85 L 233.66 554.67 L 230.39 553.45 L 227.14 552.17 L 223.90 550.86 L 220.69 549.49 L 217.50 548.08 L 214.32 546.62 L 211.17 545.12 L 208.04 543.58 L 204.93 541.99 L 201.85 540.36 L 198.78 538.68 L 195.74 536.96 L 192.73 535.20 L 189.74 533.40 L 186.78 531.56 L 183.84 529.67 L 180.93 527.75 L 178.04 525.78 L 175.18 523.78 L 172.35 521.73 L 169.55 519.65 L 166.78 517.53 L 164.04 515.37 L 161.33 513.17 L 158.65 510.94 L 156.00 508.66 L 153.38 506.36 L 150.79 504.01 L 148.24 501.63 L 145.72 499.22 L 143.23 496.77 L 140.78 494.28 L 138.36 491.76 L 135.98 489.21 L 133.64 486.63 L 131.33 484.01 L 129.05 481.36 L 126.82 478.68 L 124.62 475.97 L 122.46 473.23 L 120.34 470.45 L 118.26 467.65 L 116.22 464.82 L 114.21 461.96 L 112.25 459.08 L 110.33 456.16 L 108.45 453.22 L 106.61 450.26 L 104.81 447.26"/>
+          <path class="loop-base" stroke="var(--loop-respond)" d="M 103.49 445.00 L 99.96 443.99 L 96.46 442.89 L 93.03 441.70 L 89.71 440.39 L 86.54 438.95 L 83.56 437.37 L 80.79 435.64 L 78.27 433.75 L 76.02 431.70 L 74.06 429.50 L 72.42 427.14 L 71.10 424.63 L 70.12 421.98 L 69.47 419.19 L 69.15 416.29 L 69.15 413.29 L 69.47 410.20 L 70.08 407.03 L 70.95 403.81 L 72.07 400.56 L 73.40 397.28 L 74.90 394.00 L 76.54 390.73 L 78.28 387.49 L 80.07 384.29 L 81.88 381.14 L 83.66 378.05 L 85.38 375.03 L 86.98 372.09 L 88.44 369.22 L 89.71 366.43 L 90.77 363.73 L 91.60 361.10 L 92.16 358.54 L 92.43 356.04 L 92.42 353.61 L 92.10 351.22 L 91.47 348.87 L 90.55 346.55 L 89.34 344.24 L 87.85 341.94 L 86.11 339.64 L 84.14 337.32 L 81.96 334.98 L 79.62 332.60 L 77.15 330.18 L 74.59 327.71 L 71.98 325.20 L 69.37 322.62 L 66.79 320.00 L 64.30 317.32 L 61.92 314.59 L 59.71 311.82 L 57.71 309.01 L 55.94 306.16 L 54.44 303.29 L 53.24 300.41 L 52.36 297.53 L 51.82 294.65 L 51.62 291.79 L 51.79 288.97 L 52.31 286.18 L 53.19 283.45 L 54.42 280.78 L 55.97 278.18 L 57.83 275.66 L 59.98 273.21 L 62.37 270.86 L 64.99 268.58 L 67.80 266.39 L 70.74 264.28 L 73.79 262.25 L 76.90 260.29 L 80.03 258.39 L 83.14 256.53 L 86.19 254.72 L 89.12 252.92 L 91.92 251.14 L 94.55 249.35 L 96.97 247.53 L 99.16 245.68 L 101.10 243.77 L 102.77 241.79 L 104.16 239.73 L 105.26 237.57 L 106.08 235.30 L 106.61 232.92 L 106.88 230.41 L 106.88 227.78 L 106.65 225.01 L 106.20 222.12 L 105.57 219.10 L 104.79 215.96 L 103.88 212.72 L 102.89 209.38 L 101.85 205.96 L 100.81 202.47 L 99.79 198.94 L 98.85 195.39 L 98.01 191.83 L 97.31 188.30 L 96.78 184.82 L 96.46 181.40 L 96.37 178.08 L 96.53 174.88 L 96.96 171.81 L 97.67 168.91 L 98.68 166.18 L 99.98 163.64 L 101.58 161.31 L 103.47 159.19 L 105.64 157.29 L 108.08 155.62 L 110.76 154.16 L 113.67 152.92 L 116.79 151.89 L 120.07 151.05 L 123.50 150.39 L 127.04 149.88 L 130.66 149.51 L 134.32 149.26 L 137.99 149.08 L 141.65 148.96 L 145.25 148.87 L 148.77 148.77 L 152.18 148.63 L 155.46 148.42 L 158.58 148.11 L 161.54 147.67 L 164.31 147.09 L 166.88 146.32 L 169.25 145.36 L 171.42 144.18 L 173.39 142.78 L 175.16 141.14 L 176.75 139.26 L 178.16 137.15 L 179.42 134.79 L 180.53 132.21 L 181.53 129.42 L 182.43 126.43 L 183.27 123.27 L 184.05 119.96 L 184.82 116.53 L 185.59 113.02 L 186.39 109.46 L 187.24 105.89 L 188.18 102.33 L 189.21 98.84 L 190.35 95.44 L 191.63 92.18 L 193.06 89.09 L 194.64 86.20 L 196.38 83.55 L 198.30 81.15 L 200.38 79.03 L 202.64 77.22 L 205.05 75.73 L 207.63 74.55 L 210.35 73.71 L 213.20 73.20 L 216.17 73.01 L 219.25 73.13 L 222.42 73.54 L 225.66 74.22 L 228.94 75.16 L 232.26 76.30 L 235.60 77.64 L 238.93 79.12 L 242.25 80.71 L 245.53 82.36 L 248.76 84.05 L 251.93 85.71 L 255.04 87.33 L 258.06 88.84 L 261.00 90.23 L 263.86 91.44 L 266.63 92.45 L 269.31 93.23 L 271.91 93.75 L 274.43 94.01 L 276.88 93.97 L 279.27 93.63 L 281.60 92.99 L 283.90 92.05 L 286.16 90.82 L 288.40 89.31 L 290.63 87.54 L 292.87 85.53 L 295.12 83.32 L 297.40 80.93 L 299.71 78.39 L 302.06 75.76 L 304.46 73.06 L 306.92 70.34"/>
+
+          <path id="loopA" fill="none" stroke="none" d="M 333.08 70.34 L 335.70 70.49 L 338.31 70.67 L 340.92 70.88 L 343.53 71.11 L 346.13 71.37 L 348.73 71.66 L 351.33 71.97 L 354.15 70.73 L 357.05 69.12 L 359.98 67.55 L 362.43 69.16 L 364.70 71.59 L 366.92 74.04 L 369.41 74.93 L 371.98 75.46 L 374.54 76.02 L 377.09 76.61 L 379.63 77.22 L 380.93 82.70 L 383.30 83.75 L 390.59 67.17 L 398.23 50.72 L 397.65 62.80 L 394.61 81.92 L 394.16 91.75 L 398.15 87.80 L 402.22 83.91 L 404.68 84.78 L 407.14 85.68 L 409.59 86.60 L 412.03 87.56 L 414.46 88.53 L 416.88 89.53 L 419.29 90.56 L 421.85 91.23 L 425.11 90.42 L 428.40 89.65 L 431.71 88.92 L 435.05 88.23 L 437.66 89.08 L 439.11 92.17 L 440.50 95.27 L 441.84 98.37 L 443.14 101.47 L 445.00 103.49 L 447.26 104.81 L 449.51 106.16 L 451.74 107.53 L 453.96 108.92 L 456.16 110.33 L 458.35 111.77 L 460.52 113.23 L 462.68 114.71 L 464.82 116.22 L 466.95 117.75 L 469.06 119.30 L 471.15 120.87 L 473.23 122.46 L 475.29 124.08 L 477.33 125.71 L 479.36 127.37 L 481.36 129.05 L 483.36 130.75 L 485.33 132.47 L 487.28 134.21 L 489.22 135.98 L 491.14 137.76 L 494.14 138.41 L 497.43 138.81 L 500.74 139.26 L 501.76 142.01 L 502.17 145.30 L 502.53 148.59 L 504.02 150.78 L 505.79 152.72 L 507.53 154.67 L 509.25 156.64 L 510.95 158.64 L 508.78 163.83 L 510.08 166.08 L 525.72 156.95 L 541.57 148.13 L 534.00 157.56 L 520.30 171.24 L 514.16 178.93 L 519.71 178.08 L 525.29 177.32 L 526.77 179.48 L 528.23 181.65 L 529.67 183.84 L 531.08 186.04 L 532.47 188.26 L 533.84 190.49 L 535.19 192.74 L 536.87 194.79 L 539.98 196.05 L 543.09 197.35 L 546.20 198.71 L 549.31 200.12 L 550.92 202.34 L 550.27 205.69 L 549.58 209.02 L 548.85 212.31 L 548.07 215.58 L 548.39 218.32 L 549.44 220.71 L 550.47 223.12 L 551.47 225.54 L 552.44 227.97 L 553.40 230.41 L 554.32 232.86 L 555.22 235.32 L 556.09 237.78 L 556.94 240.26 L 557.76 242.75 L 558.56 245.24 L 559.33 247.74 L 560.07 250.25 L 560.79 252.77 L 561.48 255.30 L 562.15 257.83 L 562.78 260.37 L 563.39 262.91 L 563.98 265.46 L 564.54 268.02 L 565.07 270.59 L 565.57 273.15 L 567.62 275.45 L 570.05 277.71 L 572.45 280.02 L 571.67 282.84 L 570.06 285.75 L 568.43 288.62 L 568.34 291.27 L 568.63 293.87 L 568.89 296.47 L 569.12 299.08 L 569.33 301.69 L 564.52 304.62 L 564.25 307.20 L 582.27 309.01 L 600.28 311.19 L 588.61 314.37 L 569.49 317.39 L 560.00 320.00 L 564.99 322.57 L 569.95 325.24 L 569.88 327.85 L 569.78 330.47 L 569.66 333.08 L 569.51 335.70 L 569.33 338.31 L 569.12 340.92 L 568.89 343.53 L 569.04 346.18 L 570.83 349.02 L 572.58 351.91 L 574.29 354.83 L 575.97 357.80 L 575.98 360.54 L 573.48 362.87 L 570.97 365.16 L 568.44 367.39 L 565.88 369.58 L 564.54 371.98 L 563.98 374.54 L 563.39 377.09 L 562.78 379.63 L 562.15 382.17 L 561.48 384.70 L 560.79 387.23 L 560.07 389.75 L 559.33 392.26 L 558.56 394.76 L 557.76 397.25 L 556.94 399.74 L 556.09 402.22 L 555.22 404.68 L 554.32 407.14 L 553.40 409.59"/>
+          <path id="loopT" fill="none" stroke="none" d="M 518.95 481.11 L 516.42 483.65 L 513.79 486.10 L 511.10 488.47 L 508.33 490.77 L 505.52 493.00 L 502.68 495.18 L 499.80 497.31 L 496.90 499.39 L 494.00 501.44 L 491.08 503.46 L 488.17 505.47 L 485.26 507.46 L 482.36 509.43 L 479.47 511.40 L 476.59 513.37 L 473.71 515.33 L 470.85 517.30 L 467.98 519.26 L 465.13 521.22 L 462.27 523.18 L 459.41 525.13 L 456.54 527.08 L 453.67 529.02 L 450.79 530.94 L 447.89 532.85 L 444.98 534.73 L 442.04 536.59 L 439.09 538.42 L 436.11 540.21 L 433.10 541.97 L 430.07 543.69 L 427.01 545.36 L 423.92 546.99 L 420.81 548.56 L 417.66 550.08 L 414.49 551.55 L 411.29 552.96 L 408.07 554.31 L 404.82 555.60 L 401.55 556.83 L 398.25 558.00 L 394.93 559.10 L 391.59 560.15 L 388.24 561.14 L 384.86 562.07 L 381.47 562.94 L 378.07 563.75 L 374.65 564.51 L 371.23 565.21 L 367.79 565.86 L 364.34 566.45 L 360.89 566.99 L 357.43 567.49 L 353.96 567.93 L 350.49 568.33 L 347.01 568.67 L 343.54 568.98 L 340.05 569.23 L 336.57 569.45 L 333.08 569.61 L 329.59 569.74 L 326.11 569.82 L 322.62 569.85 L 319.13 569.84 L 315.64 569.79 L 312.15 569.70 L 308.67 569.56 L 305.18 569.37 L 301.70 569.14 L 298.23 568.87 L 294.75 568.55 L 291.28 568.18 L 287.82 567.77 L 284.36 567.31 L 280.91 566.81 L 277.46 566.25 L 274.03 565.65 L 270.60 565.00 L 267.18 564.30 L 263.77 563.56 L 260.37 562.76 L 256.98 561.92 L 253.61 561.03 L 250.25 560.09 L 246.90 559.10 L 243.56 558.07 L 240.25 556.98 L 236.94 555.85 L 233.66 554.67 L 230.39 553.45 L 227.14 552.17 L 223.90 550.86 L 220.69 549.49 L 217.50 548.08 L 214.32 546.62 L 211.17 545.12 L 208.04 543.58 L 204.93 541.99 L 201.85 540.36 L 198.78 538.68 L 195.74 536.96 L 192.73 535.20 L 189.74 533.40 L 186.78 531.56 L 183.84 529.67 L 180.93 527.75 L 178.04 525.78 L 175.18 523.78 L 172.35 521.73 L 169.55 519.65 L 166.78 517.53 L 164.04 515.37 L 161.33 513.17 L 158.65 510.94 L 156.00 508.66 L 153.38 506.36 L 150.79 504.01 L 148.24 501.63 L 145.72 499.22 L 143.23 496.77 L 140.78 494.28 L 138.36 491.76 L 135.98 489.21 L 133.64 486.63 L 131.33 484.01 L 129.05 481.36 L 126.82 478.68 L 124.62 475.97 L 122.46 473.23 L 120.34 470.45 L 118.26 467.65 L 116.22 464.82 L 114.21 461.96 L 112.25 459.08 L 110.33 456.16 L 108.45 453.22 L 106.61 450.26 L 104.81 447.26"/>
+          <path id="loopS" fill="none" stroke="none" d="M 103.49 445.00 L 99.96 443.99 L 96.46 442.89 L 93.03 441.70 L 89.71 440.39 L 86.54 438.95 L 83.56 437.37 L 80.79 435.64 L 78.27 433.75 L 76.02 431.70 L 74.06 429.50 L 72.42 427.14 L 71.10 424.63 L 70.12 421.98 L 69.47 419.19 L 69.15 416.29 L 69.15 413.29 L 69.47 410.20 L 70.08 407.03 L 70.95 403.81 L 72.07 400.56 L 73.40 397.28 L 74.90 394.00 L 76.54 390.73 L 78.28 387.49 L 80.07 384.29 L 81.88 381.14 L 83.66 378.05 L 85.38 375.03 L 86.98 372.09 L 88.44 369.22 L 89.71 366.43 L 90.77 363.73 L 91.60 361.10 L 92.16 358.54 L 92.43 356.04 L 92.42 353.61 L 92.10 351.22 L 91.47 348.87 L 90.55 346.55 L 89.34 344.24 L 87.85 341.94 L 86.11 339.64 L 84.14 337.32 L 81.96 334.98 L 79.62 332.60 L 77.15 330.18 L 74.59 327.71 L 71.98 325.20 L 69.37 322.62 L 66.79 320.00 L 64.30 317.32 L 61.92 314.59 L 59.71 311.82 L 57.71 309.01 L 55.94 306.16 L 54.44 303.29 L 53.24 300.41 L 52.36 297.53 L 51.82 294.65 L 51.62 291.79 L 51.79 288.97 L 52.31 286.18 L 53.19 283.45 L 54.42 280.78 L 55.97 278.18 L 57.83 275.66 L 59.98 273.21 L 62.37 270.86 L 64.99 268.58 L 67.80 266.39 L 70.74 264.28 L 73.79 262.25 L 76.90 260.29 L 80.03 258.39 L 83.14 256.53 L 86.19 254.72 L 89.12 252.92 L 91.92 251.14 L 94.55 249.35 L 96.97 247.53 L 99.16 245.68 L 101.10 243.77 L 102.77 241.79 L 104.16 239.73 L 105.26 237.57 L 106.08 235.30 L 106.61 232.92 L 106.88 230.41 L 106.88 227.78 L 106.65 225.01 L 106.20 222.12 L 105.57 219.10 L 104.79 215.96 L 103.88 212.72 L 102.89 209.38 L 101.85 205.96 L 100.81 202.47 L 99.79 198.94 L 98.85 195.39 L 98.01 191.83 L 97.31 188.30 L 96.78 184.82 L 96.46 181.40 L 96.37 178.08 L 96.53 174.88 L 96.96 171.81 L 97.67 168.91 L 98.68 166.18 L 99.98 163.64 L 101.58 161.31 L 103.47 159.19 L 105.64 157.29 L 108.08 155.62 L 110.76 154.16 L 113.67 152.92 L 116.79 151.89 L 120.07 151.05 L 123.50 150.39 L 127.04 149.88 L 130.66 149.51 L 134.32 149.26 L 137.99 149.08 L 141.65 148.96 L 145.25 148.87 L 148.77 148.77 L 152.18 148.63 L 155.46 148.42 L 158.58 148.11 L 161.54 147.67 L 164.31 147.09 L 166.88 146.32 L 169.25 145.36 L 171.42 144.18 L 173.39 142.78 L 175.16 141.14 L 176.75 139.26 L 178.16 137.15 L 179.42 134.79 L 180.53 132.21 L 181.53 129.42 L 182.43 126.43 L 183.27 123.27 L 184.05 119.96 L 184.82 116.53 L 185.59 113.02 L 186.39 109.46 L 187.24 105.89 L 188.18 102.33 L 189.21 98.84 L 190.35 95.44 L 191.63 92.18 L 193.06 89.09 L 194.64 86.20 L 196.38 83.55 L 198.30 81.15 L 200.38 79.03 L 202.64 77.22 L 205.05 75.73 L 207.63 74.55 L 210.35 73.71 L 213.20 73.20 L 216.17 73.01 L 219.25 73.13 L 222.42 73.54 L 225.66 74.22 L 228.94 75.16 L 232.26 76.30 L 235.60 77.64 L 238.93 79.12 L 242.25 80.71 L 245.53 82.36 L 248.76 84.05 L 251.93 85.71 L 255.04 87.33 L 258.06 88.84 L 261.00 90.23 L 263.86 91.44 L 266.63 92.45 L 269.31 93.23 L 271.91 93.75 L 274.43 94.01 L 276.88 93.97 L 279.27 93.63 L 281.60 92.99 L 283.90 92.05 L 286.16 90.82 L 288.40 89.31 L 290.63 87.54 L 292.87 85.53 L 295.12 83.32 L 297.40 80.93 L 299.71 78.39 L 302.06 75.76 L 304.46 73.06 L 306.92 70.34"/>
+
+          <!-- computer: its screen fills while the signal is being processed -->
+          <g transform="rotate(120 536.5 445)">
+            <rect class="loop-chip-line" x="504.5" y="422" width="64" height="46" rx="9"/>
+            <rect id="loopBoxProgress" x="520" y="435" width="0" height="20" rx="2" fill="var(--loop-think)" opacity=".55"/>
+            <rect x="520" y="435" width="34" height="20" rx="3" fill="none" stroke="var(--loop-think)" stroke-width="1.5" opacity=".6"/>
+            <g class="loop-chip-line" stroke-width="2">
+              <line x1="516" y1="422" x2="516" y2="414"/><line x1="536" y1="422" x2="536" y2="414"/><line x1="556" y1="422" x2="556" y2="414"/>
+              <line x1="516" y1="468" x2="516" y2="476"/><line x1="536" y1="468" x2="536" y2="476"/><line x1="556" y1="468" x2="556" y2="476"/>
+            </g>
+          </g>
+
+          <!-- heart: your own heartbeat, always on the line -->
+          <path class="loop-heart" fill="none" stroke="var(--loop-sense)" stroke-width="2.4" stroke-linejoin="round"
+            d="M320 60 c-3-4.4-10-4-11.8 1 c-1.3 3.5 1 6.8 3.8 9.2 L320 76 l8-5.6 c2.8-2.4 5.1-5.7 3.8-9.2 C330 56 323 55.6 320 60 Z"/>
+
+          <!-- brain: on the line, beats only when the signal reaches it -->
+          <svg id="loopBrain" class="loop-brain" x="86" y="424" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--loop-respond)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8.5 3A2.5 2.5 0 0 0 6 5.5c0 .3 0 .5.1.8A2.5 2.5 0 0 0 4.5 8.6c0 .8.4 1.5 1 2A2.6 2.6 0 0 0 6 15.4a2.5 2.5 0 0 0 4 1.9V4.6A1.6 1.6 0 0 0 8.5 3Z"/>
+            <path d="M15.5 3A2.5 2.5 0 0 1 18 5.5c0 .3 0 .5-.1.8a2.5 2.5 0 0 1 1.6 2.3c0 .8-.4 1.5-1 2a2.6 2.6 0 0 1-.5 4.8 2.5 2.5 0 0 1-4 1.9V4.6A1.6 1.6 0 0 1 15.5 3Z"/>
+            <path d="M12 6.5v10"/>
+          </svg>
+
+          <circle class="loop-core" cx="320" cy="320" r="46" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1.5"/>
+          <circle class="loop-core" cx="320" cy="320" r="30" fill="rgba(129,140,248,.10)"/>
+
+          <g id="loopRipples"></g>
+          <g id="loopTrail"></g>
+          <g id="loopBitTrail"></g>
+          <circle id="loopHead" r="5.5" fill="#fff" cx="333" cy="70"/>
+        </svg>
+
+        <div class="loop-tags">
+          <div class="loop-tag sense"><div class="n">01 · SENSE</div><div class="t">Your body</div></div>
+          <div class="loop-tag think"><div class="n">02 · THINK</div><div class="t">AI algorithm</div></div>
+          <div class="loop-tag respond"><div class="n">03 · RESPOND</div><div class="t">Gentle nudge</div></div>
         </div>
-        <div class="tech-card reveal reveal-delay-1">
-          <span class="tech-num">02</span>
-          <svg class="tech-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="20" cy="20" r="17" stroke="#818CF8" stroke-width="0.8" opacity="0.15"/><circle cx="20" cy="20" r="12" stroke="#818CF8" stroke-width="1" opacity="0.4"/><circle cx="20" cy="20" r="7" stroke="#818CF8" stroke-width="1.2" opacity="0.7"/><circle cx="20" cy="20" r="2.5" fill="#818CF8"/><path d="M22 10 L18.5 18.5 L21.5 18.5 L18 29" stroke="#818CF8" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.75"/></svg>
-          <h3>Gentle Brain Stimulation</h3>
-          <p>At the right moments, it delivers a barely perceptible signal that supports your brain's natural transition into restorative sleep.</p>
-        </div>
-        <div class="tech-card reveal reveal-delay-2">
-          <span class="tech-num">03</span>
-          <svg class="tech-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 31 L17 23 L25 15 L31 9" stroke="#818CF8" stroke-width="1.5" fill="none" stroke-linecap="round"/><circle cx="9" cy="31" r="2" stroke="#818CF8" stroke-width="1.2"/><circle cx="17" cy="23" r="2" stroke="#818CF8" stroke-width="1.2"/><circle cx="25" cy="15" r="2" stroke="#818CF8" stroke-width="1.2"/><circle cx="31" cy="9" r="2.8" fill="#818CF8"/></svg>
-          <h3>Gets Smarter Every Night</h3>
-          <p>The more you wear it, the more precisely Dreamz learns which timing and patterns work for your brain.</p>
-        </div>
-        <div class="tech-card reveal">
-          <span class="tech-num">04</span>
-          <svg class="tech-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="12" y="3" width="16" height="28" rx="3" stroke="#818CF8" stroke-width="1.2"/><rect x="14.5" y="6.5" width="11" height="17" rx="1" stroke="#818CF8" stroke-width="0.8" opacity="0.35"/><path d="M20 10 A5.5 5.5 0 1 1 14.5 15.5" stroke="#818CF8" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="20" cy="28.5" r="1.2" stroke="#818CF8" stroke-width="0.8" opacity="0.5"/></svg>
-          <h3>Sleep Insights App</h3>
-          <p>Wake up to a clear sleep score, nightly brain activity summary, and trends that make progress easier to understand.</p>
-        </div>
-        <div class="tech-card reveal reveal-delay-1">
-          <span class="tech-num">05</span>
-          <svg class="tech-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 5 A15 15 0 1 1 6 22" stroke="#818CF8" stroke-width="1.5" fill="none" stroke-linecap="round"/><path d="M4 18 L6 22 L10 19.5" stroke="#818CF8" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="20" r="4" stroke="#818CF8" stroke-width="1.2"/><circle cx="20" cy="20" r="1.5" fill="#818CF8"/></svg>
-          <h3>Always Listening, Always Responding</h3>
-          <p>Dreamz responds to what your brain is doing in the moment, instead of relying on simple timers or fixed programs.</p>
-        </div>
-        <div class="tech-card reveal reveal-delay-2">
-          <span class="tech-num">06</span>
-          <svg class="tech-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M26 7 A13 13 0 1 0 26 33 A10 10 0 1 1 26 7 Z" stroke="#818CF8" stroke-width="1.3" fill="none"/><circle cx="31" cy="13" r="1.3" fill="#818CF8" opacity="0.75"/><circle cx="34" cy="23" r="0.9" fill="#818CF8" opacity="0.55"/><circle cx="29" cy="31" r="1.1" fill="#818CF8" opacity="0.65"/></svg>
-          <h3>Overnight Comfort</h3>
-          <p>Breathable fabric, rear weight distribution, and a slim electronics module are built for full-night wear.</p>
-        </div>
+      </div>
+
+      <div class="loop-cards">
+        <div class="loop-card reveal"><span class="n">01 · SENSE</span><h3>Your body</h3>
+          <p>Dreamz reads your <strong>body's heart rate,</strong> movement and more.</p></div>
+        <div class="loop-card reveal reveal-delay-1"><span class="n">02 · THINK</span><h3>AI algorithm</h3>
+          <p>An <strong>AI algorithm</strong> calculates which stimulation wave is best for you in this moment.</p></div>
+        <div class="loop-card reveal reveal-delay-2"><span class="n">03 · RESPOND</span><h3>Gentle nudge</h3>
+          <p>It replies with a gentle <strong>electrical signal</strong> through the mask. So soft you barely feel it, easing you toward rest. Then it starts again.</p></div>
       </div>
     </section>
 
@@ -382,11 +432,101 @@
     </section>
 
     <div class="cta-band">
-      <a class="text-link" href="index.html#cta">Join the waitlist</a>
+      <a class="text-link" href="index.html#cta">Pre Order Now</a>
     </div>
   </main>
 
   <div data-dreamz-footer></div>
+  <script>
+  (function(){
+    var ns='http://www.w3.org/2000/svg';
+    var pA=document.getElementById('loopA'),pT=document.getElementById('loopT'),pS=document.getElementById('loopS');
+    if(!pA||!pT||!pS) return;
+    var head=document.getElementById('loopHead'),trailG=document.getElementById('loopTrail');
+    var progress=document.getElementById('loopBoxProgress'),ripplesG=document.getElementById('loopRipples'),bitTrailG=document.getElementById('loopBitTrail');
+    var brain=document.getElementById('loopBrain');
+    var heart=document.querySelector('.loop-heart');
+    var css=getComputedStyle(document.documentElement);
+    var SENSE=css.getPropertyValue('--loop-sense').trim(),THINK=css.getPropertyValue('--loop-think').trim(),RESPOND=css.getPropertyValue('--loop-respond').trim();
+    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var LA=pA.getTotalLength(),LT=pT.getTotalLength(),LS=pS.getTotalLength();
+
+    var N=16,trail=[];
+    for(var i=0;i<N;i++){var c=document.createElementNS(ns,'circle');
+      c.setAttribute('r',(4.4*(1-i/N)+1).toFixed(2));trailG.appendChild(c);trail.push(c);}
+
+    var BT=7,bitEls=[];
+    for(var b=0;b<BT;b++){var t=document.createElementNS(ns,'text');
+      t.setAttribute('class','loop-bit');t.textContent=Math.random()<0.5?'0':'1';
+      t.style.opacity=(1-b/BT).toFixed(2);bitTrailG.appendChild(t);bitEls.push(t);}
+    bitTrailG.style.opacity=0;
+
+    function spawnRipple(x,y){
+      var c=document.createElementNS(ns,'circle');
+      c.setAttribute('cx',x.toFixed(1));c.setAttribute('cy',y.toFixed(1));c.setAttribute('r',8);
+      c.setAttribute('class','loop-ripple');ripplesG.appendChild(c);
+      c.addEventListener('animationend',function(){c.remove();});
+    }
+
+    var stages=[
+      {path:pA,len:LA,color:SENSE,kind:'sense'},
+      {box:true,dur:0.55},
+      {path:pT,len:LT,color:THINK,kind:'think'},
+      {path:pS,len:LS,color:RESPOND,kind:'respond'}
+    ];
+    var si=0,dist=0,boxT=0,rippleAcc=0,bitFlick=0,SPEED=170,last=performance.now();
+
+    function nextStage(){si=(si+1)%stages.length;dist=0;}
+    function drawTrail(path,color){
+      for(var i=0;i<N;i++){var d=dist-(i+1)*6.5;if(d<0)d=0;
+        var q=path.getPointAtLength(d),c=trail[i];
+        c.setAttribute('cx',q.x.toFixed(1));c.setAttribute('cy',q.y.toFixed(1));
+        c.setAttribute('fill',color);c.style.opacity=((1-i/N)*0.9).toFixed(2);}
+    }
+
+    function frame(now){
+      var dt=Math.min((now-last)/1000,0.05);last=now;
+      var st=stages[si];
+      brain.classList.toggle('beat', !st.box && st.kind==='respond');
+      heart.classList.toggle('beat', !st.box && st.kind==='sense');
+
+      if(st.box){
+        head.style.opacity=0;trailG.style.opacity=0;bitTrailG.style.opacity=0;
+        boxT=Math.min(boxT+dt,st.dur);progress.setAttribute('width',(34*boxT/st.dur).toFixed(1));
+        if(boxT>=st.dur){boxT=0;progress.setAttribute('width','0');nextStage();}
+        return requestAnimationFrame(frame);
+      }
+
+      dist+=SPEED*dt;
+      if(dist>=st.len){nextStage();return requestAnimationFrame(frame);}
+      var p=st.path.getPointAtLength(dist);
+
+      if(st.kind==='think'){
+        head.style.opacity=0;trailG.style.opacity=0;bitTrailG.style.opacity=1;
+        bitFlick+=dt;var flip=bitFlick>0.09;if(flip)bitFlick=0;
+        for(var i=0;i<BT;i++){
+          var d=dist-i*16;if(d<0)d=0;
+          var q=pT.getPointAtLength(d),el=bitEls[i];
+          el.setAttribute('x',q.x.toFixed(1));el.setAttribute('y',(q.y+6).toFixed(1));
+          if(flip)el.textContent=Math.random()<0.5?'0':'1';
+          el.style.opacity=((1-i/BT)).toFixed(2);
+        }
+      }else{
+        head.style.opacity=1;bitTrailG.style.opacity=0;trailG.style.opacity=1;
+        head.setAttribute('cx',p.x.toFixed(1));head.setAttribute('cy',p.y.toFixed(1));
+        drawTrail(st.path,st.color);
+        if(st.kind==='respond'){rippleAcc+=dt;if(rippleAcc>0.30){rippleAcc=0;spawnRipple(p.x,p.y);}}
+      }
+      requestAnimationFrame(frame);
+    }
+
+    if(reduce){
+      trailG.style.opacity=0;bitTrailG.style.opacity=0;
+      head.setAttribute('cx',333);head.setAttribute('cy',70);
+    }else{requestAnimationFrame(frame);}
+  })();
+  </script>
   <script defer src="assets/site-chrome.js"></script>
   <script defer src="assets/shared.js"></script>
 </body>
