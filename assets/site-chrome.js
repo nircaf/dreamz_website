@@ -84,6 +84,77 @@
           width: auto !important;
         }
       }
+
+      /* MOBILE MENU TOGGLE (shared across all marketing-nav pages) */
+      .nav-actions {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 34px;
+        height: 34px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+        flex-shrink: 0;
+      }
+
+      .nav-toggle span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--white, #f4f6ff);
+        transition: transform 0.25s ease, opacity 0.25s ease;
+      }
+
+      #nav.nav-open .nav-toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      #nav.nav-open .nav-toggle span:nth-child(2) { opacity: 0; }
+      #nav.nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+      @media (max-width: 860px) {
+        .nav-toggle { display: flex; }
+
+        #nav .nav-links {
+          display: flex !important;
+          position: fixed;
+          inset: 0 0 0 auto;
+          height: 100dvh;
+          width: min(78vw, 320px);
+          margin: 0;
+          padding: 6rem 2.5rem 2.5rem;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          gap: 1.75rem;
+          background: rgba(4, 5, 13, 0.98);
+          backdrop-filter: blur(14px);
+          border-left: 1px solid var(--border, rgba(138, 157, 232, 0.15));
+          transform: translateX(100%);
+          transition: transform 0.32s ease;
+          z-index: 1000;
+        }
+
+        #nav .nav-links a {
+          font-size: 1rem;
+        }
+
+        #nav.nav-open .nav-links {
+          transform: translateX(0);
+        }
+
+        html.nav-scroll-lock,
+        html.nav-scroll-lock body {
+          overflow: hidden;
+        }
+      }
     `;
     document.head.appendChild(style);
   };
@@ -93,14 +164,19 @@
       <a href="${url('index.html#hero')}" class="nav-logo" aria-label="Dreamz home">
         <canvas class="dreamz-animated-logo" width="300" height="300" aria-label="Dreamz logo"></canvas>
       </a>
-      <ul class="nav-links" role="list">
+      <ul class="nav-links" id="nav-links-list" role="list">
         <li><a href="${url('how-it-works.html')}"${isActive('how')}>How It Works</a></li>
         <li><a href="${url('dreamz-science.html')}"${isActive('science')}>Science</a></li>
         <li><a href="${url('dreamz-faq.html')}"${isActive('faq')}>FAQ</a></li>
         <li><a href="${url('dreamz-research.html')}"${isActive('research')}>Research</a></li>
         <li><a href="${url('index.html#cta')}">Pre-order</a></li>
       </ul>
-      <button class="nav-cta" type="button" onclick="window.location.href='${url('index.html#cta')}'">Pre-order</button>
+      <div class="nav-actions">
+        <button class="nav-cta" type="button" onclick="window.location.href='${url('index.html#cta')}'">Pre-order</button>
+        <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links-list">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </nav>`;
 
   const legalNavHtml = () => `
@@ -182,6 +258,39 @@
 
   const navTarget = document.querySelector('[data-dreamz-nav]') || document.querySelector('body > nav');
   if (navTarget) navTarget.outerHTML = navType === 'legal' ? legalNavHtml() : marketingNavHtml();
+
+  const initNavToggle = () => {
+    const navEl = document.getElementById('nav');
+    const toggle = navEl && navEl.querySelector('.nav-toggle');
+    if (!navEl || !toggle) return;
+
+    const closeNav = () => {
+      navEl.classList.remove('nav-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.documentElement.classList.remove('nav-scroll-lock');
+    };
+    const openNav = () => {
+      navEl.classList.add('nav-open');
+      toggle.setAttribute('aria-expanded', 'true');
+      document.documentElement.classList.add('nav-scroll-lock');
+    };
+
+    toggle.addEventListener('click', () => {
+      navEl.classList.contains('nav-open') ? closeNav() : openNav();
+    });
+    navEl.querySelectorAll('.nav-links a').forEach(link => link.addEventListener('click', closeNav));
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeNav();
+    });
+    document.addEventListener('click', event => {
+      if (navEl.classList.contains('nav-open') && !navEl.contains(event.target)) closeNav();
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 860) closeNav();
+    }, { passive: true });
+  };
+
+  initNavToggle();
 
   const footerTarget = document.querySelector('[data-dreamz-footer]') || document.querySelector('body > footer');
   if (footerTarget) footerTarget.outerHTML = (footerHtml[footerType] || landingFooterHtml)();

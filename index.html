@@ -2530,6 +2530,27 @@
                 return;
             }
             const copyElements = hero.querySelectorAll('.hero-eyebrow, .hero-title, .hero-sub, .hero-actions');
+
+            if (window.matchMedia('(pointer: coarse)').matches) {
+                // Mobile: never lock scrolling behind the intro. Let the user scroll
+                // freely over the video while the headline fades in alongside them,
+                // instead of swallowing touchmove until a swipe threshold is hit.
+                root.classList.remove('hero-intro-active');
+                const revealOnScroll = () => {
+                    const progress = Math.max(0, Math.min(1, window.scrollY / (hero.offsetHeight * 0.55)));
+                    hero.style.setProperty('--hero-overlay-opacity', progress);
+                    copyElements.forEach((element, index) => {
+                        const itemProgress = Math.max(0, Math.min(1, (progress - index * 0.18) / 0.46));
+                        element.style.opacity = itemProgress;
+                        element.style.transform = 'translateY(' + (24 * (1 - itemProgress)) + 'px)';
+                        element.style.pointerEvents = itemProgress > 0.5 ? 'auto' : 'none';
+                    });
+                };
+                window.addEventListener('scroll', revealOnScroll, { passive: true });
+                revealOnScroll();
+                return;
+            }
+
             let copyProgress = 0;
             let lastTouchY = 0;
 

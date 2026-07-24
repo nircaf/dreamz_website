@@ -294,10 +294,12 @@
   .footer-links a:hover { color:var(--muted); }
 
   /* MOBILE */
+  @media (max-width: 860px) {
+    .nav-links { display:none; }
+  }
   @media (max-width:1024px) {
     nav { padding:1.2rem 2rem; }
     .nav-logo { width:clamp(180px,48vw,360px); }
-    .nav-links { display:none; }
     #research-hero { grid-template-columns:1fr; padding:8rem 2rem 3rem; gap:2.5rem; }
     #filter-bar { padding:0 2rem; top:60px; }
     #studies { padding:0 2rem 4rem; }

@@ -342,9 +342,13 @@ function runVisibleLoop(element, draw, options = {}) {
     ctx.fillStyle = 'rgba(184,196,248,0.25)';
     ctx.fillText('STAGE: ' + stageName.toUpperCase(), 16, 20);
 
+    const topPad = 22;
+    const bottomPad = 10;
+    const contentH = Math.max(1, H - topPad - bottomPad);
+
     waveTypes.forEach((wave, index) => {
-      const baseY = H * wave.y;
-      const ampPx = H * wave.amp;
+      const baseY = topPad + contentH * wave.y;
+      const ampPx = contentH * wave.amp;
 
       const getY = x => {
         if (index === 0) {

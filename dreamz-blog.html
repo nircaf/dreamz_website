@@ -401,10 +401,12 @@
   .reveal-delay-3 { transition-delay: 0.3s; }
 
   /* MOBILE */
+  @media (max-width: 860px) {
+    .nav-links { display: none; }
+  }
   @media (max-width: 1024px) {
     nav { padding: 1.2rem 2rem; }
     .nav-logo { width: clamp(180px, 48vw, 360px); }
-    .nav-links { display: none; }
     #blog-hero { padding: 8rem 2rem 3rem; }
     #featured { padding: 3rem 2rem; }
     .featured-card { grid-template-columns: 1fr; }
