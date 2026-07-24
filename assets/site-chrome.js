@@ -43,6 +43,21 @@
         color: var(--white, #f4f6ff);
       }
 
+      /* Canonical brand accent for the shared Pre-order button — single
+         source of truth so it renders identically on every page regardless
+         of that page's local teal/violet theming. Wins page-local .nav-cta
+         color/border-color rules of equal specificity because this stylesheet
+         is appended to <head> after them (later source order wins ties). */
+      .nav-cta {
+        color: var(--violet, #818CF8);
+        border-color: var(--violet-dim, #5B21B6);
+      }
+
+      .nav-cta:hover {
+        background: var(--violet, #818CF8);
+        color: var(--ink, #04050d);
+      }
+
       .footer-legal-links a {
         color: rgba(184, 196, 248, 0.25);
         font-size: 0.7rem;
