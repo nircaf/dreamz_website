@@ -1276,7 +1276,11 @@
             max-height: none;
             object-fit: cover;
             object-position: center center;
-            filter: brightness(0.52) saturate(0.88) contrast(1.08);
+            /* Full brightness on load; eases to 75% as --hero-overlay-opacity
+               (0 -> 1 scroll/reveal progress, set by the hero intro script)
+               rises, so the video only dims once the user starts scrolling. */
+            filter: brightness(calc(1 - 0.25 * var(--hero-overlay-opacity, 0))) saturate(0.88) contrast(1.08);
+            transition: filter 0.18s ease;
             animation: none;
         }
 
@@ -2173,14 +2177,13 @@
             <meta itemprop="description"
                 content="Wearable sleep neurotechnology mask with gentle stimulation for deeper, more restorative sleep.">
             <div class="hero-text">
-                <p class="hero-eyebrow" aria-label="Category">Dreamz Smart Sleep Mask</p>
+                <p class="hero-eyebrow" aria-label="Category">Dreamz Adaptive Sleep Mask</p>
                 <h1 class="hero-title" id="hero-heading" itemprop="headline">
-                    Better Sleep,<br>
-                    <em>Better Life</em>
+                    Fall asleep and<br>
+                    <em>re-start sleep faster</em>
                 </h1>
                 <p class="hero-sub" itemprop="description">
-                    Smart sleep mask with personalized neuromodulation<br>
-                    which improves your sleep.
+                    The first smart sleep mask with personalized neuromodulation
                 </p>
                 <div class="hero-actions">
                     <button class="btn-primary"
