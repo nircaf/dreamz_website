@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Dreamz</title>
+  <meta name="description" content="Meet the Dreamz team and learn about our mission to make restorative sleep more accessible through neuroscience and thoughtful technology.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://hypnodreamz.com/about.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About Us - Dreamz">
+  <meta property="og:description" content="Meet the people building a more restorative future for sleep.">
+  <meta property="og:url" content="https://hypnodreamz.com/about.html">
+  <meta property="og:site_name" content="Dreamz">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600&amp;family=DM+Sans:wght@200;300;400;500&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Dreamz",
+    "alternateName": "HypnoDreamz",
+    "url": "https://hypnodreamz.com/",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "980 Ohlone Avenue",
+      "addressLocality": "Albany",
+      "addressRegion": "CA",
+      "postalCode": "94706",
+      "addressCountry": "US"
+    },
+    "employee": [
+      { "@type": "Person", "name": "Nir Cafri", "jobTitle": "Co-Founder & CEO" },
+      { "@type": "Person", "name": "Ellie Bleiberg", "jobTitle": "Chief Product Officer" },
+      { "@type": "Person", "name": "Prof. Felix Benninger", "jobTitle": "Chief Scientific Officer" }
+    ]
+  }
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink: #04050d;
+      --deep: #0d1330;
+      --indigo: #2a3580;
+      --iris: #4a5bcc;
+      --lavender: #8b9de8;
+      --glow: #b8c4f8;
+      --violet: #818cf8;
+      --violet-dim: #5b21b6;
+      --soft: #e8ebff;
+      --white: #f4f6ff;
+      --muted: rgba(184, 196, 248, 0.62);
+      --border: rgba(138, 157, 232, 0.16);
+    }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(ellipse 70% 50% at 28% 16%, rgba(74, 91, 204, 0.18), transparent 70%),
+        radial-gradient(ellipse 48% 42% at 88% 48%, rgba(91, 33, 182, 0.1), transparent 72%),
+        var(--ink);
+      color: var(--soft);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 10;
+      padding: 1.4rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: linear-gradient(to bottom, rgba(4, 5, 13, 0.96), rgba(4, 5, 13, 0.82));
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-links { display: flex; gap: 2rem; align-items: center; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      font-size: .75rem;
+      letter-spacing: .14em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color .3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-cta {
+      padding: .75rem 1.35rem;
+      color: var(--violet);
+      background: transparent;
+      border: 1px solid var(--violet-dim);
+      border-radius: 999px;
+      cursor: pointer;
+      font: inherit;
+      font-size: .73rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .section-inner { width: min(1120px, 100%); margin: 0 auto; }
+    .eyebrow {
+      margin-bottom: 1rem;
+      color: var(--violet);
+      font-family: 'Space Mono', monospace;
+      font-size: .68rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 300; }
+
+    .mission, .team, .location { padding: 7rem 4rem; }
+    .mission { border-bottom: 1px solid var(--border); }
+    .mission-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: 5rem; align-items: start; }
+    .section-title { color: var(--white); font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1; }
+    .mission-statement { color: var(--soft); font-family: 'Cormorant Garamond', serif; font-size: clamp(1.65rem, 3vw, 2.45rem); line-height: 1.35; }
+    .mission-detail { max-width: 680px; margin-top: 1.5rem; color: var(--muted); }
+
+    .team {
+      padding-top: 12rem;
+      background: linear-gradient(180deg, rgba(13, 19, 48, .35), transparent);
+    }
+    .team-header { max-width: 650px; margin-bottom: 3.5rem; }
+    .team-intro { margin-top: 1rem; color: var(--muted); }
+    .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .person {
+      position: relative;
+      overflow: hidden;
+      background: rgba(13, 19, 48, .55);
+      border: 1px solid var(--border);
+      transition: transform .3s, border-color .3s;
+    }
+    .person:hover { transform: translateY(-5px); border-color: rgba(129, 140, 248, .42); }
+    .portrait-wrap { aspect-ratio: 1 / 1; overflow: hidden; background: var(--deep); }
+    .portrait { width: 100%; height: 100%; display: block; object-fit: cover; filter: saturate(.82); transition: transform .55s, filter .4s; }
+    .person:hover .portrait { transform: scale(1.025); filter: saturate(1); }
+    .person-info { padding: 1.6rem; }
+    .person-role {
+      color: var(--violet);
+      font-family: 'Space Mono', monospace;
+      font-size: .65rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .person-name { margin-top: .35rem; color: var(--white); font-size: 2rem; line-height: 1.1; }
+    .person-bio {
+      margin-top: .85rem;
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.65;
+    }
+    .linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      margin-top: 1.1rem;
+      color: var(--muted);
+      font-size: .76rem;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .linkedin:hover { color: var(--white); }
+    .linkedin svg { width: 17px; fill: currentColor; }
+
+    .location { border-top: 1px solid var(--border); }
+    .location-card {
+      padding: clamp(2rem, 5vw, 4rem);
+      display: grid;
+      grid-template-columns: minmax(240px, .75fr) minmax(420px, 1.25fr);
+      gap: 3rem;
+      align-items: stretch;
+      background: linear-gradient(135deg, rgba(42, 53, 128, .3), rgba(13, 19, 48, .62));
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--violet);
+    }
+    .location-address {
+      margin-top: 1rem;
+      color: var(--white);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      font-style: normal;
+      line-height: 1.3;
+    }
+    .map-embed {
+      width: 100%;
+      min-height: 360px;
+      display: block;
+      border: 0;
+      border-radius: 2px;
+      filter: saturate(.75) contrast(1.02);
+    }
+
+    footer { border-top: 1px solid var(--border); }
+    .footer-bottom { padding: 3rem 4rem; }
+    .footer-bottom-row { display: flex; align-items: center; gap: 2rem; flex-wrap: wrap; }
+    .footer-copy { color: rgba(184, 196, 248, .28); font-size: .73rem; }
+    .footer-legal-links { display: flex; gap: 1.25rem; flex: 1; flex-wrap: wrap; }
+
+    @media (max-width: 900px) {
+      .mission-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .team-grid { grid-template-columns: 1fr 1fr; }
+      .location-card { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 680px) {
+      nav { padding: 1.1rem 1.5rem; }
+      .mission, .team, .location { padding: 4.5rem 1.5rem; }
+      .team { padding-top: 9rem; }
+      .team-grid { grid-template-columns: 1fr; justify-items: center; }
+      .person { width: 100%; max-width: 380px; }
+      .location-card { grid-template-columns: 1fr; gap: 2rem; align-items: start; }
+      .map-embed { min-height: 300px; }
+      .footer-bottom { padding: 2.5rem 1.5rem; }
+    }
+  </style>
+
+  <link rel="icon" type="image/x-icon" href="assets/branding/favicon-light.ico" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32-light.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/x-icon" href="assets/branding/favicon-dark.ico" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32-dark.png" media="(prefers-color-scheme: dark)">
+</head>
+
+<body data-footer-type="landing" data-active-page="about">
+  <div data-dreamz-nav></div>
+
+  <main>
+    <section class="team" aria-labelledby="team-title">
+      <div class="section-inner">
+        <div class="team-header">
+          <p class="eyebrow">Leadership</p>
+          <h2 class="section-title" id="team-title">Meet the team</h2>
+        </div>
+
+        <div class="team-grid">
+          <article class="person">
+            <div class="portrait-wrap">
+              <img class="portrait" src="assets/team/nir-cafri.jpg" alt="Nir Cafri, CEO of Dreamz" width="800" height="800">
+            </div>
+            <div class="person-info">
+              <p class="person-role">CEO</p>
+              <h3 class="person-name">Nir Cafri, Ph.D.</h3>
+              <p class="person-bio">AI specialist, expert in deep learning, and pioneer in clinical neuroscience data analytics.</p>
+              <a class="linkedin" href="https://www.linkedin.com/in/nircaf" target="_blank" rel="noopener noreferrer" aria-label="View Nir Cafri on LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 11-.001-4.124 2.062 2.062 0 010 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </article>
+
+          <article class="person">
+            <div class="portrait-wrap">
+              <img class="portrait" src="assets/team/ellie-bleiberg.jpg" alt="Ellie Bleiberg, CPO of Dreamz" width="400" height="400">
+            </div>
+            <div class="person-info">
+              <p class="person-role">CPO</p>
+              <h3 class="person-name">Ellie Bleiberg</h3>
+              <p class="person-bio">Ex-Google, Haas MBA, with 5+ years as a product manager building and scaling B2B and B2C products.</p>
+              <a class="linkedin" href="https://www.linkedin.com/in/elliebleiberg" target="_blank" rel="noopener noreferrer" aria-label="View Ellie Bleiberg on LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 11-.001-4.124 2.062 2.062 0 010 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </article>
+
+          <article class="person">
+            <div class="portrait-wrap">
+              <img class="portrait" src="assets/team/felix-benninger.jpg" alt="Professor Felix Benninger, CSO of Dreamz" width="449" height="450">
+            </div>
+            <div class="person-info">
+              <p class="person-role">CSO</p>
+              <h3 class="person-name">Prof. Felix Benninger, MD; Ph.D.</h3>
+              <p class="person-bio">Clinical neurologist and expert in electrophysiological techniques and epileptogenesis.</p>
+              <a class="linkedin" href="https://il.linkedin.com/in/prof-felix-benninger-a8b74ba1" target="_blank" rel="noopener noreferrer" aria-label="View Professor Felix Benninger on LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 11-.001-4.124 2.062 2.062 0 010 4.124zM7.114 20.452H3.558V9h3.556v11.452z"/></svg>
+                LinkedIn
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mission" aria-labelledby="mission-title">
+      <div class="section-inner mission-grid">
+        <div>
+          <p class="eyebrow">Our Mission</p>
+          <h2 class="section-title" id="mission-title">Enhancing human cognition</h2>
+        </div>
+        <div>
+          <p class="mission-statement">Our mission is to leverage technology to enhance cognition.</p>
+          <p class="mission-detail">We build thoughtful neurotechnology that works with the brain’s natural rhythms, turning advances in neuroscience into tools that can support how people think, feel, and live.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="location" aria-labelledby="location-title">
+      <div class="section-inner location-card">
+        <div>
+          <p class="eyebrow">Dreamz · HypnoDreamz</p>
+          <h2 class="section-title" id="location-title">Where to find us</h2>
+          <address class="location-address">980 Ohlone Avenue<br>Albany, CA 94706</address>
+        </div>
+        <iframe
+          class="map-embed"
+          title="Dreamz location at 980 Ohlone Avenue, Albany, California"
+          src="https://www.google.com/maps?q=980+Ohlone+Ave%2C+Albany%2C+CA+94706&amp;output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+      </div>
+    </section>
+  </main>
+
+  <div data-dreamz-footer></div>
+  <script src="assets/site-chrome.js"></script>
+</body>
+
+</html>
