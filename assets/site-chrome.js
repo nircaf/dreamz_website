@@ -211,7 +211,6 @@
         <li><a href="${url('dreamz-faq.html')}"${isActive('faq')}>FAQ</a></li>
         <li><a href="${url('dreamz-research.html')}"${isActive('research')}>Research</a></li>
         <li><a href="${url('about.html')}"${isActive('about')}>About</a></li>
-        <li><a href="${url('index.html#cta')}">Pre-order</a></li>
       </ul>
       <div class="nav-actions">
         <button class="nav-cta" type="button" onclick="window.location.href='${url('index.html#cta')}'">Pre-order</button>
