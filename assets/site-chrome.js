@@ -184,6 +184,7 @@
         <li><a href="${url('dreamz-science.html')}"${isActive('science')}>Science</a></li>
         <li><a href="${url('dreamz-faq.html')}"${isActive('faq')}>FAQ</a></li>
         <li><a href="${url('dreamz-research.html')}"${isActive('research')}>Research</a></li>
+        <li><a href="${url('about.html')}"${isActive('about')}>About</a></li>
         <li><a href="${url('index.html#cta')}">Pre-order</a></li>
       </ul>
       <div class="nav-actions">
@@ -235,6 +236,7 @@
         <div class="footer-links">
           <a href="${url('index.html')}">Home</a>
           <a href="${url('dreamz-research.html')}"${isActive('research')}>Research</a>
+          <a href="${url('about.html')}"${isActive('about')}>About</a>
           <a href="${url('privacy.html')}">Privacy</a>
           <a href="${url('term/index.html')}">Terms</a>
           <a href="${url('term/account-deletion.html')}"${isActive('account-deletion')}>Delete Account</a>
@@ -250,7 +252,7 @@
           <p class="footer-copy">&copy; 2025 Dreamz. Sleep Neurotechnology. All rights reserved.</p>
           <div class="footer-legal-links">
             <a href="${url('how-it-works.html')}"${isActive('how')}>How It Works</a>
-            <a href="#">About</a>
+            <a href="${url('about.html')}"${isActive('about')}>About</a>
             <a href="#">Care &amp; Washing</a>
             <a href="#">Safety Guide</a>
             <a href="${url('contact.html')}">Contact</a>

@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us - Dreamz Sleep Neurotechnology</title>
+  <meta name="description" content="Meet the team behind Dreamz: why we started, what we believe, and how we build sleep neurotechnology that helps the brain switch off naturally.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@200;300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="assets/branding/favicon-dark.ico">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #04050d;
+      --midnight: #080c1a;
+      --deep: #0d1330;
+      --iris: #4a5bcc;
+      --violet: #818cf8;
+      --lavender: #8b9de8;
+      --soft: #e8ebff;
+      --white: #f4f6ff;
+      --muted: rgba(184,196,248,0.56);
+      --border: rgba(138,157,232,0.16);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      background: var(--ink);
+      color: var(--soft);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem clamp(1.5rem, 5vw, 4rem);
+      background: rgba(4,5,13,0.72);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+    }
+    .nav-links {
+      display: flex;
+      gap: clamp(1rem, 2vw, 2rem);
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a, .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+    .nav-links a:hover, .nav-links a.active, .footer-links a:hover { color: var(--white); }
+    .nav-cta {
+      padding: 0.65rem 1.25rem;
+      border: 1px solid rgba(129,140,248,0.45);
+      background: transparent;
+      color: var(--violet);
+      font: inherit;
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    main {
+      position: relative;
+      z-index: 1;
+      padding: 10rem clamp(1.5rem, 5vw, 5rem) 5rem;
+    }
+    .about-section {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .about-section + .about-section { margin-top: clamp(4.5rem, 9vw, 7.5rem); }
+    .eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--violet);
+      margin-bottom: 1.2rem;
+    }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.2rem, 7vw, 6.4rem);
+      font-weight: 300;
+      line-height: 1.02;
+      color: var(--white);
+      margin-bottom: 1.6rem;
+      max-width: 880px;
+    }
+    h1 em, h2 em { color: var(--lavender); font-style: italic; }
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.1rem, 4vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.08;
+      color: var(--white);
+      margin-bottom: 1.4rem;
+      max-width: 720px;
+    }
+    .lead, .about-copy p {
+      color: var(--muted);
+      font-size: clamp(1rem, 1.35vw, 1.16rem);
+      line-height: 1.8;
+      max-width: 760px;
+      margin-bottom: 1rem;
+    }
+    .split {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(300px, 0.85fr);
+      gap: clamp(2rem, 5vw, 5rem);
+      align-items: center;
+    }
+    .split.flip { grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1fr); }
+    .about-photo {
+      border: 1px solid var(--border);
+      background: var(--midnight);
+      overflow: hidden;
+    }
+    .about-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      max-height: 520px;
+      object-fit: cover;
+    }
+    .photo-caption {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(184,196,248,0.4);
+      padding: 0.8rem 1rem;
+      border-top: 1px solid var(--border);
+    }
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-top: 2.5rem;
+    }
+    .pillar {
+      border: 1px solid var(--border);
+      background: rgba(13,19,48,0.52);
+      padding: 1.4rem 1.2rem;
+    }
+    .pillar-key {
+      display: block;
+      color: var(--violet);
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .pillar-val { color: rgba(232,235,255,0.74); line-height: 1.6; font-size: 0.95rem; }
+    .mv-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+    .mv-card {
+      border: 1px solid var(--border);
+      background: rgba(8,12,26,0.6);
+      padding: clamp(1.6rem, 3vw, 2.4rem);
+    }
+    .mv-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.7rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 0.9rem;
+    }
+    .mv-card p { color: var(--muted); line-height: 1.75; }
+    .team-photos {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+      margin-top: 2.5rem;
+    }
+    .page-actions {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 2.2rem;
+    }
+    .text-link {
+      color: var(--soft);
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .text-link:hover { color: var(--violet); }
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 2rem clamp(1.5rem, 5vw, 5rem);
+      border-top: 1px solid var(--border);
+    }
+    .footer-bottom, .footer-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-legal-links, .footer-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .footer-copy { color: rgba(184,196,248,0.35); font-size: 0.78rem; }
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+    }
+    @media (max-width: 960px) {
+      main { padding-top: 8rem; }
+      .split, .split.flip { grid-template-columns: 1fr; }
+      .split.flip .about-photo { order: -1; }
+      .pillars { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 620px) {
+      .pillars, .mv-grid, .team-photos { grid-template-columns: 1fr; }
+      .nav-cta { display: none; }
+    }
+  </style>
+</head>
+<body data-footer-type="landing" data-active-page="about">
+  <canvas id="bg-canvas"></canvas>
+  <div data-dreamz-nav></div>
+  <main>
+    <section class="about-section" aria-labelledby="about-heading">
+      <div class="about-copy">
+        <p class="eyebrow">About Us</p>
+        <h1 id="about-heading">We help your brain <em>switch off.</em></h1>
+        <p class="lead">Dreamz started with a familiar feeling. You're in bed. The lights are off. And your brain won't stop talking.</p>
+        <p>We knew the science existed to help. Research shows the brain responds to subtle signals when they align with its current state. So we set out to turn that science into something you could actually wear to bed &mdash; a soft mask that listens to your body, works quietly in the background, and helps the brain follow its natural path into sleep.</p>
+        <p>We are a small team of engineers, neuroscientists, and designers who care about one thing: helping people sleep well, so they can live well.</p>
+      </div>
+    </section>
+
+    <section class="about-section" aria-labelledby="mission-heading">
+      <p class="eyebrow">Why We Exist</p>
+      <h2 id="mission-heading">Not forcing sleep. <em>Calming the brain</em> so sleep can happen.</h2>
+      <div class="mv-grid">
+        <div class="mv-card">
+          <h3>Our mission</h3>
+          <p>To improve people's well-being by enabling better sleep &mdash; leading to better health, stronger focus, enhanced memory, and better daily performance. A core part of that is helping people quiet the constant chatter that keeps them awake at night.</p>
+        </div>
+        <div class="mv-card">
+          <h3>Our vision</h3>
+          <p>Modern life leaves many of us mentally overstimulated, unable to shut off racing thoughts at night. We combine neuroscience, wearable hardware, and accessible software to help people calm their minds, fall asleep more easily, and wake up restored.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" aria-labelledby="values-heading">
+      <p class="eyebrow">What Guides Us</p>
+      <h2 id="values-heading">The principles behind every decision.</h2>
+      <div class="pillars">
+        <div class="pillar"><span class="pillar-key">Science first</span><span class="pillar-val">Everything we build is grounded in peer-reviewed sleep and neuromodulation research. No hype, no overpromising.</span></div>
+        <div class="pillar"><span class="pillar-key">Personal by design</span><span class="pillar-val">Every brain is different. Our platform learns from your responses and adapts to you, night after night.</span></div>
+        <div class="pillar"><span class="pillar-key">Quiet technology</span><span class="pillar-val">The best sleep tech is the kind you forget is there. Dreamz works in the background while you rest.</span></div>
+        <div class="pillar"><span class="pillar-key">Improve, not just track</span><span class="pillar-val">Knowing you slept badly doesn't help you sleep better. We focus on actively supporting sleep, not just scoring it.</span></div>
+        <div class="pillar"><span class="pillar-key">Safety &amp; responsibility</span><span class="pillar-val">Clear intended-use boundaries and careful, responsible deployment of neuromodulation technology.</span></div>
+        <div class="pillar"><span class="pillar-key">Accessible neuroscience</span><span class="pillar-val">Complex science, made simple and intuitive &mdash; so better sleep isn't reserved for specialists.</span></div>
+      </div>
+    </section>
+
+    <section class="about-section" aria-labelledby="team-heading">
+      <div class="split">
+        <div class="about-copy">
+          <p class="eyebrow">The Team</p>
+          <h2 id="team-heading">Built by people who test it <em>on themselves.</em></h2>
+          <p>Dreamz is built by a multidisciplinary team spanning neuroscience, embedded hardware, machine learning, and product design. We prototype our own electronics, run our own signal-processing pipelines, and wear every version of the mask ourselves &mdash; at our desks, on trains, and through full nights of sleep.</p>
+          <p>That closeness to the product matters. Before anything reaches you, it has already been through hundreds of nights on our own heads.</p>
+          <p>We're growing. If calm technology and better sleep sound like problems worth working on, we'd love to hear from you.</p>
+          <div class="page-actions">
+            <a class="text-link" href="contact.html">Get in touch -></a>
+            <a class="text-link" href="dreamz-research.html">Read the research -></a>
+          </div>
+        </div>
+        <figure class="about-photo">
+          <img src="Photos/Gallery/20251218_122833.jpg" alt="Dreamz team member testing a mask prototype in the office" loading="lazy">
+          <figcaption class="photo-caption">Prototype testing at the Dreamz lab</figcaption>
+        </figure>
+      </div>
+      <div class="team-photos">
+        <figure class="about-photo">
+          <img src="Photos/Gallery/IMG_3658.jpg" alt="Dreamz prototype being field-tested during a commute" loading="lazy">
+          <figcaption class="photo-caption">Field-testing an early prototype</figcaption>
+        </figure>
+        <figure class="about-photo">
+          <img src="Photos/Mask/front.png" alt="The Dreamz sleep mask, front view" loading="lazy">
+          <figcaption class="photo-caption">Where the prototypes are headed</figcaption>
+        </figure>
+      </div>
+      <!--
+        Team member bios: when names, roles, and headshots are ready, add cards here.
+        Suggested markup (mirrors the .mv-grid styling):
+
+        <div class="mv-grid" style="margin-top: 2.5rem;">
+          <div class="mv-card">
+            <h3>Full Name</h3>
+            <p class="pillar-key" style="margin-bottom: 0.6rem;">Role</p>
+            <p>One or two sentences about this person.</p>
+          </div>
+        </div>
+      -->
+    </section>
+
+    <section class="about-section" aria-labelledby="cta-heading">
+      <div class="about-copy">
+        <p class="eyebrow">Join Us</p>
+        <h2 id="cta-heading">Sleep well. <em>Live well.</em></h2>
+        <p>That's the whole idea. If you'd like to be part of it from the beginning, pre-orders are open now.</p>
+        <div class="page-actions">
+          <a class="text-link" href="index.html#cta">Pre-order Now -></a>
+          <a class="text-link" href="how-it-works.html">How it works -></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div data-dreamz-footer></div>
+  <script defer src="assets/site-chrome.js"></script>
+  <script defer src="assets/shared.js"></script>
+</body>
+</html>
