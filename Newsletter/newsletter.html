@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dreamz — Pre-orders Open</title>
+  <meta name="description" content="After two months using the Dreamz mask, our founder can't go back. Pilot results, pricing, and a 30-day sleep-on-it guarantee.">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@200;300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Email clients (Gmail, Outlook, Yahoo) do not support CSS custom
+       properties (var()) reliably, so every color below is a literal
+       value on purpose — do not reintroduce var(). Two-sided layouts
+       (masthead, bar label/value rows) use <table> instead of flexbox
+       for the same reason: flexbox is unreliable across email clients. */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #f6f4ef;
+      color: #2a2e45;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    a { color: inherit; }
+
+    .wrapper {
+      width: min(640px, 100%);
+      margin: 0 auto;
+      background: #ffffff;
+      box-shadow: 0 30px 80px rgba(42, 53, 128, 0.08);
+    }
+
+    /* MASTHEAD */
+    .masthead {
+      padding: 1.5rem 2.5rem;
+      border-bottom: 1px solid rgba(74, 91, 204, 0.16);
+    }
+    .masthead-table { width: 100%; border-collapse: collapse; }
+    .masthead-word {
+      display: inline-block;
+      vertical-align: middle;
+      font-family: 'Space Mono', monospace;
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: #04050d;
+    }
+    .pill {
+      display: inline-block;
+      padding: 0.6rem 1.15rem;
+      background: rgba(109, 91, 208, 0.1);
+      color: #5b21b6;
+      border-radius: 999px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .pill::before { content: '●'; font-size: 0.7rem; color: #6d5bd0; margin-right: 0.4rem; }
+
+    /* HEADLINE */
+    .content { padding: 2.6rem 2.5rem 0; }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(1.9rem, 6vw, 2.55rem);
+      line-height: 1.2;
+      color: #04050d;
+    }
+
+    /* HERO IMAGE */
+    .hero { margin-top: 2rem; text-align: center; }
+    .hero img {
+      width: 260px;
+      height: 260px;
+      display: inline-block;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    p { margin-bottom: 1.15rem; }
+    p:last-child { margin-bottom: 0; }
+    strong { color: #04050d; font-weight: 500; }
+    .highlight { color: #6d5bd0; font-weight: 500; }
+
+    /* PILOT CHART */
+    .chart-section {
+      margin: 0.4rem 2.5rem 2.2rem;
+      padding: 1.7rem 1.8rem 1.6rem;
+      background: #f6f4ef;
+      border: 1px solid rgba(74, 91, 204, 0.16);
+      border-radius: 6px;
+    }
+    .chart-title {
+      margin-bottom: 1.3rem;
+      color: #666c8f;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .bar-row { margin-bottom: 1.1rem; }
+    .bar-row:last-child { margin-bottom: 0; }
+    .bar-row-head { width: 100%; border-collapse: collapse; margin-bottom: 0.4rem; }
+    .bar-name { color: #2a2e45; font-size: 0.86rem; text-align: left; }
+    .bar-value {
+      color: #04050d;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-align: right;
+      white-space: nowrap;
+    }
+    .bar-delta {
+      margin-left: 0.4rem;
+      color: #666c8f;
+      font-weight: 400;
+    }
+    .bar-track {
+      height: 20px;
+      background: #eceafa;
+      border-radius: 0 4px 4px 0;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 0 4px 4px 0;
+    }
+    .bar-fill.baseline { width: 100%; background: #b7bce0; }
+    .bar-fill.accent { width: 62%; background: #6d5bd0; }
+
+    /* PRICING */
+    .pricing {
+      margin: 0 2.5rem 1.6rem;
+      padding: 1.6rem 1.8rem;
+      background: linear-gradient(135deg, rgba(139, 157, 232, 0.12), rgba(74, 91, 204, 0.05));
+      border: 1px solid rgba(74, 91, 204, 0.16);
+      border-radius: 6px;
+    }
+    .price-now {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: #04050d;
+    }
+    .price-was {
+      color: #666c8f;
+      font-size: 0.88rem;
+      text-decoration: line-through;
+    }
+    .pricing p { color: #2a2e45; font-size: 0.92rem; margin-bottom: 0; }
+
+    /* GUARANTEE */
+    .guarantee {
+      margin: 0 2.5rem 1.8rem;
+      padding: 1.5rem 1.8rem;
+      border: 1px solid rgba(74, 91, 204, 0.16);
+      border-left: 3px solid #6d5bd0;
+      border-radius: 4px;
+    }
+    .guarantee h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 1.25rem;
+      color: #04050d;
+      margin-bottom: 0.5rem;
+    }
+    .guarantee p { color: #2a2e45; font-size: 0.92rem; margin-bottom: 0; }
+
+    /* CTA */
+    .cta-wrap { padding: 0.2rem 2.5rem 2rem; text-align: center; }
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.6rem;
+      background: #6d5bd0;
+      color: #ffffff;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(74, 91, 204, 0.28);
+    }
+
+    /* SIGNATURE */
+    .signoff { padding: 0 2.5rem 2.4rem; }
+    .signature-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      color: #04050d;
+      margin-bottom: 0.1rem;
+    }
+    .signature-title {
+      color: #666c8f;
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+    }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      margin: 0 2.5rem 2rem;
+      background: rgba(74, 91, 204, 0.16);
+      border: none;
+    }
+
+    /* FOOTER */
+    footer { padding: 0 2.5rem 2.6rem; }
+    .footer-nav {
+      margin-bottom: 1.6rem;
+      text-align: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .footer-nav a { color: #5b21b6; text-decoration: none; margin: 0 0.5rem; }
+    .footer-nav span { color: rgba(74, 91, 204, 0.4); }
+    .legal {
+      color: #666c8f;
+      font-size: 0.72rem;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+    .legal:last-of-type { margin-bottom: 0; }
+
+    .footer-logo { display: block; margin: 0 auto 1.4rem; width: 40px; height: auto; opacity: 0.75; }
+
+    .compliance {
+      margin-top: 1.8rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(74, 91, 204, 0.16);
+      text-align: center;
+      color: rgba(102, 108, 143, 0.7);
+      font-size: 0.68rem;
+      line-height: 1.6;
+    }
+    .compliance a { color: rgba(102, 108, 143, 0.9); text-decoration: underline; }
+
+    @media (max-width: 560px) {
+      .masthead { padding: 1.2rem 1.5rem; }
+      .content { padding: 2.2rem 1.5rem 0; }
+      .chart-section { margin: 0.4rem 1.5rem 1.8rem; padding: 1.4rem 1.3rem; }
+      .pricing { margin: 0 1.5rem 1.4rem; padding: 1.4rem 1.3rem; }
+      .guarantee { margin: 0 1.5rem 1.6rem; padding: 1.3rem 1.3rem; }
+      .cta-wrap { padding: 0.2rem 1.5rem 1.8rem; }
+      .signoff { padding: 0 1.5rem 2rem; }
+      .divider { margin: 0 1.5rem 1.8rem; }
+      footer { padding: 0 1.5rem 2.2rem; }
+    }
+
+    /* Mobile Mail apps (notably iOS Mail) auto-invert simple line-art
+       logo images in dark mode via a CSS filter, applied inconsistently
+       within the same message. That produces a stark inverted-black box
+       that doesn't match the device's actual (non-pure-black) dark
+       background. Disable it explicitly so both logos always render as
+       shipped, regardless of the client's dark mode. */
+    @media (prefers-color-scheme: dark) {
+      .footer-logo {
+        filter: none !important;
+        -webkit-filter: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="masthead">
+      <table role="presentation" class="masthead-table" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td align="left" valign="middle">
+            <span class="masthead-word">DREAMZ</span>
+          </td>
+          <td align="right" valign="middle">
+            <span class="pill">Pre-orders open</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="content">
+      <h1>{{contact.FIRSTNAME}}, after two months using the mask, <span class="highlight">I can't go back</span>.</h1>
+    </div>
+
+    <div class="hero">
+      <img src="https://hypnodreamz.com/Photos/Gallery/Black_08_NYC.jpg" alt="A woman resting in bed wearing the Dreamz sleep mask, embroidered with the Dreamz infinity logo">
+    </div>
+
+    <div class="content">
+      <p>I know I'm not a neutral party here. I designed it. But I also wear it, every single night since May. I scrapped two early versions because it wasn't perfect yet. If I felt the chip in the mask, I'd want to take it off at midnight just like everyone else would have. Now I know it's ready.</p>
+
+      <p>We ran our first pilot. Ten people wore the mask at home in their own beds. On average, the time it took them to fall asleep dropped by <span class="highlight">38%</span>.</p>
+
+      <p>The signals were strong, so I'm ordering the next batch. Now you have a chance to <span class="highlight">reserve a mask from that batch</span>.</p>
+    </div>
+
+    <div class="chart-section">
+      <p class="chart-title">Average time to fall asleep &nbsp;·&nbsp; pilot, n=10</p>
+
+      <div class="bar-row">
+        <table role="presentation" class="bar-row-head" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td class="bar-name">Their usual night</td>
+            <td class="bar-value">33 min</td>
+          </tr>
+        </table>
+        <div class="bar-track"><div class="bar-fill baseline"></div></div>
+      </div>
+
+      <div class="bar-row">
+        <table role="presentation" class="bar-row-head" cellpadding="0" cellspacing="0" border="0">
+          <tr>
+            <td class="bar-name">Wearing Dreamz</td>
+            <td class="bar-value">20 min <span class="bar-delta">−38%</span></td>
+          </tr>
+        </table>
+        <div class="bar-track"><div class="bar-fill accent"></div></div>
+      </div>
+    </div>
+
+    <div class="pricing">
+      <p>Pre-order is <span class="price-now">$199.90</span> <span class="price-was">$299.90</span>. A $39.90 deposit holds one and you pay the rest before it ships. Pay in full instead and I'll throw in twelve months of the subscription. Units go out in three to nine months.</p>
+    </div>
+
+    <div class="guarantee">
+      <h2>Sleep on it for 30 days.</h2>
+      <p>If it doesn't help you sleep better, send it back and <span class="highlight">I'll refund you</span>. No form to fill in, no reason to explain. Just tell me it didn't work.</p>
+    </div>
+
+    <div class="cta-wrap">
+      <a class="btn" href="https://hypnodreamz.com/index.html#cta" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:1rem 2.6rem;background-color:#6d5bd0;border-radius:999px;text-decoration:none;"><span style="color:#ffffff !important;font-family:'DM Sans',sans-serif;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;">Reserve mine · $39.90</span></a>
+    </div>
+
+    <div class="content">
+      <p>If you've got a question before you put money down, just hit reply. It comes to me, not a help desk.</p>
+    </div>
+
+    <div class="signoff">
+      <p class="signature-name">Nir</p>
+    </div>
+
+    <hr class="divider">
+
+    <footer>
+      <nav class="footer-nav">
+        <a href="https://hypnodreamz.com/how-it-works.html" target="_blank" rel="noopener noreferrer">How it works</a>
+        <span>·</span>
+        <a href="https://hypnodreamz.com/dreamz-science.html" target="_blank" rel="noopener noreferrer">The science</a>
+        <span>·</span>
+        <a href="https://hypnodreamz.com/dreamz-faq.html" target="_blank" rel="noopener noreferrer">FAQ</a>
+      </nav>
+
+      <p class="legal">The 38% figure comes from an internal, unblinded pilot of 10 participants using third party wearable data. Individual results vary. Ship dates are estimates, not guarantees. Shipping and applicable taxes are collected separately closer to your ship date. The 30-day window starts the day your mask arrives.</p>
+
+      <p class="legal">Dreamz is a wellness device, not a medical device. It is not intended to diagnose, treat, cure, or prevent any disease or medical condition. Not for use by children, pregnant individuals, or anyone with epilepsy or a known neurological disorder. Talk to a healthcare professional first if you have concerns.</p>
+
+      <div class="compliance">
+        <img class="footer-logo" src="https://hypnodreamz.com/Logo/Logo_light_optimized.png" alt="Dreamz">
+        Dreamz Tech Inc. · 980 Ohlone Avenue, Albany, CA 94706<br>
+        You're receiving this because you signed up at hypnodreamz.com. <a href="{{ unsubscribe }}">Unsubscribe</a>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
