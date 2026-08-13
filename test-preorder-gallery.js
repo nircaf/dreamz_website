@@ -1,12 +1,12 @@
 const fs = require('fs');
 const html = fs.readFileSync('index.html', 'utf8');
 
-for (const image of ['12.png', '13.png', '14.png']) {
+for (const image of ['12.jpg', '13.jpg', '14.jpg']) {
   if (!html.includes('Photos/Gallery/' + image)) throw new Error('Missing gallery image: ' + image);
 }
 if (!html.includes('class="preorder-gallery"')) throw new Error('Missing preorder gallery');
 if (!html.includes('data-gallery-thumb')) throw new Error('Missing gallery thumbnails');
-if (!html.includes('id="preorder-main-image" src="Photos/Gallery/13.png"')) throw new Error('13.png must be the first gallery image');
+if (!html.includes('id="preorder-main-image" src="Photos/Gallery/13.jpg"')) throw new Error('13.jpg must be the first gallery image');
 if (!html.includes('grid-template-columns: 76px 1fr')) throw new Error('Thumbnails must sit beside the main image');
 if (!html.includes('width: min(100%, calc(100vw - 3rem))')) throw new Error('Mobile preorder checkout must fit and center in the viewport');
 if (!html.includes("'mouseenter'")) throw new Error('Thumbnails must preview on hover');
