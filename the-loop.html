@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Dreamz Loop | One signal, all night</title>
+<meta name="description" content="Watch one signal flow through the loop: it beats through your body, turns to data in the computer, and comes back as gentle pulses of light.">
+<link rel="canonical" href="https://hypnodreamz.com/the-loop.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --night-0:#080A1C;--night-1:#0E1130;--plum:#211A46;
+    --sense:#5FE3D6;--think:#A99BFF;--respond:#FFC57A;
+    --text:#EEF0FB;--muted:#959CC6;--line:rgba(255,255,255,.09);
+    --card:rgba(255,255,255,.04);--card-brd:rgba(255,255,255,.09);
+    --serif:"Fraunces",Georgia,serif;--sans:"Hanken Grotesk",system-ui,sans-serif;--mono:"IBM Plex Mono",monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--text);background:var(--night-0);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh}
+  body::before{content:"";position:fixed;inset:0;z-index:-2;
+    background:radial-gradient(1000px 700px at 80% -6%, rgba(95,227,214,.10), transparent 60%),
+      radial-gradient(900px 650px at 6% 14%, rgba(169,155,255,.12), transparent 60%),
+      radial-gradient(1000px 900px at 55% 110%, rgba(255,197,122,.07), transparent 55%),
+      linear-gradient(180deg, var(--night-1), var(--night-0) 45%, var(--plum));}
+  body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.5;pointer-events:none;
+    background-image:radial-gradient(1px 1px at 22% 28%, rgba(255,255,255,.35), transparent),
+      radial-gradient(1px 1px at 72% 20%, rgba(255,255,255,.25), transparent),
+      radial-gradient(1px 1px at 44% 66%, rgba(255,255,255,.20), transparent),
+      radial-gradient(1px 1px at 86% 56%, rgba(255,255,255,.25), transparent),
+      radial-gradient(1px 1px at 14% 82%, rgba(255,255,255,.18), transparent);}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  a{color:inherit}
+  .navbar{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  .brand{font-family:var(--serif);font-size:22px;letter-spacing:.5px;display:flex;align-items:center;gap:10px}
+  .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--sense);box-shadow:0 0 10px var(--sense);animation:beatDot 3.4s ease-in-out infinite}
+  .navlink{font-size:14px;color:var(--muted);text-decoration:none;padding:9px 18px;border:1px solid var(--line);border-radius:999px;transition:.25s}
+  .navlink:hover{color:var(--text);border-color:rgba(255,255,255,.25)}
+  .intro{text-align:center;padding:30px 0 4px}
+  .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--sense);margin-bottom:18px}
+  h1{font-family:var(--serif);font-weight:300;font-size:clamp(32px,5.2vw,58px);line-height:1.06;letter-spacing:-.5px;max-width:17ch;margin:0 auto 14px}
+  h1 em{font-style:italic;color:var(--think)}
+  .lede{font-size:clamp(15px,1.9vw,19px);color:var(--muted);max-width:52ch;margin:0 auto}
+  .lede b{color:var(--text);font-weight:500}
+
+  .scene{position:relative;width:min(94vw,680px);aspect-ratio:1;margin:20px auto 6px}
+  .ring-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .base{fill:none;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;opacity:.34}
+  #head{filter:drop-shadow(0 0 7px #fff)}
+  .bitdigit{font-family:var(--mono);font-size:17px;font-weight:600;fill:var(--think);text-anchor:middle;filter:drop-shadow(0 0 6px var(--think))}
+  .core{transform-origin:320px 320px;animation:coreBreath 6s ease-in-out infinite}
+  .heart-glyph{transform-origin:320px 70px;animation:heartThump 1.7s ease-in-out infinite}
+  .chip-line{fill:none;stroke:var(--think);stroke-width:2.4;stroke-linecap:round}
+  .ripple{fill:none;stroke:var(--respond);stroke-width:2.2;transform-box:fill-box;transform-origin:center;animation:emit 1.15s ease-out forwards}
+
+  .core-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none}
+  .core-label .inf{font-family:var(--serif);font-size:clamp(34px,7vw,52px);line-height:1;color:var(--text)}
+  .core-label small{display:block;font-family:var(--mono);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-top:7px}
+
+  .tag{position:absolute;transform:translate(-50%,-50%);text-align:center;width:150px;pointer-events:none}
+  .tag .ic{width:34px;height:34px;margin:0 auto 5px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--card-brd);background:rgba(255,255,255,.03)}
+  .tag .n{font-family:var(--mono);font-size:11px;letter-spacing:2px}
+  .tag .t{font-family:var(--serif);font-size:18px;margin-top:1px}
+  .tag.sense{left:50%;top:1%} .tag.sense .n{color:var(--sense)}
+  .tag.think{left:88%;top:83%} .tag.think .n{color:var(--think)}
+  .tag.respond{left:12%;top:83%} .tag.respond .n{color:var(--respond)}
+  .tag .ic svg{width:19px;height:19px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  /* brain wakes up ONLY while the ball is in the gentle-nudge stage */
+  .tag.respond .ic svg{transform-origin:center}
+  .tag.respond.active .ic{animation:icGlow 1.2s ease-in-out infinite}
+  .tag.respond.active .ic svg{animation:brainPulse 1.2s ease-in-out infinite}
+
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:40px auto 0;max-width:1000px}
+  .card{background:var(--card);border:1px solid var(--card-brd);border-radius:18px;padding:24px 22px}
+  .card .cnum{font-family:var(--mono);font-size:12px;letter-spacing:2px}
+  .card.c-sense .cnum{color:var(--sense)} .card.c-think .cnum{color:var(--think)} .card.c-respond .cnum{color:var(--respond)}
+  .card h3{font-family:var(--serif);font-weight:400;font-size:22px;margin:8px 0 8px}
+  .card p{font-size:14.5px;color:var(--muted);line-height:1.55}
+
+  .cta-sec{text-align:center;padding:52px 0 88px}
+  .cta{display:inline-block;font-size:16px;font-weight:600;text-decoration:none;padding:16px 40px;border-radius:999px;color:var(--night-0);
+    background:linear-gradient(120deg,var(--sense),var(--think));box-shadow:0 12px 40px rgba(169,155,255,.28);transition:transform .25s,box-shadow .25s}
+  .cta:hover{transform:translateY(-2px);box-shadow:0 16px 50px rgba(169,155,255,.4)}
+  .fineprint{font-family:var(--mono);font-size:11.5px;color:var(--muted);margin-top:20px;letter-spacing:.4px}
+  footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;color:var(--muted);font-size:13px}
+
+  @keyframes beatDot{0%,100%{transform:scale(1)}18%{transform:scale(1.5)}36%{transform:scale(1)}}
+  @keyframes coreBreath{0%,100%{transform:scale(1);opacity:.9}50%{transform:scale(1.08);opacity:1}}
+  @keyframes heartThump{0%,100%{transform:scale(1)}14%{transform:scale(1.22)}28%{transform:scale(1)}42%{transform:scale(1.13)}56%{transform:scale(1)}}
+  @keyframes emit{0%{transform:scale(.28);opacity:.7}100%{transform:scale(5.5);opacity:0}}
+  @keyframes brainPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.16)}}
+  @keyframes icGlow{0%,100%{box-shadow:0 0 0 rgba(255,197,122,0);border-color:var(--card-brd)}50%{box-shadow:0 0 16px rgba(255,197,122,.5);border-color:rgba(255,197,122,.6)}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important}}
+
+  @media(max-width:820px){.tag{width:120px}.tag .t{font-size:16px}}
+  @media(max-width:640px){
+    .scene{width:97vw}
+    .tag.sense{top:-1%}.tag.think{top:86%;left:90%}.tag.respond{top:86%;left:10%}
+    .tag .t{display:none}
+    .cards{grid-template-columns:1fr}
+    .navlink{display:none}
+  }
+</style>
+</head>
+<body>
+<nav><div class="wrap navbar">
+  <div class="brand"><span class="dot"></span>Dreamz</div>
+  <a class="navlink" href="https://hypnodreamz.com/index.html#cta">Join the waitlist</a>
+</div></nav>
+
+<section class="intro"><div class="wrap">
+  <div class="eyebrow">How Dreamz works</div>
+  <h1>One signal, flowing through you <em>all night</em>.</h1>
+  <p class="lede">It leaves your body as a heartbeat, turns to data in the computer, and comes back as gentle pulses of light — <b>then does it all again.</b></p>
+</div></section>
+
+<div class="scene">
+  <svg class="ring-svg" viewBox="0 0 640 640" aria-hidden="true">
+    <!-- faint base signal: heartbeat (aqua), pattern (purple line), sine (gold) -->
+    <path class="base" stroke="var(--sense)"   d="M 333.08 70.34 L 335.70 70.49 L 338.31 70.67 L 340.92 70.88 L 343.53 71.11 L 346.13 71.37 L 348.73 71.66 L 351.33 71.97 L 354.15 70.73 L 357.05 69.12 L 359.98 67.55 L 362.43 69.16 L 364.70 71.59 L 366.92 74.04 L 369.41 74.93 L 371.98 75.46 L 374.54 76.02 L 377.09 76.61 L 379.63 77.22 L 380.93 82.70 L 383.30 83.75 L 390.59 67.17 L 398.23 50.72 L 397.65 62.80 L 394.61 81.92 L 394.16 91.75 L 398.15 87.80 L 402.22 83.91 L 404.68 84.78 L 407.14 85.68 L 409.59 86.60 L 412.03 87.56 L 414.46 88.53 L 416.88 89.53 L 419.29 90.56 L 421.85 91.23 L 425.11 90.42 L 428.40 89.65 L 431.71 88.92 L 435.05 88.23 L 437.66 89.08 L 439.11 92.17 L 440.50 95.27 L 441.84 98.37 L 443.14 101.47 L 445.00 103.49 L 447.26 104.81 L 449.51 106.16 L 451.74 107.53 L 453.96 108.92 L 456.16 110.33 L 458.35 111.77 L 460.52 113.23 L 462.68 114.71 L 464.82 116.22 L 466.95 117.75 L 469.06 119.30 L 471.15 120.87 L 473.23 122.46 L 475.29 124.08 L 477.33 125.71 L 479.36 127.37 L 481.36 129.05 L 483.36 130.75 L 485.33 132.47 L 487.28 134.21 L 489.22 135.98 L 491.14 137.76 L 494.14 138.41 L 497.43 138.81 L 500.74 139.26 L 501.76 142.01 L 502.17 145.30 L 502.53 148.59 L 504.02 150.78 L 505.79 152.72 L 507.53 154.67 L 509.25 156.64 L 510.95 158.64 L 508.78 163.83 L 510.08 166.08 L 525.72 156.95 L 541.57 148.13 L 534.00 157.56 L 520.30 171.24 L 514.16 178.93 L 519.71 178.08 L 525.29 177.32 L 526.77 179.48 L 528.23 181.65 L 529.67 183.84 L 531.08 186.04 L 532.47 188.26 L 533.84 190.49 L 535.19 192.74 L 536.87 194.79 L 539.98 196.05 L 543.09 197.35 L 546.20 198.71 L 549.31 200.12 L 550.92 202.34 L 550.27 205.69 L 549.58 209.02 L 548.85 212.31 L 548.07 215.58 L 548.39 218.32 L 549.44 220.71 L 550.47 223.12 L 551.47 225.54 L 552.44 227.97 L 553.40 230.41 L 554.32 232.86 L 555.22 235.32 L 556.09 237.78 L 556.94 240.26 L 557.76 242.75 L 558.56 245.24 L 559.33 247.74 L 560.07 250.25 L 560.79 252.77 L 561.48 255.30 L 562.15 257.83 L 562.78 260.37 L 563.39 262.91 L 563.98 265.46 L 564.54 268.02 L 565.07 270.59 L 565.57 273.15 L 567.62 275.45 L 570.05 277.71 L 572.45 280.02 L 571.67 282.84 L 570.06 285.75 L 568.43 288.62 L 568.34 291.27 L 568.63 293.87 L 568.89 296.47 L 569.12 299.08 L 569.33 301.69 L 564.52 304.62 L 564.25 307.20 L 582.27 309.01 L 600.28 311.19 L 588.61 314.37 L 569.49 317.39 L 560.00 320.00 L 564.99 322.57 L 569.95 325.24 L 569.88 327.85 L 569.78 330.47 L 569.66 333.08 L 569.51 335.70 L 569.33 338.31 L 569.12 340.92 L 568.89 343.53 L 569.04 346.18 L 570.83 349.02 L 572.58 351.91 L 574.29 354.83 L 575.97 357.80 L 575.98 360.54 L 573.48 362.87 L 570.97 365.16 L 568.44 367.39 L 565.88 369.58 L 564.54 371.98 L 563.98 374.54 L 563.39 377.09 L 562.78 379.63 L 562.15 382.17 L 561.48 384.70 L 560.79 387.23 L 560.07 389.75 L 559.33 392.26 L 558.56 394.76 L 557.76 397.25 L 556.94 399.74 L 556.09 402.22 L 555.22 404.68 L 554.32 407.14 L 553.40 409.59"/>
+    <path class="base" stroke="var(--think)"   d="M 518.95 481.11 L 516.42 483.65 L 513.79 486.10 L 511.10 488.47 L 508.33 490.77 L 505.52 493.00 L 502.68 495.18 L 499.80 497.31 L 496.90 499.39 L 494.00 501.44 L 491.08 503.46 L 488.17 505.47 L 485.26 507.46 L 482.36 509.43 L 479.47 511.40 L 476.59 513.37 L 473.71 515.33 L 470.85 517.30 L 467.98 519.26 L 465.13 521.22 L 462.27 523.18 L 459.41 525.13 L 456.54 527.08 L 453.67 529.02 L 450.79 530.94 L 447.89 532.85 L 444.98 534.73 L 442.04 536.59 L 439.09 538.42 L 436.11 540.21 L 433.10 541.97 L 430.07 543.69 L 427.01 545.36 L 423.92 546.99 L 420.81 548.56 L 417.66 550.08 L 414.49 551.55 L 411.29 552.96 L 408.07 554.31 L 404.82 555.60 L 401.55 556.83 L 398.25 558.00 L 394.93 559.10 L 391.59 560.15 L 388.24 561.14 L 384.86 562.07 L 381.47 562.94 L 378.07 563.75 L 374.65 564.51 L 371.23 565.21 L 367.79 565.86 L 364.34 566.45 L 360.89 566.99 L 357.43 567.49 L 353.96 567.93 L 350.49 568.33 L 347.01 568.67 L 343.54 568.98 L 340.05 569.23 L 336.57 569.45 L 333.08 569.61 L 329.59 569.74 L 326.11 569.82 L 322.62 569.85 L 319.13 569.84 L 315.64 569.79 L 312.15 569.70 L 308.67 569.56 L 305.18 569.37 L 301.70 569.14 L 298.23 568.87 L 294.75 568.55 L 291.28 568.18 L 287.82 567.77 L 284.36 567.31 L 280.91 566.81 L 277.46 566.25 L 274.03 565.65 L 270.60 565.00 L 267.18 564.30 L 263.77 563.56 L 260.37 562.76 L 256.98 561.92 L 253.61 561.03 L 250.25 560.09 L 246.90 559.10 L 243.56 558.07 L 240.25 556.98 L 236.94 555.85 L 233.66 554.67 L 230.39 553.45 L 227.14 552.17 L 223.90 550.86 L 220.69 549.49 L 217.50 548.08 L 214.32 546.62 L 211.17 545.12 L 208.04 543.58 L 204.93 541.99 L 201.85 540.36 L 198.78 538.68 L 195.74 536.96 L 192.73 535.20 L 189.74 533.40 L 186.78 531.56 L 183.84 529.67 L 180.93 527.75 L 178.04 525.78 L 175.18 523.78 L 172.35 521.73 L 169.55 519.65 L 166.78 517.53 L 164.04 515.37 L 161.33 513.17 L 158.65 510.94 L 156.00 508.66 L 153.38 506.36 L 150.79 504.01 L 148.24 501.63 L 145.72 499.22 L 143.23 496.77 L 140.78 494.28 L 138.36 491.76 L 135.98 489.21 L 133.64 486.63 L 131.33 484.01 L 129.05 481.36 L 126.82 478.68 L 124.62 475.97 L 122.46 473.23 L 120.34 470.45 L 118.26 467.65 L 116.22 464.82 L 114.21 461.96 L 112.25 459.08 L 110.33 456.16 L 108.45 453.22 L 106.61 450.26 L 104.81 447.26"/>
+    <path class="base" stroke="var(--respond)" d="M 103.49 445.00 L 99.96 443.99 L 96.46 442.89 L 93.03 441.70 L 89.71 440.39 L 86.54 438.95 L 83.56 437.37 L 80.79 435.64 L 78.27 433.75 L 76.02 431.70 L 74.06 429.50 L 72.42 427.14 L 71.10 424.63 L 70.12 421.98 L 69.47 419.19 L 69.15 416.29 L 69.15 413.29 L 69.47 410.20 L 70.08 407.03 L 70.95 403.81 L 72.07 400.56 L 73.40 397.28 L 74.90 394.00 L 76.54 390.73 L 78.28 387.49 L 80.07 384.29 L 81.88 381.14 L 83.66 378.05 L 85.38 375.03 L 86.98 372.09 L 88.44 369.22 L 89.71 366.43 L 90.77 363.73 L 91.60 361.10 L 92.16 358.54 L 92.43 356.04 L 92.42 353.61 L 92.10 351.22 L 91.47 348.87 L 90.55 346.55 L 89.34 344.24 L 87.85 341.94 L 86.11 339.64 L 84.14 337.32 L 81.96 334.98 L 79.62 332.60 L 77.15 330.18 L 74.59 327.71 L 71.98 325.20 L 69.37 322.62 L 66.79 320.00 L 64.30 317.32 L 61.92 314.59 L 59.71 311.82 L 57.71 309.01 L 55.94 306.16 L 54.44 303.29 L 53.24 300.41 L 52.36 297.53 L 51.82 294.65 L 51.62 291.79 L 51.79 288.97 L 52.31 286.18 L 53.19 283.45 L 54.42 280.78 L 55.97 278.18 L 57.83 275.66 L 59.98 273.21 L 62.37 270.86 L 64.99 268.58 L 67.80 266.39 L 70.74 264.28 L 73.79 262.25 L 76.90 260.29 L 80.03 258.39 L 83.14 256.53 L 86.19 254.72 L 89.12 252.92 L 91.92 251.14 L 94.55 249.35 L 96.97 247.53 L 99.16 245.68 L 101.10 243.77 L 102.77 241.79 L 104.16 239.73 L 105.26 237.57 L 106.08 235.30 L 106.61 232.92 L 106.88 230.41 L 106.88 227.78 L 106.65 225.01 L 106.20 222.12 L 105.57 219.10 L 104.79 215.96 L 103.88 212.72 L 102.89 209.38 L 101.85 205.96 L 100.81 202.47 L 99.79 198.94 L 98.85 195.39 L 98.01 191.83 L 97.31 188.30 L 96.78 184.82 L 96.46 181.40 L 96.37 178.08 L 96.53 174.88 L 96.96 171.81 L 97.67 168.91 L 98.68 166.18 L 99.98 163.64 L 101.58 161.31 L 103.47 159.19 L 105.64 157.29 L 108.08 155.62 L 110.76 154.16 L 113.67 152.92 L 116.79 151.89 L 120.07 151.05 L 123.50 150.39 L 127.04 149.88 L 130.66 149.51 L 134.32 149.26 L 137.99 149.08 L 141.65 148.96 L 145.25 148.87 L 148.77 148.77 L 152.18 148.63 L 155.46 148.42 L 158.58 148.11 L 161.54 147.67 L 164.31 147.09 L 166.88 146.32 L 169.25 145.36 L 171.42 144.18 L 173.39 142.78 L 175.16 141.14 L 176.75 139.26 L 178.16 137.15 L 179.42 134.79 L 180.53 132.21 L 181.53 129.42 L 182.43 126.43 L 183.27 123.27 L 184.05 119.96 L 184.82 116.53 L 185.59 113.02 L 186.39 109.46 L 187.24 105.89 L 188.18 102.33 L 189.21 98.84 L 190.35 95.44 L 191.63 92.18 L 193.06 89.09 L 194.64 86.20 L 196.38 83.55 L 198.30 81.15 L 200.38 79.03 L 202.64 77.22 L 205.05 75.73 L 207.63 74.55 L 210.35 73.71 L 213.20 73.20 L 216.17 73.01 L 219.25 73.13 L 222.42 73.54 L 225.66 74.22 L 228.94 75.16 L 232.26 76.30 L 235.60 77.64 L 238.93 79.12 L 242.25 80.71 L 245.53 82.36 L 248.76 84.05 L 251.93 85.71 L 255.04 87.33 L 258.06 88.84 L 261.00 90.23 L 263.86 91.44 L 266.63 92.45 L 269.31 93.23 L 271.91 93.75 L 274.43 94.01 L 276.88 93.97 L 279.27 93.63 L 281.60 92.99 L 283.90 92.05 L 286.16 90.82 L 288.40 89.31 L 290.63 87.54 L 292.87 85.53 L 295.12 83.32 L 297.40 80.93 L 299.71 78.39 L 302.06 75.76 L 304.46 73.06 L 306.92 70.34"/>
+
+    <!-- measuring paths (invisible) -->
+    <path id="pA" d="M 333.08 70.34 L 335.70 70.49 L 338.31 70.67 L 340.92 70.88 L 343.53 71.11 L 346.13 71.37 L 348.73 71.66 L 351.33 71.97 L 354.15 70.73 L 357.05 69.12 L 359.98 67.55 L 362.43 69.16 L 364.70 71.59 L 366.92 74.04 L 369.41 74.93 L 371.98 75.46 L 374.54 76.02 L 377.09 76.61 L 379.63 77.22 L 380.93 82.70 L 383.30 83.75 L 390.59 67.17 L 398.23 50.72 L 397.65 62.80 L 394.61 81.92 L 394.16 91.75 L 398.15 87.80 L 402.22 83.91 L 404.68 84.78 L 407.14 85.68 L 409.59 86.60 L 412.03 87.56 L 414.46 88.53 L 416.88 89.53 L 419.29 90.56 L 421.85 91.23 L 425.11 90.42 L 428.40 89.65 L 431.71 88.92 L 435.05 88.23 L 437.66 89.08 L 439.11 92.17 L 440.50 95.27 L 441.84 98.37 L 443.14 101.47 L 445.00 103.49 L 447.26 104.81 L 449.51 106.16 L 451.74 107.53 L 453.96 108.92 L 456.16 110.33 L 458.35 111.77 L 460.52 113.23 L 462.68 114.71 L 464.82 116.22 L 466.95 117.75 L 469.06 119.30 L 471.15 120.87 L 473.23 122.46 L 475.29 124.08 L 477.33 125.71 L 479.36 127.37 L 481.36 129.05 L 483.36 130.75 L 485.33 132.47 L 487.28 134.21 L 489.22 135.98 L 491.14 137.76 L 494.14 138.41 L 497.43 138.81 L 500.74 139.26 L 501.76 142.01 L 502.17 145.30 L 502.53 148.59 L 504.02 150.78 L 505.79 152.72 L 507.53 154.67 L 509.25 156.64 L 510.95 158.64 L 508.78 163.83 L 510.08 166.08 L 525.72 156.95 L 541.57 148.13 L 534.00 157.56 L 520.30 171.24 L 514.16 178.93 L 519.71 178.08 L 525.29 177.32 L 526.77 179.48 L 528.23 181.65 L 529.67 183.84 L 531.08 186.04 L 532.47 188.26 L 533.84 190.49 L 535.19 192.74 L 536.87 194.79 L 539.98 196.05 L 543.09 197.35 L 546.20 198.71 L 549.31 200.12 L 550.92 202.34 L 550.27 205.69 L 549.58 209.02 L 548.85 212.31 L 548.07 215.58 L 548.39 218.32 L 549.44 220.71 L 550.47 223.12 L 551.47 225.54 L 552.44 227.97 L 553.40 230.41 L 554.32 232.86 L 555.22 235.32 L 556.09 237.78 L 556.94 240.26 L 557.76 242.75 L 558.56 245.24 L 559.33 247.74 L 560.07 250.25 L 560.79 252.77 L 561.48 255.30 L 562.15 257.83 L 562.78 260.37 L 563.39 262.91 L 563.98 265.46 L 564.54 268.02 L 565.07 270.59 L 565.57 273.15 L 567.62 275.45 L 570.05 277.71 L 572.45 280.02 L 571.67 282.84 L 570.06 285.75 L 568.43 288.62 L 568.34 291.27 L 568.63 293.87 L 568.89 296.47 L 569.12 299.08 L 569.33 301.69 L 564.52 304.62 L 564.25 307.20 L 582.27 309.01 L 600.28 311.19 L 588.61 314.37 L 569.49 317.39 L 560.00 320.00 L 564.99 322.57 L 569.95 325.24 L 569.88 327.85 L 569.78 330.47 L 569.66 333.08 L 569.51 335.70 L 569.33 338.31 L 569.12 340.92 L 568.89 343.53 L 569.04 346.18 L 570.83 349.02 L 572.58 351.91 L 574.29 354.83 L 575.97 357.80 L 575.98 360.54 L 573.48 362.87 L 570.97 365.16 L 568.44 367.39 L 565.88 369.58 L 564.54 371.98 L 563.98 374.54 L 563.39 377.09 L 562.78 379.63 L 562.15 382.17 L 561.48 384.70 L 560.79 387.23 L 560.07 389.75 L 559.33 392.26 L 558.56 394.76 L 557.76 397.25 L 556.94 399.74 L 556.09 402.22 L 555.22 404.68 L 554.32 407.14 L 553.40 409.59" fill="none" stroke="none"/>
+    <path id="pT" d="M 518.95 481.11 L 516.42 483.65 L 513.79 486.10 L 511.10 488.47 L 508.33 490.77 L 505.52 493.00 L 502.68 495.18 L 499.80 497.31 L 496.90 499.39 L 494.00 501.44 L 491.08 503.46 L 488.17 505.47 L 485.26 507.46 L 482.36 509.43 L 479.47 511.40 L 476.59 513.37 L 473.71 515.33 L 470.85 517.30 L 467.98 519.26 L 465.13 521.22 L 462.27 523.18 L 459.41 525.13 L 456.54 527.08 L 453.67 529.02 L 450.79 530.94 L 447.89 532.85 L 444.98 534.73 L 442.04 536.59 L 439.09 538.42 L 436.11 540.21 L 433.10 541.97 L 430.07 543.69 L 427.01 545.36 L 423.92 546.99 L 420.81 548.56 L 417.66 550.08 L 414.49 551.55 L 411.29 552.96 L 408.07 554.31 L 404.82 555.60 L 401.55 556.83 L 398.25 558.00 L 394.93 559.10 L 391.59 560.15 L 388.24 561.14 L 384.86 562.07 L 381.47 562.94 L 378.07 563.75 L 374.65 564.51 L 371.23 565.21 L 367.79 565.86 L 364.34 566.45 L 360.89 566.99 L 357.43 567.49 L 353.96 567.93 L 350.49 568.33 L 347.01 568.67 L 343.54 568.98 L 340.05 569.23 L 336.57 569.45 L 333.08 569.61 L 329.59 569.74 L 326.11 569.82 L 322.62 569.85 L 319.13 569.84 L 315.64 569.79 L 312.15 569.70 L 308.67 569.56 L 305.18 569.37 L 301.70 569.14 L 298.23 568.87 L 294.75 568.55 L 291.28 568.18 L 287.82 567.77 L 284.36 567.31 L 280.91 566.81 L 277.46 566.25 L 274.03 565.65 L 270.60 565.00 L 267.18 564.30 L 263.77 563.56 L 260.37 562.76 L 256.98 561.92 L 253.61 561.03 L 250.25 560.09 L 246.90 559.10 L 243.56 558.07 L 240.25 556.98 L 236.94 555.85 L 233.66 554.67 L 230.39 553.45 L 227.14 552.17 L 223.90 550.86 L 220.69 549.49 L 217.50 548.08 L 214.32 546.62 L 211.17 545.12 L 208.04 543.58 L 204.93 541.99 L 201.85 540.36 L 198.78 538.68 L 195.74 536.96 L 192.73 535.20 L 189.74 533.40 L 186.78 531.56 L 183.84 529.67 L 180.93 527.75 L 178.04 525.78 L 175.18 523.78 L 172.35 521.73 L 169.55 519.65 L 166.78 517.53 L 164.04 515.37 L 161.33 513.17 L 158.65 510.94 L 156.00 508.66 L 153.38 506.36 L 150.79 504.01 L 148.24 501.63 L 145.72 499.22 L 143.23 496.77 L 140.78 494.28 L 138.36 491.76 L 135.98 489.21 L 133.64 486.63 L 131.33 484.01 L 129.05 481.36 L 126.82 478.68 L 124.62 475.97 L 122.46 473.23 L 120.34 470.45 L 118.26 467.65 L 116.22 464.82 L 114.21 461.96 L 112.25 459.08 L 110.33 456.16 L 108.45 453.22 L 106.61 450.26 L 104.81 447.26" fill="none" stroke="none"/>
+    <path id="pS" d="M 103.49 445.00 L 99.96 443.99 L 96.46 442.89 L 93.03 441.70 L 89.71 440.39 L 86.54 438.95 L 83.56 437.37 L 80.79 435.64 L 78.27 433.75 L 76.02 431.70 L 74.06 429.50 L 72.42 427.14 L 71.10 424.63 L 70.12 421.98 L 69.47 419.19 L 69.15 416.29 L 69.15 413.29 L 69.47 410.20 L 70.08 407.03 L 70.95 403.81 L 72.07 400.56 L 73.40 397.28 L 74.90 394.00 L 76.54 390.73 L 78.28 387.49 L 80.07 384.29 L 81.88 381.14 L 83.66 378.05 L 85.38 375.03 L 86.98 372.09 L 88.44 369.22 L 89.71 366.43 L 90.77 363.73 L 91.60 361.10 L 92.16 358.54 L 92.43 356.04 L 92.42 353.61 L 92.10 351.22 L 91.47 348.87 L 90.55 346.55 L 89.34 344.24 L 87.85 341.94 L 86.11 339.64 L 84.14 337.32 L 81.96 334.98 L 79.62 332.60 L 77.15 330.18 L 74.59 327.71 L 71.98 325.20 L 69.37 322.62 L 66.79 320.00 L 64.30 317.32 L 61.92 314.59 L 59.71 311.82 L 57.71 309.01 L 55.94 306.16 L 54.44 303.29 L 53.24 300.41 L 52.36 297.53 L 51.82 294.65 L 51.62 291.79 L 51.79 288.97 L 52.31 286.18 L 53.19 283.45 L 54.42 280.78 L 55.97 278.18 L 57.83 275.66 L 59.98 273.21 L 62.37 270.86 L 64.99 268.58 L 67.80 266.39 L 70.74 264.28 L 73.79 262.25 L 76.90 260.29 L 80.03 258.39 L 83.14 256.53 L 86.19 254.72 L 89.12 252.92 L 91.92 251.14 L 94.55 249.35 L 96.97 247.53 L 99.16 245.68 L 101.10 243.77 L 102.77 241.79 L 104.16 239.73 L 105.26 237.57 L 106.08 235.30 L 106.61 232.92 L 106.88 230.41 L 106.88 227.78 L 106.65 225.01 L 106.20 222.12 L 105.57 219.10 L 104.79 215.96 L 103.88 212.72 L 102.89 209.38 L 101.85 205.96 L 100.81 202.47 L 99.79 198.94 L 98.85 195.39 L 98.01 191.83 L 97.31 188.30 L 96.78 184.82 L 96.46 181.40 L 96.37 178.08 L 96.53 174.88 L 96.96 171.81 L 97.67 168.91 L 98.68 166.18 L 99.98 163.64 L 101.58 161.31 L 103.47 159.19 L 105.64 157.29 L 108.08 155.62 L 110.76 154.16 L 113.67 152.92 L 116.79 151.89 L 120.07 151.05 L 123.50 150.39 L 127.04 149.88 L 130.66 149.51 L 134.32 149.26 L 137.99 149.08 L 141.65 148.96 L 145.25 148.87 L 148.77 148.77 L 152.18 148.63 L 155.46 148.42 L 158.58 148.11 L 161.54 147.67 L 164.31 147.09 L 166.88 146.32 L 169.25 145.36 L 171.42 144.18 L 173.39 142.78 L 175.16 141.14 L 176.75 139.26 L 178.16 137.15 L 179.42 134.79 L 180.53 132.21 L 181.53 129.42 L 182.43 126.43 L 183.27 123.27 L 184.05 119.96 L 184.82 116.53 L 185.59 113.02 L 186.39 109.46 L 187.24 105.89 L 188.18 102.33 L 189.21 98.84 L 190.35 95.44 L 191.63 92.18 L 193.06 89.09 L 194.64 86.20 L 196.38 83.55 L 198.30 81.15 L 200.38 79.03 L 202.64 77.22 L 205.05 75.73 L 207.63 74.55 L 210.35 73.71 L 213.20 73.20 L 216.17 73.01 L 219.25 73.13 L 222.42 73.54 L 225.66 74.22 L 228.94 75.16 L 232.26 76.30 L 235.60 77.64 L 238.93 79.12 L 242.25 80.71 L 245.53 82.36 L 248.76 84.05 L 251.93 85.71 L 255.04 87.33 L 258.06 88.84 L 261.00 90.23 L 263.86 91.44 L 266.63 92.45 L 269.31 93.23 L 271.91 93.75 L 274.43 94.01 L 276.88 93.97 L 279.27 93.63 L 281.60 92.99 L 283.90 92.05 L 286.16 90.82 L 288.40 89.31 L 290.63 87.54 L 292.87 85.53 L 295.12 83.32 L 297.40 80.93 L 299.71 78.39 L 302.06 75.76 L 304.46 73.06 L 306.92 70.34" fill="none" stroke="none"/>
+
+    <!-- COMPUTER at the bottom-right gap -->
+    <g transform="rotate(120 536.5 445)">
+      <rect id="boxGlow" x="504.5" y="422" width="64" height="46" rx="9" fill="var(--think)" opacity=".12"/>
+      <rect class="chip-line" x="504.5" y="422" width="64" height="46" rx="9"/>
+      <rect x="520" y="435" width="34" height="20" rx="3" fill="none" stroke="var(--think)" stroke-width="1.5" opacity=".6"/>
+      <g class="chip-line" stroke-width="2">
+        <line x1="516" y1="422" x2="516" y2="414"/><line x1="536" y1="422" x2="536" y2="414"/><line x1="556" y1="422" x2="556" y2="414"/>
+        <line x1="516" y1="468" x2="516" y2="476"/><line x1="536" y1="468" x2="536" y2="476"/><line x1="556" y1="468" x2="556" y2="476"/>
+      </g>
+    </g>
+
+    <!-- HEART in the top gap -->
+    <path class="heart-glyph" fill="none" stroke="var(--sense)" stroke-width="2.4" stroke-linejoin="round"
+      d="M320 60 c-3-4.4-10-4-11.8 1 c-1.3 3.5 1 6.8 3.8 9.2 L320 76 l8-5.6 c2.8-2.4 5.1-5.7 3.8-9.2 C330 56 323 55.6 320 60 Z"/>
+
+    <!-- pulsing core -->
+    <circle class="core" cx="320" cy="320" r="46" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1.5"/>
+    <circle class="core" cx="320" cy="320" r="30" fill="rgba(169,155,255,.10)"/>
+
+    <!-- emitted light pulses (respond) + comet + binary ball -->
+    <g id="ripples"></g>
+    <g id="trail"></g>
+    <g id="bitTrail"></g>
+    <circle id="head" r="5.5" fill="#fff" cx="333" cy="70"/>
+  </svg>
+
+  <div class="core-label"><span class="inf">&#8734;</span><small>All night</small></div>
+
+  <div class="tag sense">
+    <div class="ic"><svg viewBox="0 0 24 24" stroke="var(--sense)"><path d="M12 20s-7-4.6-9.3-8.4C1 8.4 2.6 5 6 5c2 0 3.4 1.3 3.9 2.2C10.6 6.3 12 5 14 5c3.4 0 5 3.4 3.3 6.6C19 15.4 12 20 12 20z"/></svg></div>
+    <div class="n">01 · SENSE</div><div class="t">Your body</div>
+  </div>
+  <div class="tag think">
+    <div class="ic"><svg viewBox="0 0 24 24" stroke="var(--think)"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></svg></div>
+    <div class="n">02 · THINK</div><div class="t">The pattern</div>
+  </div>
+  <div class="tag respond">
+    <div class="ic"><svg viewBox="0 0 24 24" stroke="var(--respond)">
+      <path d="M8.5 3A2.5 2.5 0 0 0 6 5.5c0 .3 0 .5.1.8A2.5 2.5 0 0 0 4.5 8.6c0 .8.4 1.5 1 2A2.6 2.6 0 0 0 6 15.4a2.5 2.5 0 0 0 4 1.9V4.6A1.6 1.6 0 0 0 8.5 3Z"/>
+      <path d="M15.5 3A2.5 2.5 0 0 1 18 5.5c0 .3 0 .5-.1.8a2.5 2.5 0 0 1 1.6 2.3c0 .8-.4 1.5-1 2a2.6 2.6 0 0 1-.5 4.8 2.5 2.5 0 0 1-4 1.9V4.6A1.6 1.6 0 0 1 15.5 3Z"/>
+      <path d="M12 6.5v10"/>
+    </svg></div>
+    <div class="n">03 · RESPOND</div><div class="t">Gentle nudge</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="cards">
+    <div class="card c-sense"><div class="cnum">01 · SENSE</div><h3>Your body</h3>
+      <p>The signal starts as your own heartbeat, your movement, and other simple body signals — read straight from your skin.</p></div>
+    <div class="card c-think"><div class="cnum">02 · THINK</div><h3>The pattern</h3>
+      <p>Inside the computer your signals turn into data — 0s and 1s — and AI reads the pattern to learn what's normal for you, then sends its answer out the other side.</p></div>
+    <div class="card c-respond"><div class="cnum">03 · RESPOND</div><h3>Gentle nudge</h3>
+      <p>It comes back as soft pulses of light and a wave-like electric touch through the mask — so gentle you barely feel it, easing your mind toward rest. Then the loop begins again.</p></div>
+  </div>
+</div>
+
+<section class="cta-sec"><div class="wrap">
+  <a class="cta" href="https://hypnodreamz.com/index.html#cta">Join the waitlist</a>
+  <div class="fineprint">Dreamz is a general wellness product — not a medical device, and it does not diagnose or treat any condition.</div>
+</div></section>
+<footer><div class="wrap">&copy; Dreamz — rest, on your own rhythm.</div></footer>
+
+<script>
+(function(){
+  var ns='http://www.w3.org/2000/svg';
+  var pA=document.getElementById('pA'),pT=document.getElementById('pT'),pS=document.getElementById('pS');
+  var head=document.getElementById('head'),trailG=document.getElementById('trail');
+  var box=document.getElementById('boxGlow'),ripplesG=document.getElementById('ripples'),bitTrailG=document.getElementById('bitTrail');
+  var respTag=document.querySelector('.tag.respond');
+  var css=getComputedStyle(document.documentElement);
+  var SENSE=css.getPropertyValue('--sense').trim(),THINK=css.getPropertyValue('--think').trim(),RESPOND=css.getPropertyValue('--respond').trim();
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var LA=pA.getTotalLength(),LT=pT.getTotalLength(),LS=pS.getTotalLength();
+
+  // circular comet trail (used for heartbeat + sine)
+  var N=16,trail=[];
+  for(var i=0;i<N;i++){var c=document.createElementNS(ns,'circle');
+    c.setAttribute('r',(4.4*(1-i/N)+1).toFixed(2));trailG.appendChild(c);trail.push(c);}
+
+  // the ball becomes a little stream of 0s and 1s while in the pattern stage
+  var BT=7,bitEls=[];
+  for(var b=0;b<BT;b++){var t=document.createElementNS(ns,'text');
+    t.setAttribute('class','bitdigit');t.textContent=Math.random()<0.5?'0':'1';
+    t.style.opacity=(1-b/BT).toFixed(2);bitTrailG.appendChild(t);bitEls.push(t);}
+  bitTrailG.style.opacity=0;
+
+  function spawnRipple(x,y){
+    var c=document.createElementNS(ns,'circle');
+    c.setAttribute('cx',x.toFixed(1));c.setAttribute('cy',y.toFixed(1));c.setAttribute('r',8);
+    c.setAttribute('class','ripple');ripplesG.appendChild(c);
+    c.addEventListener('animationend',function(){c.remove();});
+  }
+
+  var stages=[
+    {path:pA,len:LA,color:SENSE,kind:'sense'},
+    {box:true,dur:0.55},
+    {path:pT,len:LT,color:THINK,kind:'think'},
+    {path:pS,len:LS,color:RESPOND,kind:'respond'}
+  ];
+  var si=0,dist=0,boxT=0,rippleAcc=0,bitFlick=0,SPEED=170,last=performance.now();
+
+  function nextStage(){si=(si+1)%stages.length;dist=0;}
+  function drawTrail(path,color){
+    for(var i=0;i<N;i++){var d=dist-(i+1)*6.5;if(d<0)d=0;
+      var q=path.getPointAtLength(d),c=trail[i];
+      c.setAttribute('cx',q.x.toFixed(1));c.setAttribute('cy',q.y.toFixed(1));
+      c.setAttribute('fill',color);c.style.opacity=((1-i/N)*0.9).toFixed(2);}
+  }
+
+  function frame(now){
+    var dt=Math.min((now-last)/1000,0.05);last=now;
+    var st=stages[si];
+    respTag.classList.toggle('active', !st.box && st.kind==='respond');
+
+    if(st.box){
+      head.style.opacity=0;trailG.style.opacity=0;bitTrailG.style.opacity=0;box.setAttribute('opacity','0.8');
+      boxT+=dt;if(boxT>=st.dur){boxT=0;box.setAttribute('opacity','0.12');nextStage();}
+      return requestAnimationFrame(frame);
+    }
+
+    dist+=SPEED*dt;
+    if(dist>=st.len){nextStage();return requestAnimationFrame(frame);}
+    var p=st.path.getPointAtLength(dist);
+
+    if(st.kind==='think'){
+      // ball shows ones and zeros
+      head.style.opacity=0;trailG.style.opacity=0;bitTrailG.style.opacity=1;
+      bitFlick+=dt;var flip=bitFlick>0.09;if(flip)bitFlick=0;
+      for(var i=0;i<BT;i++){
+        var d=dist-i*16;if(d<0)d=0;
+        var q=pT.getPointAtLength(d),el=bitEls[i];
+        el.setAttribute('x',q.x.toFixed(1));el.setAttribute('y',(q.y+6).toFixed(1));
+        if(flip)el.textContent=Math.random()<0.5?'0':'1';
+        el.style.opacity=((1-i/BT)).toFixed(2);
+      }
+    }else{
+      // heartbeat + sine: white ball with coloured trail
+      head.style.opacity=1;bitTrailG.style.opacity=0;trailG.style.opacity=1;
+      head.setAttribute('cx',p.x.toFixed(1));head.setAttribute('cy',p.y.toFixed(1));
+      drawTrail(st.path,st.color);
+      if(st.kind==='respond'){rippleAcc+=dt;if(rippleAcc>0.30){rippleAcc=0;spawnRipple(p.x,p.y);}}
+    }
+    requestAnimationFrame(frame);
+  }
+
+  if(reduce){
+    trailG.style.opacity=0;bitTrailG.style.opacity=0;
+    head.setAttribute('cx',333);head.setAttribute('cy',70);
+  }else{requestAnimationFrame(frame);}
+})();
+</script>
+</body>
+</html>
