@@ -30,7 +30,7 @@ ENV/
 .vscode/
 *.swp
 *.swo
-
+.codex/
 # Project specific
 waitlist_data.json
 .env
