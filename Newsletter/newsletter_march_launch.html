@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dreamz — On Track for March</title>
+  <meta name="description" content="A progress update from the Dreamz team: comfort, ease of use, and machine-washability milestones, plus a first look behind the scenes ahead of our March launch.">
+  <meta name="color-scheme" content="light">
+  <meta name="supported-color-schemes" content="light">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@200;300;400;500&family=Quicksand:wght@500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* Email clients (Gmail, Outlook, Yahoo) do not support CSS custom
+       properties (var()) reliably, so every color below is a literal
+       value on purpose — do not reintroduce var(). Two-sided layouts
+       (masthead, bar label/value rows) use <table> instead of flexbox
+       for the same reason: flexbox is unreliable across email clients. */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #f6f4ef;
+      color: #2a2e45;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* Single continuous page sized to the rendered content, so the PDF
+       export reads as one sheet instead of splitting boxes across
+       arbitrary Letter/A4 page breaks. Height is measured from a full
+       render at 640px width — re-measure and adjust if content changes. */
+    @media print {
+      @page { size: 6.6667in 22.71in; margin: 0; }
+    }
+
+    a { color: inherit; }
+
+    .wrapper {
+      width: min(640px, 100%);
+      margin: 0 auto;
+      background: #ffffff;
+      box-shadow: 0 30px 80px rgba(42, 53, 128, 0.08);
+    }
+
+    /* MASTHEAD */
+    .masthead {
+      padding: 1.5rem 2.5rem;
+      border-bottom: 1px solid rgba(74, 91, 204, 0.16);
+    }
+    .masthead-table { width: 100%; border-collapse: collapse; }
+    .masthead-word {
+      display: inline-block;
+      vertical-align: middle;
+      font-family: 'Quicksand', 'DM Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: #04050d;
+    }
+    .pill {
+      display: inline-block;
+      padding: 0.6rem 1.15rem;
+      background: rgba(109, 91, 208, 0.1);
+      color: #5b21b6;
+      border-radius: 999px;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .pill::before { content: '●'; font-size: 0.7rem; color: #6d5bd0; margin-right: 0.4rem; }
+
+    /* HEADLINE */
+    .content { padding: 2.6rem 2.5rem 0; }
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-size: clamp(1.9rem, 6vw, 2.55rem);
+      line-height: 1.2;
+      color: #04050d;
+    }
+
+    /* VIDEO HERO */
+    .hero { margin: 2rem 2.5rem 0; }
+    .hero-frame {
+      position: relative;
+      display: block;
+      border-radius: 10px;
+      overflow: hidden;
+      text-decoration: none;
+      box-shadow: 0 20px 50px rgba(4, 5, 13, 0.28);
+    }
+    .hero-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .hero-frame .play-badge {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 64px;
+      height: 64px;
+      margin: -32px 0 0 -32px;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: 50%;
+      box-shadow: 0 8px 20px rgba(4, 5, 13, 0.35);
+    }
+    .hero-frame .play-badge::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 54%;
+      width: 0;
+      height: 0;
+      transform: translate(-50%, -50%);
+      border-style: solid;
+      border-width: 11px 0 11px 18px;
+      border-color: transparent transparent transparent #6d5bd0;
+    }
+    .hero-frame .hero-caption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 0.9rem 1.1rem;
+      background: linear-gradient(to top, rgba(4, 5, 13, 0.78), rgba(4, 5, 13, 0));
+      color: #ffffff;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    p { margin-bottom: 1.15rem; }
+    p:last-child { margin-bottom: 0; }
+    strong { color: #04050d; font-weight: 500; }
+    .highlight { color: #6d5bd0; font-weight: 500; }
+
+    /* MILESTONES */
+    .milestones {
+      margin: 0.4rem 2.5rem 2.2rem;
+      padding: 1.7rem 1.8rem 1.6rem;
+      background: #f6f4ef;
+      border: 1px solid rgba(74, 91, 204, 0.16);
+      border-radius: 6px;
+    }
+    .milestones-title {
+      margin-bottom: 1.2rem;
+      color: #666c8f;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.66rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .milestone-row { width: 100%; border-collapse: collapse; }
+    .milestone-row td { padding: 0.55rem 0; vertical-align: top; border-top: 1px solid rgba(74, 91, 204, 0.12); }
+    .milestone-row tr:first-child td { border-top: none; padding-top: 0; }
+    .milestone-mark {
+      width: 28px;
+      color: #6d5bd0;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.9rem;
+    }
+    .milestone-name {
+      color: #04050d;
+      font-weight: 500;
+      font-size: 0.94rem;
+      padding-bottom: 0.15rem;
+    }
+    .milestone-desc {
+      color: #666c8f;
+      font-size: 0.86rem;
+      line-height: 1.55;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      margin: 0 2.5rem 1.6rem;
+      padding: 1.6rem 1.8rem;
+      background: linear-gradient(135deg, rgba(139, 157, 232, 0.12), rgba(74, 91, 204, 0.05));
+      border: 1px solid rgba(74, 91, 204, 0.16);
+      border-radius: 6px;
+    }
+    .timeline-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: #04050d;
+    }
+    .timeline p { color: #2a2e45; font-size: 0.92rem; margin-bottom: 0; }
+
+    /* CTA */
+    .cta-wrap { padding: 0.2rem 2.5rem 2rem; text-align: center; }
+    .btn {
+      display: inline-block;
+      padding: 1rem 2.6rem;
+      background: #6d5bd0;
+      color: #ffffff;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(74, 91, 204, 0.28);
+    }
+    .btn-secondary {
+      margin-top: 0.9rem;
+      display: inline-block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #5b21b6;
+      text-decoration: none;
+    }
+
+    /* SIGNATURE */
+    .signoff { padding: 0 2.5rem 2.4rem; }
+    .signature-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-style: italic;
+      color: #04050d;
+      margin-bottom: 0.1rem;
+    }
+    .signature-title {
+      color: #666c8f;
+      font-size: 0.78rem;
+      letter-spacing: 0.02em;
+    }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      margin: 0 2.5rem 2rem;
+      background: rgba(74, 91, 204, 0.16);
+      border: none;
+    }
+
+    /* FOOTER */
+    footer { padding: 0 2.5rem 2.6rem; }
+    .footer-nav {
+      margin-bottom: 1.6rem;
+      text-align: center;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .footer-nav a { color: #5b21b6; text-decoration: none; margin: 0 0.5rem; }
+    .footer-nav span { color: rgba(74, 91, 204, 0.4); }
+    .legal {
+      color: #666c8f;
+      font-size: 0.72rem;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+    .legal:last-of-type { margin-bottom: 0; }
+
+    .footer-logo { display: block; margin: 0 auto 1.4rem; width: 40px; height: auto; opacity: 0.75; }
+
+    .compliance {
+      margin-top: 1.8rem;
+      padding-top: 1.4rem;
+      border-top: 1px solid rgba(74, 91, 204, 0.16);
+      text-align: center;
+      color: rgba(102, 108, 143, 0.7);
+      font-size: 0.68rem;
+      line-height: 1.6;
+    }
+    .compliance a { color: rgba(102, 108, 143, 0.9); text-decoration: underline; }
+
+    @media (max-width: 560px) {
+      .masthead { padding: 1.2rem 1.5rem; }
+      .content { padding: 2.2rem 1.5rem 0; }
+      .hero { margin: 1.7rem 1.5rem 0; }
+      .milestones { margin: 0.4rem 1.5rem 1.8rem; padding: 1.4rem 1.3rem; }
+      .timeline { margin: 0 1.5rem 1.4rem; padding: 1.4rem 1.3rem; }
+      .cta-wrap { padding: 0.2rem 1.5rem 1.8rem; }
+      .signoff { padding: 0 1.5rem 2rem; }
+      .divider { margin: 0 1.5rem 1.8rem; }
+      footer { padding: 0 1.5rem 2.2rem; }
+    }
+
+    /* Mobile Mail apps (notably iOS Mail) auto-invert simple line-art
+       logo images in dark mode via a CSS filter, applied inconsistently
+       within the same message. That produces a stark inverted-black box
+       that doesn't match the device's actual (non-pure-black) dark
+       background. Disable it explicitly so both logos always render as
+       shipped, regardless of the client's dark mode. */
+    @media (prefers-color-scheme: dark) {
+      .footer-logo {
+        filter: none !important;
+        -webkit-filter: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="masthead">
+      <table role="presentation" class="masthead-table" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td align="left" valign="middle">
+            <span class="masthead-word">DREAMZ</span>
+          </td>
+          <td align="right" valign="middle">
+            <span class="pill">Progress update</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="content">
+      <h1>We're closing in on March, and <span class="highlight">it's really happening</span>.</h1>
+    </div>
+
+    <div class="hero">
+      <a class="hero-frame" href="https://hypnodreamz.com/Newsletter/cine_cam_460_740.mp4" target="_blank" rel="noopener noreferrer">
+        <img src="data:image/jpeg;base64,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" alt="Close-up render of the Dreamz mask shell during development">
+        <span class="play-badge"></span>
+        <span class="hero-caption">Watch: inside the build</span>
+      </a>
+    </div>
+
+    <div class="content">
+      <p>It's been a busy few months in the workshop, and we wanted to bring you along for it. Every prototype that's come off the bench since our last update has been chasing the same three things: something that feels good against your skin all night, something you don't have to think twice about using, and something that comes out of the wash looking brand new.</p>
+      <p>We're not there because we rushed it. We're there because we kept rebuilding the parts that weren't good enough yet.</p>
+    </div>
+
+    <div class="milestones">
+      <p class="milestones-title">Where we landed</p>
+      <table role="presentation" class="milestone-row" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td class="milestone-mark">01</td>
+          <td>
+            <div class="milestone-name">Comfortable enough to forget you're wearing it</div>
+            <div class="milestone-desc">We reshaped the contact points and softened the strap tension after rounds of overnight wear testing, so it sits still without pressing anywhere.</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="milestone-mark">02</td>
+          <td>
+            <div class="milestone-name">Easy to use, no manual required</div>
+            <div class="milestone-desc">One button, one charge cable, one strap adjustment. If you can put on a hat, you can put on Dreamz.</div>
+          </td>
+        </tr>
+        <tr>
+          <td class="milestone-mark">03</td>
+          <td>
+            <div class="milestone-name">Machine washable</div>
+            <div class="milestone-desc">The fabric shell now separates cleanly from the electronics, so it goes in with a normal load and comes out ready for another week of sleep.</div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="timeline">
+      <p><span class="timeline-label">Launching March 2027.</span> That's the date we're building toward, and every test we run this month is in service of hitting it with a mask we're genuinely proud of.</p>
+    </div>
+
+    <div class="content">
+      <p>We're excited. Genuinely. This is the part of building something where it stops being a sketch and starts being a real thing you can hold, wash, and wear. Thank you for sticking with us while we got it right.</p>
+    </div>
+
+    <div class="cta-wrap">
+      <a class="btn" href="https://hypnodreamz.com/Newsletter/cine_cam_460_740.mp4" target="_blank" rel="noopener noreferrer" style="display:inline-block;padding:1rem 2.6rem;background-color:#6d5bd0;border-radius:999px;text-decoration:none;"><span style="color:#ffffff !important;font-family:'DM Sans',sans-serif;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;">Watch the behind-the-scenes film</span></a>
+      <br>
+      <a class="btn-secondary" href="https://hypnodreamz.com/index.html#cta" target="_blank" rel="noopener noreferrer">Reserve yours before March →</a>
+    </div>
+
+    <div class="signoff">
+      <p class="signature-name">Nir</p>
+    </div>
+
+    <hr class="divider">
+
+    <footer>
+      <nav class="footer-nav">
+        <a href="https://hypnodreamz.com/how-it-works.html" target="_blank" rel="noopener noreferrer">How it works</a>
+        <span>·</span>
+        <a href="https://hypnodreamz.com/dreamz-science.html" target="_blank" rel="noopener noreferrer">The science</a>
+        <span>·</span>
+        <a href="https://hypnodreamz.com/dreamz-faq.html" target="_blank" rel="noopener noreferrer">FAQ</a>
+      </nav>
+
+      <p class="legal">Launch timing is our current target based on development progress, not a guarantee. Design details shown are from an in-progress prototype and may change before final production.</p>
+
+      <p class="legal">Dreamz is a wellness device, not a medical device. It is not intended to diagnose, treat, cure, or prevent any disease or medical condition. Not for use by children, pregnant individuals, or anyone with epilepsy or a known neurological disorder. Talk to a healthcare professional first if you have concerns.</p>
+
+      <div class="compliance">
+        <img class="footer-logo" src="https://hypnodreamz.com/Logo/Logo_light_optimized.png" alt="Dreamz">
+        Dreamz Tech Inc. · 980 Ohlone Avenue, Albany, CA 94706<br>
+        You're receiving this because you signed up at hypnodreamz.com. <a href="{{ unsubscribe }}">Unsubscribe</a>
+      </div>
+    </footer>
+  </div>
+</body>
+
+</html>
