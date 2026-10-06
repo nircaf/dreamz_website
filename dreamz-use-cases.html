@@ -242,6 +242,23 @@
       background: rgba(232,235,255,0.04);
     }
 
+    /* DISCLAIMER (homepage pattern) */
+    .disclaimer {
+      position: relative;
+      z-index: 1;
+      padding: 2rem 4rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.72rem;
+      color: rgba(184,196,248,0.3);
+      line-height: 1.7;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    @media (max-width: 620px) {
+      .disclaimer { padding: 2rem 1.5rem; }
+    }
+
     a:focus-visible, button:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; }
 
     /* REVEAL (homepage pattern; driven by assets/shared.js) */
@@ -339,6 +356,11 @@
         </div>
       </div>
     </section>
+
+    <!-- DISCLAIMER -->
+    <div class="disclaimer" role="note" aria-label="Legal disclaimer">
+      Dreamz is a wellness device and is not a medical device. It is not intended to diagnose, treat, cure, or prevent any disease or medical condition. Not for use by children, pregnant individuals, or those with epilepsy or known neurological disorders. Consult a healthcare professional before use if you have concerns. Use constitutes acceptance of our Terms &amp; Conditions and Privacy Policy.
+    </div>
 
   </main>
   <div data-dreamz-footer></div>

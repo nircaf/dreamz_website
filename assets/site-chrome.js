@@ -206,6 +206,7 @@
         <canvas class="dreamz-animated-logo" width="300" height="300" aria-label="Dreamz logo"></canvas>
       </a>
       <ul class="nav-links" id="nav-links-list" role="list">
+        <li><a href="${url('index.html')}"${isActive('home')}>Home</a></li>
         <li><a href="${url('how-it-works.html')}"${isActive('how')}>How It Works</a></li>
         <li><a href="${url('dreamz-use-cases.html')}"${isActive('use-cases')}>Use Cases</a></li>
         <li><a href="${url('dreamz-science.html')}"${isActive('science')}>Science</a></li>
@@ -291,6 +292,7 @@
         <div class="footer-bottom-row">
           <p class="footer-copy">&copy; 2025 Dreamz. Sleep Neurotechnology. All rights reserved.</p>
           <div class="footer-legal-links">
+            <a href="${url('index.html')}"${isActive('home')}>Home</a>
             <a href="${url('how-it-works.html')}"${isActive('how')}>How It Works</a>
             <a href="${url('dreamz-use-cases.html')}"${isActive('use-cases')}>Use Cases</a>
             <a href="${url('about.html')}"${isActive('about')}>About</a>
