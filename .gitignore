@@ -59,3 +59,7 @@ BU*/
 .claude/
 .superpowers/
 Logo/logo_dark.jpeg
+# Supabase local state
+supabase/.temp/
+supabase/.branches/
+supabase/.env

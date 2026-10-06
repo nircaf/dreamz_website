@@ -1,0 +1,5 @@
+# Minimal config for deploying from this repo. No secrets live here.
+[functions.newsletter-subscribe]
+# Called anonymously from the public site; the function itself validates input
+# and uses the service role key that Supabase injects at runtime.
+verify_jwt = false
