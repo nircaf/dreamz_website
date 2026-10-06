@@ -71,6 +71,36 @@
         color: var(--muted, #8a94bd);
       }
 
+      /* Wellness disclaimer: identical text and styling in every footer type. */
+      .footer-disclaimer {
+        flex: 1 1 100%;
+        width: 100%;
+        margin: 1.25rem 0 0;
+        padding-top: 1.25rem;
+        border-top: 1px solid rgba(184, 196, 248, 0.1);
+        color: rgba(184, 196, 248, 0.4);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.7rem;
+        line-height: 1.7;
+        letter-spacing: 0.1em;
+        text-align: left;
+        text-transform: none;
+      }
+
+      .footer-policy-links:empty {
+        display: none;
+      }
+
+      .footer-disclaimer a {
+        color: rgba(184, 196, 248, 0.6);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      .footer-disclaimer a:hover {
+        color: var(--white, #f4f6ff);
+      }
+
       .footer-social {
         display: flex;
         align-items: center;
@@ -244,6 +274,9 @@
       </a>
     </div>`;
 
+  const disclaimerHtml = () => `
+    <p class="footer-disclaimer">Dreamz is a wellness device and is not a medical device. It is not intended to diagnose, treat, cure, or prevent any disease or medical condition. Not for use by children, pregnant individuals, or those with epilepsy or known neurological disorders. Consult a healthcare professional before use if you have concerns. Use constitutes acceptance of our <a href="${url('term/index.html')}">Terms &amp; Conditions</a> and <a href="${url('privacy.html')}">Privacy Policy</a>.</p>`;
+
   const legalFooterHtml = () => `
     <footer class="legal-footer" role="contentinfo">
       <a href="${url('index.html')}" class="footer-logo" aria-label="Dreamz home">
@@ -258,6 +291,7 @@
       </div>
       ${socialLinksHtml()}
       <p class="footer-copy">&copy; ${year} Dreamz. Sleep Neurotechnology. All rights reserved.</p>
+      ${disclaimerHtml()}
     </footer>`;
 
   const editorialFooterHtml = () => `
@@ -281,6 +315,7 @@
           <a href="${url('contact.html')}">Contact</a>
         </div>
         ${socialLinksHtml()}
+        ${disclaimerHtml()}
       </div>
     </footer>`;
 
@@ -302,6 +337,7 @@
           ${socialLinksHtml()}
         </div>
         <div class="footer-policy-links"></div>
+        ${disclaimerHtml()}
       </div>
     </footer>`;
 
