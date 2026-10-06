@@ -111,7 +111,7 @@
       white-space: nowrap;
     }
 
-    /* EYEBROWS + HEADINGS (homepage .section-label / .hero-title pattern) */
+    /* EYEBROW (homepage .section-label pattern) */
     .eyebrow {
       font-family: 'Space Mono', monospace;
       font-size: 0.68rem;
@@ -120,104 +120,9 @@
       color: var(--violet);
       margin-bottom: 1.2rem;
     }
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.2rem, 5.5vw, 5.5rem);
-      font-weight: 300;
-      line-height: 1.1;
-      color: var(--white);
-      max-width: 900px;
-    }
-    h1 em, .section-title em { color: var(--lavender); font-style: italic; }
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 3.5vw, 3.5rem);
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1.2;
-      margin-bottom: 1.5rem;
-    }
-
-    /* HEADER */
-    .uc-header {
-      padding: 11rem clamp(1.5rem, 5vw, 4rem) 5rem;
-      max-width: 1180px;
-      margin: 0 auto;
-    }
-
-    /* STATS BAR (homepage component) */
-    .stats-bar {
-      padding: 2rem 4rem;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      gap: 0;
-      background: rgba(13,19,48,0.4);
-      backdrop-filter: blur(4px);
-    }
-    .stat-item {
-      flex: 1;
-      padding: 1rem 2rem;
-      text-align: center;
-    }
-    .stat-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.8rem;
-      font-weight: 300;
-      color: var(--white);
-      display: block;
-      line-height: 1;
-    }
-    .stat-num span { color: var(--violet); }
-    .stat-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 0.4rem;
-      display: block;
-    }
-    .stat-footnote {
-      margin-top: 0.9rem;
-      font-size: 0.72rem;
-      color: rgba(184,196,248,0.5);
-      line-height: 1.6;
-    }
-
-    /* MECHANISM */
-    .uc-mechanism {
-      padding: 7rem clamp(1.5rem, 5vw, 4rem);
-      max-width: 1180px;
-      margin: 0 auto;
-    }
-    .uc-mechanism .uc-mechanism-copy {
-      color: var(--muted);
-      font-size: clamp(1rem, 1.35vw, 1.16rem);
-      line-height: 1.8;
-      max-width: 760px;
-      margin-bottom: 2.5rem;
-    }
-    .btn-secondary {
-      display: inline-block;
-      color: var(--lavender);
-      background: none;
-      border: 1px solid rgba(139,157,232,0.28);
-      padding: 0.78rem 1.6rem;
-      font-size: 0.76rem;
-      letter-spacing: 0.13em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
-    }
-    .btn-secondary:hover {
-      color: var(--white);
-      border-color: rgba(232,235,255,0.46);
-      background: rgba(232,235,255,0.04);
-    }
-
     /* USE CASE CARDS (homepage .tech-grid / .tech-card pattern) */
     .uc-cards {
-      padding: 0 clamp(1.5rem, 5vw, 4rem) 7rem;
+      padding: 10rem clamp(1.5rem, 5vw, 4rem) 7rem;
       max-width: 1180px;
       margin: 0 auto;
     }
@@ -318,6 +223,30 @@
       transition: background 0.25s ease, border-color 0.25s ease;
     }
     .btn-primary:hover { background: var(--soft); border-color: var(--soft); }
+    .uc-cta-actions {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-secondary {
+      display: inline-block;
+      color: var(--lavender);
+      background: none;
+      border: 1px solid rgba(139,157,232,0.28);
+      padding: 0.78rem 1.6rem;
+      font-size: 0.76rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+    .btn-secondary:hover {
+      color: var(--white);
+      border-color: rgba(232,235,255,0.46);
+      background: rgba(232,235,255,0.04);
+    }
 
     a:focus-visible, button:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; }
 
@@ -356,13 +285,11 @@
       .uc-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 960px) {
-      .uc-header { padding-top: 8rem; padding-bottom: 3.5rem; }
-      .stats-bar { padding: 1.5rem; }
+      .uc-cards { padding-top: 8rem; }
     }
     @media (max-width: 620px) {
       .nav-cta { display: none; }
       .uc-card { padding: 2.25rem 1.5rem; }
-      .uc-mechanism { padding-top: 5rem; padding-bottom: 5rem; }
       .uc-cta { padding-top: 6rem; padding-bottom: 6rem; }
     }
   </style>
@@ -372,35 +299,12 @@
   <div data-dreamz-nav></div>
   <main>
 
-    <!-- HEADER -->
-    <section class="uc-header" aria-labelledby="uc-heading">
-      <p class="eyebrow reveal">Use Cases</p>
-      <h1 class="reveal reveal-delay-1" id="uc-heading">How Dreamz helps people fall asleep <em>faster</em></h1>
-    </section>
-
-    <!-- PROOF STRIP (homepage stats-bar, single stat) -->
-    <div class="stats-bar" role="group" aria-label="Dreamz result">
-      <div class="stat-item reveal">
-        <span class="stat-num">38<span>%</span></span>
-        <span class="stat-label">Reduction in sleep onset</span>
-        <!-- TODO: fill in baseline, sample size (n), and timeframe for the 38% figure. Do not publish with the placeholder. -->
-        <p class="stat-footnote">[TODO: baseline, n = X, over X weeks]</p>
-      </div>
-    </div>
-
-    <!-- MECHANISM (stated once here; not repeated in the cards) -->
-    <section class="uc-mechanism" aria-labelledby="mechanism-heading">
-      <p class="eyebrow reveal">The Mechanism</p>
-      <h2 class="section-title reveal" id="mechanism-heading">How Dreamz works</h2>
-      <p class="uc-mechanism-copy reveal">The mask decreases the membrane threshold potential of neurons, which helps synchronize neuronal patterns. This reduces the mental noise and stress people feel while trying to fall asleep, so sleep arrives faster.</p>
-      <a class="btn-secondary reveal" href="how-it-works.html">Learn how it works →</a>
-    </section>
-
     <!-- USE CASE CARDS
          All card copy lives in this list. To edit or reorder, change or move a whole <li>.
          Each card: label (span inside the h3), headline, body, closing line. -->
     <section class="uc-cards" aria-labelledby="cards-heading">
-      <h2 class="visually-hidden" id="cards-heading">Use cases</h2>
+      <p class="eyebrow reveal">Use Cases</p>
+      <h1 class="visually-hidden" id="cards-heading">Dreamz use cases</h1>
       <ul class="uc-grid" role="list">
 
         <li class="uc-card reveal">
@@ -435,7 +339,10 @@
       <div class="uc-cta-inner reveal">
         <p class="eyebrow">Pre-order</p>
         <h2 id="uc-cta-heading">Get Your Mask <em>Now</em></h2>
-        <a class="btn-primary" href="index.html#cta">Pre-order Now</a>
+        <div class="uc-cta-actions">
+          <a class="btn-primary" href="index.html#cta">Pre-order Now</a>
+          <a class="btn-secondary" href="how-it-works.html">Learn How It Works →</a>
+        </div>
       </div>
     </section>
 
