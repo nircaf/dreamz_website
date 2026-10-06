@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Use Cases | Dreamz - Better Sleep, Every Night</title>
+  <meta name="description" content="Dreamz helps people fall asleep faster. See how the sleep mask supports nights shaped by perimenopause and postmenopause, insomnia, anxiety, and PTSD.">
+  <meta name="author" content="Dreamz">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#04050d">
+  <link rel="canonical" href="https://hypnodreamz.com/dreamz-use-cases.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Use Cases - Dreamz">
+  <meta property="og:description" content="How Dreamz helps people fall asleep faster, from perimenopause and postmenopause to insomnia, anxiety, and PTSD.">
+  <meta property="og:url" content="https://hypnodreamz.com/dreamz-use-cases.html">
+  <meta property="og:site_name" content="Dreamz">
+  <meta property="og:locale" content="en_US">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Use Cases - Dreamz">
+  <meta name="twitter:description" content="How Dreamz helps people fall asleep faster.">
+  <meta name="twitter:site" content="@dreamzsleep">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@200;300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="assets/branding/favicon-dark.ico">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #04050d;
+      --midnight: #080c1a;
+      --deep: #0d1330;
+      --iris: #4a5bcc;
+      --violet: #818cf8;
+      --lavender: #8b9de8;
+      --soft: #e8ebff;
+      --white: #f4f6ff;
+      --muted: rgba(184,196,248,0.62);
+      --border: rgba(138,157,232,0.16);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      background: var(--ink);
+      color: var(--soft);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    #bg-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem clamp(1.5rem, 5vw, 4rem);
+      background: rgba(4,5,13,0.72);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+    }
+    .nav-links {
+      display: flex;
+      gap: clamp(1rem, 2vw, 2rem);
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a, .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color 0.25s;
+    }
+    .nav-links a:hover, .nav-links a.active, .footer-links a:hover { color: var(--white); }
+    .nav-cta {
+      padding: 0.65rem 1.25rem;
+      border: 1px solid rgba(129,140,248,0.45);
+      background: transparent;
+      color: var(--violet);
+      font: inherit;
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    main {
+      position: relative;
+      z-index: 1;
+    }
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
+    /* EYEBROW (homepage .section-label pattern) */
+    .eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--violet);
+      margin-bottom: 1.2rem;
+    }
+    /* USE CASE CARDS (homepage .tech-grid / .tech-card pattern) */
+    .uc-cards {
+      padding: 10rem clamp(1.5rem, 5vw, 4rem) 7rem;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .uc-grid {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .uc-card {
+      background: var(--midnight);
+      padding: 2.75rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      transition: background 0.3s;
+    }
+    .uc-card:hover { background: var(--deep); }
+    .uc-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 2.2vw, 2rem);
+      font-weight: 300;
+      line-height: 1.25;
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+    .uc-card-label {
+      display: block;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--violet);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .uc-card p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .uc-card .uc-card-close {
+      color: var(--white);
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+
+    /* CLOSING CTA (homepage #cta pattern) */
+    .uc-cta {
+      padding: 8rem clamp(1.5rem, 5vw, 4rem);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      border-top: 1px solid var(--border);
+    }
+    .uc-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(ellipse, rgba(74,91,204,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .uc-cta-inner { position: relative; z-index: 1; }
+    .uc-cta .eyebrow { margin-bottom: 1.5rem; }
+    .uc-cta h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 2.5rem;
+    }
+    .uc-cta h2 em { font-style: italic; color: var(--lavender); }
+    .btn-primary {
+      display: inline-block;
+      padding: 0.82rem 2rem;
+      background: var(--white);
+      color: var(--ink);
+      border: 1px solid rgba(244,246,255,0.72);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+    .btn-primary:hover { background: var(--soft); border-color: var(--soft); }
+    .uc-cta-actions {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-secondary {
+      display: inline-block;
+      color: var(--lavender);
+      background: none;
+      border: 1px solid rgba(139,157,232,0.28);
+      padding: 0.78rem 1.6rem;
+      font-size: 0.76rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+    .btn-secondary:hover {
+      color: var(--white);
+      border-color: rgba(232,235,255,0.46);
+      background: rgba(232,235,255,0.04);
+    }
+
+    /* DISCLAIMER (homepage pattern) */
+    .disclaimer {
+      position: relative;
+      z-index: 1;
+      padding: 2rem 4rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.72rem;
+      color: rgba(184,196,248,0.3);
+      line-height: 1.7;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    @media (max-width: 620px) {
+      .disclaimer { padding: 2rem 1.5rem; }
+    }
+
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--violet); outline-offset: 3px; }
+
+    /* REVEAL (homepage pattern; driven by assets/shared.js) */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 2rem clamp(1.5rem, 5vw, 5rem);
+      border-top: 1px solid var(--border);
+    }
+    .footer-bottom, .footer-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-legal-links, .footer-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .footer-copy { color: rgba(184,196,248,0.35); font-size: 0.78rem; }
+
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .uc-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 960px) {
+      .uc-cards { padding-top: 8rem; }
+    }
+    @media (max-width: 620px) {
+      .nav-cta { display: none; }
+      .uc-card { padding: 2.25rem 1.5rem; }
+      .uc-cta { padding-top: 6rem; padding-bottom: 6rem; }
+    }
+  </style>
+</head>
+<body data-footer-type="landing" data-active-page="use-cases">
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div data-dreamz-nav></div>
+  <main>
+
+    <!-- USE CASE CARDS
+         All card copy lives in this list. To edit or reorder, change or move a whole <li>.
+         Each card: label (span inside the h3), headline, body, closing line. -->
+    <section class="uc-cards" aria-labelledby="cards-heading">
+      <p class="eyebrow reveal">Use Cases</p>
+      <h1 class="visually-hidden" id="cards-heading">Dreamz use cases</h1>
+      <ul class="uc-grid" role="list">
+
+        <li class="uc-card reveal">
+          <h3><span class="uc-card-label">Perimenopause and postmenopause</span><span class="visually-hidden">: </span>When hormonal changes disrupt sleep</h3>
+          <p>Research links the hormonal changes women experience during the menopause transition with shifts in sleep, including more difficulty settling at night. During perimenopause, estrogen and progesterone begin to fluctuate and then decline. Declining estrogen is associated with a narrower comfortable temperature range in the body, which is linked to night sweats, hot flashes, and restless nights. Dreamz tracks overnight temperature, heart rate variability, and movement, so women can see how their nights vary.</p>
+          <p class="uc-card-close">Dreamz helps women fall asleep faster and shows how their nights change over time, so they can spot patterns and bring real data to conversations with their providers.</p>
+        </li>
+
+        <li class="uc-card reveal reveal-delay-1">
+          <h3><span class="uc-card-label">Insomnia</span><span class="visually-hidden">: </span>When sleep takes too long to arrive</h3>
+          <p>For many people, the hardest part of the night is the stretch between lights out and sleep. Many people describe checking the time again and again while waiting for sleep, and research links that rising frustration with heightened arousal. Dreamz gives the brain a physiological assist at that moment.</p>
+          <p class="uc-card-close">Dreamz shortens the stretch between lights out and sleep, so the night starts with rest.</p>
+        </li>
+
+        <li class="uc-card reveal">
+          <h3><span class="uc-card-label">Anxiety</span><span class="visually-hidden">: </span>When your mind won't quiet down</h3>
+          <p>Sleep research consistently shows that the brain needs to shift out of a high-arousal state before sleep can begin. Dreamz supports that shift directly, helping the brain settle so people fall asleep faster.</p>
+          <p class="uc-card-close">With the mind settled sooner, the night starts calmer and sleep arrives faster.</p>
+        </li>
+
+        <li class="uc-card reveal reveal-delay-1">
+          <h3><span class="uc-card-label">PTSD</span><span class="visually-hidden">: </span>When trauma-related stress follows you to bed</h3>
+          <p>Research on sleep and emotional processing suggests that high-quality rest plays a meaningful role in how the brain handles stressful experiences, and many people living with trauma-related stress report difficulty falling asleep. Dreamz helps people fall asleep faster by acting on the physiological mechanisms behind sleep onset, quieting the mental noise that often keeps the mind active at bedtime.</p>
+          <p class="uc-card-close">Getting to sleep sooner gives the brain more time in the restorative stages that research links to emotional regulation.</p>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- CLOSING CTA (homepage pre-order pattern; checkout itself lives at index.html#cta) -->
+    <section class="uc-cta" aria-labelledby="uc-cta-heading">
+      <div class="uc-cta-inner reveal">
+        <p class="eyebrow">Pre-order</p>
+        <h2 id="uc-cta-heading">Get Your Mask <em>Now</em></h2>
+        <div class="uc-cta-actions">
+          <a class="btn-primary" href="index.html#cta">Pre-order Now</a>
+          <a class="btn-secondary" href="how-it-works.html">Learn How It Works →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DISCLAIMER -->
+    <div class="disclaimer" role="note" aria-label="Legal disclaimer">
+      Dreamz is a wellness device and is not a medical device. It is not intended to diagnose, treat, cure, or prevent any disease or medical condition. Not for use by children, pregnant individuals, or those with epilepsy or known neurological disorders. Consult a healthcare professional before use if you have concerns. Use constitutes acceptance of our Terms &amp; Conditions and Privacy Policy.
+    </div>
+
+  </main>
+  <div data-dreamz-footer></div>
+  <script defer src="assets/site-chrome.js"></script>
+  <script defer src="assets/shared.js"></script>
+</body>
+</html>
