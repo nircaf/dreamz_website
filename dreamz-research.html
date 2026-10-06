@@ -93,13 +93,9 @@
     color: var(--soft);
     font-family: 'DM Sans', sans-serif;
     font-weight: 300;
-    cursor: none;
     overflow-x: hidden;
   }
 
-  /* CURSOR */
-  #cursor { width:8px; height:8px; border-radius:50%; background:var(--teal); position:fixed; pointer-events:none; z-index:9999; transform:translate(-50%,-50%); }
-  #cursor-ring { width:36px; height:36px; border-radius:50%; border:1px solid rgba(68,212,204,0.4); position:fixed; pointer-events:none; z-index:9998; transform:translate(-50%,-50%); transition:width .3s,height .3s; }
   #bg-canvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:0; pointer-events:none; }
 
   /* NAV */
@@ -110,7 +106,7 @@
   .nav-links { display:flex; gap:2.5rem; list-style:none; }
   .nav-links a { font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .3s; }
   .nav-links a:hover,.nav-links a.active { color:var(--white); }
-  .nav-cta { padding:0.6rem 1.6rem; border:1px solid rgba(68,212,204,0.35); background:transparent; color:var(--teal); font-family:'DM Sans',sans-serif; font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; cursor:none; transition:all .3s; }
+  .nav-cta { padding:0.6rem 1.6rem; border:1px solid rgba(68,212,204,0.35); background:transparent; color:var(--teal); font-family:'DM Sans',sans-serif; font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; cursor: pointer; transition:all .3s; }
   .nav-cta:hover { background:rgba(68,212,204,0.08); }
 
   /* HERO */
@@ -152,7 +148,7 @@
   #pub-histogram-svg { width:100%; height:auto; display:block; overflow:visible; }
   .histogram-grid-line { stroke:var(--border); stroke-width:1; }
   .histogram-axis-label { font-family:'Space Mono',monospace; font-size:9px; fill:rgba(184,196,248,0.3); }
-  .histogram-bar { fill:var(--teal); opacity:0.85; transition:opacity .2s, fill .2s; cursor:none; }
+  .histogram-bar { fill:var(--teal); opacity:0.85; transition:opacity .2s, fill .2s; cursor: pointer; }
   .histogram-bar:hover, .histogram-bar:focus-visible { opacity:1; fill:var(--lavender); outline:none; }
   .histogram-bar--zero { fill:rgba(184,196,248,0.16); }
   .histogram-bar--zero:hover, .histogram-bar--zero:focus-visible { fill:rgba(184,196,248,0.38); }
@@ -165,7 +161,7 @@
   .histogram-tooltip[hidden] { display:none; }
   .histogram-table-fallback { margin-top:2rem; }
   .histogram-table-fallback summary {
-    cursor:none; font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.14em;
+    cursor: pointer; font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.14em;
     text-transform:uppercase; color:var(--muted);
   }
   .histogram-table-fallback summary:hover { color:var(--soft); }
@@ -195,7 +191,7 @@
     padding: 1rem 1.4rem; flex-shrink: 0;
     border-right: 1px solid var(--border);
     font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase;
-    color:var(--muted); cursor:none; background:transparent; border-top:none; border-left:none; border-bottom:none;
+    color:var(--muted); cursor: pointer; background:transparent; border-top:none; border-left:none; border-bottom:none;
     transition: all .3s;
   }
   .filter-tag:hover { color:var(--soft); }
@@ -337,13 +333,13 @@
   .btn-primary {
     padding:0.9rem 2.5rem; background:linear-gradient(135deg,var(--iris),var(--teal-dim));
     border:none; color:var(--white); font-family:'DM Sans',sans-serif;
-    font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; cursor:none; transition:opacity .3s;
+    font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; cursor: pointer; transition:opacity .3s;
   }
   .btn-primary:hover { opacity:0.85; }
   .btn-secondary {
     padding:0.9rem 2rem; border:1px solid rgba(68,212,204,0.3);
     background:transparent; color:var(--teal); font-family:'DM Sans',sans-serif;
-    font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; cursor:none;
+    font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; cursor: pointer;
     text-decoration:none; display:inline-block; transition:background .3s;
   }
   .btn-secondary:hover { background:rgba(68,212,204,0.06); }
@@ -387,41 +383,6 @@
     .footer-bottom { flex-direction:column; text-align:center; }
   }
 
-        /* Disable custom cursor on non-desktop platforms */
-        html.no-custom-cursor,
-        html.no-custom-cursor * {
-            cursor: auto !important;
-        }
-
-        html.no-custom-cursor #cursor,
-        html.no-custom-cursor #cursor-ring {
-            display: none !important;
-        }
-
-        /* Default: hide custom cursor until desktop eligibility is confirmed */
-        #cursor,
-        #cursor-ring {
-            display: none;
-        }
-
-        html.use-custom-cursor #cursor,
-        html.use-custom-cursor #cursor-ring {
-            display: block;
-        }
-
-        /* Hard-stop on phones/tablets */
-        @media (hover: none), (pointer: coarse) {
-            #cursor,
-            #cursor-ring {
-                display: none !important;
-            }
-
-            html,
-            body,
-            * {
-                cursor: auto !important;
-            }
-        }
 </style>
 
     <link rel="icon" type="image/x-icon" href="assets/branding/favicon-light.ico" media="(prefers-color-scheme: light)">
@@ -437,8 +398,6 @@
 </head>
 <body data-footer-type="editorial" data-active-page="research">
 
-<div id="cursor"></div>
-<div id="cursor-ring"></div>
 <canvas id="bg-canvas"></canvas>
 
 <div data-dreamz-nav></div>
@@ -1632,36 +1591,6 @@
 <script src="assets/site-chrome.js"></script>
 
 <script>
-// CURSOR
-
-        // PLATFORM-AWARE CURSOR TOGGLE (PC/Mac only)
-        (() => {
-            const platformRaw = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
-            const ua = navigator.userAgent || '';
-            const isDesktopOS = /Win|Mac/i.test(platformRaw);
-            const isMobileUA = /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
-            const hasFinePointer = window.matchMedia ? window.matchMedia('(pointer: fine)').matches : true;
-            const useCustomCursor = isDesktopOS && !isMobileUA && hasFinePointer && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-            const platformLabel = /Win/i.test(platformRaw)
-                ? 'windows'
-                : /Mac/i.test(platformRaw)
-                    ? 'macos'
-                    : 'other';
-
-            document.documentElement.dataset.clientPlatform = platformLabel;
-            document.documentElement.classList.toggle('no-custom-cursor', !useCustomCursor);
-            document.documentElement.classList.toggle('use-custom-cursor', useCustomCursor);
-            window.__dreamzUseCustomCursor = useCustomCursor;
-        })();
-
-const cursor = document.getElementById('cursor');
-const cursorRing = document.getElementById('cursor-ring');
-let mouseX=0,mouseY=0,ringX=0,ringY=0;
-if (window.__dreamzUseCustomCursor && cursor && cursorRing) {
-  document.addEventListener('mousemove',e=>{ mouseX=e.clientX; mouseY=e.clientY; cursor.style.left=mouseX+'px'; cursor.style.top=mouseY+'px'; }, { passive: true });
-  (function tick(){ if(!document.hidden){ ringX+=(mouseX-ringX)*.12; ringY+=(mouseY-ringY)*.12; cursorRing.style.left=ringX+'px'; cursorRing.style.top=ringY+'px'; } requestAnimationFrame(tick); })();
-}
 
 // NAV
 window.addEventListener('scroll',()=>{ document.getElementById('nav').classList.toggle('scrolled',window.scrollY>60); });

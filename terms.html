@@ -60,41 +60,7 @@
             font-family: 'DM Sans', sans-serif;
             font-weight: 300;
             line-height: 1.7;
-            cursor: none;
             overflow-x: hidden;
-        }
-
-        /* CURSOR */
-        #cursor {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background: var(--violet);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 10000;
-            transform: translate(-50%, -50%);
-            transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
-            mix-blend-mode: screen;
-        }
-
-        #cursor-ring {
-            position: fixed;
-            width: 36px;
-            height: 36px;
-            border: 1px solid rgba(129, 140, 248, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: transform 0.18s ease, width 0.3s, height 0.3s, border-color 0.3s;
-        }
-
-        body:has(a:hover) #cursor-ring,
-        body:has(button:hover) #cursor-ring {
-            width: 52px;
-            height: 52px;
-            border-color: var(--violet);
         }
 
         /* NAV */
@@ -403,42 +369,6 @@
             }
         }
 
-        /* Disable custom cursor on non-desktop platforms */
-        html.no-custom-cursor,
-        html.no-custom-cursor * {
-            cursor: auto !important;
-        }
-
-        html.no-custom-cursor #cursor,
-        html.no-custom-cursor #cursor-ring {
-            display: none !important;
-        }
-
-        /* Default: hide custom cursor until desktop eligibility is confirmed */
-        #cursor,
-        #cursor-ring {
-            display: none;
-        }
-
-        html.use-custom-cursor #cursor,
-        html.use-custom-cursor #cursor-ring {
-            display: block;
-        }
-
-        /* Hard-stop on phones/tablets */
-        @media (hover: none), (pointer: coarse) {
-            #cursor,
-            #cursor-ring {
-                display: none !important;
-            }
-
-            html,
-            body,
-            * {
-                cursor: auto !important;
-            }
-        }
-
 </style>
 
     <link rel="icon" type="image/x-icon" href="assets/branding/favicon-light.ico" media="(prefers-color-scheme: light)">
@@ -454,8 +384,6 @@
 </head>
 
 <body data-footer-type="legal" data-active-page="terms">
-    <div id="cursor"></div>
-    <div id="cursor-ring"></div>
 
     <!-- NAV -->
     <div data-dreamz-nav></div>
@@ -917,39 +845,6 @@
     <div data-dreamz-footer></div>
     <script src="assets/site-chrome.js"></script>
 
-    <script>
-        // Custom cursor
-        
-        // PLATFORM-AWARE CURSOR TOGGLE (PC/Mac only)
-        (() => {
-            const platformRaw = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
-            const ua = navigator.userAgent || '';
-            const isDesktopOS = /Win|Mac/i.test(platformRaw);
-            const isMobileUA = /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
-            const hasFinePointer = window.matchMedia ? window.matchMedia('(pointer: fine)').matches : true;
-            const useCustomCursor = isDesktopOS && !isMobileUA && hasFinePointer;
-
-            const platformLabel = /Win/i.test(platformRaw)
-                ? 'windows'
-                : /Mac/i.test(platformRaw)
-                    ? 'macos'
-                    : 'other';
-
-            document.documentElement.dataset.clientPlatform = platformLabel;
-            document.documentElement.classList.toggle('no-custom-cursor', !useCustomCursor);
-            document.documentElement.classList.toggle('use-custom-cursor', useCustomCursor);
-            window.__dreamzUseCustomCursor = useCustomCursor;
-        })();
-
-const cursor = document.getElementById('cursor');
-        const ring = document.getElementById('cursor-ring');
-        document.addEventListener('mousemove', e => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-            ring.style.left = e.clientX + 'px';
-            ring.style.top = e.clientY + 'px';
-        });
-    </script>
 </body>
 
 </html>

@@ -74,44 +74,6 @@
             opacity: 0.8;
         }
 
-        #cursor,
-        #cursor-ring {
-            position: fixed;
-            top: 0;
-            left: 0;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 10000;
-        }
-
-        #cursor {
-            width: 10px;
-            height: 10px;
-            background: var(--violet);
-            mix-blend-mode: screen;
-        }
-
-        #cursor-ring {
-            width: 36px;
-            height: 36px;
-            border: 1px solid rgba(129, 140, 248, 0.5);
-            z-index: 9999;
-        }
-
-        .no-custom-cursor #cursor,
-        .no-custom-cursor #cursor-ring {
-            display: none;
-        }
-
-        .use-custom-cursor body {
-            cursor: none;
-        }
-
-        .use-custom-cursor a,
-        .use-custom-cursor button {
-            cursor: none;
-        }
-
         nav {
             position: fixed;
             top: 0;
@@ -366,8 +328,6 @@
 
 <body data-footer-type="legal" data-active-page="account-deletion">
     <canvas id="bg-canvas" aria-hidden="true"></canvas>
-    <div id="cursor" aria-hidden="true"></div>
-    <div id="cursor-ring" aria-hidden="true"></div>
     <div data-dreamz-nav></div>
 
     <header class="page-hero">

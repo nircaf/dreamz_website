@@ -249,41 +249,7 @@
             font-family: 'DM Sans', sans-serif;
             font-weight: 300;
             line-height: 1.7;
-            cursor: none;
             overflow-x: clip;
-        }
-
-        /* CURSOR */
-        #cursor {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background: var(--violet);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 10000;
-            transform: translate(-50%, -50%);
-            transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s;
-            mix-blend-mode: screen;
-        }
-
-        #cursor-ring {
-            position: fixed;
-            width: 36px;
-            height: 36px;
-            border: 1px solid rgba(129, 140, 248, 0.5);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transform: translate(-50%, -50%);
-            transition: transform 0.18s ease, width 0.3s, height 0.3s, border-color 0.3s;
-        }
-
-        body:has(a:hover) #cursor-ring,
-        body:has(button:hover) #cursor-ring {
-            width: 52px;
-            height: 52px;
-            border-color: var(--violet);
         }
 
         /* NAV */
@@ -351,7 +317,7 @@
             font-size: 0.78rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
-            cursor: none;
+            cursor: pointer;
             transition: all 0.3s;
         }
 
@@ -494,7 +460,7 @@
             font-size: 0.78rem;
             letter-spacing: 0.14em;
             text-transform: uppercase;
-            cursor: none;
+            cursor: pointer;
             transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
             position: relative;
             overflow: hidden;
@@ -522,7 +488,7 @@
             font-size: 0.76rem;
             letter-spacing: 0.13em;
             text-transform: uppercase;
-            cursor: none;
+            cursor: pointer;
             text-decoration: none;
             transition: color 0.25s ease, border-color 0.25s ease, background 0.25s ease;
         }
@@ -691,7 +657,6 @@
             margin-bottom: 4rem;
         }
 
-
         /* HOW IT WORKS */
         #how {
             padding: 8rem 4rem;
@@ -830,7 +795,7 @@
 
         /* PRE-ORDER */
         #cta {
-            padding: 8rem 4rem;
+            padding: 4rem 4rem 8rem;
             position: relative;
             overflow: hidden;
         }
@@ -863,62 +828,61 @@
         }
 
         .newsletter-signup {
-            max-width: 1100px;
-            margin: 4rem auto 0;
-            padding: 2.25rem 2.5rem;
+            max-width: 680px;
+            margin: 5rem auto 0;
+            padding-top: 3rem;
             position: relative;
             z-index: 1;
-            border: 1px solid var(--border);
-            border-radius: 18px;
-            background: rgba(13, 19, 48, 0.55);
-            display: grid;
-            grid-template-columns: 1fr minmax(0, 1.1fr);
-            gap: 1.5rem 3rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        #cta .newsletter-signup h2 { margin-bottom: 0; max-width: none; white-space: nowrap; }
+        #cta .newsletter-signup h2 em { display: inline; }
+        .newsletter-signup p { margin: 0.4rem 0 0; color: var(--muted); font-size: 0.85rem; line-height: 1.5; }
+        .newsletter-form {
+            display: flex;
             align-items: center;
+            flex-wrap: wrap;
+            margin: 1.5rem auto 0;
+            max-width: 460px;
+            border-bottom: 1px solid rgba(138, 157, 232, 0.25);
+            transition: border-color 0.2s ease;
         }
-        .newsletter-signup h3 {
-            margin: 0;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 400;
-            font-size: 1.9rem;
-            color: var(--white);
-        }
-        .newsletter-signup p { margin: 0.4rem 0 0; color: rgba(184, 196, 248, 0.65); font-size: 0.9rem; line-height: 1.5; }
-        .newsletter-form { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+        .newsletter-form:focus-within { border-color: var(--lavender); }
         .newsletter-form input[type="email"] {
-            flex: 1 1 220px;
+            flex: 1 1 0;
             min-width: 0;
-            padding: 0.9rem 1.1rem;
-            border-radius: 999px;
-            border: 1px solid rgba(138, 157, 232, 0.3);
-            background: rgba(4, 5, 13, 0.6);
+            padding: 0.7rem 0;
+            border: none;
+            background: transparent;
             color: var(--white);
             font: inherit;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
+            outline: none;
         }
-        .newsletter-form input[type="email"]::placeholder { color: rgba(184, 196, 248, 0.45); }
-        .newsletter-form input[type="email"]:focus-visible { outline: 2px solid var(--violet); outline-offset: 2px; }
+        .newsletter-form input[type="email"]::placeholder { color: rgba(184, 196, 248, 0.35); }
         .newsletter-form button {
             flex: 0 0 auto;
-            padding: 0.9rem 1.6rem;
-            border-radius: 999px;
+            padding: 0.7rem 0 0.7rem 1rem;
             border: none;
-            background: var(--iris);
-            color: var(--white);
-            font: inherit;
-            font-weight: 600;
-            font-size: 0.95rem;
+            background: none;
+            color: var(--lavender);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.68rem;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
             cursor: pointer;
-            transition: background 0.2s ease;
+            transition: color 0.2s ease;
         }
-        .newsletter-form button:hover, .newsletter-form button:focus-visible { background: var(--violet); }
-        .newsletter-form button:disabled { opacity: 0.6; cursor: wait; }
+        .newsletter-form button:hover, .newsletter-form button:focus-visible { color: var(--white); }
+        .newsletter-form button:focus-visible { outline: 1px solid var(--lavender); outline-offset: 2px; }
+        .newsletter-form button:disabled { opacity: 0.5; cursor: wait; }
         .newsletter-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-        .newsletter-status { flex-basis: 100%; margin: 0; min-height: 1.2em; font-size: 0.85rem; color: rgba(184, 196, 248, 0.75); }
-        .newsletter-status[data-state="error"] { color: #f2a7b5; }
-        .newsletter-status[data-state="success"] { color: #a7f2c9; }
+        .newsletter-status { margin: 0.75rem auto 0; max-width: 460px; min-height: 1.2em; font-size: 0.8rem; color: var(--muted); }
+        .newsletter-status[data-state="error"] { color: #e6a3b1; }
+        .newsletter-status[data-state="success"] { color: var(--glow); }
         @media (max-width: 760px) {
-            .newsletter-signup { grid-template-columns: 1fr; padding: 1.75rem 1.25rem; margin-top: 3rem; }
+            .newsletter-signup { margin-top: 3.5rem; padding-top: 2.5rem; }
         }
 
         .preorder-checkout-col {
@@ -1198,7 +1162,7 @@
             background: rgba(129, 140, 248, 0.16);
             border: 1px solid rgba(129, 140, 248, 0.55);
             color: rgba(244, 246, 255, 0.92);
-            cursor: none;
+            cursor: pointer;
             transition: background-color 0.25s, border-color 0.25s, color 0.25s;
         }
         .preorder-option-tab--active {
@@ -1219,19 +1183,6 @@
             color: var(--lavender);
             font-weight: 700;
             white-space: nowrap;
-        }
-
-
-        /* DISCLAIMER */
-        .disclaimer {
-            padding: 2rem 4rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.72rem;
-            color: rgba(184, 196, 248, 0.3);
-            line-height: 1.7;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
         }
 
         /* SCROLL INDICATOR */
@@ -1490,7 +1441,7 @@
             font-size: 1.15rem;
             font-weight: 300;
             color: var(--soft);
-            cursor: none;
+            cursor: pointer;
             list-style: none;
             display: flex;
             justify-content: space-between;
@@ -1608,7 +1559,7 @@
 
         /* TESTIMONIALS */
         #testimonials {
-            padding: 7rem 4rem;
+            padding: 7rem 4rem 1rem;
         }
 
         .testimonials-grid {
@@ -2075,7 +2026,7 @@
             }
 
             #testimonials {
-                padding: 4rem 2rem;
+                padding: 4rem 2rem 1rem;
             }
 
             nav {
@@ -2250,42 +2201,6 @@
             content-visibility: auto;
             contain-intrinsic-size: 820px;
         }
-    
-        /* Disable custom cursor on non-desktop platforms */
-        html.no-custom-cursor,
-        html.no-custom-cursor * {
-            cursor: auto !important;
-        }
-
-        html.no-custom-cursor #cursor,
-        html.no-custom-cursor #cursor-ring {
-            display: none !important;
-        }
-
-        /* Default: hide custom cursor until desktop eligibility is confirmed */
-        #cursor,
-        #cursor-ring {
-            display: none;
-        }
-
-        html.use-custom-cursor #cursor,
-        html.use-custom-cursor #cursor-ring {
-            display: block;
-        }
-
-        /* Hard-stop on phones/tablets */
-        @media (hover: none), (pointer: coarse) {
-            #cursor,
-            #cursor-ring {
-                display: none !important;
-            }
-
-            html,
-            body,
-            * {
-                cursor: auto !important;
-            }
-        }
 
 </style>
 
@@ -2302,10 +2217,6 @@
 </head>
 
 <body data-footer-type="landing" data-active-page="home">
-
-    <!-- CUSTOM CURSOR -->
-    <div id="cursor"></div>
-    <div id="cursor-ring"></div>
 
     <!-- BACKGROUND CANVAS -->
     <canvas id="bg-canvas"></canvas>
@@ -2615,8 +2526,8 @@
             </div>
             <div class="newsletter-signup reveal">
                 <div>
-                    <h3>Not ready to order yet?</h3>
-                    <p>Join the Dreamz newsletter for launch news, sleep science, and early-access offers.</p>
+                    <h2>Want to learn <em>more</em>?</h2>
+                    <p>Occasional notes on sleep science and launch updates.</p>
                 </div>
                 <form class="newsletter-form" data-newsletter-form data-endpoint="https://pgldmrqdowmvfwaklzze.supabase.co/functions/v1/newsletter-subscribe" novalidate>
                     <label for="newsletter-email" class="newsletter-hp">Email address</label>
@@ -2626,20 +2537,11 @@
                         <input id="newsletter-website" type="text" name="website" tabindex="-1" autocomplete="off">
                     </div>
                     <button type="submit">Subscribe</button>
-                    <p class="newsletter-status" role="status" aria-live="polite"></p>
                 </form>
+                <p class="newsletter-status" role="status" aria-live="polite" data-newsletter-status></p>
             </div>
         </section>
 
-        <!-- DISCLAIMER -->
-        <div class="disclaimer" role="note" aria-label="Legal disclaimer">
-            Dreamz is a wellness device and is not a medical device. It is not intended to diagnose, treat, cure, or
-            prevent
-            any disease or medical condition. Not for use by children, pregnant individuals, or those with epilepsy or
-            known
-            neurological disorders. Consult a healthcare professional before use if you have concerns. Use constitutes
-            acceptance of our Terms &amp; Conditions and Privacy Policy.
-        </div>
 
     </main><!-- /main -->
 
@@ -2862,7 +2764,7 @@
         const newsletterForm = document.querySelector('[data-newsletter-form]');
         newsletterForm.addEventListener('submit', async event => {
             event.preventDefault();
-            const status = newsletterForm.querySelector('.newsletter-status');
+            const status = document.querySelector('[data-newsletter-status]');
             const button = newsletterForm.querySelector('button');
             const email = newsletterForm.email.value.trim();
             const setStatus = (text, state) => { status.textContent = text; status.dataset.state = state; };

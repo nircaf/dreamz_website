@@ -108,69 +108,6 @@ function runVisibleLoop(element, draw, options = {}) {
 }
 
 // ================================================
-// PLATFORM-AWARE CURSOR TOGGLE (PC/Mac only)
-// ================================================
-(() => {
-  const platformRaw = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || '';
-  const ua = navigator.userAgent || '';
-  const isDesktopOS = /Win|Mac/i.test(platformRaw);
-  const isMobileUA = /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
-  const hasFinePointer = window.matchMedia ? window.matchMedia('(hover: hover) and (pointer: fine)').matches : true;
-  const useCustomCursor = isDesktopOS && !isMobileUA && hasFinePointer && !DREAMZ_REDUCED_MOTION;
-
-  const platformLabel = /Win/i.test(platformRaw)
-    ? 'windows'
-    : /Mac/i.test(platformRaw)
-      ? 'macos'
-      : 'other';
-
-  document.documentElement.dataset.clientPlatform = platformLabel;
-  document.documentElement.classList.toggle('no-custom-cursor', !useCustomCursor);
-  document.documentElement.classList.toggle('use-custom-cursor', useCustomCursor);
-  window.__dreamzUseCustomCursor = useCustomCursor;
-})();
-
-// ================================================
-// CURSOR
-// ================================================
-(() => {
-  const cursor = document.getElementById('cursor');
-  const cursorRing = document.getElementById('cursor-ring');
-  if (!window.__dreamzUseCustomCursor || !cursor || !cursorRing) return;
-
-  let mouseX = window.innerWidth / 2;
-  let mouseY = window.innerHeight / 2;
-  let ringX = mouseX;
-  let ringY = mouseY;
-  let raf = 0;
-
-  document.addEventListener('mousemove', event => {
-    mouseX = event.clientX;
-    mouseY = event.clientY;
-    cursor.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
-  }, { passive: true });
-
-  const animate = () => {
-    ringX += (mouseX - ringX) * 0.14;
-    ringY += (mouseY - ringY) * 0.14;
-    cursorRing.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
-    raf = requestAnimationFrame(animate);
-  };
-
-  const sync = () => {
-    if (document.hidden && raf) {
-      cancelAnimationFrame(raf);
-      raf = 0;
-    } else if (!document.hidden && !raf) {
-      raf = requestAnimationFrame(animate);
-    }
-  };
-
-  document.addEventListener('visibilitychange', sync);
-  sync();
-})();
-
-// ================================================
 // NAV SCROLL
 // ================================================
 (() => {
