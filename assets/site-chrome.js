@@ -239,7 +239,6 @@
         <li><a href="${url('index.html')}"${isActive('home')}>Home</a></li>
         <li><a href="${url('how-it-works.html')}"${isActive('how')}>How It Works</a></li>
         <li><a href="${url('dreamz-use-cases.html')}"${isActive('use-cases')}>Use Cases</a></li>
-        <li><a href="${url('dreamz-science.html')}"${isActive('science')}>Science</a></li>
         <li><a href="${url('dreamz-faq.html')}"${isActive('faq')}>FAQ</a></li>
         <li><a href="${url('dreamz-research.html')}"${isActive('research')}>Research</a></li>
         <li><a href="${url('about.html')}"${isActive('about')}>About</a></li>
