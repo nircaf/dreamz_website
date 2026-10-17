@@ -430,9 +430,14 @@
 
         .hero-actions {
             display: flex;
+            flex-wrap: wrap;
             gap: 1.2rem;
             align-items: center;
             justify-content: center;
+        }
+
+        .hero-actions .hero-app-badge img {
+            height: 50px;
         }
 
         html.hero-intro-active,
@@ -2247,6 +2252,10 @@
                     <button class="btn-secondary"
                         onclick="window.location.href='how-it-works.html'"
                         aria-label="Learn how Dreamz works">Learn How It Works →</button>
+                    <a class="app-store-badge hero-app-badge" href="https://apps.apple.com/us/app/dreamzble-tdcs/id6764758039"
+                        target="_blank" rel="noopener noreferrer" aria-label="Download the Dreamz app on the App Store">
+                        <img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" width="150" height="50">
+                    </a>
                 </div>
             </div>
 

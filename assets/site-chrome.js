@@ -121,6 +121,23 @@
         color: var(--violet, #818CF8);
       }
 
+      .app-store-badge {
+        display: inline-flex;
+        line-height: 0;
+        transition: opacity 0.3s, transform 0.3s;
+      }
+
+      .app-store-badge:hover {
+        opacity: 0.85;
+        transform: translateY(-1px);
+      }
+
+      .app-store-badge img {
+        height: 40px;
+        width: auto;
+        display: block;
+      }
+
       .footer-social svg {
         width: 17px;
         height: 17px;
@@ -275,6 +292,13 @@
       </a>
     </div>`;
 
+  const APP_STORE_URL = 'https://apps.apple.com/us/app/dreamzble-tdcs/id6764758039';
+
+  const appStoreBadgeHtml = () => `
+    <a class="app-store-badge" href="${APP_STORE_URL}" target="_blank" rel="noopener noreferrer" aria-label="Download the Dreamz app on the App Store">
+      <img src="${url('assets/badges/app-store-badge.svg')}" alt="Download on the App Store" width="120" height="40">
+    </a>`;
+
   const disclaimerHtml = () => `
     <p class="footer-disclaimer">Dreamz is a wellness device and is not a medical device. It is not intended to diagnose, treat, cure, or prevent any disease or medical condition. Not for use by children, pregnant individuals, or those with epilepsy or known neurological disorders. Consult a healthcare professional before use if you have concerns. Use constitutes acceptance of our <a href="${url('term/index.html')}">Terms &amp; Conditions</a> and <a href="${url('privacy.html')}">Privacy Policy</a>.</p>`;
 
@@ -290,6 +314,7 @@
         <a href="${url('term/account-deletion.html')}"${isActive('account-deletion')}>Delete Account</a>
         <a href="${url('contact.html')}"${isActive('contact')}>Contact</a>
       </div>
+      ${appStoreBadgeHtml()}
       ${socialLinksHtml()}
       <p class="footer-copy">&copy; ${year} Dreamz. Sleep Neurotechnology. All rights reserved.</p>
       ${disclaimerHtml()}
@@ -315,7 +340,8 @@
           <a href="${url('term/account-deletion.html')}"${isActive('account-deletion')}>Delete Account</a>
           <a href="${url('contact.html')}">Contact</a>
         </div>
-        ${socialLinksHtml()}
+        ${appStoreBadgeHtml()}
+      ${socialLinksHtml()}
         ${disclaimerHtml()}
       </div>
     </footer>`;
@@ -337,7 +363,8 @@
             <a href="${url('term/index.html')}">Terms &amp; Conditions</a>
             <a href="${url('term/account-deletion.html')}"${isActive('account-deletion')}>Delete Account</a>
           </div>
-          ${socialLinksHtml()}
+          ${appStoreBadgeHtml()}
+      ${socialLinksHtml()}
         </div>
         <div class="footer-policy-links"></div>
         ${disclaimerHtml()}
