@@ -12,8 +12,8 @@ for (const image of ['black_mask.jpg', 'pitch_midnight_mask.jpg', 'burgundy_mask
 }
 if (!html.includes('grid-template-columns: 76px 1fr')) throw new Error('Thumbnails must sit beside the main image');
 if (!html.includes('width: min(100%, calc(100vw - 3rem))')) throw new Error('Mobile preorder checkout must fit and center in the viewport');
-if (!html.includes("'mouseenter'")) throw new Error('Thumbnails must preview on hover');
-if (!html.includes("'mouseleave'")) throw new Error('Hover preview must revert on mouse-out');
+if (!html.includes("'pointerenter'")) throw new Error('Thumbnails must preview on hover');
+if (!html.includes("'pointerleave'")) throw new Error('Hover preview must revert on mouse-out');
 if (!html.includes("'touchstart'")) throw new Error('Gallery must record the start of a swipe');
 if (!html.includes("'touchend'")) throw new Error('Gallery must support swipe gestures');
 if (!html.includes('Math.abs(swipeDistance) < 40')) throw new Error('Gallery must ignore short swipes');

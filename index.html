@@ -2590,31 +2590,53 @@
         const galleryThumbs = [...document.querySelectorAll('[data-gallery-thumb]')];
         let selectedGalleryThumb = galleryThumbs.find(button => button.getAttribute('aria-pressed') === 'true');
         let galleryTouchStart;
-        const showGalleryImage = button => galleryImage.src = button.dataset.src;
-        const selectGalleryImage = button => {
-            selectedGalleryThumb = button;
-            showGalleryImage(button);
-            galleryThumbs.forEach(item => item.setAttribute('aria-pressed', item === button));
+        // The image shown when nothing is being hovered (last clicked thumbnail or color).
+        let restingGallerySrc = galleryImage.getAttribute('src');
+        const setGallerySrc = src => {
+            if (src && galleryImage.getAttribute('src') !== src) galleryImage.src = src;
         };
 
         const colorButtons = [...document.querySelectorAll('[data-color-mask]')];
         const soldOutNote = document.getElementById('preorder-sold-out-note');
         const buyWraps = [...document.querySelectorAll('.preorder-option-buy')];
-        const selectColor = button => {
+
+        // Preload every gallery/color image so switching is instant (no blank flash).
+        [...galleryThumbs.map(b => b.dataset.src), ...colorButtons.map(b => b.dataset.colorMask)]
+            .forEach(src => { if (src) new Image().src = src; });
+
+        const setColorState = button => {
             colorButtons.forEach(item => item.setAttribute('aria-pressed', item === button));
-            galleryImage.src = button.dataset.colorMask || selectedGalleryThumb.dataset.src;
             const isSoldOut = button.dataset.soldOut === 'true';
             buyWraps.forEach(wrap => wrap.classList.toggle('is-disabled', isSoldOut));
             soldOutNote.classList.toggle('is-visible', isSoldOut);
         };
+        const selectGalleryImage = button => {
+            selectedGalleryThumb = button;
+            restingGallerySrc = button.dataset.src;
+            setGallerySrc(restingGallerySrc);
+            galleryThumbs.forEach(item => item.setAttribute('aria-pressed', item === button));
+        };
+        const selectColor = button => {
+            setColorState(button);
+            restingGallerySrc = button.dataset.colorMask || selectedGalleryThumb.dataset.src;
+            setGallerySrc(restingGallerySrc);
+        };
         colorButtons.forEach(button => button.addEventListener('click', () => selectColor(button)));
 
         galleryThumbs.forEach(button => {
-            button.addEventListener('mouseenter', () => showGalleryImage(button));
-            button.addEventListener('mouseleave', () => showGalleryImage(selectedGalleryThumb));
+            // Hover preview only for real mouse pointers; touch taps fire emulated
+            // mouse events that previously caused the image to flicker on mobile.
+            button.addEventListener('pointerenter', event => {
+                if (event.pointerType === 'mouse') setGallerySrc(button.dataset.src);
+            });
+            button.addEventListener('pointerleave', event => {
+                if (event.pointerType === 'mouse') setGallerySrc(restingGallerySrc);
+            });
             button.addEventListener('click', () => {
+                // Product photos show the black mask, so reset the color to black
+                // without overriding the photo that was just chosen.
+                setColorState(colorButtons[0]);
                 selectGalleryImage(button);
-                selectColor(colorButtons[0]);
             });
         });
 
@@ -2626,6 +2648,7 @@
             const currentIndex = galleryThumbs.indexOf(selectedGalleryThumb);
             const nextIndex = (currentIndex + (swipeDistance < 0 ? 1 : -1) + galleryThumbs.length) % galleryThumbs.length;
             selectedGalleryThumb = galleryThumbs[nextIndex];
+            setColorState(colorButtons[0]);
             selectGalleryImage(selectedGalleryThumb);
         }, { passive: true });
     </script>
