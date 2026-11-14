@@ -235,6 +235,23 @@ a[href]:active,button:active{transform:scale(.98)}
 .newsletter-status[data-state="success"]{color:#5b2bd6!important}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #5b2bd6;outline-offset:3px}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+.plans{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.plan{position:relative;display:flex;flex-direction:column;gap:6px;padding:18px 20px 18px 52px;border:1.5px solid #e3e3e8;border-radius:18px;cursor:pointer;background:#fff;transition:border-color .2s,box-shadow .2s}
+.plan:hover{border-color:#c9c2e8}
+.plan input{position:absolute;left:20px;top:21px;width:18px;height:18px;margin:0;accent-color:#5b2bd6}
+.plan:has(input:checked){border-color:#5b2bd6;box-shadow:0 0 0 3px #f1ecfd}
+.plan-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.plan-name{font-size:16px;font-weight:600;color:#1d1d1f}
+.plan-badge{font-size:12px;font-weight:700;color:#fff;background:#5b2bd6;padding:4px 10px;border-radius:999px}
+.plan-price{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.plan-price strong{font-size:24px;font-weight:700;letter-spacing:-.02em;color:#1d1d1f}
+.plan-price s{font-size:15px;color:#6e6e76}
+.plan-price em{font-style:normal;font-size:12px;font-weight:600;color:#5b2bd6;background:#f1ecfd;padding:3px 9px;border-radius:999px}
+.plan-today{font-size:14px;color:#6e6e76}
+.plan-detail{font-size:14px;line-height:1.45;color:#4a4a52}
+.plan-detail b{color:#1d1d1f;font-weight:600}
+.plan-detail .v{color:#5b2bd6}
+.stripe-missing{margin:0;padding:14px;border:1.5px dashed #c9c2e8;border-radius:12px;text-align:center;font-size:14px;color:#5b2bd6}
 </style>
     <link rel="icon" type="image/x-icon" href="assets/branding/favicon-light.ico" media="(prefers-color-scheme: light)">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32-light.png" media="(prefers-color-scheme: light)">
@@ -285,15 +302,15 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #5b2b
   <section style="padding: 112px clamp(16px, 4vw, 32px)">
     <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px 24px; text-align: center">
       <div style="display: flex; flex-direction: column; gap: 8px">
-        <span style="font-size: clamp(56px, 6vw, 80px); font-weight: 600; letter-spacing: -0.05em; line-height: 1">38<span style="color: #5b2bd6">%</span></span>
+        <span style="font-size: clamp(56px, 6vw, 80px); font-weight: 600; letter-spacing: -0.05em; line-height: 1; color: #5b2bd6">38<span style="color: #5b2bd6">%</span></span>
         <span style="font-size: 17px; color: #4a4a52">Reduction in sleep onset</span>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px">
-        <span style="font-size: clamp(56px, 6vw, 80px); font-weight: 600; letter-spacing: -0.05em; line-height: 1">62<span style="color: #5b2bd6">%</span></span>
+        <span style="font-size: clamp(56px, 6vw, 80px); font-weight: 600; letter-spacing: -0.05em; line-height: 1; color: #5b2bd6">62<span style="color: #5b2bd6">%</span></span>
         <span style="font-size: 17px; color: #4a4a52">Improvement in sleep quality</span>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px">
-        <span style="font-size: clamp(56px, 6vw, 80px); font-weight: 600; letter-spacing: -0.05em; line-height: 1">31<span style="color: #5b2bd6">%</span></span>
+        <span style="font-size: clamp(56px, 6vw, 80px); font-weight: 600; letter-spacing: -0.05em; line-height: 1; color: #5b2bd6">31<span style="color: #5b2bd6">%</span></span>
         <span style="font-size: 17px; color: #4a4a52">Improvement in daily wellness</span>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px">
@@ -312,7 +329,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #5b2b
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
         <article style="background: #ffffff; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
-          <img src="Photos/Gallery/frame_001186.jpg" alt="Ellie wearing Dreamz while relaxing" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block">
+          <img src="Photos/Stories/ellie.jpg" alt="Ellie wearing Dreamz while relaxing" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block">
           <div style="padding: 28px; display: flex; flex-direction: column; gap: 20px; flex: 1">
             <span style="font-family: 'Manrope', system-ui, sans-serif; font-size: 12px; color: #6e6e76">A Dreamz story · 01 / 03</span>
             <blockquote style="margin: 0; font-size: 21px; line-height: 1.4; letter-spacing: -0.01em; flex: 1">“Racing thoughts ruled my nights for a decade. Dreamz helps my mind settle, so bedtime finally feels <strong style="font-weight: 600; color: #5b2bd6">quiet and under control.</strong>”</blockquote>
@@ -320,7 +337,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #5b2b
           </div>
         </article>
         <article style="background: #ffffff; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
-          <img src="Photos/Gallery/8 (3).jpg" alt="Paul wearing Dreamz while relaxing on a couch" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block">
+          <img src="Photos/Stories/paul.jpg" alt="Paul wearing Dreamz while relaxing on a couch" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block">
           <div style="padding: 28px; display: flex; flex-direction: column; gap: 20px; flex: 1">
             <span style="font-family: 'Manrope', system-ui, sans-serif; font-size: 12px; color: #6e6e76">A Dreamz story · 02 / 03</span>
             <blockquote style="margin: 0; font-size: 21px; line-height: 1.4; letter-spacing: -0.01em; flex: 1">“The surprise wasn’t only better sleep. I wake up clear-headed, and that gives me <strong style="font-weight: 600; color: #5b2bd6">sharper focus all day.</strong>”</blockquote>
@@ -328,7 +345,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #5b2b
           </div>
         </article>
         <article style="background: #ffffff; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
-          <img src="Photos/Gallery/82.jpg" alt="James wearing Dreamz" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block">
+          <img src="Photos/Stories/james.jpg" alt="James wearing Dreamz" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block">
           <div style="padding: 28px; display: flex; flex-direction: column; gap: 20px; flex: 1">
             <span style="font-family: 'Manrope', system-ui, sans-serif; font-size: 12px; color: #6e6e76">A Dreamz story · 03 / 03</span>
             <blockquote style="margin: 0; font-size: 21px; line-height: 1.4; letter-spacing: -0.01em; flex: 1">“I used to spend 45 minutes waiting for sleep. With Dreamz, I’m usually asleep in <strong style="font-weight: 600; color: #5b2bd6">under ten minutes.</strong>”</blockquote>
@@ -361,7 +378,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #5b2b
             <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap">
               <strong style="font-size: 44px; font-weight: 600; letter-spacing: -0.03em">$199.90</strong>
               <s style="font-size: 19px; color: #6e6e76">$299.90</s>
-              <span style="font-size: 13px; font-weight: 500; color: #5b2bd6; background: #f1ecfd; padding: 4px 10px; border-radius: 999px">Save $100</span>
+              <span style="font-size: 13px; font-weight: 500; color: #5b2bd6; background: #f1ecfd; padding: 4px 10px; border-radius: 999px">Save 33%</span>
             </div>
             <p style="margin: 0; font-size: 15px; color: #4a4a52">Available exclusively when you pre-order.</p>
           </div>
@@ -378,23 +395,34 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid #5b2b
 
           <div style="display: flex; flex-direction: column; gap: 14px; padding-top: 24px; border-top: 1px solid #ececf0">
             <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4a4a52">Choose a deposit today, or pay in full and get 12 months of subscription for free.</p>
-            <div role="tablist" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; background: #f5f5f7; padding: 4px; border-radius: 14px">
-              <button type="button" role="tab" class="tab" data-tab="deposit" aria-selected="true">Deposit</button>
-              <button type="button" role="tab" class="tab" data-tab="full" aria-selected="false">Pay full amount now</button>
+            <fieldset class="plans">
+              <legend class="sr-only">Choose how to pay</legend>
+              <label class="plan">
+                <input type="radio" name="plan" value="full" checked>
+                <span class="plan-top"><span class="plan-name">Pay in full</span><span class="plan-badge">Best value</span></span>
+                <span class="plan-price"><strong>$199.90</strong> <s>$299.90</s> <em>Save 33%</em></span>
+                <span class="plan-detail"><b>12-month</b> subscription included <span class="v">($120 value)</span></span>
+              </label>
+              <label class="plan">
+                <input type="radio" name="plan" value="standard">
+                <span class="plan-top"><span class="plan-name">Standard price</span></span>
+                <span class="plan-price"><strong>$299.90</strong></span>
+                <span class="plan-detail"><b>1-month</b> subscription included <span class="v">($10 value)</span></span>
+              </label>
+              <label class="plan">
+                <input type="radio" name="plan" value="deposit">
+                <span class="plan-top"><span class="plan-name">Reserve with a deposit</span></span>
+                <span class="plan-price"><strong>$39.90</strong> <span class="plan-today">today</span></span>
+                <span class="plan-detail">Remaining balance charged before shipping · <b>1-month</b> subscription included <span class="v">($10 value)</span></span>
+              </label>
+            </fieldset>
+            <div class="buy-wrap" id="buy">
+              <div data-panel="full"><stripe-buy-button buy-button-id="buy_btn_1TuGBLHoabhlm1T9Gvl6SOIo" publishable-key="pk_live_51Tu3iLHoabhlm1T9dOdfJpVutUicIfAJBYa5q2Z82A7ye5u5vh9YeuEGbxiuC9ZA7PV7T83rWHeszfQTg05TNvWC00WvSVZvxC"></stripe-buy-button></div>
+              <!-- TODO: create a $299.90 Stripe buy button (mask + 1-month subscription) and put its buy-button-id here -->
+              <div data-panel="standard" hidden><p class="stripe-missing">[Add the $299.90 Stripe button here]</p></div>
+              <div data-panel="deposit" hidden><stripe-buy-button buy-button-id="buy_btn_1TuGD9Hoabhlm1T9JM0NXBBL" publishable-key="pk_live_51Tu3iLHoabhlm1T9dOdfJpVutUicIfAJBYa5q2Z82A7ye5u5vh9YeuEGbxiuC9ZA7PV7T83rWHeszfQTg05TNvWC00WvSVZvxC"></stripe-buy-button></div>
             </div>
-            <div style="border: 1px solid #e3e3e8; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 18px">
-              <div data-panel="deposit">
-                <div style="display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: #4a4a52">
-                  <span style="font-size: 28px; font-weight: 600; color: #1d1d1f; letter-spacing: -0.02em">$39.90</span>
-                  <span>Remaining balance charged before shipping</span>
-                  <span>1-month subscription included <span style="color: #5b2bd6">($10 value)</span></span>
-                </div>
-              </div>
-              <div data-panel="full" hidden>
-                <div style="font-size: 15px; color: #4a4a52"><strong style="color: #1d1d1f; font-weight: 600">12-month</strong> subscription included <span style="color: #5b2bd6">($120 value)</span></div>
-              </div>
-              <div class="buy-wrap" id="buy"><div data-panel="deposit"><stripe-buy-button buy-button-id="buy_btn_1TuGD9Hoabhlm1T9JM0NXBBL" publishable-key="pk_live_51Tu3iLHoabhlm1T9dOdfJpVutUicIfAJBYa5q2Z82A7ye5u5vh9YeuEGbxiuC9ZA7PV7T83rWHeszfQTg05TNvWC00WvSVZvxC"></stripe-buy-button></div><div data-panel="full" hidden><stripe-buy-button buy-button-id="buy_btn_1TuGBLHoabhlm1T9Gvl6SOIo" publishable-key="pk_live_51Tu3iLHoabhlm1T9dOdfJpVutUicIfAJBYa5q2Z82A7ye5u5vh9YeuEGbxiuC9ZA7PV7T83rWHeszfQTg05TNvWC00WvSVZvxC"></stripe-buy-button></div></div>
-            </div>
+          </div>
             <ul style="margin: 0; padding: 0 0 0 18px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; line-height: 1.5; color: #6e6e76">
               <li>Cancel anytime</li>
               <li>30-Day Return Policy</li>
@@ -450,7 +478,7 @@ const $=(q)=>document.querySelectorAll(q);let tab='deposit';
 const main=document.getElementById('mainImg');let photo=main.src;
 $('.thumb').forEach(t=>t.addEventListener('click',()=>{$('.thumb').forEach(x=>x.setAttribute('aria-pressed','false'));t.setAttribute('aria-pressed','true');photo=t.dataset.src;main.src=photo}));
 $('.swatch').forEach(s=>s.addEventListener('click',()=>{$('.swatch').forEach(x=>x.setAttribute('aria-pressed','false'));s.setAttribute('aria-pressed','true');const sold=s.dataset.sold==='1';main.src=s.dataset.photo||photo;document.getElementById('colorName').textContent=s.dataset.name+(sold?' · Sold out':'');document.getElementById('soldNote').hidden=!sold;document.getElementById('buy').classList.toggle('is-disabled',sold)}));
-$('.tab').forEach(t=>t.addEventListener('click',()=>{tab=t.dataset.tab;$('.tab').forEach(x=>x.setAttribute('aria-selected',String(x===t)));$('[data-panel]').forEach(p=>p.hidden=p.dataset.panel!==tab)}));
+$('input[name="plan"]').forEach(r=>r.addEventListener('change',()=>{$('[data-panel]').forEach(p=>p.hidden=p.dataset.panel!==r.value)}));
         const newsletterForm = document.querySelector('[data-newsletter-form]');
         newsletterForm.addEventListener('submit', async event => {
             event.preventDefault();
