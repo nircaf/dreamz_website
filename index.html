@@ -1385,6 +1385,37 @@
             }
         }
 
+        /* Indeterminate loading bar shown until the hero video starts playing */
+        .hero-video-loader {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 3px;
+            overflow: hidden;
+            background: rgba(138, 157, 232, 0.15);
+            transition: opacity 0.4s ease;
+        }
+
+        .hero-video-loader::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 35%;
+            background: linear-gradient(90deg, transparent, var(--lavender), var(--glow), transparent);
+            animation: hero-loader-slide 1.2s ease-in-out infinite;
+        }
+
+        .hero-video-loader.is-done {
+            opacity: 0;
+        }
+
+        @keyframes hero-loader-slide {
+            from { left: -35%; }
+            to { left: 100%; }
+        }
+
         /* SEO HIDDEN (visible to crawlers, screen-readers; invisible on screen) */
         .seo-hidden {
             position: absolute;
@@ -2272,10 +2303,20 @@
                     <source src="Photos/Demo_video_vp9.webm" type='video/webm; codecs="vp9"'>
                     <source src="Photos/Demo_video_h264.mp4" type="video/mp4">
                 </video>
+                <div class="hero-video-loader" id="heroVideoLoader" role="progressbar" aria-label="Loading video"></div>
                 <script>
-                    if (window.matchMedia && window.matchMedia('(orientation: portrait)').matches) {
-                        document.getElementById('heroMaskVideo').poster = 'Photos/Dreamz_demo_real_poster.jpg';
-                    }
+                    (function () {
+                        var v = document.getElementById('heroMaskVideo');
+                        var loader = document.getElementById('heroVideoLoader');
+                        if (window.matchMedia && window.matchMedia('(orientation: portrait)').matches) {
+                            v.poster = 'Photos/Dreamz_demo_real_poster.jpg';
+                        }
+                        function done() { loader.classList.add('is-done'); }
+                        // Re-show on mid-playback stalls (slow connections), hide when frames flow again.
+                        v.addEventListener('waiting', function () { loader.classList.remove('is-done'); });
+                        v.addEventListener('playing', done);
+                        if (!v.paused && v.readyState >= 3) done();
+                    })();
                 </script>
             </div>
 
