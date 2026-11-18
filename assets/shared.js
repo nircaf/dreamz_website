@@ -116,7 +116,7 @@ function runVisibleLoop(element, draw, options = {}) {
   const isDesktopOS = /Win|Mac/i.test(platformRaw);
   const isMobileUA = /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
   const hasFinePointer = window.matchMedia ? window.matchMedia('(hover: hover) and (pointer: fine)').matches : true;
-  const useCustomCursor = isDesktopOS && !isMobileUA && hasFinePointer && !DREAMZ_REDUCED_MOTION;
+  const useCustomCursor = false; // custom cursor disabled site-wide; normal OS mouse
 
   const platformLabel = /Win/i.test(platformRaw)
     ? 'windows'

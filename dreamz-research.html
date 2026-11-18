@@ -1641,7 +1641,7 @@
             const isDesktopOS = /Win|Mac/i.test(platformRaw);
             const isMobileUA = /Android|iPhone|iPad|iPod|Mobile/i.test(ua);
             const hasFinePointer = window.matchMedia ? window.matchMedia('(pointer: fine)').matches : true;
-            const useCustomCursor = isDesktopOS && !isMobileUA && hasFinePointer && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            const useCustomCursor = false; // custom cursor disabled site-wide; normal OS mouse
 
             const platformLabel = /Win/i.test(platformRaw)
                 ? 'windows'
