@@ -68,7 +68,7 @@
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@200;300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -91,7 +91,7 @@
   body {
     background: var(--ink);
     color: var(--soft);
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Manrope', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
   }
@@ -106,7 +106,7 @@
   .nav-links { display:flex; gap:2.5rem; list-style:none; }
   .nav-links a { font-size:0.78rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); text-decoration:none; transition:color .3s; }
   .nav-links a:hover,.nav-links a.active { color:var(--white); }
-  .nav-cta { padding:0.6rem 1.6rem; border:1px solid rgba(68,212,204,0.35); background:transparent; color:var(--teal); font-family:'DM Sans',sans-serif; font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; cursor: pointer; transition:all .3s; }
+  .nav-cta { padding:0.6rem 1.6rem; border:1px solid rgba(68,212,204,0.35); background:transparent; color:var(--teal); font-family:'Manrope',sans-serif; font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; cursor: pointer; transition:all .3s; }
   .nav-cta:hover { background:rgba(68,212,204,0.08); }
 
   /* HERO */
@@ -117,8 +117,8 @@
     gap: 6rem; align-items: end;
     border-bottom: 1px solid var(--border);
   }
-  .hero-label { font-family:'Space Mono',monospace; font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--violet); margin-bottom:1.5rem; display:block; }
-  .hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(3rem,5vw,5.2rem); font-weight:300; line-height:1.1; color:var(--white); margin-bottom:1.5rem; }
+  .hero-label { font-family:'Manrope',monospace; font-size:0.68rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--violet); margin-bottom:1.5rem; display:block; }
+  .hero-title { font-family:'Manrope',serif; font-size:clamp(3rem,5vw,5.2rem); font-weight:300; line-height:1.1; color:var(--white); margin-bottom:1.5rem; }
   .hero-title em { font-style:italic; color:var(--lavender); }
   .hero-sub { font-size:1rem; color:var(--muted); line-height:1.8; max-width:520px; }
   .hero-disclaimer {
@@ -136,18 +136,18 @@
     background: var(--midnight); padding: 1.5rem 2rem;
     display: flex; flex-direction: column; gap: 0.3rem;
   }
-  .hero-stat-num { font-family:'Cormorant Garamond',serif; font-size:2.8rem; font-weight:300; color:var(--teal); line-height:1; }
-  .hero-stat-label { font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); }
+  .hero-stat-num { font-family:'Manrope',serif; font-size:2.8rem; font-weight:300; color:var(--teal); line-height:1; }
+  .hero-stat-label { font-family:'Manrope',monospace; font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); }
 
   /* PUBLICATION HISTOGRAM */
   #pub-histogram { padding: 5rem 4rem 4rem; position:relative; z-index:1; border-bottom:1px solid var(--border); }
-  .histogram-label { font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--violet); margin-bottom:1.2rem; display:block; }
-  .histogram-title { font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,2.6vw,2.6rem); font-weight:300; color:var(--white); line-height:1.2; margin-bottom:0.8rem; }
+  .histogram-label { font-family:'Manrope',monospace; font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--violet); margin-bottom:1.2rem; display:block; }
+  .histogram-title { font-family:'Manrope',serif; font-size:clamp(1.8rem,2.6vw,2.6rem); font-weight:300; color:var(--white); line-height:1.2; margin-bottom:0.8rem; }
   .histogram-sub { font-size:0.9rem; color:var(--muted); line-height:1.7; max-width:600px; }
   .histogram-chart-wrap { position:relative; margin-top:2.5rem; }
   #pub-histogram-svg { width:100%; height:auto; display:block; overflow:visible; }
   .histogram-grid-line { stroke:var(--border); stroke-width:1; }
-  .histogram-axis-label { font-family:'Space Mono',monospace; font-size:9px; fill:rgba(184,196,248,0.3); }
+  .histogram-axis-label { font-family:'Manrope',monospace; font-size:9px; fill:rgba(184,196,248,0.3); }
   .histogram-bar { fill:var(--teal); opacity:0.85; transition:opacity .2s, fill .2s; cursor: pointer; }
   .histogram-bar:hover, .histogram-bar:focus-visible { opacity:1; fill:var(--lavender); outline:none; }
   .histogram-bar--zero { fill:rgba(184,196,248,0.16); }
@@ -155,19 +155,19 @@
   .histogram-tooltip {
     position:absolute; transform:translate(-50%,-115%);
     background:var(--midnight); border:1px solid rgba(68,212,204,0.35);
-    color:var(--white); font-family:'Space Mono',monospace; font-size:0.7rem; letter-spacing:0.05em;
+    color:var(--white); font-family:'Manrope',monospace; font-size:0.7rem; letter-spacing:0.05em;
     padding:0.4rem 0.7rem; pointer-events:none; white-space:nowrap; z-index:5;
   }
   .histogram-tooltip[hidden] { display:none; }
   .histogram-table-fallback { margin-top:2rem; }
   .histogram-table-fallback summary {
-    cursor: pointer; font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.14em;
+    cursor: pointer; font-family:'Manrope',monospace; font-size:0.65rem; letter-spacing:0.14em;
     text-transform:uppercase; color:var(--muted);
   }
   .histogram-table-fallback summary:hover { color:var(--soft); }
   .histogram-table-fallback table { width:100%; max-width:360px; border-collapse:collapse; margin-top:1rem; }
   .histogram-table-fallback th, .histogram-table-fallback td {
-    font-family:'Space Mono',monospace; font-size:0.75rem; text-align:left;
+    font-family:'Manrope',monospace; font-size:0.75rem; text-align:left;
     padding:0.4rem 0.8rem 0.4rem 0; border-bottom:1px solid var(--border); color:var(--muted);
   }
   .histogram-table-fallback thead th { color:var(--teal); }
@@ -190,7 +190,7 @@
   .filter-tag {
     padding: 1rem 1.4rem; flex-shrink: 0;
     border-right: 1px solid var(--border);
-    font-family:'Space Mono',monospace; font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase;
+    font-family:'Manrope',monospace; font-size:0.6rem; letter-spacing:0.14em; text-transform:uppercase;
     color:var(--muted); cursor: pointer; background:transparent; border-top:none; border-left:none; border-bottom:none;
     transition: all .3s;
   }
@@ -217,7 +217,7 @@
     display: flex; align-items: flex-start; justify-content: center;
   }
   .study-num {
-    font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.12em;
+    font-family:'Manrope',monospace; font-size:0.65rem; letter-spacing:0.12em;
     color:rgba(184,196,248,0.2);
   }
 
@@ -229,7 +229,7 @@
     margin-bottom: 1rem;
   }
   .study-tag {
-    font-family:'Space Mono',monospace; font-size:0.58rem; letter-spacing:0.16em; text-transform:uppercase;
+    font-family:'Manrope',monospace; font-size:0.58rem; letter-spacing:0.16em; text-transform:uppercase;
     padding: 0.25rem 0.7rem; border: 1px solid;
   }
   .study-tag.deep-sleep  { color:rgba(68,212,204,0.7); border-color:rgba(68,212,204,0.2); }
@@ -243,18 +243,18 @@
   .study-tag.rem         { color:rgba(232,132,178,0.7); border-color:rgba(232,132,178,0.2); }
 
   .study-journal {
-    font-family:'Space Mono',monospace; font-size:0.58rem; letter-spacing:0.1em; text-transform:uppercase;
+    font-family:'Manrope',monospace; font-size:0.58rem; letter-spacing:0.1em; text-transform:uppercase;
     color:rgba(184,196,248,0.25);
   }
-  .study-year { font-family:'Space Mono',monospace; font-size:0.58rem; color:rgba(184,196,248,0.2); }
+  .study-year { font-family:'Manrope',monospace; font-size:0.58rem; color:rgba(184,196,248,0.2); }
 
   .study-authors {
-    font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.1em;
+    font-family:'Manrope',monospace; font-size:0.65rem; letter-spacing:0.1em;
     color:var(--teal-dim); margin-bottom:0.8rem;
   }
 
   .study-title {
-    font-family:'Cormorant Garamond',serif; font-size:1.45rem; font-weight:300;
+    font-family:'Manrope',serif; font-size:1.45rem; font-weight:300;
     color:var(--white); line-height:1.25; margin-bottom:1rem;
   }
 
@@ -269,7 +269,7 @@
     display: flex; gap: 0.8rem; align-items: flex-start;
   }
   .study-insight-label {
-    font-family:'Space Mono',monospace; font-size:0.56rem; letter-spacing:0.16em; text-transform:uppercase;
+    font-family:'Manrope',monospace; font-size:0.56rem; letter-spacing:0.16em; text-transform:uppercase;
     color:var(--teal); flex-shrink:0; padding-top:2px;
   }
   .study-insight-text {
@@ -292,7 +292,7 @@
   .study-link:hover { border-color:rgba(68,212,204,0.3); background:rgba(68,212,204,0.04); }
   .study-link-icon { font-size:1.1rem; opacity:0.4; }
   .study-link-label {
-    font-family:'Space Mono',monospace; font-size:0.55rem; letter-spacing:0.12em; text-transform:uppercase;
+    font-family:'Manrope',monospace; font-size:0.55rem; letter-spacing:0.12em; text-transform:uppercase;
     color:rgba(184,196,248,0.35);
   }
   .study-link:hover .study-link-label { color:var(--teal); }
@@ -304,13 +304,13 @@
     border-top: 1px solid var(--border);
     background: var(--midnight);
   }
-  .synthesis-label { font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--violet); margin-bottom:1.5rem; display:block; }
-  .synthesis-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.5vw,3.4rem); font-weight:300; color:var(--white); line-height:1.2; margin-bottom:2rem; }
+  .synthesis-label { font-family:'Manrope',monospace; font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--violet); margin-bottom:1.5rem; display:block; }
+  .synthesis-title { font-family:'Manrope',serif; font-size:clamp(2rem,3.5vw,3.4rem); font-weight:300; color:var(--white); line-height:1.2; margin-bottom:2rem; }
   .synthesis-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); margin-top:3rem; }
   .synthesis-item { background:var(--midnight); padding:2rem; display:flex; flex-direction:column; gap:0.8rem; }
   .synthesis-item:hover { background:var(--deep); transition:background .3s; }
   .synthesis-icon { font-size:1.4rem; opacity:0.4; }
-  .synthesis-item-title { font-family:'Cormorant Garamond',serif; font-size:1.15rem; font-weight:300; color:var(--white); }
+  .synthesis-item-title { font-family:'Manrope',serif; font-size:1.15rem; font-weight:300; color:var(--white); }
   .synthesis-item-text { font-size:0.82rem; color:var(--muted); line-height:1.7; }
 
   /* CTA */
@@ -326,19 +326,19 @@
     pointer-events:none;
   }
   .cta-inner { max-width:540px; margin:0 auto; position:relative; z-index:1; }
-  .cta-label { font-family:'Space Mono',monospace; font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--violet); margin-bottom:1.2rem; display:block; }
-  .cta-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,3.5vw,3.2rem); font-weight:300; color:var(--white); line-height:1.2; margin-bottom:1rem; }
+  .cta-label { font-family:'Manrope',monospace; font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--violet); margin-bottom:1.2rem; display:block; }
+  .cta-title { font-family:'Manrope',serif; font-size:clamp(2rem,3.5vw,3.2rem); font-weight:300; color:var(--white); line-height:1.2; margin-bottom:1rem; }
   .cta-sub { font-size:0.92rem; color:var(--muted); line-height:1.75; margin-bottom:2.5rem; }
   .cta-buttons { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
   .btn-primary {
     padding:0.9rem 2.5rem; background:linear-gradient(135deg,var(--iris),var(--teal-dim));
-    border:none; color:var(--white); font-family:'DM Sans',sans-serif;
+    border:none; color:var(--white); font-family:'Manrope',sans-serif;
     font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; cursor: pointer; transition:opacity .3s;
   }
   .btn-primary:hover { opacity:0.85; }
   .btn-secondary {
     padding:0.9rem 2rem; border:1px solid rgba(68,212,204,0.3);
-    background:transparent; color:var(--teal); font-family:'DM Sans',sans-serif;
+    background:transparent; color:var(--teal); font-family:'Manrope',sans-serif;
     font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; cursor: pointer;
     text-decoration:none; display:inline-block; transition:background .3s;
   }
@@ -354,7 +354,7 @@
   .footer-logo { display:inline-flex; align-items:center; flex-shrink:0; line-height:0; opacity:.82; text-decoration:none; transition:opacity .3s ease; }
   .footer-logo:hover { opacity:1; }
   .footer-logo img { display:block; width:auto; height:clamp(26px,2.6vw,34px); }
-  .footer-tagline { font-family:'Space Mono',monospace; font-size:0.58rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(184,196,248,0.2); margin-top:0.4rem; }
+  .footer-tagline { font-family:'Manrope',monospace; font-size:0.58rem; letter-spacing:0.15em; text-transform:uppercase; color:rgba(184,196,248,0.2); margin-top:0.4rem; }
   .footer-bottom { padding:1.5rem 4rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; }
   .footer-copy { font-size:0.7rem; color:rgba(184,196,248,0.2); letter-spacing:0.08em; }
   .footer-links { display:flex; gap:1.5rem; flex-wrap:wrap; }
@@ -1576,14 +1576,14 @@
 
 <!-- SEO INNER LINKS -->
 <div style="padding:1.2rem 4rem; border-top:1px solid var(--border); display:flex; flex-wrap:wrap; gap:0.4rem 1.8rem; position:relative; z-index:1;" aria-label="Site navigation">
-  <a href="index.html" style="font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Home</a>
-  <a href="dreamz-faq.html" style="font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">FAQ</a>
-  <a href="index.html#cta" style="font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Pre-order</a>
-  <a href="#synthesis" style="font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Field Summary</a>
-  <a href="https://www.jneurosci.org/content/37/30/7111" style="font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Ladenbauer 2017</a>
-  <a href="https://www.cell.com/neuron/fulltext/S0896-6273(13)00502-7" style="font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Ngo 2013</a>
-  <a href="https://www.nature.com/articles/nature05278" style="font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Marshall 2006</a>
-  <a href="https://www.sciencedirect.com/science/article/pii/S1935861X23000215" style="font-family:'Space Mono',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Ladenbauer 2023</a>
+  <a href="index.html" style="font-family:'Manrope',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Home</a>
+  <a href="dreamz-faq.html" style="font-family:'Manrope',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">FAQ</a>
+  <a href="index.html#cta" style="font-family:'Manrope',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Pre-order</a>
+  <a href="#synthesis" style="font-family:'Manrope',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Field Summary</a>
+  <a href="https://www.jneurosci.org/content/37/30/7111" style="font-family:'Manrope',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Ladenbauer 2017</a>
+  <a href="https://www.cell.com/neuron/fulltext/S0896-6273(13)00502-7" style="font-family:'Manrope',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Ngo 2013</a>
+  <a href="https://www.nature.com/articles/nature05278" style="font-family:'Manrope',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Marshall 2006</a>
+  <a href="https://www.sciencedirect.com/science/article/pii/S1935861X23000215" style="font-family:'Manrope',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Ladenbauer 2023</a>
 </div>
 
 <div data-dreamz-footer></div>

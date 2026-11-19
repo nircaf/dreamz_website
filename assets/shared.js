@@ -275,7 +275,7 @@ function runVisibleLoop(element, draw, options = {}) {
     ctx.fillStyle = stageColor;
     ctx.fillRect(0, 0, W, H);
 
-    ctx.font = '10px Space Mono, monospace';
+    ctx.font = '10px Manrope, sans-serif';
     ctx.fillStyle = 'rgba(184,196,248,0.25)';
     ctx.fillText('STAGE: ' + stageName.toUpperCase(), 16, 20);
 
@@ -331,7 +331,7 @@ function runVisibleLoop(element, draw, options = {}) {
       ctx.lineWidth = wave.thick;
       ctx.stroke();
 
-      ctx.font = '9px Space Mono, monospace';
+      ctx.font = '9px Manrope, sans-serif';
       ctx.fillStyle = wave.color + 'aa';
       ctx.fillText(wave.label, 16, baseY - ampPx - 4);
     });
@@ -444,7 +444,7 @@ function runVisibleLoop(element, draw, options = {}) {
     }
 
     ctx.textAlign = 'left';
-    ctx.font = '10px Space Mono, monospace';
+    ctx.font = '10px Manrope, sans-serif';
     ctx.fillStyle = 'rgba(129,140,248,0.38)';
     ctx.fillText('NEUROMODULATION - PROPAGATION', 14, H - 14);
   }

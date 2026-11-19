@@ -79,7 +79,7 @@
         padding-top: 1.25rem;
         border-top: 1px solid rgba(184, 196, 248, 0.1);
         color: rgba(184, 196, 248, 0.4);
-        font-family: 'DM Sans', sans-serif;
+        font-family: 'Manrope', sans-serif;
         font-size: 0.7rem;
         line-height: 1.7;
         letter-spacing: 0.1em;
