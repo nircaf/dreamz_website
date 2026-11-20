@@ -63,6 +63,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .dz-header.dz-header .dz-logo { display: flex; align-items: center; gap: 10px; min-height: 44px; color: var(--dz-ink); text-decoration: none; }
 .dz-header.dz-header .dz-logo span { font-size: 20px; font-weight: 500; letter-spacing: -0.02em; }
+.dz-header.dz-header .dz-logo-mark { display: block; width: 64px; height: auto; aspect-ratio: 300 / 172; color: inherit; }
 .dz-header.dz-header .dz-links { display: flex; flex-wrap: wrap; gap: 0 28px; margin: 0; padding: 0; }
 .dz-header.dz-header .dz-links a { display: inline-block; padding: 12px 0; font-size: 14px; color: var(--dz-ink); text-decoration: none; transition: color .2s; }
 .dz-header.dz-header .dz-links a:hover { color: var(--dz-purple); }
@@ -75,7 +76,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .dz-header.dz-header .dz-cta:hover { background: var(--dz-purple-deep); color: #fff; }
 .dz-header.dz-header .dz-cta:active { transform: scale(.98); }
 .dz-header.dz-header .dz-burger { display: none; }
-.dz-header.dz-header .dz-logo svg path { stroke: currentColor; }
 @media (max-width: 760px) {
   .dz-header.dz-header .dz-bar { position: relative; min-height: 68px; gap: 12px; }
   .dz-header.dz-header .dz-cta { margin-left: auto; min-height: 40px; padding: 10px 18px; }

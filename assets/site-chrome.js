@@ -12,7 +12,8 @@
 
   const APP_STORE_URL = 'https://apps.apple.com/us/app/dreamzble-tdcs/id6764758039';
 
-  const logo = `<svg width="38" height="20" viewBox="0 0 44 24" fill="none" aria-hidden="true"><path d="M2 12 C 9 0, 15 0, 22 12 S 35 24, 42 12" stroke="#0b0b10" stroke-width="1.6"/><path d="M2 12 C 9 24, 15 24, 22 12 S 35 0, 42 12" stroke="#0b0b10" stroke-width="1.6"/></svg>`;
+  // The live site's animated three-wave mark, drawn by initLogo() below in the header's text colour.
+  const logo = `<canvas class="dz-logo-mark" width="300" height="172" aria-hidden="true"></canvas>`;
 
   const headerHtml = () => `
     <header class="dz-header">
@@ -99,6 +100,76 @@
     window.addEventListener('resize', update);
     update();
   }
+
+  // Logo animation from the live site: three sine waves draw in one after another, hold, repeat.
+  // Same curves and timing; the colour follows the header (black, or white over the phone video).
+  const initLogo = () => {
+    const cv = document.querySelector('.dz-logo-mark');
+    if (!cv) return;
+    const ctx = cv.getContext('2d');
+    const DPR = Math.min(window.devicePixelRatio || 1, 2);
+    const S_W = 300, S_H = 172;
+    cv.width = S_W * DPR; cv.height = S_H * DPR;
+    ctx.scale(DPR, DPR);
+
+    const XMIN = -Math.PI, XMAX = Math.PI, YMIN = -1.8, YMAX = 1.8, NS = 400;
+    const DX = (XMAX - XMIN) / NS;
+    const WS = 0.4, BD = 0.71, BS = 8.0, wmax = 7, a = 3.14, b = 2.14;
+    const env = (x, spd) => Math.pow(Math.abs(Math.cos(x / 2)), spd);
+    const lineWidth = x => wmax * env(x, WS);
+    const lineAlpha = x => { const m = Math.max(0.03, 1 - BD); return m + (1 - m) * env(x, BS); };
+    const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
+    const easeOut = t => 1 - (1 - t) * (1 - t);
+    const tcx = x => (x - XMIN) / (XMAX - XMIN) * S_W;
+    const tcy = y => (YMAX - y) / (YMAX - YMIN) * S_H;
+    const fns = [x => Math.PI * Math.sin(x) / b, x => -Math.PI * Math.sin(x) / b, x => Math.PI * Math.sin(x) / (a * b)];
+
+    let rgb = '11, 11, 16';
+    const readColour = () => {
+      const m = getComputedStyle(cv).color.match(/\d+(\.\d+)?/g);
+      if (m) rgb = m.slice(0, 3).join(', ');
+    };
+    const drawLine = (fn, xEnd) => {
+      for (let i = 0; i < NS; i++) {
+        const x0 = XMIN + i * DX, x1 = x0 + DX, xm = (x0 + x1) / 2;
+        if (xm > xEnd) break;
+        ctx.beginPath();
+        ctx.moveTo(tcx(x0), tcy(clamp(fn(x0), YMIN, YMAX)));
+        ctx.lineTo(tcx(x1), tcy(clamp(fn(x1), YMIN, YMAX)));
+        ctx.lineWidth = lineWidth(xm);
+        ctx.lineCap = 'round';
+        ctx.strokeStyle = `rgba(${rgb}, ${lineAlpha(xm).toFixed(3)})`;
+        ctx.stroke();
+      }
+    };
+    const drawSolid = () => { ctx.clearRect(0, 0, S_W, S_H); fns.forEach(fn => drawLine(fn, XMAX)); };
+
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      readColour(); drawSolid();
+      new MutationObserver(() => { readColour(); drawSolid(); }).observe(header, { attributes: true, attributeFilter: ['class'] });
+      return;
+    }
+    const ANIM = 2600, PAUSE = 4000, CYCLE = ANIM + PAUSE;
+    let t0 = null, lastRgb = '';
+    const frame = ts => {
+      if (t0 === null) t0 = ts;
+      readColour();
+      const t = (ts - t0) % CYCLE;
+      if (t < ANIM) {
+        ctx.clearRect(0, 0, S_W, S_H);
+        [0, 0.22, 0.44].forEach((off, i) => {
+          const lt = easeOut(clamp((t / ANIM - off) / 0.56, 0, 1));
+          drawLine(fns[i], XMIN + lt * (XMAX - XMIN));
+        });
+        lastRgb = '';
+      } else if (rgb !== lastRgb) {
+        drawSolid(); lastRgb = rgb;
+      }
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+  };
+  initLogo();
 
   const footerTarget = document.querySelector('[data-dreamz-footer]') || document.querySelector('body > footer');
   if (footerTarget) footerTarget.outerHTML = footerHtml();
