@@ -18,7 +18,7 @@
     <header class="dz-header">
       <div class="dz-bar">
         <a class="dz-logo" href="${url('index.html')}" aria-label="Dreamz home">${logo}<span>Dreamz</span></a>
-        <nav class="dz-links" aria-label="Main">
+        <nav class="dz-links" id="dz-menu" aria-label="Main">
           <a href="${url('index.html')}"${current('home')}>Home</a>
           <a href="${url('how-it-works.html')}"${current('how')}>How it works</a>
           <a href="${url('dreamz-use-cases.html')}"${current('use-cases')}>Other Use Cases</a>
@@ -26,6 +26,7 @@
           <a href="${url('dreamz-faq.html')}"${current('faq')}>FAQ</a>
         </nav>
         <a class="dz-cta" href="${url('index.html#cta')}">Pre-order</a>
+        <button class="dz-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="dz-menu"><span></span><span></span><span></span></button>
       </div>
     </header>`;
 
@@ -70,6 +71,35 @@
 
   const navTarget = document.querySelector('[data-dreamz-nav]') || document.querySelector('body > nav');
   if (navTarget) navTarget.outerHTML = headerHtml();
+
+  // Phone menu: the burger opens the links as a panel under the bar.
+  const header = document.querySelector('.dz-header');
+  const burger = header && header.querySelector('.dz-burger');
+  if (burger) {
+    const setOpen = open => {
+      header.classList.toggle('is-open', open);
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    burger.addEventListener('click', () => setOpen(!header.classList.contains('is-open')));
+    header.querySelectorAll('.dz-links a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') setOpen(false); });
+    document.addEventListener('click', e => { if (!header.contains(e.target)) setOpen(false); });
+  }
+
+  // Pages that open on a full-screen picture (<body data-header="overlay">) start with a clear
+  // header over it and turn it solid once the picture has scrolled away.
+  if (header && document.body.dataset.header === 'overlay') {
+    header.classList.add('is-overlay');
+    const cover = document.querySelector('[data-header-cover]');
+    const update = () => {
+      const limit = cover ? cover.getBoundingClientRect().bottom : 0;
+      header.classList.toggle('is-solid', limit <= header.offsetHeight);
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  }
 
   const footerTarget = document.querySelector('[data-dreamz-footer]') || document.querySelector('body > footer');
   if (footerTarget) footerTarget.outerHTML = footerHtml();

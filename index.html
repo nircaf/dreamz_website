@@ -328,9 +328,11 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 
 @media (max-width:760px){
   .hero{padding-top:40px;padding-bottom:72px;gap:40px}
-  .hero figure{flex-basis:100%}
+  /* Phones open on the full-screen demo video, like the live site, with the header over it. */
+  .hero{padding-top:0;gap:36px}
+  .hero figure{order:-1;flex-basis:auto;width:calc(100% + 2 * var(--pad));margin:0 calc(-1 * var(--pad))}
   .hero-photo{display:none!important}
-  .hero-video{display:block}
+  .hero-video{display:block;height:100svh;aspect-ratio:auto;border-radius:0}
   .timeline li{grid-template-columns:80px minmax(0,1fr);gap:16px;padding:20px 0}
   .timeline span{font-size:21px}
   .changes .wrap,.quote .wrap,.night,.preorder .wrap,.newsletter .wrap{padding-top:72px;padding-bottom:72px}
@@ -346,7 +348,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
     <link rel="stylesheet" href="assets/white-theme.css">
 </head>
 
-<body data-active-page="home">
+<body data-active-page="home" data-header="overlay">
 <a class="skip" href="#main">Skip to content</a>
 
 <div data-dreamz-nav></div>
@@ -368,7 +370,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
         <a class="appstore" href="https://apps.apple.com/us/app/dreamzble-tdcs/id6764758039" target="_blank" rel="noopener noreferrer" aria-label="Download the Dreamz app on the App Store"><img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" width="105" height="35"></a>
       </div>
     </div>
-    <figure>
+    <figure data-header-cover>
       <img class="hero-photo" src="Photos/Gallery/black_mask.jpg" alt="Woman wearing the black Dreamz sleep mask" width="1122" height="1402" fetchpriority="high">
       <video class="hero-video" id="heroVideo" muted loop playsinline preload="none" poster="Photos/Dreamz_demo_real_poster.jpg" aria-label="A woman putting on the Dreamz mask"></video>
     </figure>
