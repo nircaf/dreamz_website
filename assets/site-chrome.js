@@ -19,6 +19,7 @@
       <div class="dz-bar">
         <a class="dz-logo" href="${url('index.html')}" aria-label="Dreamz home">${logo}<span>Dreamz</span></a>
         <nav class="dz-links" aria-label="Main">
+          <a href="${url('index.html')}"${current('home')}>Home</a>
           <a href="${url('how-it-works.html')}"${current('how')}>How it works</a>
           <a href="${url('dreamz-use-cases.html')}"${current('use-cases')}>Other Use Cases</a>
           <a href="${url('dreamz-research.html')}"${current('research')}>Research</a>

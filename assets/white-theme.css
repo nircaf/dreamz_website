@@ -69,14 +69,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .dz-header.dz-header .dz-links a[aria-current="page"] { color: var(--dz-purple); }
 .dz-header.dz-header .dz-cta {
   display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 20px;
-  border-radius: 999px; background: var(--dz-ink); color: #fff; font-size: 14px; font-weight: 500; text-decoration: none;
+  border-radius: 999px; background: var(--dz-purple); color: #fff; font-size: 14px; font-weight: 500; text-decoration: none;
   transition: background .2s, transform .15s;
 }
-.dz-header.dz-header .dz-cta:hover { background: var(--dz-purple); color: #fff; }
+.dz-header.dz-header .dz-cta:hover { background: var(--dz-purple-deep); color: #fff; }
 .dz-header.dz-header .dz-cta:active { transform: scale(.98); }
 @media (max-width: 760px) {
   .dz-header.dz-header .dz-bar { flex-wrap: wrap; gap: 4px 16px; padding-top: 10px; padding-bottom: 6px; }
-  .dz-header.dz-header .dz-links { order: 3; flex-basis: 100%; gap: 0 20px; }
+  .dz-header.dz-header .dz-links { order: 3; flex-basis: 100%; justify-content: space-between; gap: 0 12px; }
+  .dz-header.dz-header .dz-links a { font-size: 13.5px; }
 }
 
 /* ── Shared footer ───────────────────────────────────────────────────────── */
