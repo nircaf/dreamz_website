@@ -1,0 +1,141 @@
+/* Dreamz white theme — shared by every page.
+   Loaded last in <head>, after each page's own styles, so the page keeps its layout
+   while colours, type and the shared nav/footer come from here. The page colour
+   values themselves were remapped to the white palette in each file; this sheet
+   handles what a value swap cannot (fonts, starfield canvases, the new chrome). */
+
+:root {
+  --dz-ink: #0b0b10;
+  --dz-text: #2b2a33;
+  --dz-muted: #55535f;
+  --dz-soft: #f7f6fa;
+  --dz-line: #ecebf0;
+  --dz-purple: #5b2bd6;
+  --dz-purple-deep: #3f1aa3;
+  --dz-purple-tint: #ede5fc;
+  --dz-font: 'Geist', system-ui, -apple-system, sans-serif;
+  --dz-pad: clamp(16px, 4vw, 48px);
+}
+
+html { background: #ffffff; }
+body {
+  background: #ffffff !important;
+  color: var(--dz-text);
+  font-family: var(--dz-font) !important;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* One typeface everywhere, the hero's: Geist. */
+body *:not(svg):not(svg *):not(code):not(pre):not(kbd) { font-family: var(--dz-font) !important; }
+body h1, body h2, body h3 {
+  color: var(--dz-ink);
+  font-weight: 500 !important;
+  letter-spacing: -0.035em !important;
+}
+body h4, body h5 { color: var(--dz-ink); font-weight: 600 !important; }
+::selection { background: var(--dz-purple-tint); color: var(--dz-ink); }
+
+/* The dark site drew starfields and glows on full-page canvases; white needs none. */
+#bg-canvas, .stars, .star-field, .nebula, .glow-orb { display: none !important; }
+
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--dz-purple);
+  outline-offset: 3px;
+}
+
+/* The old pages repeated the wellness disclaimer inside their content; the footer carries it now. */
+.footer-disclaimer { display: none !important; }
+
+/* ── Shared header ───────────────────────────────────────────────────────── */
+/* Rules below double the class (.dz-header.dz-header) so they outrank the reset.
+   `all: revert` stops page rules written for the old nav (nav{}, #nav, .nav-links)
+   from reaching the new one. SVGs are excluded so their stroke attributes survive. */
+.dz-header, .dz-header :not(svg):not(svg *) { all: revert; box-sizing: border-box; font-family: var(--dz-font) !important; }
+.dz-header.dz-header {
+  position: sticky; top: 0; z-index: 100; display: block;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: saturate(180%) blur(18px); -webkit-backdrop-filter: saturate(180%) blur(18px);
+  border-bottom: 1px solid var(--dz-line);
+}
+.dz-header.dz-header .dz-bar {
+  max-width: 1280px; margin: 0 auto; padding: 0 var(--dz-pad);
+  display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 76px;
+}
+.dz-header.dz-header .dz-logo { display: flex; align-items: center; gap: 10px; min-height: 44px; color: var(--dz-ink); text-decoration: none; }
+.dz-header.dz-header .dz-logo span { font-size: 20px; font-weight: 500; letter-spacing: -0.02em; }
+.dz-header.dz-header .dz-links { display: flex; flex-wrap: wrap; gap: 0 28px; margin: 0; padding: 0; }
+.dz-header.dz-header .dz-links a { display: inline-block; padding: 12px 0; font-size: 14px; color: var(--dz-ink); text-decoration: none; transition: color .2s; }
+.dz-header.dz-header .dz-links a:hover { color: var(--dz-purple); }
+.dz-header.dz-header .dz-links a[aria-current="page"] { color: var(--dz-purple); }
+.dz-header.dz-header .dz-cta {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 20px;
+  border-radius: 999px; background: var(--dz-ink); color: #fff; font-size: 14px; font-weight: 500; text-decoration: none;
+  transition: background .2s, transform .15s;
+}
+.dz-header.dz-header .dz-cta:hover { background: var(--dz-purple); color: #fff; }
+.dz-header.dz-header .dz-cta:active { transform: scale(.98); }
+@media (max-width: 760px) {
+  .dz-header.dz-header .dz-bar { flex-wrap: wrap; gap: 4px 16px; padding-top: 10px; padding-bottom: 6px; }
+  .dz-header.dz-header .dz-links { order: 3; flex-basis: 100%; gap: 0 20px; }
+}
+
+/* ── Shared footer ───────────────────────────────────────────────────────── */
+.dz-footer, .dz-footer :not(svg):not(svg *) { all: revert; box-sizing: border-box; font-family: var(--dz-font) !important; }
+.dz-footer.dz-footer { display: block; background: var(--dz-ink); color: #fff; }
+.dz-footer.dz-footer .dz-wrap { max-width: 1280px; margin: 0 auto; padding: 96px var(--dz-pad) 48px; display: flex; flex-direction: column; gap: 48px; }
+.dz-footer.dz-footer .dz-close { display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; align-items: flex-end; }
+.dz-footer.dz-footer h2 { margin: 0; max-width: 12em; color: #fff; font-size: clamp(36px, 4.4vw, 64px); line-height: 1; font-weight: 500 !important; letter-spacing: -0.04em !important; }
+.dz-footer.dz-footer .dz-btn-white {
+  display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 14px 28px;
+  border-radius: 999px; background: #fff; color: var(--dz-ink); font-size: 16px; font-weight: 500; text-decoration: none;
+  transition: background .2s, transform .15s;
+}
+.dz-footer.dz-footer .dz-btn-white:hover { background: var(--dz-purple-tint); }
+.dz-footer.dz-footer .dz-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid #26252e; padding-top: 24px; }
+.dz-footer.dz-footer .dz-flinks { display: flex; flex-wrap: wrap; gap: 0 24px; }
+.dz-footer.dz-footer .dz-flinks a { display: inline-block; padding: 8px 0; font-size: 14px; color: #c9c7d3; text-decoration: none; transition: color .2s; }
+.dz-footer.dz-footer .dz-flinks a:hover, .dz-footer.dz-footer .dz-flinks a[aria-current="page"] { color: #fff; }
+.dz-footer.dz-footer .dz-apps { display: flex; align-items: center; gap: 18px; }
+.dz-footer.dz-footer .dz-appstore { display: inline-flex; line-height: 0; transition: opacity .2s, transform .2s; }
+.dz-footer.dz-footer .dz-appstore:hover { opacity: .85; transform: translateY(-1px); }
+.dz-footer.dz-footer .dz-appstore img { height: 40px; width: auto; display: block; }
+.dz-footer.dz-footer .dz-social { display: flex; gap: 6px; }
+.dz-footer.dz-footer .dz-social a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; color: #9a98a6; transition: color .2s; }
+.dz-footer.dz-footer .dz-social a:hover { color: #fff; }
+.dz-footer.dz-footer .dz-social svg { width: 18px; height: 18px; fill: currentColor; }
+.dz-footer.dz-footer .dz-disclaimer { margin: 0; max-width: 70em; font-size: 12px; line-height: 1.6; color: #9a98a6; }
+.dz-footer.dz-footer .dz-disclaimer a { color: inherit; text-decoration: underline; }
+.dz-footer.dz-footer .dz-copy { font-size: 12px; color: #77757f; }
+@media (max-width: 760px) { .dz-footer.dz-footer .dz-wrap { padding-top: 72px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { transition-duration: .001ms !important; animation-duration: .001ms !important; }
+}
+
+/* ── Page fixes for the new header and phone widths ─────────────────────── */
+body { overflow-x: clip; }
+#filter-bar { top: 76px !important; }
+.posts-filter { flex-wrap: wrap; }
+@media (max-width: 860px) {
+  .article-layout { grid-template-columns: minmax(0, 1fr) !important; }
+  .article-body { padding: 3rem var(--dz-pad) !important; border-right: 0 !important; }
+  .stage-row { grid-template-columns: 88px minmax(0, 1fr) !important; }
+  .stage-name { padding: 1rem 0.75rem !important; }
+  .stage-bar-wrap { min-width: 0; flex-wrap: wrap; padding: 0.8rem 1rem !important; }
+  .stage-desc { white-space: normal !important; }
+}
+.stage-desc { color: rgba(11, 11, 16, 0.55) !important; }
+@media (max-width: 760px) {
+  #filter-bar { top: 104px !important; padding: 0 var(--dz-pad) !important; }
+  .posts-filter { width: 100%; }
+  .posts-filter .filter-btn { flex: 1 1 auto; }
+}
+@media (max-width: 820px) { .tag.think { left: calc(100% - 64px) !important; } .tag.respond { left: 64px !important; } }
+
+/* Old pages styled every <nav> as the fixed site bar; only the shared header is a bar now. */
+body nav:not(.dz-links):not(.dz-flinks) { position: static !important; background: none !important; backdrop-filter: none !important; -webkit-backdrop-filter: none !important; z-index: auto !important; }
+nav.toc { padding: 0 !important; }
+/* The blog grid painted its gaps as a purple fill, which showed as an empty tile under an odd card count. */
+.posts-grid { background: transparent !important; gap: 24px !important; }
+.post-card { border: 1px solid var(--dz-line); border-radius: 16px; overflow: hidden; }

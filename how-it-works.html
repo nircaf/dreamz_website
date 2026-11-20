@@ -8,21 +8,21 @@
   <meta name="description" content="See how the Dreamz smart sleep mask senses brain activity, gently responds overnight, and turns each night into personalized sleep insight.">
   <link rel="canonical" href="https://dreamz.rest/how-it-works.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --ink: #04050d;
-      --midnight: #080c1a;
-      --deep: #0d1330;
-      --iris: #4a5bcc;
-      --lavender: #8b9de8;
-      --violet: #818CF8;
-      --violet-dim: #A78BFA;
-      --soft: #e8ebff;
-      --white: #f4f6ff;
-      --muted: rgba(206, 214, 255, 0.72);
-      --border: rgba(138, 157, 232, 0.15);
+      --ink: #ffffff;
+      --midnight: #ffffff;
+      --deep: #f7f6fa;
+      --iris: #5b2bd6;
+      --lavender: #5b2bd6;
+      --violet: #5b2bd6;
+      --violet-dim: #5b2bd6;
+      --soft: #2b2a33;
+      --white: #0b0b10;
+      --muted: rgba(11, 11, 16, 0.72);
+      --border: rgba(91, 43, 214, 0.15);
       --loop-sense: #3ad17a;
       --loop-think: #ffffff;
       --loop-bit: #22e06a;
@@ -32,7 +32,7 @@
     body {
       background: var(--ink);
       color: var(--soft);
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Geist', sans-serif;
       font-weight: 300;
       line-height: 1.7;
       overflow-x: hidden;
@@ -55,12 +55,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: linear-gradient(to bottom, rgba(4, 5, 13, 0.9) 0%, transparent 100%);
+      background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, transparent 100%);
       backdrop-filter: blur(2px);
       transition: background 0.4s;
     }
     nav.scrolled {
-      background: rgba(4, 5, 13, 0.95);
+      background: rgba(255, 255, 255, 0.95);
       border-bottom: 1px solid var(--border);
     }
     .nav-logo {
@@ -87,7 +87,7 @@
       border: 1px solid var(--violet-dim);
       background: transparent;
       color: var(--violet);
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Geist', sans-serif;
       font-size: 0.78rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
@@ -102,12 +102,12 @@
       align-items: end;
       padding: 10rem 4rem 5rem;
       border-bottom: 1px solid var(--border);
-      background: radial-gradient(ellipse at 72% 20%, rgba(74, 91, 204, 0.16), transparent 48%);
+      background: radial-gradient(ellipse at 72% 20%, rgba(91, 43, 214, 0.16), transparent 48%);
     }
     .page-hero-inner { max-width: 820px; }
     .eyebrow,
     .section-label {
-      font-family: 'Plus Jakarta Sans', monospace;
+      font-family: 'Geist', monospace;
       font-size: 0.68rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -116,7 +116,7 @@
     }
     h1,
     .section-title {
-      font-family: 'Plus Jakarta Sans', serif;
+      font-family: 'Geist', serif;
       font-weight: 300;
       color: var(--white);
       line-height: 1.15;
@@ -124,7 +124,7 @@
     h1 { font-size: clamp(3.1rem, 6vw, 6rem); margin-bottom: 1.5rem; }
     .page-hero p:last-child {
       max-width: 620px;
-      color: rgba(231, 235, 255, 0.78);
+      color: rgba(11, 11, 16, 0.78);
       font-size: 1rem;
     }
     section { padding: 7rem 4rem; }
@@ -134,14 +134,14 @@
       margin-bottom: 4rem;
     }
     .step-num {
-      font-family: 'Plus Jakarta Sans', monospace;
+      font-family: 'Geist', monospace;
       font-size: 0.65rem;
       color: var(--violet);
       letter-spacing: 0.16em;
       display: block;
     }
     .step h4 {
-      font-family: 'Plus Jakarta Sans', serif;
+      font-family: 'Geist', serif;
       font-size: 1.5rem;
       font-weight: 300;
       color: var(--white);
@@ -153,7 +153,7 @@
     .loop-scene { position: relative; width: min(90vw, 620px); aspect-ratio: 1; margin: 1rem auto 2.5rem; }
     .loop-ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
     .loop-base { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.34; }
-    .loop-bit { font-family: 'Plus Jakarta Sans', monospace; font-size: 17px; font-weight: 700; fill: var(--loop-bit); text-anchor: middle; filter: drop-shadow(0 0 6px var(--loop-bit)); }
+    .loop-bit { font-family: 'Geist', monospace; font-size: 17px; font-weight: 700; fill: var(--loop-bit); text-anchor: middle; filter: drop-shadow(0 0 6px var(--loop-bit)); }
     .loop-core { transform-origin: 320px 320px; animation: loopBreath 6s ease-in-out infinite; }
     .loop-heart { transform-origin: 320px 70px; }
     .loop-heart.beat { animation: loopHeartbeat 1.7s ease-in-out infinite; }
@@ -164,8 +164,8 @@
 
     .loop-tags { position: absolute; inset: 0; pointer-events: none; }
     .loop-tag { position: absolute; transform: translate(-50%, -50%); text-align: center; width: 140px; }
-    .loop-tag .n { font-family: 'Plus Jakarta Sans', monospace; font-size: 11px; letter-spacing: 0.16em; color: var(--violet); }
-    .loop-tag .t { font-family: 'Plus Jakarta Sans', serif; font-size: 19px; color: var(--white); margin-top: 2px; }
+    .loop-tag .n { font-family: 'Geist', monospace; font-size: 11px; letter-spacing: 0.16em; color: var(--violet); }
+    .loop-tag .t { font-family: 'Geist', serif; font-size: 19px; color: var(--white); margin-top: 2px; }
     .loop-tag.sense { left: 50%; top: 1%; }
     .loop-tag.sense .n { color: var(--loop-sense); }
     .loop-tag.think { left: 88%; top: 84%; }
@@ -175,8 +175,8 @@
 
     .loop-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
     .loop-card { background: var(--midnight); padding: 2rem 1.75rem; }
-    .loop-card .n { font-family: 'Plus Jakarta Sans', monospace; font-size: 0.65rem; color: var(--violet-dim); letter-spacing: 0.16em; display: block; margin-bottom: 1rem; }
-    .loop-card h3 { font-family: 'Plus Jakarta Sans', serif; font-size: 1.4rem; font-weight: 300; color: var(--white); margin-bottom: 0.6rem; }
+    .loop-card .n { font-family: 'Geist', monospace; font-size: 0.65rem; color: var(--violet-dim); letter-spacing: 0.16em; display: block; margin-bottom: 1rem; }
+    .loop-card h3 { font-family: 'Geist', serif; font-size: 1.4rem; font-weight: 300; color: var(--white); margin-bottom: 0.6rem; }
     .loop-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.75; }
 
     @keyframes loopBreath { 0%, 100% { transform: scale(1); opacity: 0.9; } 50% { transform: scale(1.08); opacity: 1; } }
@@ -246,7 +246,7 @@
     }
     .footer-copy {
       font-size: 0.7rem;
-      color: rgba(184, 196, 248, 0.2);
+      color: rgba(11, 11, 16, 0.2);
       letter-spacing: 0.08em;
     }
     .footer-legal-links {
@@ -258,7 +258,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(184, 196, 248, 0.25);
+      color: rgba(11, 11, 16, 0.25);
       text-decoration: none;
       transition: color 0.3s;
     }
@@ -281,7 +281,7 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
-    ::selection { background: rgba(129, 140, 248, 0.28); color: var(--white); }
+    ::selection { background: rgba(91, 43, 214, 0.28); color: var(--white); }
     @media (max-width: 860px) {
       nav { padding: 1.2rem 2rem; }
       .nav-links { display: none; }
@@ -306,6 +306,7 @@
   <link rel="icon" type="image/x-icon" href="assets/branding/favicon-dark.ico" media="(prefers-color-scheme: dark)">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32-dark.png" media="(prefers-color-scheme: dark)">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/branding/apple-touch-icon-dark.png" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="assets/white-theme.css">
 </head>
 
 <body data-footer-type="landing" data-active-page="how">
@@ -349,8 +350,8 @@
             <path d="M12 6.5v10"/>
           </svg>
 
-          <circle class="loop-core" cx="320" cy="320" r="46" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="1.5"/>
-          <circle class="loop-core" cx="320" cy="320" r="30" fill="rgba(129,140,248,.10)"/>
+          <circle class="loop-core" cx="320" cy="320" r="46" fill="none" stroke="rgba(11, 11, 16,.14)" stroke-width="1.5"/>
+          <circle class="loop-core" cx="320" cy="320" r="30" fill="rgba(91, 43, 214,.10)"/>
 
           <g id="loopRipples"></g>
           <g id="loopTrail"></g>

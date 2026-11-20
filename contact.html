@@ -17,7 +17,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <style>
@@ -30,17 +30,17 @@
         }
 
         :root {
-            --ink: #04050d;
-            --deep: #0d1330;
-            --indigo: #2a3580;
-            --iris: #4a5bcc;
-            --lavender: #8b9de8;
-            --glow: #b8c4f8;
-            --violet: #818CF8;
-            --soft: #e8ebff;
-            --white: #f4f6ff;
-            --muted: rgba(184, 196, 248, 0.52);
-            --border: rgba(138, 157, 232, 0.15);
+            --ink: #ffffff;
+            --deep: #f7f6fa;
+            --indigo: #d9d3f0;
+            --iris: #5b2bd6;
+            --lavender: #5b2bd6;
+            --glow: #55535f;
+            --violet: #5b2bd6;
+            --soft: #2b2a33;
+            --white: #0b0b10;
+            --muted: rgba(11, 11, 16, 0.52);
+            --border: rgba(91, 43, 214, 0.15);
         }
 
         html {
@@ -51,11 +51,11 @@
         body {
             min-height: 100vh;
             background:
-                radial-gradient(ellipse 70% 55% at 30% 22%, rgba(74, 91, 204, 0.12), transparent 72%),
-                linear-gradient(180deg, rgba(42, 53, 128, 0.12) 0%, transparent 42%),
+                radial-gradient(ellipse 70% 55% at 30% 22%, rgba(91, 43, 214, 0.12), transparent 72%),
+                linear-gradient(180deg, rgba(91, 43, 214, 0.12) 0%, transparent 42%),
                 var(--ink);
             color: var(--soft);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Geist', sans-serif;
             font-weight: 300;
             line-height: 1.75;
             overflow-x: hidden;
@@ -71,7 +71,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: linear-gradient(to bottom, rgba(4, 5, 13, 0.95) 0%, rgba(4, 5, 13, 0.8) 100%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 100%);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--border);
         }
@@ -120,7 +120,7 @@
         }
 
         .page-eyebrow {
-            font-family: 'Plus Jakarta Sans', monospace;
+            font-family: 'Geist', monospace;
             font-size: 0.68rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -130,7 +130,7 @@
 
         .page-title {
             max-width: 760px;
-            font-family: 'Plus Jakarta Sans', serif;
+            font-family: 'Geist', serif;
             font-size: clamp(3rem, 6vw, 5.2rem);
             font-weight: 300;
             color: var(--white);
@@ -154,7 +154,7 @@
             display: grid;
             gap: 2rem;
             padding: 2.5rem;
-            background: rgba(13, 19, 48, 0.58);
+            background: rgba(247, 246, 250, 0.58);
             border: 1px solid var(--border);
             border-left: 3px solid var(--violet);
             backdrop-filter: blur(6px);
@@ -173,7 +173,7 @@
         .contact-label {
             display: block;
             margin-bottom: 0.55rem;
-            font-family: 'Plus Jakarta Sans', monospace;
+            font-family: 'Geist', monospace;
             font-size: 0.68rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -188,7 +188,7 @@
         }
 
         .contact-value a {
-            border-bottom: 1px solid rgba(129, 140, 248, 0.45);
+            border-bottom: 1px solid rgba(91, 43, 214, 0.45);
             transition: color 0.3s, border-color 0.3s;
         }
 
@@ -231,7 +231,7 @@
         .footer-copy {
             width: 100%;
             font-size: 0.75rem;
-            color: rgba(184, 196, 248, 0.25);
+            color: rgba(11, 11, 16, 0.25);
             letter-spacing: 0.05em;
             margin-top: 0.5rem;
         }
@@ -279,6 +279,7 @@
     <link rel="icon" type="image/x-icon" href="assets/branding/favicon-dark.ico" media="(prefers-color-scheme: dark)">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32-dark.png" media="(prefers-color-scheme: dark)">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/branding/apple-touch-icon-dark.png" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="assets/white-theme.css">
 </head>
 
 <body data-footer-type="legal" data-active-page="contact">

@@ -15,7 +15,7 @@
     <meta property="og:site_name" content="Dreamz">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         *,
@@ -27,16 +27,16 @@
         }
 
         :root {
-            --ink: #04050d;
-            --midnight: #080c1a;
-            --deep: #0d1330;
-            --lavender: #8b9de8;
-            --violet: #818CF8;
-            --violet-dim: #5B21B6;
-            --soft: #e8ebff;
-            --white: #f4f6ff;
-            --muted: rgba(184, 196, 248, 0.52);
-            --border: rgba(138, 157, 232, 0.15);
+            --ink: #ffffff;
+            --midnight: #ffffff;
+            --deep: #f7f6fa;
+            --lavender: #5b2bd6;
+            --violet: #5b2bd6;
+            --violet-dim: #5b2bd6;
+            --soft: #2b2a33;
+            --white: #0b0b10;
+            --muted: rgba(11, 11, 16, 0.52);
+            --border: rgba(91, 43, 214, 0.15);
         }
 
         html {
@@ -47,7 +47,7 @@
         body {
             background: var(--ink);
             color: var(--soft);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Geist', sans-serif;
             font-weight: 300;
             line-height: 1.75;
             overflow-x: hidden;
@@ -59,8 +59,8 @@
             inset: 0;
             z-index: -2;
             background:
-                radial-gradient(ellipse 70% 55% at 75% 18%, rgba(74, 91, 204, 0.1) 0%, transparent 62%),
-                radial-gradient(ellipse 60% 60% at 18% 78%, rgba(91, 33, 182, 0.08) 0%, transparent 58%),
+                radial-gradient(ellipse 70% 55% at 75% 18%, rgba(91, 43, 214, 0.1) 0%, transparent 62%),
+                radial-gradient(ellipse 60% 60% at 18% 78%, rgba(91, 43, 214, 0.08) 0%, transparent 58%),
                 var(--ink);
         }
 
@@ -84,15 +84,15 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: linear-gradient(to bottom, rgba(4, 5, 13, 0.95) 0%, rgba(4, 5, 13, 0.8) 100%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 100%);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--border);
             transition: background 0.3s, border-color 0.3s;
         }
 
         nav.scrolled {
-            background: rgba(4, 5, 13, 0.95);
-            border-bottom-color: rgba(138, 157, 232, 0.22);
+            background: rgba(255, 255, 255, 0.95);
+            border-bottom-color: rgba(91, 43, 214, 0.22);
         }
 
         .nav-logo {
@@ -131,7 +131,7 @@
         .page-hero {
             padding: 10rem 4rem 5rem;
             position: relative;
-            background: linear-gradient(180deg, rgba(42, 53, 128, 0.12) 0%, transparent 100%);
+            background: linear-gradient(180deg, rgba(91, 43, 214, 0.12) 0%, transparent 100%);
             border-bottom: 1px solid var(--border);
         }
 
@@ -139,13 +139,13 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse 60% 60% at 30% 40%, rgba(74, 91, 204, 0.08) 0%, transparent 70%);
+            background: radial-gradient(ellipse 60% 60% at 30% 40%, rgba(91, 43, 214, 0.08) 0%, transparent 70%);
             pointer-events: none;
         }
 
         .page-eyebrow,
         .section-num {
-            font-family: 'Plus Jakarta Sans', monospace;
+            font-family: 'Geist', monospace;
             font-size: 0.68rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -159,7 +159,7 @@
         }
 
         .page-title {
-            font-family: 'Plus Jakarta Sans', serif;
+            font-family: 'Geist', serif;
             font-size: clamp(2.8rem, 5vw, 4.5rem);
             font-weight: 300;
             color: var(--white);
@@ -175,7 +175,7 @@
         }
 
         .notice {
-            background: rgba(13, 19, 48, 0.58);
+            background: rgba(247, 246, 250, 0.58);
             border: 1px solid var(--border);
             border-left: 3px solid var(--violet);
             padding: 1.5rem 1.75rem;
@@ -200,7 +200,7 @@
         }
 
         h2 {
-            font-family: 'Plus Jakarta Sans', serif;
+            font-family: 'Geist', serif;
             font-size: 1.8rem;
             font-weight: 300;
             color: var(--white);
@@ -229,7 +229,7 @@
 
         a {
             color: var(--lavender);
-            text-decoration-color: rgba(139, 157, 232, 0.45);
+            text-decoration-color: rgba(91, 43, 214, 0.45);
             text-underline-offset: 3px;
             transition: color 0.3s, text-decoration-color 0.3s;
         }
@@ -245,19 +245,19 @@
             min-height: 44px;
             margin-top: 0.4rem;
             padding: 0.75rem 1.2rem;
-            border: 1px solid rgba(129, 140, 248, 0.36);
+            border: 1px solid rgba(91, 43, 214, 0.36);
             color: var(--white);
             text-decoration: none;
-            font-family: 'Plus Jakarta Sans', monospace;
+            font-family: 'Geist', monospace;
             font-size: 0.72rem;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            background: rgba(129, 140, 248, 0.08);
+            background: rgba(91, 43, 214, 0.08);
         }
 
         .cta-link:hover {
-            border-color: rgba(129, 140, 248, 0.72);
-            background: rgba(129, 140, 248, 0.12);
+            border-color: rgba(91, 43, 214, 0.72);
+            background: rgba(91, 43, 214, 0.12);
         }
 
         .legal-footer {
@@ -281,7 +281,7 @@
         .footer-copy {
             width: 100%;
             font-size: 0.75rem;
-            color: rgba(184, 196, 248, 0.25);
+            color: rgba(11, 11, 16, 0.25);
             letter-spacing: 0.05em;
         }
 
@@ -324,6 +324,7 @@
     <link rel="icon" type="image/x-icon" href="../assets/branding/favicon-dark.ico" media="(prefers-color-scheme: dark)">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/branding/favicon-32-dark.png" media="(prefers-color-scheme: dark)">
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/branding/apple-touch-icon-dark.png" media="(prefers-color-scheme: dark)">
+    <link rel="stylesheet" href="../assets/white-theme.css">
 </head>
 
 <body data-footer-type="legal" data-active-page="account-deletion">

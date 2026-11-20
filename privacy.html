@@ -20,7 +20,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
 
     <style>
@@ -33,20 +33,20 @@
         }
 
         :root {
-            --ink: #04050d;
-            --midnight: #080c1a;
-            --deep: #0d1330;
-            --fog: #1a2040;
-            --indigo: #2a3580;
-            --iris: #4a5bcc;
-            --lavender: #8b9de8;
-            --glow: #b8c4f8;
-            --violet: #818CF8;
-            --violet-dim: #5B21B6;
-            --soft: #e8ebff;
-            --white: #f4f6ff;
-            --muted: rgba(184, 196, 248, 0.45);
-            --border: rgba(138, 157, 232, 0.15);
+            --ink: #ffffff;
+            --midnight: #ffffff;
+            --deep: #f7f6fa;
+            --fog: #ecebf0;
+            --indigo: #d9d3f0;
+            --iris: #5b2bd6;
+            --lavender: #5b2bd6;
+            --glow: #55535f;
+            --violet: #5b2bd6;
+            --violet-dim: #5b2bd6;
+            --soft: #2b2a33;
+            --white: #0b0b10;
+            --muted: rgba(11, 11, 16, 0.45);
+            --border: rgba(91, 43, 214, 0.15);
         }
 
         html {
@@ -57,7 +57,7 @@
         body {
             background: var(--ink);
             color: var(--soft);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Geist', sans-serif;
             font-weight: 300;
             line-height: 1.7;
             overflow-x: hidden;
@@ -74,7 +74,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: linear-gradient(to bottom, rgba(4, 5, 13, 0.95) 0%, rgba(4, 5, 13, 0.8) 100%);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 100%);
             backdrop-filter: blur(8px);
             border-bottom: 1px solid var(--border);
         }
@@ -118,7 +118,7 @@
         .page-hero {
             padding: 10rem 4rem 5rem;
             position: relative;
-            background: linear-gradient(180deg, rgba(42, 53, 128, 0.12) 0%, transparent 100%);
+            background: linear-gradient(180deg, rgba(91, 43, 214, 0.12) 0%, transparent 100%);
             border-bottom: 1px solid var(--border);
         }
 
@@ -129,12 +129,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(ellipse 60% 60% at 70% 40%, rgba(74, 91, 204, 0.08) 0%, transparent 70%);
+            background: radial-gradient(ellipse 60% 60% at 70% 40%, rgba(91, 43, 214, 0.08) 0%, transparent 70%);
             pointer-events: none;
         }
 
         .page-eyebrow {
-            font-family: 'Plus Jakarta Sans', monospace;
+            font-family: 'Geist', monospace;
             font-size: 0.68rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -143,7 +143,7 @@
         }
 
         .page-title {
-            font-family: 'Plus Jakarta Sans', serif;
+            font-family: 'Geist', serif;
             font-size: clamp(2.8rem, 5vw, 4.5rem);
             font-weight: 300;
             color: var(--white);
@@ -165,7 +165,7 @@
         }
 
         .toc {
-            background: rgba(13, 19, 48, 0.6);
+            background: rgba(247, 246, 250, 0.6);
             border: 1px solid var(--border);
             border-left: 3px solid var(--violet);
             padding: 2rem 2.5rem;
@@ -174,7 +174,7 @@
         }
 
         .toc-label {
-            font-family: 'Plus Jakarta Sans', monospace;
+            font-family: 'Geist', monospace;
             font-size: 0.65rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -212,7 +212,7 @@
         }
 
         .section-num {
-            font-family: 'Plus Jakarta Sans', monospace;
+            font-family: 'Geist', monospace;
             font-size: 0.65rem;
             letter-spacing: 0.2em;
             text-transform: uppercase;
@@ -222,7 +222,7 @@
         }
 
         .legal-section h2 {
-            font-family: 'Plus Jakarta Sans', serif;
+            font-family: 'Geist', serif;
             font-size: 1.8rem;
             font-weight: 300;
             color: var(--white);
@@ -230,7 +230,7 @@
         }
 
         .legal-section h3 {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Geist', sans-serif;
             font-size: 0.95rem;
             font-weight: 500;
             color: var(--lavender);
@@ -260,8 +260,8 @@
         }
 
         .highlight-box {
-            background: rgba(91, 33, 182, 0.08);
-            border: 1px solid rgba(91, 33, 182, 0.25);
+            background: rgba(91, 43, 214, 0.08);
+            border: 1px solid rgba(91, 43, 214, 0.25);
             border-left: 3px solid var(--violet-dim);
             padding: 1.2rem 1.8rem;
             margin: 1.5rem 0;
@@ -281,7 +281,7 @@
         }
 
         .data-table th {
-            background: rgba(13, 19, 48, 0.8);
+            background: rgba(247, 246, 250, 0.8);
             color: var(--lavender);
             font-weight: 400;
             letter-spacing: 0.08em;
@@ -298,7 +298,7 @@
         }
 
         .data-table tr:nth-child(even) td {
-            background: rgba(13, 19, 48, 0.3);
+            background: rgba(247, 246, 250, 0.3);
         }
 
         .rights-grid {
@@ -309,13 +309,13 @@
         }
 
         .right-card {
-            background: rgba(13, 19, 48, 0.5);
+            background: rgba(247, 246, 250, 0.5);
             border: 1px solid var(--border);
             padding: 1.2rem 1.4rem;
         }
 
         .right-card-title {
-            font-family: 'Plus Jakarta Sans', monospace;
+            font-family: 'Geist', monospace;
             font-size: 0.65rem;
             letter-spacing: 0.15em;
             text-transform: uppercase;
@@ -383,7 +383,7 @@
         .footer-copy {
             width: 100%;
             font-size: 0.75rem;
-            color: rgba(184, 196, 248, 0.25);
+            color: rgba(11, 11, 16, 0.25);
             letter-spacing: 0.05em;
             margin-top: 0.5rem;
         }
@@ -433,6 +433,7 @@
 (function(){function u(d){var s=d?'-dark':'-light',q=document.querySelectorAll.bind(document);q('link[rel="icon"][type="image/x-icon"]').forEach(function(l){l.href=l.href.replace(/favicon(-light|-dark)?\.ico/,'favicon'+s+'.ico');});q('link[rel="icon"][type="image/png"]').forEach(function(l){l.href=l.href.replace(/favicon-32(-light|-dark)?\.png/,'favicon-32'+s+'.png');});q('link[rel="apple-touch-icon"]').forEach(function(l){l.href=l.href.replace(/apple-touch-icon(-light|-dark)?\.png/,'apple-touch-icon'+s+'.png');});}var m=window.matchMedia('(prefers-color-scheme: dark)');u(m.matches);m.addEventListener('change',function(e){u(e.matches);});})();
 </script>
 
+    <link rel="stylesheet" href="assets/white-theme.css">
 </head>
 
 <body data-footer-type="legal" data-active-page="privacy">

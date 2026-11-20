@@ -41,29 +41,29 @@
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --ink: #04050d;
-    --midnight: #080c1a;
-    --deep: #0d1330;
-    --iris: #4a5bcc;
-    --lavender: #8b9de8;
-    --teal: #44d4cc;
+    --ink: #ffffff;
+    --midnight: #ffffff;
+    --deep: #f7f6fa;
+    --iris: #5b2bd6;
+    --lavender: #5b2bd6;
+    --teal: #0f8a83;
     --teal-dim: #1e8a85;
-    --soft: #e8ebff;
-    --white: #f4f6ff;
-    --muted: rgba(184,196,248,0.45);
-    --border: rgba(138,157,232,0.15);
+    --soft: #2b2a33;
+    --white: #0b0b10;
+    --muted: rgba(11, 11, 16,0.45);
+    --border: rgba(91, 43, 214,0.15);
   }
 
   html { scroll-behavior: smooth; }
   body {
     background: var(--ink);
     color: var(--soft);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-weight: 300;
     overflow-x: hidden;
   }
@@ -79,7 +79,7 @@
     transition: background 0.4s, border 0.4s;
   }
   nav.scrolled {
-    background: rgba(4,5,13,0.95);
+    background: rgba(255, 255, 255,0.95);
     border-bottom: 1px solid var(--border);
     backdrop-filter: blur(12px);
   }
@@ -105,26 +105,26 @@
   .nav-links a:hover, .nav-links a.active { color: var(--white); }
   .nav-cta {
     padding: 0.6rem 1.6rem;
-    border: 1px solid rgba(68,212,204,0.35);
+    border: 1px solid rgba(15, 138, 131,0.35);
     background: transparent; color: var(--teal);
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: 'Geist', sans-serif;
     font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase;
     cursor: pointer; transition: all 0.3s;
   }
-  .nav-cta:hover { background: rgba(68,212,204,0.08); }
+  .nav-cta:hover { background: rgba(15, 138, 131,0.08); }
 
   /* BREADCRUMB */
   .breadcrumb {
     padding: 9rem 4rem 0;
     position: relative; z-index: 1;
     display: flex; align-items: center; gap: 0.6rem;
-    font-family: 'Plus Jakarta Sans', monospace;
+    font-family: 'Geist', monospace;
     font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
   }
   .breadcrumb a { color: var(--muted); text-decoration: none; transition: color 0.3s; }
   .breadcrumb a:hover { color: var(--teal); }
-  .breadcrumb span { color: rgba(184,196,248,0.2); }
-  .breadcrumb .current { color: rgba(184,196,248,0.25); }
+  .breadcrumb span { color: rgba(11, 11, 16,0.2); }
+  .breadcrumb .current { color: rgba(11, 11, 16,0.25); }
 
   /* ARTICLE HERO */
   .article-hero {
@@ -135,12 +135,12 @@
   }
   .article-hero-left {}
   .article-category {
-    font-family: 'Plus Jakarta Sans', monospace;
+    font-family: 'Geist', monospace;
     font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
     color: var(--teal); margin-bottom: 1.5rem; display: block;
   }
   .article-title {
-    font-family: 'Plus Jakarta Sans', serif;
+    font-family: 'Geist', serif;
     font-size: clamp(2.2rem, 4vw, 4rem);
     font-weight: 300; line-height: 1.15; color: var(--white);
     margin-bottom: 1.8rem;
@@ -148,9 +148,9 @@
   .article-title em { font-style: italic; color: var(--lavender); }
   .article-meta {
     display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;
-    font-family: 'Plus Jakarta Sans', monospace;
+    font-family: 'Geist', monospace;
     font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
-    color: rgba(184,196,248,0.3);
+    color: rgba(11, 11, 16,0.3);
     padding-top: 1.5rem; border-top: 1px solid var(--border);
   }
   .article-meta-item { display: flex; align-items: center; gap: 0.4rem; }
@@ -173,12 +173,12 @@
     border-right: 1px solid var(--border);
   }
   .article-body h2 {
-    font-family: 'Plus Jakarta Sans', serif;
+    font-family: 'Geist', serif;
     font-size: 1.9rem; font-weight: 300; color: var(--white);
     margin: 3rem 0 1.2rem; line-height: 1.2;
   }
   .article-body h3 {
-    font-family: 'Plus Jakarta Sans', serif;
+    font-family: 'Geist', serif;
     font-size: 1.35rem; font-weight: 400; color: var(--soft);
     margin: 2rem 0 0.8rem;
   }
@@ -195,10 +195,10 @@
   .pullquote {
     border-left: 2px solid var(--teal);
     padding: 1.5rem 2rem; margin: 3rem 0;
-    background: rgba(68,212,204,0.03);
+    background: rgba(15, 138, 131,0.03);
   }
   .pullquote p {
-    font-family: 'Plus Jakarta Sans', serif;
+    font-family: 'Geist', serif;
     font-size: 1.5rem; font-weight: 300; font-style: italic;
     color: var(--soft) !important; line-height: 1.5; margin: 0 !important;
   }
@@ -214,13 +214,13 @@
     text-align: center;
   }
   .data-num {
-    font-family: 'Plus Jakarta Sans', serif;
+    font-family: 'Geist', serif;
     font-size: 2.8rem; font-weight: 300; color: var(--teal);
     display: block; line-height: 1;
   }
   .data-num sup { font-size: 1.2rem; }
   .data-label {
-    font-family: 'Plus Jakarta Sans', monospace;
+    font-family: 'Geist', monospace;
     font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--muted); margin-top: 0.5rem; display: block;
   }
@@ -232,7 +232,7 @@
   }
   .stage-diagram-header {
     padding: 1rem 1.5rem; border-bottom: 1px solid var(--border);
-    font-family: 'Plus Jakarta Sans', monospace;
+    font-family: 'Geist', monospace;
     font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase;
     color: var(--muted);
     display: flex; justify-content: space-between;
@@ -244,7 +244,7 @@
   .stage-row:last-child { border-bottom: none; }
   .stage-name {
     padding: 1rem 1.5rem; border-right: 1px solid var(--border);
-    font-family: 'Plus Jakarta Sans', monospace;
+    font-family: 'Geist', monospace;
     font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
     color: var(--muted); display: flex; align-items: center;
   }
@@ -256,8 +256,8 @@
     transition: width 1s ease;
   }
   .stage-desc {
-    font-size: 0.75rem; color: rgba(184,196,248,0.3);
-    font-family: 'Plus Jakarta Sans', monospace; letter-spacing: 0.06em;
+    font-size: 0.75rem; color: rgba(11, 11, 16,0.3);
+    font-family: 'Geist', monospace; letter-spacing: 0.06em;
     white-space: nowrap;
   }
 
@@ -272,9 +272,9 @@
   .article-image-caption {
     position: absolute; bottom: 0; left: 0; right: 0;
     padding: 0.6rem 1rem;
-    background: rgba(4,5,13,0.7);
-    font-size: 0.68rem; color: rgba(184,196,248,0.3);
-    font-family: 'Plus Jakarta Sans', monospace; letter-spacing: 0.08em;
+    background: rgba(255, 255, 255,0.7);
+    font-size: 0.68rem; color: rgba(11, 11, 16,0.3);
+    font-family: 'Geist', monospace; letter-spacing: 0.08em;
   }
 
   /* ARTICLE SIDEBAR */
@@ -285,9 +285,9 @@
   }
   .sidebar-block {}
   .sidebar-label {
-    font-family: 'Plus Jakarta Sans', monospace;
+    font-family: 'Geist', monospace;
     font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase;
-    color: rgba(184,196,248,0.25); margin-bottom: 1.2rem; display: block;
+    color: rgba(11, 11, 16,0.25); margin-bottom: 1.2rem; display: block;
   }
   /* TOC */
   .toc { display: flex; flex-direction: column; gap: 0.6rem; }
@@ -308,17 +308,17 @@
   .related-post:last-child { border-bottom: none; }
   .related-post:hover { opacity: 0.75; }
   .related-post-cat {
-    font-family: 'Plus Jakarta Sans', monospace;
+    font-family: 'Geist', monospace;
     font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--teal-dim);
   }
   .related-post-title {
-    font-family: 'Plus Jakarta Sans', serif;
+    font-family: 'Geist', serif;
     font-size: 0.95rem; color: var(--soft); line-height: 1.35;
   }
   .related-post-read {
-    font-family: 'Plus Jakarta Sans', monospace;
-    font-size: 0.55rem; color: rgba(184,196,248,0.2);
+    font-family: 'Geist', monospace;
+    font-size: 0.55rem; color: rgba(11, 11, 16,0.2);
   }
 
   /* CTA SIDEBAR */
@@ -327,14 +327,14 @@
     background: var(--midnight); display: flex; flex-direction: column; gap: 1rem;
   }
   .sidebar-cta p {
-    font-family: 'Plus Jakarta Sans', serif;
+    font-family: 'Geist', serif;
     font-size: 1.05rem; color: var(--soft); line-height: 1.45;
   }
   .sidebar-cta a {
     display: block; padding: 0.7rem 1rem; text-align: center;
     background: linear-gradient(135deg, var(--iris), var(--teal-dim));
     color: var(--white); text-decoration: none;
-    font-family: 'Plus Jakarta Sans', monospace;
+    font-family: 'Geist', monospace;
     font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
     transition: opacity 0.3s;
   }
@@ -350,11 +350,11 @@
   }
   .tag {
     padding: 0.3rem 0.9rem; border: 1px solid var(--border);
-    font-family: 'Plus Jakarta Sans', monospace;
+    font-family: 'Geist', monospace;
     font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase;
     color: var(--muted); text-decoration: none; transition: all 0.3s;
   }
-  .tag:hover { border-color: rgba(68,212,204,0.3); color: var(--teal); }
+  .tag:hover { border-color: rgba(15, 138, 131,0.3); color: var(--teal); }
 
   .article-nav {
     display: grid; grid-template-columns: 1fr 1fr; gap: 1px;
@@ -367,12 +367,12 @@
   }
   .article-nav-item:hover { background: var(--deep); }
   .article-nav-label {
-    font-family: 'Plus Jakarta Sans', monospace;
+    font-family: 'Geist', monospace;
     font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
-    color: rgba(184,196,248,0.25);
+    color: rgba(11, 11, 16,0.25);
   }
   .article-nav-title {
-    font-family: 'Plus Jakarta Sans', serif;
+    font-family: 'Geist', serif;
     font-size: 1.1rem; color: var(--soft); line-height: 1.3;
   }
   .article-nav-item.next { text-align: right; }
@@ -399,19 +399,19 @@
     height: clamp(26px, 2.6vw, 34px);
   }
   .footer-tagline {
-    font-family: 'Plus Jakarta Sans', monospace;
+    font-family: 'Geist', monospace;
     font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase;
-    color: rgba(184,196,248,0.2); margin-top: 0.4rem;
+    color: rgba(11, 11, 16,0.2); margin-top: 0.4rem;
   }
   .footer-bottom {
     padding: 1.5rem 4rem; border-top: 1px solid var(--border);
     display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
   }
-  .footer-copy { font-size: 0.7rem; color: rgba(184,196,248,0.2); letter-spacing: 0.08em; }
+  .footer-copy { font-size: 0.7rem; color: rgba(11, 11, 16,0.2); letter-spacing: 0.08em; }
   .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
   .footer-links a {
     font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
-    color: rgba(184,196,248,0.25); text-decoration: none; transition: color 0.3s;
+    color: rgba(11, 11, 16,0.25); text-decoration: none; transition: color 0.3s;
   }
   .footer-links a:hover { color: var(--muted); }
 
@@ -451,6 +451,7 @@
 (function(){function u(d){var s=d?'-dark':'-light',q=document.querySelectorAll.bind(document);q('link[rel="icon"][type="image/x-icon"]').forEach(function(l){l.href=l.href.replace(/favicon(-light|-dark)?\.ico/,'favicon'+s+'.ico');});q('link[rel="icon"][type="image/png"]').forEach(function(l){l.href=l.href.replace(/favicon-32(-light|-dark)?\.png/,'favicon-32'+s+'.png');});q('link[rel="apple-touch-icon"]').forEach(function(l){l.href=l.href.replace(/apple-touch-icon(-light|-dark)?\.png/,'apple-touch-icon'+s+'.png');});}var m=window.matchMedia('(prefers-color-scheme: dark)');u(m.matches);m.addEventListener('change',function(e){u(e.matches);});})();
 </script>
 
+    <link rel="stylesheet" href="assets/white-theme.css">
 </head>
 <body data-footer-type="editorial" data-active-page="blog">
 
@@ -490,18 +491,18 @@
     </div>
     <div class="article-hero-visual" aria-hidden="true">
       <svg width="220" height="220" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <ellipse cx="110" cy="110" rx="90" ry="56" stroke="rgba(68,212,204,0.3)" stroke-width="1"/>
-        <ellipse cx="110" cy="110" rx="65" ry="40" stroke="rgba(68,212,204,0.2)" stroke-width="1"/>
-        <ellipse cx="110" cy="110" rx="38" ry="23" stroke="rgba(68,212,204,0.15)" stroke-width="1"/>
+        <ellipse cx="110" cy="110" rx="90" ry="56" stroke="rgba(15, 138, 131,0.3)" stroke-width="1"/>
+        <ellipse cx="110" cy="110" rx="65" ry="40" stroke="rgba(15, 138, 131,0.2)" stroke-width="1"/>
+        <ellipse cx="110" cy="110" rx="38" ry="23" stroke="rgba(15, 138, 131,0.15)" stroke-width="1"/>
         <path d="M30 110 Q60 68 90 110 Q120 152 150 110 Q175 78 190 110"
-              stroke="rgba(68,212,204,0.7)" stroke-width="1.5" fill="none"/>
-        <circle cx="110" cy="110" r="5" fill="rgba(68,212,204,0.5)"/>
-        <circle cx="110" cy="110" r="12" stroke="rgba(68,212,204,0.2)" stroke-width="1"/>
+              stroke="rgba(15, 138, 131,0.7)" stroke-width="1.5" fill="none"/>
+        <circle cx="110" cy="110" r="5" fill="rgba(15, 138, 131,0.5)"/>
+        <circle cx="110" cy="110" r="12" stroke="rgba(15, 138, 131,0.2)" stroke-width="1"/>
         <!-- wave pulses -->
         <path d="M20 140 Q40 135 50 140 Q60 145 70 140 Q80 135 100 140"
-              stroke="rgba(138,157,232,0.25)" stroke-width="1" fill="none"/>
+              stroke="rgba(91, 43, 214,0.25)" stroke-width="1" fill="none"/>
         <path d="M120 80 Q140 75 155 80 Q170 85 185 80 Q195 77 205 80"
-              stroke="rgba(138,157,232,0.2)" stroke-width="1" fill="none"/>
+              stroke="rgba(91, 43, 214,0.2)" stroke-width="1" fill="none"/>
       </svg>
     </div>
   </header>
@@ -535,28 +536,28 @@
         <div class="stage-row">
           <span class="stage-name">N1 - Light</span>
           <div class="stage-bar-wrap">
-            <div class="stage-bar" style="width:8%; background:rgba(138,157,232,0.2);"></div>
+            <div class="stage-bar" style="width:8%; background:rgba(91, 43, 214,0.2);"></div>
             <span class="stage-desc">~5% of night · Transition to sleep</span>
           </div>
         </div>
         <div class="stage-row">
           <span class="stage-name">N2 - Light</span>
           <div class="stage-bar-wrap">
-            <div class="stage-bar" style="width:48%; background:rgba(138,157,232,0.35);"></div>
+            <div class="stage-bar" style="width:48%; background:rgba(91, 43, 214,0.35);"></div>
             <span class="stage-desc">~50% of night · Memory consolidation begins</span>
           </div>
         </div>
         <div class="stage-row">
           <span class="stage-name">N3 - Deep</span>
           <div class="stage-bar-wrap">
-            <div class="stage-bar" style="width:20%; background:rgba(68,212,204,0.55);"></div>
+            <div class="stage-bar" style="width:20%; background:rgba(15, 138, 131,0.55);"></div>
             <span class="stage-desc">~20% of night · Most restorative</span>
           </div>
         </div>
         <div class="stage-row">
           <span class="stage-name">REM</span>
           <div class="stage-bar-wrap">
-            <div class="stage-bar" style="width:25%; background:rgba(74,91,204,0.45);"></div>
+            <div class="stage-bar" style="width:25%; background:rgba(91, 43, 214,0.45);"></div>
             <span class="stage-desc">~25% of night · Dreams, emotional processing</span>
           </div>
         </div>
@@ -663,14 +664,14 @@
 
 <!-- SEO INNER LINKS -->
 <div style="padding:1.2rem 4rem; border-top:1px solid var(--border); display:flex; flex-wrap:wrap; gap:0.4rem 1.8rem; position:relative; z-index:1;" aria-label="Site navigation">
-  <a href="index.html" style="font-family:'Plus Jakarta Sans',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Home</a>
-  <a href="dreamz-research.html" style="font-family:'Plus Jakarta Sans',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Neuroscience</a>
-  <a href="how-it-works.html" style="font-family:'Plus Jakarta Sans',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">How It Works</a>
-  <a href="dreamz-faq.html" style="font-family:'Plus Jakarta Sans',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">FAQ</a>
-  <a href="index.html#cta" style="font-family:'Plus Jakarta Sans',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Pre-order</a>
-  <a href="#what-is-deep-sleep" style="font-family:'Plus Jakarta Sans',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Deep Sleep</a>
-  <a href="#what-deep-sleep-does" style="font-family:'Plus Jakarta Sans',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Slow Wave Sleep</a>
-  <a href="#how-to-get-more" style="font-family:'Plus Jakarta Sans',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(184,196,248,0.2);text-decoration:none;">Sleep Improvement</a>
+  <a href="index.html" style="font-family:'Geist',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(11, 11, 16,0.2);text-decoration:none;">Home</a>
+  <a href="dreamz-research.html" style="font-family:'Geist',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(11, 11, 16,0.2);text-decoration:none;">Neuroscience</a>
+  <a href="how-it-works.html" style="font-family:'Geist',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(11, 11, 16,0.2);text-decoration:none;">How It Works</a>
+  <a href="dreamz-faq.html" style="font-family:'Geist',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(11, 11, 16,0.2);text-decoration:none;">FAQ</a>
+  <a href="index.html#cta" style="font-family:'Geist',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(11, 11, 16,0.2);text-decoration:none;">Pre-order</a>
+  <a href="#what-is-deep-sleep" style="font-family:'Geist',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(11, 11, 16,0.2);text-decoration:none;">Deep Sleep</a>
+  <a href="#what-deep-sleep-does" style="font-family:'Geist',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(11, 11, 16,0.2);text-decoration:none;">Slow Wave Sleep</a>
+  <a href="#how-to-get-more" style="font-family:'Geist',monospace;font-size:0.62rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(11, 11, 16,0.2);text-decoration:none;">Sleep Improvement</a>
 </div>
 
 <div data-dreamz-footer></div>
@@ -723,7 +724,7 @@ document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
     particles.forEach(p => {
       const a = p.a * (Math.sin(t + p.phase) * 0.3 + 0.7);
       ctx.beginPath(); ctx.arc(p.x * W, p.y * H, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(184,196,248,${a})`; ctx.fill();
+      ctx.fillStyle = `rgba(11, 11, 16,${a})`; ctx.fill();
     });
     // Subtle wave
     ctx.beginPath();
@@ -731,7 +732,7 @@ document.querySelectorAll('.reveal').forEach(r => obs.observe(r));
       const y = H * 0.45 + Math.sin((x / W) * Math.PI * 2 * 1.2 + t * 0.25) * 50;
       x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
     }
-    ctx.strokeStyle = 'rgba(68,212,204,0.04)'; ctx.lineWidth = 1; ctx.stroke();
+    ctx.strokeStyle = 'rgba(15, 138, 131,0.04)'; ctx.lineWidth = 1; ctx.stroke();
     requestAnimationFrame(draw);
   })();
 })();
