@@ -51,7 +51,6 @@
             <a href="${url('dreamz-use-cases.html')}"${current('use-cases')}>Other Use Cases</a>
             <a href="${url('dreamz-research.html')}"${current('research')}>Research</a>
             <a href="${url('dreamz-faq.html')}"${current('faq')}>FAQ</a>
-            <a href="${url('dreamz-blog.html')}"${current('blog')}>Blog</a>
             <a href="${url('about.html')}"${current('about')}>About</a>
             <a href="${url('contact.html')}"${current('contact')}>Contact</a>
             <a href="${url('privacy.html')}"${current('privacy')}>Privacy Policy</a>

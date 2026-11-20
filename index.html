@@ -309,7 +309,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .plan-detail b{color:var(--ink);font-weight:600}
 .plan-detail .v{color:var(--purple)}
 .buy-wrap.is-disabled{opacity:.4;pointer-events:none}
-.stripe-missing{margin:0;padding:14px;border:1.5px dashed #c9c2e8;border-radius:12px;text-align:center;font-size:14px;color:var(--purple)}
 .fine{margin:0;padding:0 0 0 18px;display:flex;flex-direction:column;gap:6px;font-size:13px;line-height:1.5;color:#6e6e76}
 
 /* Newsletter */
@@ -466,12 +465,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
                 <span class="plan-detail"><b>12-month</b> subscription included <span class="v">($120 value)</span></span>
               </label>
               <label class="plan">
-                <input type="radio" name="plan" value="standard">
-                <span class="plan-top"><span class="plan-name">Standard price</span></span>
-                <span class="plan-price"><strong>$299.90</strong></span>
-                <span class="plan-detail"><b>1-month</b> subscription included <span class="v">($10 value)</span></span>
-              </label>
-              <label class="plan">
                 <input type="radio" name="plan" value="deposit">
                 <span class="plan-top"><span class="plan-name">Reserve with a deposit</span></span>
                 <span class="plan-price"><strong>$39.90</strong> <span class="plan-today">today</span></span>
@@ -480,8 +473,6 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
             </fieldset>
             <div class="buy-wrap" id="buy">
               <div data-panel="full"><stripe-buy-button buy-button-id="buy_btn_1TuGBLHoabhlm1T9Gvl6SOIo" publishable-key="pk_live_51Tu3iLHoabhlm1T9dOdfJpVutUicIfAJBYa5q2Z82A7ye5u5vh9YeuEGbxiuC9ZA7PV7T83rWHeszfQTg05TNvWC00WvSVZvxC"></stripe-buy-button></div>
-              <!-- TODO: create a $299.90 Stripe buy button (mask + 1-month subscription) and put its buy-button-id here -->
-              <div data-panel="standard" hidden><p class="stripe-missing">[Add the $299.90 Stripe button here]</p></div>
               <div data-panel="deposit" hidden><stripe-buy-button buy-button-id="buy_btn_1TuGD9Hoabhlm1T9JM0NXBBL" publishable-key="pk_live_51Tu3iLHoabhlm1T9dOdfJpVutUicIfAJBYa5q2Z82A7ye5u5vh9YeuEGbxiuC9ZA7PV7T83rWHeszfQTg05TNvWC00WvSVZvxC"></stripe-buy-button></div>
             </div>
             <ul class="fine">
