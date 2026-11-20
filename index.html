@@ -239,7 +239,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .app-line{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--line);max-width:31em;font-size:14px;color:var(--muted)}
 .appstore{display:inline-flex;line-height:0;transition:opacity .2s,transform .2s}.appstore:hover{opacity:.85;transform:translateY(-1px)}.appstore img{height:35px;width:auto;display:block}
 .hero figure{margin:0;flex:0 1 405px;min-width:0;display:flex;flex-direction:column;gap:14px}
-.hero figure img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;display:block;border-radius:4px}
+.hero figure img,.hero-video{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;display:block;border-radius:4px;background:#f2f1f5}
+.hero-video{display:none}
 
 /* Three things */
 .changes{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -328,6 +329,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 @media (max-width:760px){
   .hero{padding-top:40px;padding-bottom:72px;gap:40px}
   .hero figure{flex-basis:100%}
+  .hero-photo{display:none!important}
+  .hero-video{display:block}
   .timeline li{grid-template-columns:80px minmax(0,1fr);gap:16px;padding:20px 0}
   .timeline span{font-size:21px}
   .changes .wrap,.quote .wrap,.night,.preorder .wrap,.newsletter .wrap{padding-top:72px;padding-bottom:72px}
@@ -366,7 +369,8 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
       </div>
     </div>
     <figure>
-      <img src="Photos/Gallery/black_mask.jpg" alt="Woman wearing the black Dreamz sleep mask" width="1122" height="1402" fetchpriority="high">
+      <img class="hero-photo" src="Photos/Gallery/black_mask.jpg" alt="Woman wearing the black Dreamz sleep mask" width="1122" height="1402" fetchpriority="high">
+      <video class="hero-video" id="heroVideo" muted loop playsinline preload="none" poster="Photos/Dreamz_demo_real_poster.jpg" aria-label="A woman putting on the Dreamz mask"></video>
     </figure>
   </section>
 
@@ -514,6 +518,24 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 <script src="assets/site-chrome.js"></script>
 
 <script>
+// Phones play the same demo video as the live site; desktop keeps the photo and never downloads it.
+(() => {
+  const v = document.getElementById('heroVideo');
+  const phone = window.matchMedia('(max-width: 760px)');
+  const start = () => {
+    if (!phone.matches || v.dataset.loaded) return;
+    v.dataset.loaded = '1';
+    [['Photos/Dreamz_demo_real_mobile_av1.webm', 'video/webm; codecs="av01"'],
+     ['Photos/Dreamz_demo_real_mobile_vp9.webm', 'video/webm; codecs="vp9"'],
+     ['Photos/Dreamz_demo_real_mobile_h264.mp4', 'video/mp4']].forEach(([src, type]) => {
+      const el = document.createElement('source'); el.src = src; el.type = type; v.appendChild(el);
+    });
+    v.load();
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) v.play().catch(() => {});
+  };
+  start();
+  phone.addEventListener('change', start);
+})();
 const $ = q => document.querySelectorAll(q);
 const main = document.getElementById('mainImg');
 let photo = main.getAttribute('src');
