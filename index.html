@@ -224,23 +224,21 @@ a,button{transition:color .2s,background .2s,opacity .2s,transform .15s}
 a[href]:active,button:active{transform:scale(.98)}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--purple);outline-offset:3px}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:14px 28px;border-radius:999px;font-size:16px;font-weight:500;text-decoration:none}
-.btn-purple{background:var(--purple);color:#fff}.btn-purple:hover{background:var(--purple-deep);color:#fff}
-.btn-black{background:var(--ink);color:#fff}.btn-black:hover{background:var(--purple);color:#fff}
-.btn-white{background:#fff;color:var(--ink)}.btn-white:hover{background:var(--purple-tint);color:var(--ink)}
-.link{font-size:16px;font-weight:500;text-underline-offset:6px}
 
 /* Hero */
-.hero{display:flex;flex-wrap:wrap;gap:56px;align-items:center;padding-top:72px;padding-bottom:96px}
-.hero-copy{flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:28px}
+.hero{display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 405px);gap:clamp(28px, 5vw, 56px);align-items:center;padding-top:72px;padding-bottom:96px}
+.hero-copy{min-width:0;display:flex;flex-direction:column;gap:28px}
 .hero h1{margin:0;font-size:clamp(44px,5.6vw,80px);line-height:.98;font-weight:500;letter-spacing:-.045em;text-wrap:balance}
 .hero p{margin:0;font-size:18px;line-height:1.6;color:var(--muted);max-width:31em}
-.hero-actions{display:flex;gap:24px;align-items:center;flex-wrap:wrap}
+.hero-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .app-line{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--line);max-width:31em;font-size:14px;color:var(--muted)}
 .appstore{display:inline-flex;line-height:0;transition:opacity .2s,transform .2s}.appstore:hover{opacity:.85;transform:translateY(-1px)}.appstore img{height:35px;width:auto;display:block}
-.hero figure{margin:0;flex:0 1 405px;min-width:0;display:flex;flex-direction:column;gap:14px}
-.hero figure img,.hero-video{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;display:block;border-radius:4px;background:#f2f1f5}
-.hero-video{display:none}
+.hero figure{margin:0;min-width:0}
+.hero-photo{width:100%;height:auto;display:block}
+
+@media (min-width:761px) and (max-width:1000px){
+  .hero{grid-template-columns:minmax(0, 1fr) minmax(0, 38%)}
+}
 
 /* Three things */
 .changes{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -319,19 +317,15 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .newsletter-card p{margin:0;font-size:17px;color:#4a4a52}
 .newsletter-form{display:flex;gap:10px;flex-wrap:wrap;flex:1 1 380px;min-width:0}
 .newsletter-form input[type=email]{flex:1 1 220px;min-width:0;font:inherit;font-size:17px;padding:14px 18px;border:1px solid #d6d6dc;border-radius:999px;background:#fff;color:#1d1d1f;min-height:48px}
-.newsletter-form button{font:inherit;font-size:17px;font-weight:500;background:var(--ink);color:#fff;border:0;border-radius:999px;padding:14px 24px;min-height:48px;cursor:pointer}
-.newsletter-form button:hover{background:var(--purple)}
 .newsletter-status{flex-basis:100%;margin:0;font-size:14px;color:#4a4a52}
 .newsletter-status[data-state="error"]{color:#b42318}
 .newsletter-status[data-state="success"]{color:var(--purple)}
 
 @media (max-width:760px){
   .hero{padding-top:40px;padding-bottom:72px;gap:40px}
-  /* Phones open on the full-screen demo video, like the live site, with the header over it. */
-  .hero{padding-top:0;gap:36px}
-  .hero figure{order:-1;flex-basis:auto;width:calc(100% + 2 * var(--pad));margin:0 calc(-1 * var(--pad))}
-  .hero-photo{display:none!important}
-  .hero-video{display:block;height:100svh;aspect-ratio:auto;border-radius:0}
+  .hero{grid-template-columns:minmax(0, 1fr);gap:28px;padding-bottom:52px}
+  .hero-copy{gap:20px}
+  .hero figure{order:-1;width:min(100%, 360px);justify-self:center}
   .timeline li{grid-template-columns:80px minmax(0,1fr);gap:16px;padding:20px 0}
   .timeline span{font-size:21px}
   .changes .wrap,.quote .wrap,.night,.preorder .wrap,.newsletter .wrap{padding-top:72px;padding-bottom:72px}
@@ -347,7 +341,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
     <link rel="stylesheet" href="assets/white-theme.css">
 </head>
 
-<body data-active-page="home" data-header="overlay">
+<body data-active-page="home">
 <a class="skip" href="#main">Skip to content</a>
 
 <div data-dreamz-nav></div>
@@ -356,44 +350,43 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 
   <!-- HERO -->
   <section class="wrap hero" aria-labelledby="hero-heading">
-    <div class="hero-copy">
+    <div class="hero-copy" data-enter>
       <div class="eyebrow">For perimenopause and menopause</div>
       <h1 id="hero-heading">Sleep that keeps up with your hormones.</h1>
       <p>Dreamz is a soft sleep mask that helps you drift off faster, and back off again when hormones wake you.</p>
       <div class="hero-actions">
-        <a class="btn btn-purple" href="#cta">Pre-order Dreamz</a>
-        <a class="link" href="how-it-works.html">See how it works</a>
+        <a class="dz-action dz-action-primary" href="#cta">Pre-order Dreamz</a>
+        <a class="dz-action dz-action-secondary" href="how-it-works.html">See how it works</a>
       </div>
       <div class="app-line">
         <span>Already have a mask?</span>
         <a class="appstore" href="https://apps.apple.com/us/app/dreamzble-tdcs/id6764758039" target="_blank" rel="noopener noreferrer" aria-label="Download the Dreamz app on the App Store"><img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" width="105" height="35"></a>
       </div>
     </div>
-    <figure data-header-cover>
-      <img class="hero-photo" src="Photos/Gallery/black_mask.jpg" alt="Woman wearing the black Dreamz sleep mask" width="1122" height="1402" fetchpriority="high">
-      <video class="hero-video" id="heroVideo" muted loop playsinline preload="none" poster="Photos/Dreamz_demo_real_poster.jpg" aria-label="A woman putting on the Dreamz mask"></video>
+    <figure>
+      <img class="hero-photo" data-enter src="Photos/Gallery/black_mask_hero.webp" alt="Woman wearing the black Dreamz sleep mask" width="1122" height="1402" fetchpriority="high">
     </figure>
   </section>
 
   <!-- WHAT CHANGES -->
   <section class="changes" aria-labelledby="changes-heading">
     <div class="wrap">
-      <div style="display:flex;flex-direction:column;gap:16px">
+      <div data-enter style="display:flex;flex-direction:column;gap:16px">
         <h2 id="changes-heading">Fall asleep and restart sleep faster.</h2>
         <p class="changes-sub">The first smart sleep mask with personalized neuromodulation</p>
       </div>
       <div class="change-grid">
-        <div class="change">
+        <div class="change" data-enter>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5b2bd6" stroke-width="1.6" aria-hidden="true"><path d="M12 3v10.5a3.5 3.5 0 1 1-3 0V5a1.5 1.5 0 0 1 3 0"/><path d="M15 6h4M15 10h3"/></svg>
           <h3>Waking hot at 2 a.m.</h3>
           <p>Dreamz logs skin temperature through the night, so you can see exactly when the warm spikes happen and how often.</p>
         </div>
-        <div class="change">
+        <div class="change" data-enter>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5b2bd6" stroke-width="1.6" aria-hidden="true"><path d="M3 12c3-6 6-6 9 0s6 6 9 0"/><path d="M3 17c3-3 6-3 9 0s6 3 9 0" opacity=".5"/></svg>
           <h3>A mind that will not switch off</h3>
           <p>Gentle, personalised neuromodulation helps your brain settle, at bedtime and again when you wake in the night.</p>
         </div>
-        <div class="change">
+        <div class="change" data-enter>
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#5b2bd6" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 13h3M8 16h6"/></svg>
           <h3>Trouble falling back asleep</h3>
           <p>The mask learns to reinforce your brain's patterns when they shift towards sleep, helping your body remember what it knows how to do.</p>
@@ -404,7 +397,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 
   <!-- QUOTE -->
   <section class="quote" aria-label="What a user says">
-    <figure class="wrap" style="margin:0 auto">
+    <figure class="wrap" data-enter style="margin:0 auto">
       <svg width="48" height="36" viewBox="0 0 48 36" aria-hidden="true"><path d="M0 36V20C0 8 6 1 18 0v7c-6 1-9 5-9 11h9v18H0Zm30 0V20c0-12 6-19 18-20v7c-6 1-9 5-9 11h9v18H30Z" fill="#5b2bd6"/></svg>
       <blockquote>The surprise wasn’t only better sleep. I wake up clear-headed, and that gives me sharper focus all day.</blockquote>
       <figcaption><cite>Kim, 42</cite></figcaption>
@@ -413,12 +406,12 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 
   <!-- ONE NIGHT -->
   <section class="wrap night" aria-labelledby="night-heading">
-    <div class="night-head">
+    <div class="night-head" data-enter>
       <div class="eyebrow">One night with Dreamz</div>
       <h2 id="night-heading">What happens while you <em>sleep</em>.</h2>
       <p>Every wake-up gets written down for you, so the morning brings answers instead of guesses.</p>
     </div>
-    <ol class="timeline">
+    <ol class="timeline" data-enter>
       <li><time>10:41 pm</time><span>Mask on. A wind-down session begins.</span></li>
       <li><time>11:02 pm</time><span>Asleep. Dreamz goes quiet and keeps listening.</span></li>
       <li class="hot"><time>2:47 am</time><span><mark>Skin temperature up 0.8°C.</mark> You stir. The mask learns.</span></li>
@@ -430,7 +423,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   <!-- PRE-ORDER -->
   <section id="cta" class="preorder" aria-labelledby="cta-heading">
     <div class="wrap">
-      <div style="display:flex;flex-direction:column;gap:14px">
+      <div data-enter style="display:flex;flex-direction:column;gap:14px">
         <div class="eyebrow">Pre-order</div>
         <h2 id="cta-heading">Get your mask now</h2>
       </div>
@@ -489,7 +482,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
   <!-- NEWSLETTER -->
   <section class="newsletter" aria-labelledby="newsletter-heading">
     <div class="wrap">
-      <div class="newsletter-card">
+      <div class="newsletter-card" data-enter>
         <div style="display:flex;flex-direction:column;gap:8px;flex:1 1 320px;min-width:0">
           <h2 id="newsletter-heading">Want to learn <span>more</span>?</h2>
           <p>Sign up for the waitlist and receive launch updates + occasional notes on science</p>
@@ -498,7 +491,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
           <label for="newsletter-email" class="sr-only">Email address</label>
           <input id="newsletter-email" type="email" name="email" autocomplete="email" placeholder="you@example.com" required maxlength="254">
           <div class="sr-only" aria-hidden="true"><label for="newsletter-website">Website</label><input id="newsletter-website" type="text" name="website" tabindex="-1" autocomplete="off"></div>
-          <button type="submit">Subscribe</button>
+          <button class="dz-action dz-action-primary" type="submit">Subscribe</button>
           <p class="newsletter-status" role="status" aria-live="polite" data-newsletter-status></p>
         </form>
       </div>
@@ -511,24 +504,22 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 <script src="assets/site-chrome.js"></script>
 
 <script>
-// Phones play the same demo video as the live site; desktop keeps the photo and never downloads it.
 (() => {
-  const v = document.getElementById('heroVideo');
-  const phone = window.matchMedia('(max-width: 760px)');
-  const start = () => {
-    if (!phone.matches || v.dataset.loaded) return;
-    v.dataset.loaded = '1';
-    [['Photos/Dreamz_demo_real_mobile_av1.webm', 'video/webm; codecs="av01"'],
-     ['Photos/Dreamz_demo_real_mobile_vp9.webm', 'video/webm; codecs="vp9"'],
-     ['Photos/Dreamz_demo_real_mobile_h264.mp4', 'video/mp4']].forEach(([src, type]) => {
-      const el = document.createElement('source'); el.src = src; el.type = type; v.appendChild(el);
+  if (!('IntersectionObserver' in window)) return;
+  const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (motion.matches) return;
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(({ target, isIntersecting }) => {
+      if (!isIntersecting) return;
+      observer.unobserve(target);
+      if (!motion.matches) target.classList.add('is-entering');
     });
-    v.load();
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) v.play().catch(() => {});
-  };
-  start();
-  phone.addEventListener('change', start);
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('[data-enter]').forEach(element => observer.observe(element));
 })();
+
 const $ = q => document.querySelectorAll(q);
 const main = document.getElementById('mainImg');
 let photo = main.getAttribute('src');

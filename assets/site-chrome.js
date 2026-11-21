@@ -12,7 +12,7 @@
 
   const APP_STORE_URL = 'https://apps.apple.com/us/app/dreamzble-tdcs/id6764758039';
 
-  // The live site's animated three-wave mark, drawn by initLogo() below in the header's text colour.
+  // The live site's animated three-wave mark, drawn by initLogo() below for light backgrounds.
   const logo = `<canvas class="dz-logo-mark" width="300" height="172" aria-hidden="true"></canvas>`;
 
   const headerHtml = () => `
@@ -87,34 +87,21 @@
     document.addEventListener('click', e => { if (!header.contains(e.target)) setOpen(false); });
   }
 
-  // Pages that open on a full-screen picture (<body data-header="overlay">) start with a clear
-  // header over it and turn it solid once the picture has scrolled away.
-  if (header && document.body.dataset.header === 'overlay') {
-    header.classList.add('is-overlay');
-    const cover = document.querySelector('[data-header-cover]');
-    const update = () => {
-      const limit = cover ? cover.getBoundingClientRect().bottom : 0;
-      header.classList.toggle('is-solid', limit <= header.offsetHeight);
-    };
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
-    update();
-  }
-
   // Logo animation from the live site: three sine waves draw in one after another, hold, repeat.
-  // Same curves and timing; the colour follows the header (black, or white over the phone video).
+  // Match the main branch’s curves, taper, and timing with a darker ink on white.
   const initLogo = () => {
     const cv = document.querySelector('.dz-logo-mark');
     if (!cv) return;
     const ctx = cv.getContext('2d');
+    if (!ctx) return;
     const DPR = Math.min(window.devicePixelRatio || 1, 2);
     const S_W = 300, S_H = 172;
     cv.width = S_W * DPR; cv.height = S_H * DPR;
     ctx.scale(DPR, DPR);
 
-    const XMIN = -Math.PI, XMAX = Math.PI, YMIN = -1.8, YMAX = 1.8, NS = 400;
+    const XMIN = -Math.PI, XMAX = Math.PI, YMIN = -1.8, YMAX = 1.8, NS = 800;
     const DX = (XMAX - XMIN) / NS;
-    const WS = 0.4, BD = 0.71, BS = 8.0, wmax = 7, a = 3.14, b = 2.14;
+    const WS = 0.4, BD = 0.71, BS = 8.0, ED = 0.17, ES = 2.6, wmax = 5.5, a = 3.14, b = 2.14;
     const env = (x, spd) => Math.pow(Math.abs(Math.cos(x / 2)), spd);
     const lineWidth = x => wmax * env(x, WS);
     const lineAlpha = x => { const m = Math.max(0.03, 1 - BD); return m + (1 - m) * env(x, BS); };
@@ -124,10 +111,9 @@
     const tcy = y => (YMAX - y) / (YMAX - YMIN) * S_H;
     const fns = [x => Math.PI * Math.sin(x) / b, x => -Math.PI * Math.sin(x) / b, x => Math.PI * Math.sin(x) / (a * b)];
 
-    let rgb = '11, 11, 16';
-    const readColour = () => {
-      const m = getComputedStyle(cv).color.match(/\d+(\.\d+)?/g);
-      if (m) rgb = m.slice(0, 3).join(', ');
+    const strokeColor = x => {
+      const lightness = 5 + (100 - 5) * ED * env(x, ES);
+      return `hsla(245, 25%, ${lightness.toFixed(1)}%, ${lineAlpha(x).toFixed(3)})`;
     };
     const drawLine = (fn, xEnd) => {
       for (let i = 0; i < NS; i++) {
@@ -138,36 +124,44 @@
         ctx.lineTo(tcx(x1), tcy(clamp(fn(x1), YMIN, YMAX)));
         ctx.lineWidth = lineWidth(xm);
         ctx.lineCap = 'round';
-        ctx.strokeStyle = `rgba(${rgb}, ${lineAlpha(xm).toFixed(3)})`;
+        ctx.strokeStyle = strokeColor(xm);
         ctx.stroke();
       }
     };
     const drawSolid = () => { ctx.clearRect(0, 0, S_W, S_H); fns.forEach(fn => drawLine(fn, XMAX)); };
 
-    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      readColour(); drawSolid();
-      new MutationObserver(() => { readColour(); drawSolid(); }).observe(header, { attributes: true, attributeFilter: ['class'] });
-      return;
-    }
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const ANIM = 2600, PAUSE = 4000, CYCLE = ANIM + PAUSE;
-    let t0 = null, lastRgb = '';
+    let startTime, frameId, drawnSolid;
     const frame = ts => {
-      if (t0 === null) t0 = ts;
-      readColour();
-      const t = (ts - t0) % CYCLE;
+      startTime ??= ts;
+      const t = (ts - startTime) % CYCLE;
       if (t < ANIM) {
         ctx.clearRect(0, 0, S_W, S_H);
         [0, 0.22, 0.44].forEach((off, i) => {
           const lt = easeOut(clamp((t / ANIM - off) / 0.56, 0, 1));
           drawLine(fns[i], XMIN + lt * (XMAX - XMIN));
         });
-        lastRgb = '';
-      } else if (rgb !== lastRgb) {
-        drawSolid(); lastRgb = rgb;
+        drawnSolid = false;
+      } else if (!drawnSolid) {
+        drawSolid();
+        drawnSolid = true;
       }
-      requestAnimationFrame(frame);
+      frameId = requestAnimationFrame(frame);
     };
-    requestAnimationFrame(frame);
+
+    const updateMotion = () => {
+      cancelAnimationFrame(frameId);
+      if (motion.matches) {
+        drawSolid();
+      } else {
+        startTime = undefined;
+        drawnSolid = false;
+        frameId = requestAnimationFrame(frame);
+      }
+    };
+    motion.addEventListener('change', updateMotion);
+    updateMotion();
   };
   initLogo();
 

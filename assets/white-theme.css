@@ -14,6 +14,7 @@
   --dz-purple-deep: #3f1aa3;
   --dz-purple-tint: #ede5fc;
   --dz-font: 'Geist', system-ui, -apple-system, sans-serif;
+  --dz-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --dz-pad: clamp(16px, 4vw, 48px);
 }
 
@@ -63,7 +64,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 .dz-header.dz-header .dz-logo { display: flex; align-items: center; gap: 10px; min-height: 44px; color: var(--dz-ink); text-decoration: none; }
 .dz-header.dz-header .dz-logo span { font-size: 20px; font-weight: 500; letter-spacing: -0.02em; }
-.dz-header.dz-header .dz-logo-mark { display: block; width: 64px; height: auto; aspect-ratio: 300 / 172; color: inherit; }
+.dz-header.dz-header .dz-logo-mark { display: block; width: clamp(80px, 8vw, 104px); height: auto; aspect-ratio: 300 / 172; color: inherit; }
 .dz-header.dz-header .dz-links { display: flex; flex-wrap: wrap; gap: 0 28px; margin: 0; padding: 0; }
 .dz-header.dz-header .dz-links a { display: inline-block; padding: 12px 0; font-size: 14px; color: var(--dz-ink); text-decoration: none; transition: color .2s; }
 .dz-header.dz-header .dz-links a:hover { color: var(--dz-purple); }
@@ -71,13 +72,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .dz-header.dz-header .dz-cta {
   display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 12px 20px;
   border-radius: 999px; background: var(--dz-purple); color: #fff; font-size: 14px; font-weight: 500; text-decoration: none;
-  transition: background .2s, transform .15s;
+  transition: background-color .25s ease, box-shadow .3s var(--dz-ease), transform .3s var(--dz-ease);
 }
-.dz-header.dz-header .dz-cta:hover { background: var(--dz-purple-deep); color: #fff; }
-.dz-header.dz-header .dz-cta:active { transform: scale(.98); }
+.dz-header.dz-header .dz-cta:hover { background: var(--dz-purple-deep); color: #fff; box-shadow: 0 4px 14px rgba(63, 26, 163, .22); }
+.dz-header.dz-header .dz-cta:active { transform: scale(.97); }
 .dz-header.dz-header .dz-burger { display: none; }
 @media (max-width: 760px) {
   .dz-header.dz-header .dz-bar { position: relative; min-height: 68px; gap: 12px; }
+  .dz-header.dz-header .dz-logo-mark { width: 64px; }
   .dz-header.dz-header .dz-cta { margin-left: auto; min-height: 40px; padding: 10px 18px; }
   .dz-header.dz-header .dz-burger {
     display: inline-flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
@@ -95,14 +97,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
   .dz-header.dz-header .dz-links a { padding: 14px 0; font-size: 18px; border-bottom: 1px solid var(--dz-line); }
   .dz-header.dz-header .dz-links a:last-child { border-bottom: 0; }
 
-  /* Clear header over a full-screen opening picture (homepage on phones). */
-  .dz-header.dz-header.is-overlay { position: fixed; left: 0; right: 0; background: linear-gradient(rgba(11, 11, 16, .5), rgba(11, 11, 16, 0)); border-bottom: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; transition: background .3s; }
-  .dz-header.dz-header.is-overlay .dz-logo, .dz-header.dz-header.is-overlay .dz-burger { color: #fff; }
-  .dz-header.dz-header.is-overlay.is-solid, .dz-header.dz-header.is-overlay.is-open { background: rgba(255, 255, 255, .94); border-bottom: 1px solid var(--dz-line); backdrop-filter: saturate(180%) blur(18px); -webkit-backdrop-filter: saturate(180%) blur(18px); }
-  .dz-header.dz-header.is-overlay.is-solid .dz-logo, .dz-header.dz-header.is-overlay.is-solid .dz-burger,
-  .dz-header.dz-header.is-overlay.is-open .dz-logo, .dz-header.dz-header.is-overlay.is-open .dz-burger { color: var(--dz-ink); }
 }
-@media (min-width: 761px) { .dz-header.dz-header.is-overlay { position: sticky; } }
 
 /* ── Shared footer ───────────────────────────────────────────────────────── */
 .dz-footer, .dz-footer :not(svg):not(svg *) { all: revert; box-sizing: border-box; font-family: var(--dz-font) !important; }
@@ -113,9 +108,10 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .dz-footer.dz-footer .dz-btn-white {
   display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 14px 28px;
   border-radius: 999px; background: #fff; color: var(--dz-ink); font-size: 16px; font-weight: 500; text-decoration: none;
-  transition: background .2s, transform .15s;
+  transition: background-color .25s ease, box-shadow .3s var(--dz-ease), transform .3s var(--dz-ease);
 }
 .dz-footer.dz-footer .dz-btn-white:hover { background: var(--dz-purple-tint); }
+.dz-footer.dz-footer .dz-btn-white:active { transform: scale(.97); }
 .dz-footer.dz-footer .dz-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid #26252e; padding-top: 24px; }
 .dz-footer.dz-footer .dz-flinks { display: flex; flex-wrap: wrap; gap: 0 24px; }
 .dz-footer.dz-footer .dz-flinks a { display: inline-block; padding: 8px 0; font-size: 14px; color: #c9c7d3; text-decoration: none; transition: color .2s; }
@@ -132,6 +128,54 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .dz-footer.dz-footer .dz-disclaimer a { color: inherit; text-decoration: underline; }
 .dz-footer.dz-footer .dz-copy { font-size: 12px; color: #77757f; }
 @media (max-width: 760px) { .dz-footer.dz-footer .dz-wrap { padding-top: 72px; } }
+
+/* Rounded, solid and outlined actions on the white theme. */
+:is(.dz-action, .btn-primary, .btn-secondary) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 10px 24px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color .25s ease, color .25s ease, box-shadow .3s var(--dz-ease), transform .3s var(--dz-ease);
+}
+:is(.dz-action-primary, .btn-primary) {
+  background: var(--dz-purple);
+  color: #fff;
+}
+:is(.dz-action-primary, .btn-primary):hover {
+  background: var(--dz-purple-deep);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(63, 26, 163, .22);
+}
+:is(.dz-action-secondary, .btn-secondary) {
+  background: transparent;
+  border-color: var(--dz-purple);
+  color: var(--dz-purple);
+}
+:is(.dz-action-secondary, .btn-secondary):hover {
+  background: var(--dz-purple-tint);
+  color: var(--dz-purple-deep);
+}
+:is(.dz-action, .btn-primary, .btn-secondary):active { transform: scale(.97); }
+.dz-action:disabled { opacity: .55; cursor: wait; }
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-enter].is-entering { animation: dz-enter .8s var(--dz-ease); }
+  [data-enter].is-entering:focus-within { animation: none; }
+  @keyframes dz-enter {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto !important; }
