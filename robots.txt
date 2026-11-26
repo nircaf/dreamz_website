@@ -12,6 +12,6 @@ Disallow: /*.bat$
 Disallow: /*.docx$
 Disallow: /requirements.txt
 Disallow: /test-preorder-gallery.js
-# ponytail: preorder-confirmation is noindex in-page, not blocked here, so crawlers can see the noindex.
+# Noindex pages (preorder-confirmation, index-white*, *font-options) are not blocked here, so crawlers can see their noindex.
 
 Sitemap: https://dreamz.rest/sitemap.xml

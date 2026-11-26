@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://dreamz.rest/</loc><lastmod>2026-11-24</lastmod></url>
-  <url><loc>https://dreamz.rest/about.html</loc><lastmod>2026-11-24</lastmod></url>
-  <url><loc>https://dreamz.rest/how-it-works.html</loc><lastmod>2026-11-24</lastmod></url>
-  <url><loc>https://dreamz.rest/dreamz-use-cases.html</loc><lastmod>2026-11-24</lastmod></url>
-  <url><loc>https://dreamz.rest/the-loop.html</loc><lastmod>2026-11-24</lastmod></url>
-  <url><loc>https://dreamz.rest/dreamz-research.html</loc><lastmod>2026-11-24</lastmod></url>
-  <url><loc>https://dreamz.rest/dreamz-faq.html</loc><lastmod>2026-11-24</lastmod></url>
-  <url><loc>https://dreamz.rest/dreamz-blog.html</loc><lastmod>2026-11-24</lastmod></url>
-  <url><loc>https://dreamz.rest/dreamz-post.html</loc><lastmod>2026-11-24</lastmod></url>
-  <url><loc>https://dreamz.rest/contact.html</loc><lastmod>2026-11-24</lastmod></url>
-  <url><loc>https://dreamz.rest/terms.html</loc><lastmod>2026-11-24</lastmod></url>
-  <url><loc>https://dreamz.rest/privacy.html</loc><lastmod>2026-11-24</lastmod></url>
-  <url><loc>https://dreamz.rest/refund-return-policy.html</loc><lastmod>2026-11-24</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url><loc>https://dreamz.rest/</loc><lastmod>2026-11-26</lastmod><image:image><image:loc>https://dreamz.rest/Photos/Lifestyle/Sleep/mask_bed_hero.jpg</image:loc></image:image><image:image><image:loc>https://dreamz.rest/Photos/Product/Studio/black_mask.jpg</image:loc></image:image></url>
+  <url><loc>https://dreamz.rest/perimenopause-sleep-mask.html</loc><lastmod>2026-11-26</lastmod><image:image><image:loc>https://dreamz.rest/Photos/Lifestyle/Sleep/mask_bed_hero.jpg</image:loc></image:image></url>
+  <url><loc>https://dreamz.rest/about.html</loc><lastmod>2026-11-26</lastmod></url>
+  <url><loc>https://dreamz.rest/how-it-works.html</loc><lastmod>2026-11-26</lastmod></url>
+  <url><loc>https://dreamz.rest/dreamz-use-cases.html</loc><lastmod>2026-11-26</lastmod></url>
+  <url><loc>https://dreamz.rest/the-loop.html</loc><lastmod>2026-11-26</lastmod></url>
+  <url><loc>https://dreamz.rest/dreamz-research.html</loc><lastmod>2026-11-26</lastmod></url>
+  <url><loc>https://dreamz.rest/dreamz-faq.html</loc><lastmod>2026-11-26</lastmod></url>
+  <url><loc>https://dreamz.rest/dreamz-blog.html</loc><lastmod>2026-11-26</lastmod></url>
+  <url><loc>https://dreamz.rest/dreamz-post.html</loc><lastmod>2026-11-26</lastmod></url>
+  <url><loc>https://dreamz.rest/contact.html</loc><lastmod>2026-11-26</lastmod></url>
+  <url><loc>https://dreamz.rest/terms.html</loc><lastmod>2026-11-26</lastmod></url>
+  <url><loc>https://dreamz.rest/privacy.html</loc><lastmod>2026-11-26</lastmod></url>
+  <url><loc>https://dreamz.rest/refund-return-policy.html</loc><lastmod>2026-11-26</lastmod></url>
   <url><loc>https://dreamz.rest/term</loc><lastmod>2026-11-18T16:58:15-08:00</lastmod></url>
-  <url><loc>https://dreamz.rest/term/account-deletion.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://dreamz.rest/term/account-deletion.html</loc><lastmod>2026-11-26</lastmod></url>
 </urlset>
