@@ -4,9 +4,86 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>How Dreamz Works | Platform and Process</title>
-  <meta name="description" content="See how the Dreamz smart sleep mask senses brain activity, gently responds overnight, and turns each night into personalized sleep insight.">
+  <title>How the Sleep Mask Works: Sense, Think, Respond | Dreamz</title>
+  <meta name="description" content="How Dreamz works: sensors in the mask read movement, temperature and heart rate, an algorithm picks a gentle stimulation pattern, and the mask responds.">
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://dreamz.rest/how-it-works.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="How the Sleep Mask Works: Sense, Think, Respond | Dreamz">
+  <meta property="og:description" content="How Dreamz works: sensors in the mask read movement, temperature and heart rate, an algorithm picks a gentle stimulation pattern, and the mask responds.">
+  <meta property="og:url" content="https://dreamz.rest/how-it-works.html">
+  <meta property="og:site_name" content="Dreamz">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://dreamz.rest/Photos/Brand/Social/Logo_social_share_1200x630.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Dreamz logo: three soft black waves meeting in a deep violet centre">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@dreamzsleep">
+  <meta name="twitter:title" content="How the Sleep Mask Works: Sense, Think, Respond | Dreamz">
+  <meta name="twitter:description" content="How Dreamz works: sensors in the mask read movement, temperature and heart rate, an algorithm picks a gentle stimulation pattern, and the mask responds.">
+  <meta name="twitter:image" content="https://dreamz.rest/Photos/Brand/Social/Logo_social_share_1200x630.png">
+  <meta name="twitter:image:alt" content="Dreamz logo: three soft black waves meeting in a deep violet centre">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://dreamz.rest/how-it-works.html#webpage",
+        "url": "https://dreamz.rest/how-it-works.html",
+        "name": "How the Sleep Mask Works: Sense, Think, Respond | Dreamz",
+        "description": "How Dreamz works: sensors in the mask read movement, temperature and heart rate, an algorithm picks a gentle stimulation pattern, and the mask responds.",
+        "inLanguage": "en",
+        "isPartOf": {
+          "@id": "https://dreamz.rest/#website"
+        },
+        "publisher": {
+          "@id": "https://dreamz.rest/#organization"
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://dreamz.rest/Photos/Brand/Social/Logo_social_share_1200x630.png",
+          "width": 2400,
+          "height": 1800
+        },
+        "breadcrumb": {
+          "@id": "https://dreamz.rest/how-it-works.html#breadcrumb"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://dreamz.rest/#website",
+        "url": "https://dreamz.rest/",
+        "name": "Dreamz",
+        "publisher": {
+          "@id": "https://dreamz.rest/#organization"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://dreamz.rest/how-it-works.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://dreamz.rest/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "How It Works",
+            "item": "https://dreamz.rest/how-it-works.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
@@ -140,7 +217,15 @@
       letter-spacing: 0.16em;
       display: block;
     }
-    .step h4 {
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+    .step h3 {
       font-family: 'Geist', serif;
       font-size: 1.5rem;
       font-weight: 300;
@@ -211,7 +296,7 @@
       gap: 1.5rem;
     }
     .step:first-child { border-top: 1px solid var(--border); }
-    .step h4 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .step h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
     .how-visual { position: sticky; top: 8rem; height: 500px; }
     .brainwave-canvas { width: 100%; height: 100%; display: block; }
     .cta-band {
@@ -249,7 +334,7 @@
     }
     .footer-copy {
       font-size: 0.7rem;
-      color: rgba(11, 11, 16, 0.2);
+      color: rgba(11, 11, 16, 0.6);
       letter-spacing: 0.08em;
     }
     .footer-legal-links {
@@ -261,7 +346,7 @@
       font-size: 0.7rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: rgba(11, 11, 16, 0.25);
+      color: rgba(11, 11, 16, 0.6);
       text-decoration: none;
       transition: color 0.3s;
     }
@@ -311,20 +396,6 @@
   <link rel="apple-touch-icon" sizes="180x180" href="Photos/Brand/Favicons/apple-touch-icon-dark.png" media="(prefers-color-scheme: dark)">
     <link rel="stylesheet" href="assets/white-theme.css">
     <!-- Social share card (Photos/Brand/Social/Logo_social_share_1200x630.png) -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="How Dreamz Works | Platform and Process">
-    <meta property="og:description" content="See how the Dreamz smart sleep mask senses brain activity, gently responds overnight, and turns each night into personalized sleep insight.">
-    <meta property="og:url" content="https://dreamz.rest/how-it-works.html">
-    <meta property="og:site_name" content="Dreamz">
-    <meta property="og:image" content="https://dreamz.rest/Photos/Brand/Social/Logo_social_share_1200x630.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Dreamz logo: three soft black waves meeting in a deep violet centre">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="How Dreamz Works | Platform and Process">
-    <meta name="twitter:description" content="See how the Dreamz smart sleep mask senses brain activity, gently responds overnight, and turns each night into personalized sleep insight.">
-    <meta name="twitter:image" content="https://dreamz.rest/Photos/Brand/Social/Logo_social_share_1200x630.png">
-    <meta name="twitter:image:alt" content="Dreamz logo: three soft black waves meeting in a deep violet centre">
 </head>
 
 <body data-footer-type="landing" data-active-page="how">
@@ -332,6 +403,7 @@
   <div data-dreamz-nav></div>
 
   <main id="main-content" role="main">
+    <h1 class="visually-hidden">How Dreamz works: the sensors, the algorithm and the gentle response</h1>
     <section id="technology" aria-labelledby="tech-heading">
       <p class="section-label reveal">How It Works</p>
       <h2 class="section-title reveal" id="tech-heading">Read &rarr; Analyze &rarr; Respond</h2>
@@ -399,11 +471,11 @@
       <h2 class="section-title reveal" id="how-heading">What happens after you put it on.</h2>
       <div class="how-grid">
         <div class="steps">
-          <div class="step reveal"><span class="step-num">01</span><div><h4>Wear and Connect</h4><p>Place the mask on. It pairs wirelessly to the app in seconds while the fabric contours to your face.</p></div></div>
-          <div class="step reveal reveal-delay-1"><span class="step-num">02</span><div><h4>Your Brain Is Listened To</h4><p>Dreamz reads your brain's activity and detects the moment your mind begins moving toward sleep.</p></div></div>
-          <div class="step reveal reveal-delay-2"><span class="step-num">03</span><div><h4>A Gentle Nudge Toward Deep Sleep</h4><p>A barely perceptible signal is applied to reinforce natural sleep rhythms and help quiet mental chatter.</p></div></div>
-          <div class="step reveal reveal-delay-3"><span class="step-num">04</span><div><h4>Night-Long Optimization</h4><p>The system adapts across light, deep, and REM sleep, matching stimulation to each stage's neural signature.</p></div></div>
-          <div class="step reveal reveal-delay-4"><span class="step-num">05</span><div><h4>Morning Insight</h4><p>You wake up to a summary of your night, including how fast you fell asleep.</p></div></div>
+          <div class="step reveal"><span class="step-num">01</span><div><h3>Wear and Connect</h3><p>Place the mask on. It pairs wirelessly to the app in seconds while the fabric contours to your face.</p></div></div>
+          <div class="step reveal reveal-delay-1"><span class="step-num">02</span><div><h3>Your Brain Is Listened To</h3><p>Dreamz reads your brain's activity and detects the moment your mind begins moving toward sleep.</p></div></div>
+          <div class="step reveal reveal-delay-2"><span class="step-num">03</span><div><h3>A Gentle Nudge Toward Deep Sleep</h3><p>A barely perceptible signal is applied to reinforce natural sleep rhythms and help quiet mental chatter.</p></div></div>
+          <div class="step reveal reveal-delay-3"><span class="step-num">04</span><div><h3>Night-Long Optimization</h3><p>The system adapts across light, deep, and REM sleep, matching stimulation to each stage's neural signature.</p></div></div>
+          <div class="step reveal reveal-delay-4"><span class="step-num">05</span><div><h3>Morning Insight</h3><p>You wake up to a sleep score, a summary of your brain activity, and a record of how Dreamz responded.</p></div></div>
         </div>
         <div class="how-visual reveal reveal-delay-2">
           <canvas class="brainwave-canvas" id="brainwave-canvas" aria-label="Live brainwave activity visualization showing sleep stages"></canvas>
@@ -413,6 +485,8 @@
 
     <div class="cta-band">
       <a class="text-link" href="index.html#cta">Pre Order Now</a>
+      <a class="text-link" href="dreamz-research.html">Read the research behind Dreamz</a>
+      <a class="text-link" href="dreamz-faq.html">Sleep mask FAQ</a>
     </div>
   </main>
 

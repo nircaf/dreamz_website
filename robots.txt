@@ -1,4 +1,17 @@
 User-agent: *
 Allow: /
+# Repo internals the static host also serves (not site pages).
+Disallow: /tests/
+Disallow: /tasks/
+Disallow: /docs/
+Disallow: /supabase/
+Disallow: /Newsletter/
+Disallow: /*.py$
+Disallow: /*.md$
+Disallow: /*.bat$
+Disallow: /*.docx$
+Disallow: /requirements.txt
+Disallow: /test-preorder-gallery.js
+# ponytail: preorder-confirmation is noindex in-page, not blocked here, so crawlers can see the noindex.
 
 Sitemap: https://dreamz.rest/sitemap.xml

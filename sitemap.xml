@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://dreamz.rest/</loc></url>
-  <url><loc>https://dreamz.rest/about.html</loc></url>
-  <url><loc>https://dreamz.rest/how-it-works.html</loc></url>
-  <url><loc>https://dreamz.rest/dreamz-use-cases.html</loc></url>
-  <url><loc>https://dreamz.rest/dreamz-research.html</loc></url>
-  <url><loc>https://dreamz.rest/dreamz-faq.html</loc></url>
-  <url><loc>https://dreamz.rest/dreamz-blog.html</loc></url>
-  <url><loc>https://dreamz.rest/dreamz-post.html</loc></url>
-  <url><loc>https://dreamz.rest/the-loop.html</loc></url>
-  <url><loc>https://dreamz.rest/contact.html</loc></url>
-  <url><loc>https://dreamz.rest/terms.html</loc></url>
-  <url><loc>https://dreamz.rest/privacy.html</loc></url>
-  <url><loc>https://dreamz.rest/refund-return-policy.html</loc></url>
-  <url><loc>https://dreamz.rest/term</loc></url>
+  <url><loc>https://dreamz.rest/</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://dreamz.rest/about.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://dreamz.rest/how-it-works.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://dreamz.rest/dreamz-use-cases.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://dreamz.rest/the-loop.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://dreamz.rest/dreamz-research.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://dreamz.rest/dreamz-faq.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://dreamz.rest/dreamz-blog.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://dreamz.rest/dreamz-post.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://dreamz.rest/contact.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://dreamz.rest/terms.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://dreamz.rest/privacy.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://dreamz.rest/refund-return-policy.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://dreamz.rest/term</loc><lastmod>2026-11-18T16:58:15-08:00</lastmod></url>
+  <url><loc>https://dreamz.rest/term/account-deletion.html</loc><lastmod>2026-11-24</lastmod></url>
 </urlset>
