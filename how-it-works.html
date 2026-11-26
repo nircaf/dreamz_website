@@ -23,10 +23,10 @@
       --white: #0b0b10;
       --muted: rgba(11, 11, 16, 0.72);
       --border: rgba(91, 43, 214, 0.15);
-      --loop-sense: #3ad17a;
-      --loop-think: #ffffff;
-      --loop-bit: #22e06a;
-      --loop-respond: #f5c542;
+      --loop-sense: #0f8a83;
+      --loop-think: #5b2bd6;
+      --loop-bit: #5b2bd6;
+      --loop-respond: #e0920f;
     }
     html { scroll-behavior: smooth; overflow-x: hidden; }
     body {
@@ -152,14 +152,14 @@
     /* signal loop diagram */
     .loop-scene { position: relative; width: min(90vw, 620px); aspect-ratio: 1; margin: 1rem auto 2.5rem; }
     .loop-ring { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-    .loop-base { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.34; }
-    .loop-bit { font-family: 'Geist', monospace; font-size: 17px; font-weight: 700; fill: var(--loop-bit); text-anchor: middle; filter: drop-shadow(0 0 6px var(--loop-bit)); }
+    .loop-base { fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; opacity: 0.42; }
+    .loop-bit { font-family: 'Geist', monospace; font-size: 17px; font-weight: 700; fill: var(--loop-bit); text-anchor: middle; filter: drop-shadow(0 0 4px rgba(91, 43, 214, .35)); }
     .loop-core { transform-origin: 320px 320px; animation: loopBreath 6s ease-in-out infinite; }
     .loop-heart { transform-origin: 320px 70px; }
     .loop-heart.beat { animation: loopHeartbeat 1.7s ease-in-out infinite; }
     .loop-chip-line { fill: none; stroke: var(--loop-think); stroke-width: 2.4; stroke-linecap: round; }
     .loop-ripple { fill: none; stroke: var(--loop-respond); stroke-width: 2.4; stroke-linecap: round; transform-box: fill-box; transform-origin: center; animation: loopEmit 1.3s ease-out forwards; }
-    .loop-brain { transform-box: view-box; transform-origin: 104px 442px; filter: drop-shadow(0 0 6px var(--loop-respond)); opacity: 0.5; transition: opacity 0.3s; }
+    .loop-brain { transform-box: view-box; transform-origin: 104px 442px; filter: drop-shadow(0 0 5px rgba(224, 146, 15, .4)); opacity: 0.6; transition: opacity 0.3s; }
     .loop-brain.beat { opacity: 1; animation: loopBrainBeat 1.7s ease-in-out infinite; }
 
     .loop-tags { position: absolute; inset: 0; pointer-events: none; }
@@ -173,8 +173,11 @@
     .loop-tag.respond { left: 12%; top: 84%; }
     .loop-tag.respond .n { color: var(--loop-respond); }
 
-    .loop-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
-    .loop-card { background: var(--midnight); padding: 2rem 1.75rem; }
+    /* Soft band, as on the homepage, so this section reads apart from the white ones around it. */
+    #technology { background: #f7f6fa; border-top: 1px solid #ecebf0; border-bottom: 1px solid #ecebf0; }
+    .loop-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: #e4e2ea; border: 1px solid #e4e2ea; border-radius: 20px; overflow: hidden; }
+    .loop-card { background: #fff; padding: 2.25rem 2rem; }
+    @media (max-width: 900px) { .loop-cards { grid-template-columns: minmax(0, 1fr); } }
     .loop-card .n { font-family: 'Geist', monospace; font-size: 0.65rem; color: var(--violet-dim); letter-spacing: 0.16em; display: block; margin-bottom: 1rem; }
     .loop-card h3 { font-family: 'Geist', serif; font-size: 1.4rem; font-weight: 300; color: var(--white); margin-bottom: 0.6rem; }
     .loop-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.75; }
@@ -300,13 +303,28 @@
       .loop-card { padding: 1.6rem; }
     }
   </style>
-  <link rel="icon" type="image/x-icon" href="assets/branding/favicon-light.ico" media="(prefers-color-scheme: light)">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32-light.png" media="(prefers-color-scheme: light)">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/branding/apple-touch-icon-light.png" media="(prefers-color-scheme: light)">
-  <link rel="icon" type="image/x-icon" href="assets/branding/favicon-dark.ico" media="(prefers-color-scheme: dark)">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32-dark.png" media="(prefers-color-scheme: dark)">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/branding/apple-touch-icon-dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/x-icon" href="Photos/Brand/Favicons/favicon-light.ico" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/png" sizes="32x32" href="Photos/Brand/Favicons/favicon-32-light.png" media="(prefers-color-scheme: light)">
+  <link rel="apple-touch-icon" sizes="180x180" href="Photos/Brand/Favicons/apple-touch-icon-light.png" media="(prefers-color-scheme: light)">
+  <link rel="icon" type="image/x-icon" href="Photos/Brand/Favicons/favicon-dark.ico" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" sizes="32x32" href="Photos/Brand/Favicons/favicon-32-dark.png" media="(prefers-color-scheme: dark)">
+  <link rel="apple-touch-icon" sizes="180x180" href="Photos/Brand/Favicons/apple-touch-icon-dark.png" media="(prefers-color-scheme: dark)">
     <link rel="stylesheet" href="assets/white-theme.css">
+    <!-- Social share card (Photos/Brand/Social/Logo_social_share_1200x630.png) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="How Dreamz Works | Platform and Process">
+    <meta property="og:description" content="See how the Dreamz smart sleep mask senses brain activity, gently responds overnight, and turns each night into personalized sleep insight.">
+    <meta property="og:url" content="https://dreamz.rest/how-it-works.html">
+    <meta property="og:site_name" content="Dreamz">
+    <meta property="og:image" content="https://dreamz.rest/Photos/Brand/Social/Logo_social_share_1200x630.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Dreamz logo: three soft black waves meeting in a deep violet centre">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How Dreamz Works | Platform and Process">
+    <meta name="twitter:description" content="See how the Dreamz smart sleep mask senses brain activity, gently responds overnight, and turns each night into personalized sleep insight.">
+    <meta name="twitter:image" content="https://dreamz.rest/Photos/Brand/Social/Logo_social_share_1200x630.png">
+    <meta name="twitter:image:alt" content="Dreamz logo: three soft black waves meeting in a deep violet centre">
 </head>
 
 <body data-footer-type="landing" data-active-page="how">
@@ -356,7 +374,7 @@
           <g id="loopRipples"></g>
           <g id="loopTrail"></g>
           <g id="loopBitTrail"></g>
-          <circle id="loopHead" r="5.5" fill="#fff" cx="333" cy="70"/>
+          <circle id="loopHead" r="5.5" fill="#fff" stroke="var(--loop-sense)" stroke-width="2.4" cx="333" cy="70"/>
         </svg>
 
         <div class="loop-tags">
@@ -480,7 +498,7 @@
         }
       }else{
         head.style.opacity=1;bitTrailG.style.opacity=0;trailG.style.opacity=1;
-        head.setAttribute('cx',p.x.toFixed(1));head.setAttribute('cy',p.y.toFixed(1));
+        head.setAttribute('cx',p.x.toFixed(1));head.setAttribute('cy',p.y.toFixed(1));head.setAttribute('stroke',st.color);
         drawTrail(st.path,st.color);
         if(st.kind==='respond'){rippleAcc+=dt;if(rippleAcc>0.18){rippleAcc=0;
           var travelFrac=dist/st.len;

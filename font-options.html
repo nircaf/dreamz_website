@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dreamz Font Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Inter+Tight:wght@500;600&family=Inter:wght@400;500&family=Manrope:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;700&family=Sora:wght@400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Hanken+Grotesk:wght@400;500&family=DM+Serif+Display&family=DM+Sans:wght@400;500&family=Fraunces:opsz,wght,SOFT@9..144,400,100;9..144,500,100&family=Figtree:wght@400;500&family=Instrument+Serif&family=Instrument+Sans:wght@400;500&family=Cormorant+Garamond:wght@500;600&family=Geist+Mono:wght@400&display=swap">
+<style>
+  :root { --ink:#1d1d1f; --muted:#4a4a52; --soft:#f5f5f7; --line:#e6e6eb; --purple:#5b2bd6; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #fff; color: var(--ink); font-family: 'Geist', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 64px max(16px, 4vw) 96px; }
+  .top { display: flex; flex-direction: column; gap: 10px; margin-bottom: 48px; }
+  .top p { margin: 0; color: var(--purple); font-weight: 500; }
+  .top h1 { margin: 0; font-size: clamp(36px, 5vw, 56px); letter-spacing: -0.04em; font-weight: 600; }
+  .top span { color: var(--muted); font-size: 17px; max-width: 46em; line-height: 1.5; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 520px), 1fr)); gap: 20px; }
+  .card { border: 1px solid var(--line); border-radius: 24px; overflow: hidden; display: flex; flex-direction: column; }
+  .meta { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 22px; border-bottom: 1px solid var(--line); background: #fff; flex-wrap: wrap; }
+  .meta b { font-family: 'Geist', sans-serif; font-weight: 600; font-size: 15px; }
+  .meta i { font-style: normal; font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--muted); }
+  .num { font-family: 'Geist Mono', monospace; font-size: 12px; color: var(--purple); margin-right: 8px; }
+  .stage { background: var(--soft); padding: 44px 32px 36px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; flex: 1; }
+  .eyebrow { color: var(--purple); font-size: 15px; font-weight: 500; }
+  .h { margin: 0; font-size: clamp(36px, 4.4vw, 54px); line-height: 1.04; letter-spacing: -0.035em; text-wrap: balance; max-width: 10em; }
+  .h em { font-style: normal; color: var(--purple); }
+  .sub { margin: 0; color: var(--muted); font-size: 18px; line-height: 1.45; max-width: 24em; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; padding-top: 6px; }
+  .btn { background: var(--ink); color: #fff; border-radius: 999px; padding: 11px 20px; font-size: 15px; font-weight: 500; }
+  .lnk { color: var(--purple); font-size: 15px; padding: 11px 6px; }
+  .stats { display: flex; gap: 28px; justify-content: center; padding-top: 18px; margin-top: 8px; border-top: 1px solid var(--line); width: 100%; flex-wrap: wrap; }
+  .stat { display: flex; flex-direction: column; gap: 2px; }
+  .stat strong { font-size: 34px; letter-spacing: -0.04em; line-height: 1; }
+  .stat strong span { color: var(--purple); }
+  .stat small { font-size: 12px; color: var(--muted); }
+  .foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 22px; flex-wrap: wrap; }
+  .foot span { font-size: 13px; color: var(--muted); }
+  .try { color: #fff; background: var(--purple); text-decoration: none; font-size: 14px; font-weight: 500; padding: 10px 16px; border-radius: 999px; min-height: 40px; display: inline-flex; align-items: center; }
+  .try:hover { background: #3f1aa3; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <p>Dreamz · white homepage</p>
+    <h1>10 font options</h1>
+    <span>Each card shows your current hero copy in a different pairing. Press "Try on homepage" to see the full restyled page in that font.</span>
+  </div>
+  <div class="grid" id="grid"></div>
+</div>
+<script>
+const fonts = [
+  { name: 'Geist', display: "'Geist'", body: "'Geist'", w: 600, mood: 'Current mockup. Clean, Apple-adjacent, neutral.' },
+  { name: 'Inter Tight + Inter', display: "'Inter Tight'", body: "'Inter'", w: 600, mood: 'Closest free match to Apple’s SF Pro.' },
+  { name: 'Manrope', display: "'Manrope'", body: "'Manrope'", w: 700, mood: 'Soft geometric. Friendly, calm, a bit rounder.' },
+  { name: 'Plus Jakarta Sans', display: "'Plus Jakarta Sans'", body: "'Plus Jakarta Sans'", w: 700, mood: 'Warm modern sans. Popular with wellness brands.' },
+  { name: 'Sora', display: "'Sora'", body: "'Sora'", w: 600, mood: 'Wide and techy. Leans into the neurotech story.' },
+  { name: 'Bricolage Grotesque + Hanken Grotesk', display: "'Bricolage Grotesque'", body: "'Hanken Grotesk'", w: 700, mood: 'Characterful, quirky headlines. Most distinctive sans.' },
+  { name: 'DM Serif Display + DM Sans', display: "'DM Serif Display'", body: "'DM Sans'", w: 400, mood: 'Elegant serif headlines, clean body. Premium wellness.' },
+  { name: 'Fraunces (soft) + Figtree', display: "'Fraunces'", body: "'Figtree'", w: 400, mood: 'Warm, soft serif. Feels caring and human.', vs: "'SOFT' 100, 'opsz' 96" },
+  { name: 'Instrument Serif + Instrument Sans', display: "'Instrument Serif'", body: "'Instrument Sans'", w: 400, mood: 'Fashion-editorial. Thin, tall, quietly luxurious.', size: 1.15 },
+  { name: 'Cormorant Garamond + Hanken Grotesk', display: "'Cormorant Garamond'", body: "'Hanken Grotesk'", w: 600, mood: 'Classic luxury. Echoes the serif on today’s dark site.', size: 1.15 }
+];
+const grid = document.getElementById('grid');
+fonts.forEach((f, i) => {
+  const d = `font-family:${f.display}, Georgia, serif; font-weight:${f.w};` + (f.vs ? `font-variation-settings:${f.vs};` : '') + (f.size ? `font-size:calc(clamp(36px, 4.4vw, 54px) * ${f.size});letter-spacing:-0.02em;` : '');
+  const b = `font-family:${f.body}, system-ui, sans-serif;`;
+  const card = document.createElement('article');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="meta"><b><span class="num">${String(i + 1).padStart(2, '0')}</span>${f.name}</b><i>Google Fonts · free</i></div>
+    <div class="stage" style="${b}">
+      <div class="eyebrow">Dreamz Adaptive Sleep Mask</div>
+      <h2 class="h" style="${d}">Fall asleep and <em>re-start sleep faster</em></h2>
+      <p class="sub">The first smart sleep mask with personalized neuromodulation</p>
+      <div class="row"><span class="btn">Pre-order Now</span><span class="lnk">Learn How It Works ›</span></div>
+      <div class="stats">
+        <div class="stat"><strong style="${d}">38<span>%</span></strong><small>Reduction in sleep onset</small></div>
+        <div class="stat"><strong style="${d}">62<span>%</span></strong><small>Improvement in sleep quality</small></div>
+      </div>
+    </div>
+    <div class="foot"><span>${f.mood}</span><a class="try" href="index-white.html?font=${i}">Try on homepage</a></div>`;
+  grid.appendChild(card);
+});
+</script>
+</body>
+</html>

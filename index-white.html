@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dreamz homepage · white</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html{scroll-behavior:smooth}
+.thumb{width:84px;height:84px;padding:0;border-radius:14px;background:#f5f5f7;cursor:pointer;border:2px solid transparent}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;border-radius:12px}
+.thumb[aria-pressed="true"],.swatch[aria-pressed="true"]{border-color:#5b2bd6}
+.swatch{width:44px;height:44px;border-radius:999px;padding:4px;background:transparent;cursor:pointer;border:2px solid transparent}
+.swatch span{display:block;width:100%;height:100%;border-radius:999px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+.tab{font:inherit;font-size:15px;border:0;border-radius:10px;padding:12px 10px;min-height:44px;cursor:pointer;background:transparent;color:#4a4a52}
+.tab[aria-selected="true"]{background:#fff;color:#1d1d1f;font-weight:600;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.buy{display:flex;justify-content:center;align-items:center;min-height:48px;border-radius:999px;text-decoration:none;font-size:17px;font-weight:500;color:#fff!important;background:#5b2bd6}
+.buy.off{background:#b9b9c0;pointer-events:none}
+header{position:sticky;top:0;z-index:10;backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px)}
+a,button{transition:opacity .2s,background .2s,transform .15s}
+a[href]:active,button:active{transform:scale(.98)}
+</style></head>
+<body>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+body{margin:0;background:#ffffff}
+a{color:#5b2bd6}a:hover{color:#3f1aa3}
+</style>
+
+<div style="font-family: 'Geist', -apple-system, BlinkMacSystemFont, system-ui, sans-serif; color: #1d1d1f; background: #ffffff; -webkit-font-smoothing: antialiased">
+
+  <!-- NAV -->
+  <header style="background: rgba(255,255,255,0.86); border-bottom: 1px solid #ececf0">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 0 clamp(16px, 4vw, 32px); min-height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap">
+      <a href="#" aria-label="Dreamz home" style="display: flex; align-items: center; min-height: 44px">
+        <svg width="40" height="22" viewBox="0 0 44 24" fill="none" aria-hidden="true"><path d="M2 12 C 9 0, 15 0, 22 12 S 35 24, 42 12" stroke="#1d1d1f" stroke-width="1.6"/><path d="M2 12 C 9 24, 15 24, 22 12 S 35 0, 42 12" stroke="#5b2bd6" stroke-width="1.6"/></svg>
+      </a>
+      <nav style="display: flex; flex-wrap: wrap; font-size: 13px">
+        <a href="#" style="color: #1d1d1f; text-decoration: none; padding: 14px 12px">Home</a>
+        <a href="#" style="color: #4a4a52; text-decoration: none; padding: 14px 12px">How It Works</a>
+        <a href="#" style="color: #4a4a52; text-decoration: none; padding: 14px 12px">Use Cases</a>
+        <a href="#" style="color: #4a4a52; text-decoration: none; padding: 14px 12px">FAQ</a>
+        <a href="#" style="color: #4a4a52; text-decoration: none; padding: 14px 12px">Research</a>
+        <a href="#" style="color: #4a4a52; text-decoration: none; padding: 14px 12px">About</a>
+      </nav>
+      <a href="#preorder" style="background: #5b2bd6; color: #ffffff; text-decoration: none; font-size: 13px; font-weight: 500; padding: 8px 16px; border-radius: 999px; min-height: 36px; box-sizing: border-box; display: inline-flex; align-items: center">Pre-order</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section style="padding: 88px clamp(16px, 4vw, 32px) 0; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px">
+    <p style="margin: 0; font-size: 17px; font-weight: 500; color: #5b2bd6">Dreamz Adaptive Sleep Mask</p>
+    <h1 style="margin: 0; font-size: clamp(48px, 7vw, 88px); line-height: 1.02; font-weight: 600; letter-spacing: -0.045em; max-width: 11em; text-wrap: balance">Fall asleep and <span style="color: #5b2bd6">re-start sleep faster</span></h1>
+    <p style="margin: 0; font-size: clamp(19px, 2vw, 24px); line-height: 1.4; color: #4a4a52; max-width: 28em">The first smart sleep mask with personalized neuromodulation</p>
+    <div style="display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; align-items: center; padding-top: 8px">
+      <a href="#preorder" style="background: #1d1d1f; color: #ffffff; text-decoration: none; font-size: 17px; font-weight: 500; padding: 14px 26px; border-radius: 999px; min-height: 44px; box-sizing: border-box">Pre-order Now</a>
+      <a href="#" style="font-size: 17px; text-decoration: none; padding: 12px 8px">Learn How It Works ›</a>
+    </div>
+    <div style="width: 100%; max-width: 1100px; margin-top: 48px; background: #f5f5f7; border-radius: 28px; overflow: hidden; display: flex; justify-content: center">
+      <img src="Photos/Product/Studio/black_mask.jpg" alt="Woman wearing the black Dreamz sleep mask" style="width: 100%; max-width: 720px; height: auto; display: block">
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section style="padding: 112px clamp(16px, 4vw, 32px)">
+    <div style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px 24px; text-align: center">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: clamp(56px, 6vw, 80px); font-weight: 600; letter-spacing: -0.05em; line-height: 1">38<span style="color: #5b2bd6">%</span></span>
+        <span style="font-size: 17px; color: #4a4a52">Reduction in sleep onset</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: clamp(56px, 6vw, 80px); font-weight: 600; letter-spacing: -0.05em; line-height: 1">62<span style="color: #5b2bd6">%</span></span>
+        <span style="font-size: 17px; color: #4a4a52">Improvement in sleep quality</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: clamp(56px, 6vw, 80px); font-weight: 600; letter-spacing: -0.05em; line-height: 1">31<span style="color: #5b2bd6">%</span></span>
+        <span style="font-size: 17px; color: #4a4a52">Improvement in daily wellness</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <span style="font-size: clamp(56px, 6vw, 80px); font-weight: 600; letter-spacing: -0.05em; line-height: 1; color: #5b2bd6">∞</span>
+        <span style="font-size: 17px; color: #4a4a52">Learns your unique brain over time</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section style="background: #f5f5f7; padding: 112px clamp(16px, 4vw, 32px)">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px">
+      <div style="text-align: center; display: flex; flex-direction: column; gap: 12px; align-items: center">
+        <p style="margin: 0; font-size: 17px; font-weight: 500; color: #5b2bd6">What Users Say</p>
+        <h2 style="margin: 0; font-size: clamp(40px, 5vw, 64px); font-weight: 600; letter-spacing: -0.04em; line-height: 1.05">Real people. Real sleep.</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px">
+        <article style="background: #ffffff; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
+          <img src="Photos/Product/Studio/frame_001186.jpg" alt="Ellie wearing Dreamz while relaxing" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block">
+          <div style="padding: 28px; display: flex; flex-direction: column; gap: 20px; flex: 1">
+            <span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: #6e6e76">A Dreamz story · 01 / 03</span>
+            <blockquote style="margin: 0; font-size: 21px; line-height: 1.4; letter-spacing: -0.01em; flex: 1">“Racing thoughts ruled my nights for a decade. Dreamz helps my mind settle, so bedtime finally feels <strong style="font-weight: 600; color: #5b2bd6">quiet and under control.</strong>”</blockquote>
+            <div style="display: flex; flex-direction: column; gap: 2px; font-size: 15px"><strong style="font-weight: 600">Ellie B.</strong><span style="color: #6e6e76">Product Manager · 29</span></div>
+          </div>
+        </article>
+        <article style="background: #ffffff; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
+          <img src="Photos/Lifestyle/Sleep/8 (3).jpg" alt="Paul wearing Dreamz while relaxing on a couch" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block">
+          <div style="padding: 28px; display: flex; flex-direction: column; gap: 20px; flex: 1">
+            <span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: #6e6e76">A Dreamz story · 02 / 03</span>
+            <blockquote style="margin: 0; font-size: 21px; line-height: 1.4; letter-spacing: -0.01em; flex: 1">“The surprise wasn’t only better sleep. I wake up clear-headed, and that gives me <strong style="font-weight: 600; color: #5b2bd6">sharper focus all day.</strong>”</blockquote>
+            <div style="display: flex; flex-direction: column; gap: 2px; font-size: 15px"><strong style="font-weight: 600">Paul K.</strong><span style="color: #6e6e76">Founder · 24</span></div>
+          </div>
+        </article>
+        <article style="background: #ffffff; border-radius: 24px; overflow: hidden; display: flex; flex-direction: column">
+          <img src="Photos/Lifestyle/Sleep/82.jpg" alt="James wearing Dreamz" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block">
+          <div style="padding: 28px; display: flex; flex-direction: column; gap: 20px; flex: 1">
+            <span style="font-family: 'Geist Mono', ui-monospace, monospace; font-size: 12px; color: #6e6e76">A Dreamz story · 03 / 03</span>
+            <blockquote style="margin: 0; font-size: 21px; line-height: 1.4; letter-spacing: -0.01em; flex: 1">“I used to spend 45 minutes waiting for sleep. With Dreamz, I’m usually asleep in <strong style="font-weight: 600; color: #5b2bd6">under ten minutes.</strong>”</blockquote>
+            <div style="display: flex; flex-direction: column; gap: 2px; font-size: 15px"><strong style="font-weight: 600">James T.</strong><span style="color: #6e6e76">Software Engineer · 32</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRE-ORDER -->
+  <section id="preorder" style="padding: 112px clamp(16px, 4vw, 32px)">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <p style="margin: 0; font-size: 17px; font-weight: 500; color: #5b2bd6">Pre-order</p>
+        <h2 style="margin: 0; font-size: clamp(40px, 5vw, 64px); font-weight: 600; letter-spacing: -0.04em; line-height: 1.05">Get Your Mask Now</h2>
+      </div>
+      <div style="display: flex; flex-wrap: wrap; gap: 48px; align-items: flex-start">
+        <div style="flex: 1.2 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 14px">
+          <div style="background: #f5f5f7; border-radius: 24px; overflow: hidden">
+            <img id="mainImg" src="Photos/Product/Studio/black_mask.jpg" alt="Dreamz sleep mask" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block">
+          </div>
+          <div style="display: flex; gap: 12px" role="group" aria-label="Choose a product photo">
+            <button type="button" class="thumb" data-src="Photos/Product/Studio/black_mask.jpg" aria-label="Show photo 1" aria-pressed="true"><img src="Photos/Product/Studio/black_mask.jpg" alt=""></button><button type="button" class="thumb" data-src="Photos/Lifestyle/Everyday/12.jpg" aria-label="Show photo 2" aria-pressed="false"><img src="Photos/Lifestyle/Everyday/12.jpg" alt=""></button><button type="button" class="thumb" data-src="Photos/Lifestyle/Sleep/14.jpg" aria-label="Show photo 3" aria-pressed="false"><img src="Photos/Lifestyle/Sleep/14.jpg" alt=""></button>
+          </div>
+        </div>
+        <div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <p style="margin: 0; font-size: 14px; font-weight: 500; color: #5b2bd6">Pre-order exclusive</p>
+            <div style="display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap">
+              <strong style="font-size: 44px; font-weight: 600; letter-spacing: -0.03em">$199.90</strong>
+              <s style="font-size: 19px; color: #6e6e76">$299.90</s>
+              <span style="font-size: 13px; font-weight: 500; color: #5b2bd6; background: #f1ecfd; padding: 4px 10px; border-radius: 999px">Save $100</span>
+            </div>
+            <p style="margin: 0; font-size: 15px; color: #4a4a52">Available exclusively when you pre-order.</p>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 12px; padding-top: 24px; border-top: 1px solid #ececf0">
+            <span style="font-size: 17px; font-weight: 600">Color. <span style="font-weight: 400; color: #4a4a52"><span id="colorName">Black</span></span></span>
+            <div style="display: flex; gap: 14px; flex-wrap: wrap" role="group" aria-label="Choose a color">
+              <button type="button" class="swatch" data-name="Black" data-sold="0" aria-label="Black" aria-pressed="true"><span style="background:#0b0b0d;"></span></button><button type="button" class="swatch" data-name="Pitch Midnight" data-sold="1" aria-label="Pitch Midnight, sold out" aria-pressed="false"><span style="background:#2e1a33;opacity:.4"></span></button><button type="button" class="swatch" data-name="Burgundy" data-sold="1" aria-label="Burgundy, sold out" aria-pressed="false"><span style="background:#6d0f2c;opacity:.4"></span></button><button type="button" class="swatch" data-name="Peach" data-sold="1" aria-label="Peach, sold out" aria-pressed="false"><span style="background:#f2a98a;opacity:.4"></span></button>
+            </div>
+            
+              <p id="soldNote" hidden style="margin: 0; font-size: 14px; color: #b42318">This color is sold out — choose another color to pre-order.</p>
+            
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 14px; padding-top: 24px; border-top: 1px solid #ececf0">
+            <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #4a4a52">Choose a deposit today, or pay in full and get 12 months of subscription for free.</p>
+            <div role="tablist" style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; background: #f5f5f7; padding: 4px; border-radius: 14px">
+              <button type="button" role="tab" class="tab" data-tab="deposit" aria-selected="true">Deposit</button>
+              <button type="button" role="tab" class="tab" data-tab="full" aria-selected="false">Pay full amount now</button>
+            </div>
+            <div style="border: 1px solid #e3e3e8; border-radius: 18px; padding: 22px; display: flex; flex-direction: column; gap: 18px">
+              <div data-panel="deposit">
+                <div style="display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: #4a4a52">
+                  <span style="font-size: 28px; font-weight: 600; color: #1d1d1f; letter-spacing: -0.02em">$39.90</span>
+                  <span>Remaining balance charged before shipping</span>
+                  <span>1-month subscription included <span style="color: #5b2bd6">($10 value)</span></span>
+                </div>
+              </div>
+              <div data-panel="full" hidden>
+                <div style="font-size: 15px; color: #4a4a52"><strong style="color: #1d1d1f; font-weight: 600">12-month</strong> subscription included <span style="color: #5b2bd6">($120 value)</span></div>
+              </div>
+              <a href="index.html#cta" id="buy" class="buy">Pay $39.90 deposit</a>
+            </div>
+            <ul style="margin: 0; padding: 0 0 0 18px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; line-height: 1.5; color: #6e6e76">
+              <li>Cancel anytime</li>
+              <li>30-Day Return Policy</li>
+              <li>Orders ship within 3–9 months. Shipping and applicable taxes aren't included today — they'll be collected in a separate checkout closer to your ship date.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section style="padding: 0 clamp(16px, 4vw, 32px) 112px">
+    <div style="max-width: 1100px; margin: 0 auto; background: #f5f5f7; border-radius: 28px; padding: clamp(32px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between; align-items: center">
+      <div style="display: flex; flex-direction: column; gap: 8px; flex: 1 1 320px; min-width: 0">
+        <h2 style="margin: 0; font-size: clamp(32px, 3.6vw, 44px); font-weight: 600; letter-spacing: -0.035em">Want to learn <span style="color: #5b2bd6">more</span>?</h2>
+        <p style="margin: 0; font-size: 17px; color: #4a4a52">Occasional notes on sleep science and launch updates.</p>
+      </div>
+      <form style="display: flex; gap: 10px; flex-wrap: wrap; flex: 1 1 380px; min-width: 0">
+        <label for="hp-email" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email address</label>
+        <input id="hp-email" type="email" placeholder="you@example.com" style="flex: 1 1 220px; min-width: 0; font: inherit; font-size: 17px; padding: 14px 18px; border: 1px solid #d6d6dc; border-radius: 999px; background: #ffffff; color: #1d1d1f; min-height: 48px; box-sizing: border-box">
+        <button type="button" style="font: inherit; font-size: 17px; font-weight: 500; background: #1d1d1f; color: #ffffff; border: 0; border-radius: 999px; padding: 14px 24px; min-height: 48px; cursor: pointer">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: #f5f5f7; border-top: 1px solid #e3e3e8">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 40px clamp(16px, 4vw, 32px) 48px; display: flex; flex-direction: column; gap: 24px; font-size: 12px; color: #6e6e76">
+      <p style="margin: 0; line-height: 1.6">Dreamz is a wellness device and is not a medical device. It is not intended to diagnose, treat, cure, or prevent any disease or medical condition. Not for use by children, pregnant individuals, or those with epilepsy or known neurological disorders. Consult a healthcare professional before use if you have concerns. Use constitutes acceptance of our Terms &amp; Conditions and Privacy Policy.</p>
+      <nav style="display: flex; flex-wrap: wrap; gap: 4px 0; border-top: 1px solid #e3e3e8; padding-top: 16px">
+        <a href="#" style="color: #4a4a52; text-decoration: none; padding: 6px 16px 6px 0">Home</a>
+        <a href="#" style="color: #4a4a52; text-decoration: none; padding: 6px 16px 6px 0">How It Works</a>
+        <a href="#" style="color: #4a4a52; text-decoration: none; padding: 6px 16px 6px 0">Use Cases</a>
+        <a href="#" style="color: #4a4a52; text-decoration: none; padding: 6px 16px 6px 0">About</a>
+        <a href="#" style="color: #4a4a52; text-decoration: none; padding: 6px 16px 6px 0">Care &amp; Washing</a>
+        <a href="#" style="color: #4a4a52; text-decoration: none; padding: 6px 16px 6px 0">Safety Guide</a>
+        <a href="#" style="color: #4a4a52; text-decoration: none; padding: 6px 16px 6px 0">Contact</a>
+        <a href="#" style="color: #4a4a52; text-decoration: none; padding: 6px 16px 6px 0">Privacy Policy</a>
+        <a href="#" style="color: #4a4a52; text-decoration: none; padding: 6px 16px 6px 0">Terms &amp; Conditions</a>
+        <a href="#" style="color: #4a4a52; text-decoration: none; padding: 6px 16px 6px 0">Delete Account</a>
+      </nav>
+      <span>© 2025 Dreamz. Sleep Neurotechnology. All rights reserved.</span>
+    </div>
+  </footer>
+</div>
+<script>
+const $=(q)=>document.querySelectorAll(q);let tab='deposit',sold=false;
+function buy(){const b=document.getElementById('buy');b.textContent=tab==='deposit'?'Pay $39.90 deposit':'Pay $199.90 now';b.classList.toggle('off',sold)}
+$('.thumb').forEach(t=>t.onclick=()=>{$('.thumb').forEach(x=>x.setAttribute('aria-pressed','false'));t.setAttribute('aria-pressed','true');document.getElementById('mainImg').src=t.dataset.src});
+$('.swatch').forEach(s=>s.onclick=()=>{$('.swatch').forEach(x=>x.setAttribute('aria-pressed','false'));s.setAttribute('aria-pressed','true');sold=s.dataset.sold==='1';document.getElementById('colorName').textContent=s.dataset.name+(sold?' · Sold out':'');document.getElementById('soldNote').hidden=!sold;buy()});
+$('.tab').forEach(t=>t.onclick=()=>{tab=t.dataset.tab;$('.tab').forEach(x=>x.setAttribute('aria-selected',String(x===t)));$('[data-panel]').forEach(p=>p.hidden=p.dataset.panel!==tab);buy()});
+</script>
+<script>
+(function(){
+const F=[["Geist","Geist",600],["Inter Tight","Inter",600],["Manrope","Manrope",700],["Plus Jakarta Sans","Plus Jakarta Sans",700],["Sora","Sora",600],["Bricolage Grotesque","Hanken Grotesk",700],["DM Serif Display","DM Sans",400],["Fraunces","Figtree",400],["Instrument Serif","Instrument Sans",400],["Cormorant Garamond","Hanken Grotesk",600]];
+const i=parseInt(new URLSearchParams(location.search).get('font'),10);if(!(i>=0&&i<F.length))return;
+const [d,b,w]=F[i];const q=n=>n.replace(/ /g,'+');
+const l=document.createElement('link');l.rel='stylesheet';l.href='https://fonts.googleapis.com/css2?family='+q(d)+(d==='Fraunces'?':opsz,wght,SOFT@9..144,400,100':d.includes('Serif Display')||d==='Instrument Serif'?'':':wght@400;500;600;700')+'&family='+q(b)+':wght@400;500;600&display=swap';document.head.appendChild(l);
+const st=document.createElement('style');st.textContent='body>div{font-family:"'+b+'",system-ui,sans-serif!important}h1,h2,section span[style*="clamp(56px"],strong[style*="44px"]{font-family:"'+d+'",Georgia,serif!important;font-weight:'+w+'!important}'+(d==='Fraunces'?'h1,h2{font-variation-settings:"SOFT" 100,"opsz" 96}':'');document.head.appendChild(st);
+const t=document.createElement('a');t.href='font-options.html';t.textContent='Font: '+d+(d!==b?' + '+b:'')+'  ·  all options';t.style.cssText='position:fixed;left:16px;bottom:16px;z-index:50;background:#1d1d1f;color:#fff;font:500 13px system-ui;padding:10px 14px;border-radius:999px;text-decoration:none';document.body.appendChild(t);
+})();
+</script>
+</body>
+</html>

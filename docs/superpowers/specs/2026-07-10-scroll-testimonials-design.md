@@ -7,9 +7,9 @@ Replace the six-card testimonial grid in `index.html` with one immersive testimo
 ## Content
 
 - Use exactly three testimonials and the current second, third, and last images, in that order:
-  1. `Photos/Gallery/8 (2).jpg`
-  2. `Photos/Gallery/8 (3).jpg`
-  3. `Photos/Gallery/frame_001186.jpg`
+  1. `Photos/Lifestyle/Everyday/8 (2).jpg`
+  2. `Photos/Lifestyle/Sleep/8 (3).jpg`
+  3. `Photos/Product/Studio/frame_001186.jpg`
 - Improve each quote while retaining its original meaning.
 - Give one important phrase in each quote a distinct violet-highlight treatment.
 - Show the person's name and role alongside the quote.

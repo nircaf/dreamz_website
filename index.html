@@ -55,7 +55,7 @@
   "@type": "Product",
   "@id": "https://dreamz.rest/#product",
   "name": "Dreamz Sleep Mask",
-  "image": "https://dreamz.rest/Photos/Mask/front.jpg",
+  "image": "https://dreamz.rest/Photos/Product/Mask/front.png",
   "description": "A wearable sleep neurotechnology platform combining real-time brain activity sensing with adaptive gentle stimulation. Helps users fall asleep faster, reach deeper sleep stages, and wake up restored.",
   "brand": {
     "@type": "Brand",
@@ -225,28 +225,35 @@ a[href]:active,button:active{transform:scale(.98)}
 a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--purple);outline-offset:3px}
 .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple)}
 
-/* Hero */
-.hero{display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 405px);gap:clamp(28px, 5vw, 56px);align-items:center;padding-top:72px;padding-bottom:96px}
-.hero-copy{min-width:0;display:flex;flex-direction:column;gap:28px}
-.hero h1{margin:0;font-size:clamp(44px,5.6vw,80px);line-height:.98;font-weight:500;letter-spacing:-.045em;text-wrap:balance}
-.hero p{margin:0;font-size:18px;line-height:1.6;color:var(--muted);max-width:31em}
-.hero-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
-.app-line{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-top:20px;border-top:1px solid var(--line);max-width:31em;font-size:14px;color:var(--muted)}
-.appstore{display:inline-flex;line-height:0;transition:opacity .2s,transform .2s}.appstore:hover{opacity:.85;transform:translateY(-1px)}.appstore img{height:35px;width:auto;display:block}
-.hero figure{margin:0;min-width:0}
-.hero-photo{width:100%;height:auto;display:block}
+/* Header over the hero photo: see-through until the photo scrolls away, then the usual white bar. */
+body.photo-hero .dz-header.dz-header{position:fixed;left:0;right:0;top:0;background:transparent;border-bottom-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;transition:background-color .3s,border-color .3s}
+body.photo-hero .dz-header.dz-header.is-solid{background:rgba(255,255,255,.88);border-bottom-color:var(--line);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px)}
 
-@media (min-width:761px) and (max-width:1000px){
-  .hero{grid-template-columns:minmax(0, 1fr) minmax(0, 38%)}
-}
+/* Hero: one full-bleed photo, copy set into the bedding on the left */
+.hero{--linen:#e2e0dc;position:relative;isolation:isolate;min-height:max(640px,100svh);display:flex;align-items:flex-end;overflow:hidden;background:var(--linen)}
+.hero-photo{position:absolute;top:0;right:0;bottom:0;z-index:-2;width:66%;height:100%;object-fit:cover;object-position:50% 28%;display:block}
+/* Vignette sits on the photo only, pulling the eye to the face and mask. */
+.hero::after{content:"";position:absolute;top:0;right:0;bottom:0;z-index:-2;width:66%;pointer-events:none;background:
+  radial-gradient(ellipse 62% 70% at 52% 40%,rgba(20,16,28,0) 38%,rgba(20,16,28,.18) 70%,rgba(20,16,28,.42) 100%)}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:
+  linear-gradient(180deg,rgba(255,255,255,.45) 0,rgba(255,255,255,0) 160px),
+  linear-gradient(90deg,var(--linen) 0%,var(--linen) 34.5%,rgba(226,224,220,.75) 37%,rgba(226,224,220,.32) 41.5%,rgba(226,224,220,0) 47%)}
+.hero-inner{width:100%;max-width:1280px;margin:0 auto;padding:140px var(--pad) clamp(56px,9vh,104px)}
+.hero-copy{max-width:560px;display:flex;flex-direction:column;gap:24px}
+.hero h1{margin:0;font-size:clamp(46px,6vw,88px);line-height:.96;font-weight:500;letter-spacing:-.045em;text-wrap:balance}
+.hero p{margin:0;font-size:19px;line-height:1.55;color:#3a3842;max-width:27em}
+.hero-actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.app-line{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:14px;color:#3a3842}
+.appstore{display:inline-flex;line-height:0;transition:opacity .2s,transform .2s}.appstore:hover{opacity:.85;transform:translateY(-1px)}.appstore img{height:35px;width:auto;display:block}
 
 /* Three things */
 .changes{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .changes .wrap{padding-top:104px;padding-bottom:104px;display:flex;flex-direction:column;gap:56px}
 .changes-sub{margin:0;font-size:19px;line-height:1.5;color:var(--muted)}
 .changes h2{margin:0;font-size:clamp(32px,3.6vw,52px);line-height:1.05;font-weight:500;letter-spacing:-.035em;max-width:18em;text-wrap:balance}
-.change-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:#e4e2ea;border:1px solid #e4e2ea;border-radius:20px;overflow:hidden}
+.change-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:#e4e2ea;border:1px solid #e4e2ea;border-radius:20px;overflow:hidden}
 .change{background:#fff;padding:36px 32px;display:flex;flex-direction:column;gap:16px}
+@media (max-width:900px){.change-grid{grid-template-columns:minmax(0,1fr)}}
 .change h3{margin:0;font-size:22px;font-weight:500;letter-spacing:-.02em}
 .change p{margin:0;font-size:16px;line-height:1.6;color:var(--muted)}
 
@@ -322,26 +329,38 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .newsletter-status[data-state="success"]{color:var(--purple)}
 
 @media (max-width:760px){
-  .hero{padding-top:40px;padding-bottom:72px;gap:40px}
-  .hero{grid-template-columns:minmax(0, 1fr);gap:28px;padding-bottom:52px}
-  .hero-copy{gap:20px}
-  .hero figure{order:-1;width:min(100%, 360px);justify-self:center}
+  .hero{--ph:min(112vw,480px);min-height:0;display:block}
+  .hero-photo{width:100%;height:var(--ph);bottom:auto;object-position:55% 22%}
+  .hero::after{width:100%;height:var(--ph);bottom:auto;background:radial-gradient(ellipse 75% 70% at 55% 45%,rgba(20,16,28,0) 40%,rgba(20,16,28,.2) 75%,rgba(20,16,28,.4) 100%)}
+  .hero::before{background:
+    linear-gradient(180deg,rgba(255,255,255,.4) 0,rgba(255,255,255,0) 110px),
+    linear-gradient(180deg,rgba(226,224,220,0) calc(var(--ph) - 150px),var(--linen) calc(var(--ph) - 10px))}
+  .hero-inner{padding-top:calc(var(--ph) - 56px);padding-bottom:52px}
+  .hero-copy{gap:18px}
+  .hero p{font-size:17px}
   .timeline li{grid-template-columns:80px minmax(0,1fr);gap:16px;padding:20px 0}
   .timeline span{font-size:21px}
   .changes .wrap,.quote .wrap,.night,.preorder .wrap,.newsletter .wrap{padding-top:72px;padding-bottom:72px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
-    <link rel="icon" type="image/x-icon" href="assets/branding/favicon-light.ico" media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32-light.png" media="(prefers-color-scheme: light)">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/branding/apple-touch-icon-light.png" media="(prefers-color-scheme: light)">
-    <link rel="icon" type="image/x-icon" href="assets/branding/favicon-dark.ico" media="(prefers-color-scheme: dark)">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/branding/favicon-32-dark.png" media="(prefers-color-scheme: dark)">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/branding/apple-touch-icon-dark.png" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/x-icon" href="Photos/Brand/Favicons/favicon-light.ico" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/png" sizes="32x32" href="Photos/Brand/Favicons/favicon-32-light.png" media="(prefers-color-scheme: light)">
+    <link rel="apple-touch-icon" sizes="180x180" href="Photos/Brand/Favicons/apple-touch-icon-light.png" media="(prefers-color-scheme: light)">
+    <link rel="icon" type="image/x-icon" href="Photos/Brand/Favicons/favicon-dark.ico" media="(prefers-color-scheme: dark)">
+    <link rel="icon" type="image/png" sizes="32x32" href="Photos/Brand/Favicons/favicon-32-dark.png" media="(prefers-color-scheme: dark)">
+    <link rel="apple-touch-icon" sizes="180x180" href="Photos/Brand/Favicons/apple-touch-icon-dark.png" media="(prefers-color-scheme: dark)">
     <link rel="stylesheet" href="assets/white-theme.css">
+    <!-- Social share card (Photos/Brand/Social/Logo_social_share_1200x630.png) -->
+    <meta property="og:image" content="https://dreamz.rest/Photos/Brand/Social/Logo_social_share_1200x630.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Dreamz logo: three soft black waves meeting in a deep violet centre">
+    <meta name="twitter:image" content="https://dreamz.rest/Photos/Brand/Social/Logo_social_share_1200x630.png">
+    <meta name="twitter:image:alt" content="Dreamz logo: three soft black waves meeting in a deep violet centre">
 </head>
 
-<body data-active-page="home">
+<body data-active-page="home" class="photo-hero">
 <a class="skip" href="#main">Skip to content</a>
 
 <div data-dreamz-nav></div>
@@ -349,9 +368,10 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 <main id="main">
 
   <!-- HERO -->
-  <section class="wrap hero" aria-labelledby="hero-heading">
+  <section class="hero" aria-labelledby="hero-heading">
+    <img class="hero-photo" src="Photos/Lifestyle/Sleep/mask_bed_hero.jpg" alt="Woman asleep in bed wearing the black Dreamz sleep mask" width="1200" height="1600" fetchpriority="high">
+    <div class="hero-inner">
     <div class="hero-copy" data-enter>
-      <div class="eyebrow">For perimenopause and menopause</div>
       <h1 id="hero-heading">Sleep that keeps up with your hormones.</h1>
       <p>Dreamz is a soft sleep mask that helps you drift off faster, and back off again when hormones wake you.</p>
       <div class="hero-actions">
@@ -360,12 +380,10 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
       </div>
       <div class="app-line">
         <span>Already have a mask?</span>
-        <a class="appstore" href="https://apps.apple.com/us/app/dreamzble-tdcs/id6764758039" target="_blank" rel="noopener noreferrer" aria-label="Download the Dreamz app on the App Store"><img src="assets/badges/app-store-badge.svg" alt="Download on the App Store" width="105" height="35"></a>
+        <a class="appstore" href="https://apps.apple.com/us/app/dreamzble-tdcs/id6764758039" target="_blank" rel="noopener noreferrer" aria-label="Download the Dreamz app on the App Store"><img src="Photos/Brand/Badges/app-store-badge.svg" alt="Download on the App Store" width="105" height="35"></a>
       </div>
     </div>
-    <figure>
-      <img class="hero-photo" data-enter src="Photos/Gallery/black_mask_hero.webp" alt="Woman wearing the black Dreamz sleep mask" width="1122" height="1402" fetchpriority="high">
-    </figure>
+    </div>
   </section>
 
   <!-- WHAT CHANGES -->
@@ -429,9 +447,9 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
       </div>
       <div class="shop">
         <div class="gallery">
-          <div class="gallery-main"><img id="mainImg" src="Photos/Gallery/black_mask.jpg" alt="Dreamz sleep mask" loading="lazy"></div>
+          <div class="gallery-main"><img id="mainImg" src="Photos/Product/Studio/black_mask.jpg" alt="Dreamz sleep mask" loading="lazy"></div>
           <div class="thumbs" role="group" aria-label="Choose a product photo">
-            <button type="button" class="thumb" data-src="Photos/Gallery/black_mask.jpg" aria-label="Show photo 1" aria-pressed="true"><img src="Photos/Gallery/black_mask.jpg" alt="" loading="lazy"></button><button type="button" class="thumb" data-src="Photos/Gallery/12.jpg" aria-label="Show photo 2" aria-pressed="false"><img src="Photos/Gallery/12.jpg" alt="" loading="lazy"></button><button type="button" class="thumb" data-src="Photos/Gallery/14.jpg" aria-label="Show photo 3" aria-pressed="false"><img src="Photos/Gallery/14.jpg" alt="" loading="lazy"></button>
+            <button type="button" class="thumb" data-src="Photos/Product/Studio/black_mask.jpg" aria-label="Show photo 1" aria-pressed="true"><img src="Photos/Product/Studio/black_mask.jpg" alt="" loading="lazy"></button><button type="button" class="thumb" data-src="Photos/Lifestyle/Everyday/12.jpg" aria-label="Show photo 2" aria-pressed="false"><img src="Photos/Lifestyle/Everyday/12.jpg" alt="" loading="lazy"></button><button type="button" class="thumb" data-src="Photos/Lifestyle/Sleep/14.jpg" aria-label="Show photo 3" aria-pressed="false"><img src="Photos/Lifestyle/Sleep/14.jpg" alt="" loading="lazy"></button>
           </div>
         </div>
         <div class="buybox">
@@ -443,7 +461,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
           <div class="block">
             <span style="font-size:17px;font-weight:600">Color. <span style="font-weight:400;color:#4a4a52" id="colorName">Black</span></span>
             <div class="swatches" role="group" aria-label="Choose a color">
-              <button type="button" class="swatch" data-name="Black" data-photo="Photos/Gallery/black_mask.jpg" data-sold="0" aria-label="Black" aria-pressed="true"><span style="background:#0b0b0d"></span></button><button type="button" class="swatch" data-name="Pitch Midnight" data-photo="Photos/Gallery/pitch_midnight_mask.jpg" data-sold="1" aria-label="Pitch Midnight, sold out" aria-pressed="false"><span style="background:#2e1a33;opacity:.4"></span></button><button type="button" class="swatch" data-name="Burgundy" data-photo="Photos/Gallery/burgundy_mask.jpg" data-sold="1" aria-label="Burgundy, sold out" aria-pressed="false"><span style="background:#6d0f2c;opacity:.4"></span></button><button type="button" class="swatch" data-name="Peach" data-photo="Photos/Gallery/peach_mask.jpg" data-sold="1" aria-label="Peach, sold out" aria-pressed="false"><span style="background:#f2a98a;opacity:.4"></span></button>
+              <button type="button" class="swatch" data-name="Black" data-photo="Photos/Product/Studio/black_mask.jpg" data-sold="0" aria-label="Black" aria-pressed="true"><span style="background:#0b0b0d"></span></button><button type="button" class="swatch" data-name="Pitch Midnight" data-photo="Photos/Product/Studio/pitch_midnight_mask.jpg" data-sold="1" aria-label="Pitch Midnight, sold out" aria-pressed="false"><span style="background:#2e1a33;opacity:.4"></span></button><button type="button" class="swatch" data-name="Burgundy" data-photo="Photos/Product/Studio/burgundy_mask.jpg" data-sold="1" aria-label="Burgundy, sold out" aria-pressed="false"><span style="background:#6d0f2c;opacity:.4"></span></button><button type="button" class="swatch" data-name="Peach" data-photo="Photos/Product/Studio/peach_mask.jpg" data-sold="1" aria-label="Peach, sold out" aria-pressed="false"><span style="background:#f2a98a;opacity:.4"></span></button>
             </div>
             <p id="soldNote" hidden style="margin:0;font-size:14px;color:#b42318">This color is sold out. Choose another color to pre-order.</p>
           </div>
@@ -504,6 +522,16 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 <script src="assets/site-chrome.js"></script>
 
 <script>
+// Header sits see-through on the hero photo; it turns into the white bar once you scroll past it.
+(() => {
+  const header = document.querySelector('.dz-header');
+  if (!header) return;
+  const update = () => header.classList.toggle('is-solid', window.scrollY > window.innerHeight * 0.85 - header.offsetHeight);
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+})();
+
 (() => {
   if (!('IntersectionObserver' in window)) return;
   const motion = window.matchMedia('(prefers-reduced-motion: reduce)');

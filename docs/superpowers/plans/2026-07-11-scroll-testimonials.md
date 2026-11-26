@@ -10,7 +10,7 @@
 
 ## Global Constraints
 
-- Use exactly `Photos/Gallery/8 (2).jpg`, `Photos/Gallery/8 (3).jpg`, and `Photos/Gallery/frame_001186.jpg`, in that order.
+- Use exactly `Photos/Lifestyle/Everyday/8 (2).jpg`, `Photos/Lifestyle/Sleep/8 (3).jpg`, and `Photos/Product/Studio/frame_001186.jpg`, in that order.
 - Show one important violet-highlighted phrase per quote.
 - Native scrolling must work down and up without wheel or touch event interception.
 - Respect `prefers-reduced-motion`.

@@ -60,7 +60,7 @@
             <a href="${url('term/account-deletion.html')}"${current('account-deletion')}>Delete Account</a>
           </nav>
           <div class="dz-apps">
-            <a class="dz-appstore" href="${APP_STORE_URL}" target="_blank" rel="noopener noreferrer" aria-label="Download the Dreamz app on the App Store"><img src="${url('assets/badges/app-store-badge.svg')}" alt="Download on the App Store" width="120" height="40"></a>
+            <a class="dz-appstore" href="${APP_STORE_URL}" target="_blank" rel="noopener noreferrer" aria-label="Download the Dreamz app on the App Store"><img src="${url('Photos/Brand/Badges/app-store-badge.svg')}" alt="Download on the App Store" width="120" height="40"></a>
             ${social}
           </div>
         </div>
@@ -101,21 +101,29 @@
 
     const XMIN = -Math.PI, XMAX = Math.PI, YMIN = -1.8, YMAX = 1.8, NS = 800;
     const DX = (XMAX - XMIN) / NS;
-    const WS = 0.4, BD = 0.71, BS = 8.0, ED = 0.17, ES = 2.6, wmax = 5.5, a = 3.14, b = 2.14;
+    // wmax/WS match the line weight of Photos/Brand/Logo/Logo_light.png (lines ≈ 2.3% of the mark's width).
+    const WS = 0.3, BD = 0.71, BS = 8.0, ED = 0.17, ES = 2.6, wmax = 7.6, a = 3.14, b = 2.14;
     const env = (x, spd) => Math.pow(Math.abs(Math.cos(x / 2)), spd);
     const lineWidth = x => wmax * env(x, WS);
-    const lineAlpha = x => { const m = Math.max(0.03, 1 - BD); return m + (1 - m) * env(x, BS); };
+    // Nearly solid end to end, like Photos/Brand/Logo/Logo_light.png.
+    const lineAlpha = x => { const m = 0.92; return m + (1 - m) * env(x, BS); };
     const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
     const easeOut = t => 1 - (1 - t) * (1 - t);
     const tcx = x => (x - XMIN) / (XMAX - XMIN) * S_W;
     const tcy = y => (YMAX - y) / (YMAX - YMIN) * S_H;
     const fns = [x => Math.PI * Math.sin(x) / b, x => -Math.PI * Math.sin(x) / b, x => Math.PI * Math.sin(x) / (a * b)];
 
-    const strokeColor = x => {
-      const lightness = 5 + (100 - 5) * ED * env(x, ES);
-      return `hsla(245, 25%, ${lightness.toFixed(1)}%, ${lineAlpha(x).toFixed(3)})`;
+    // Colours match Photos/Brand/Logo/Logo_light.png: soft black, with deep violet spreading from the
+    // centre along the middle wave (fns[2]) and only a short way into the two outer curves.
+    const SOFT = [28, 26, 34], VIOLET = [52, 22, 130];
+    const MID_SPREAD = 2.24, OUTER_SPREAD = 0.56, NODE = 0.29;   // in x units (the mark spans -π..π)
+    const gauss = (x, r) => Math.exp(-(x * x) / (r * r));
+    const strokeColor = (x, line) => {
+      const t = Math.max(gauss(x, line === 2 ? MID_SPREAD : OUTER_SPREAD), gauss(x, NODE));
+      const c = SOFT.map((s, k) => Math.round(s + (VIOLET[k] - s) * t));
+      return `rgba(${c[0]}, ${c[1]}, ${c[2]}, ${lineAlpha(x).toFixed(3)})`;
     };
-    const drawLine = (fn, xEnd) => {
+    const drawLine = (fn, xEnd, line) => {
       for (let i = 0; i < NS; i++) {
         const x0 = XMIN + i * DX, x1 = x0 + DX, xm = (x0 + x1) / 2;
         if (xm > xEnd) break;
@@ -124,11 +132,11 @@
         ctx.lineTo(tcx(x1), tcy(clamp(fn(x1), YMIN, YMAX)));
         ctx.lineWidth = lineWidth(xm);
         ctx.lineCap = 'round';
-        ctx.strokeStyle = strokeColor(xm);
+        ctx.strokeStyle = strokeColor(xm, line);
         ctx.stroke();
       }
     };
-    const drawSolid = () => { ctx.clearRect(0, 0, S_W, S_H); fns.forEach(fn => drawLine(fn, XMAX)); };
+    const drawSolid = () => { ctx.clearRect(0, 0, S_W, S_H); fns.forEach((fn, i) => drawLine(fn, XMAX, i)); };
 
     const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const ANIM = 2600, PAUSE = 4000, CYCLE = ANIM + PAUSE;
@@ -140,7 +148,7 @@
         ctx.clearRect(0, 0, S_W, S_H);
         [0, 0.22, 0.44].forEach((off, i) => {
           const lt = easeOut(clamp((t / ANIM - off) / 0.56, 0, 1));
-          drawLine(fns[i], XMIN + lt * (XMAX - XMIN));
+          drawLine(fns[i], XMIN + lt * (XMAX - XMIN), i);
         });
         drawnSolid = false;
       } else if (!drawnSolid) {

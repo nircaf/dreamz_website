@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sans Font Options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Geist:wght@300;400;500;600&family=Manrope:wght@300;400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;700&family=DM+Sans:wght@300;400;500;700&family=Figtree:wght@300;400;500;700&family=Outfit:wght@300;400;500;600&family=Sora:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600&family=Lexend:wght@300;400;500;600&display=swap">
+<style>
+  :root { --ink:#04050d; --deep:#0d1330; --fog:#1a2040; --lavender:#8b9de8; --glow:#b8c4f8; --violet:#818CF8; --soft:#e8ebff; --white:#f4f6ff; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--ink); color: var(--white); font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1240px; margin: 0 auto; padding: 56px 16px 96px; }
+  header { display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; }
+  header p { margin: 0; color: var(--violet); font-size: 14px; letter-spacing: .14em; text-transform: uppercase; }
+  header h1 { margin: 0; font-size: clamp(32px, 5vw, 52px); font-weight: 600; letter-spacing: -0.03em; }
+  header span { color: rgba(232,235,255,.65); font-size: 16px; line-height: 1.5; max-width: 44em; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 540px), 1fr)); gap: 18px; }
+  .card { border: 1px solid rgba(184,196,248,.14); border-radius: 22px; overflow: hidden; background: linear-gradient(180deg, var(--deep), var(--ink)); display: flex; flex-direction: column; }
+  .meta { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 16px 22px; border-bottom: 1px solid rgba(184,196,248,.12); flex-wrap: wrap; font-family: 'Inter', sans-serif; }
+  .meta b { font-weight: 600; font-size: 15px; }
+  .meta b span { color: var(--violet); margin-right: 10px; font-variant-numeric: tabular-nums; }
+  .meta i { font-style: normal; font-size: 13px; color: rgba(232,235,255,.55); }
+  .stage { padding: 40px 30px 34px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 14px; flex: 1; }
+  .eyebrow { color: var(--lavender); font-size: 12px; letter-spacing: .2em; text-transform: uppercase; font-weight: 500; }
+  .h { margin: 0; font-size: clamp(34px, 4.2vw, 50px); line-height: 1.06; letter-spacing: -0.03em; max-width: 11em; text-wrap: balance; }
+  .h em { font-style: normal; color: var(--glow); }
+  .sub { margin: 0; color: rgba(232,235,255,.72); font-size: 17px; line-height: 1.5; max-width: 26em; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; padding-top: 6px; }
+  .btn { background: var(--violet); color: var(--ink); border-radius: 999px; padding: 12px 22px; font-size: 15px; font-weight: 600; }
+  .lnk { border: 1px solid rgba(184,196,248,.35); border-radius: 999px; padding: 12px 22px; font-size: 15px; color: var(--soft); }
+  .stats { display: flex; gap: 32px; justify-content: center; margin-top: 10px; padding-top: 20px; border-top: 1px solid rgba(184,196,248,.12); width: 100%; flex-wrap: wrap; }
+  .stat { display: flex; flex-direction: column; gap: 4px; }
+  .stat strong { font-size: 34px; font-weight: 500; letter-spacing: -0.03em; line-height: 1; color: var(--glow); }
+  .stat small { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: rgba(232,235,255,.55); }
+  .body { margin: 6px 0 0; font-size: 15px; line-height: 1.65; color: rgba(232,235,255,.7); max-width: 34em; text-align: left; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p>dreamz.rest · font test</p>
+    <h1>10 sans-serif options</h1>
+    <span>Each card uses one font for everything: headline, text, buttons, small labels and numbers, on the colours of today's site. All are free Google Fonts.</span>
+  </header>
+  <div class="grid" id="grid"></div>
+</div>
+<script>
+const fonts = [
+  ['Manrope', 500, 'Soft and rounded. The font on the new homepage design.'],
+  ['Inter', 500, 'The most neutral and readable. Closest free match to Apple’s font.'],
+  ['Geist', 500, 'Crisp and modern, with a slightly technical edge.'],
+  ['Plus Jakarta Sans', 500, 'Warm and friendly. Popular with wellness brands.'],
+  ['DM Sans', 500, 'Clean and light. Today’s site already uses it for body text.'],
+  ['Figtree', 500, 'Rounded and approachable, very easy to read.'],
+  ['Outfit', 400, 'Geometric and calm, with round letters.'],
+  ['Sora', 400, 'Wide and techy. Suits the neurotech story.'],
+  ['Space Grotesk', 400, 'Distinctive and science-y. Echoes today’s Space Mono labels.'],
+  ['Lexend', 400, 'Open letters, designed for easy reading.']
+];
+const grid = document.getElementById('grid');
+fonts.forEach(([name, w, mood], i) => {
+  const f = `font-family:'${name}', system-ui, sans-serif;`;
+  const card = document.createElement('article');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="meta"><b><span>${String(i + 1).padStart(2, '0')}</span>${name}</b><i>${mood}</i></div>
+    <div class="stage" style="${f}">
+      <div class="eyebrow">Dreamz Adaptive Sleep Mask</div>
+      <h2 class="h" style="font-weight:${w}">Fall asleep and <em>re-start sleep faster</em></h2>
+      <p class="sub">The first smart sleep mask with personalized neuromodulation</p>
+      <div class="row"><span class="btn">Pre-order Now</span><span class="lnk">Learn How It Works →</span></div>
+      <div class="stats">
+        <div class="stat"><strong>38%</strong><small>Reduction in sleep onset</small></div>
+        <div class="stat"><strong>62%</strong><small>Improvement in sleep quality</small></div>
+        <div class="stat"><strong>$199.90</strong><small>Pre-order price</small></div>
+      </div>
+      <p class="body">This is how longer text on the FAQ, research and blog pages would read in this font, line after line, at the size people actually read it.</p>
+    </div>`;
+  grid.appendChild(card);
+});
+</script>
+</body>
+</html>
