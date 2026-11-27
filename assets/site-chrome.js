@@ -50,7 +50,6 @@
             <a href="${url('index.html')}"${current('home')}>Home</a>
             <a href="${url('how-it-works.html')}"${current('how')}>How it works</a>
             <a href="${url('dreamz-use-cases.html')}"${current('use-cases')}>Other Use Cases</a>
-            <a href="${url('perimenopause-sleep-mask.html')}"${current('perimenopause')}>Perimenopause &amp; Menopause Sleep</a>
             <a href="${url('dreamz-research.html')}"${current('research')}>Research</a>
             <a href="${url('dreamz-faq.html')}"${current('faq')}>FAQ</a>
             <a href="${url('about.html')}"${current('about')}>About</a>
